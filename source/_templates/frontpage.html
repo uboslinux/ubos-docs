@@ -1,31 +1,42 @@
 {% extends "layout.html" %}
 {% set title = _('Welcome') %}
 {% block body %}
-  <h1 style="text-align: center; margin: 1em 0 0.2em 0; text-weight: bold">Welcome to UBOS</h1>
-  <h2 style="text-align: center; margin: 0 0 0.6em 0; border: 0">The Linux distro for personal servers</h2>
+  <h1 style="text-align: center; margin: 0.5em 0 0.2em 0; text-weight: bold">Welcome to UBOS</h1>
+  <h2 style="text-align: center; margin: 0 0 0.6em 0; border: 0">The Linux distro for personal servers<br>
+  and intelligent devices</h2>
 
   <div style="margin: 0 auto; width: 700px">
-   <p style="margin-bottom: 20px">This is work in progress; please excuse our mess.<br/>
-      For now, you have a choice of:</p>
-   <table style="width: 100%; border-collapse: separate; border-spacing: 5px">
+   <p style="margin-bottom: 20px">This is work in progress. For now, you have a choice of:</p>
+   <table style="width: 100%; border-collapse: separate; border-spacing: 5px; border: 0">
     <tr>
      <td style="width: 50%; padding: 20px; text-align: center; border: 1px solid #808080">
-      <h3><a href="{{ pathto("users/index") }}">How to use UBOS</a></h3>
-      <p>If you have your own personal server and would like to easily run web and
-         internet-of-things apps on hardware you own,<br>
-         start here.</p>
+      <a href="{{ pathto("users/index") }}" style="text-decoration:none; box-shadow: none">
+       <h3>How to use UBOS</h3>
+       <p>If you would like to easily run web<br>
+          and internet-of-things apps<br>
+          on hardware you own<br>
+          (such as a spare x86 computer),<br>
+          start here.</p>
+      </a>
      </td>
      <td style="padding: 20px; text-align: center;  border: 1px solid #808080">
-      <h3><a href="{{ pathto("developers/index") }}">How to develop for UBOS</a></h3>
-      <p>If you are a developer and would like to make it easy for people
-         to run your open-source web or internet-of-things apps on their own hardware,
-         start here.</p>
+      <a href="{{ pathto("developers/index") }}" style="text-decoration:none; box-shadow: none">
+       <h3>How to develop for UBOS</h3>
+       <p>If you are a developer<br>
+          and would like to distribute your web<br>
+          or internet-of-things apps to people<br>
+          who want to run it on their own hardware,<br>
+          start here.</p>
+      </a>
      </td>
     </tr>
    </table>
 
    <p style="margin-top: 40px">Found errors, omissions, improvements? Submit pull requests
-     <a href="https://github.com/indiebox/docs">in Github</a> or post to the
-     <a href="https://groups.google.com/forum/#!forum/indie-box-dev">mailing list</a>.</p>
+     <a href="https://github.com/indiebox/docs">in Github</a>.
+{# or post to the
+     <a href="https://groups.google.com/forum/#!forum/indie-box-dev">mailing list</a>.
+#}
+</p>
   </div>
 {% endblock %}

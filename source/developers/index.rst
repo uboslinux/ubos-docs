@@ -1,11 +1,17 @@
 UBOS Developer Documentation
 ============================
 
-.. toctree::
-   :maxdepth: 3
+Work in progress ... more to come.
 
-   Introduction <introduction>
-   UBOS Overview <overview>
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   introduction
+   develop-in-virtualbox
+   toyapps/index
    buildrelease
-   Creating and distributing an app for UBOS <buildapp>
-   Getting help <help>
+   ubos-backup
+   packages/index
+   rebuilding
+   faq

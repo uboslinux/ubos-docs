@@ -15,8 +15,8 @@ staged in the UBOS ``dev`` channel.
 Other packages that are part of UBOS but not (currently) part of Arch Linux, are also
 staged in the ``dev`` channel. This includes:
 
- * administrative packages, such as :doc:`/packages/ubos-admin`
- * application packages, such as :doc:`/toyapps/gladiwashere`
+ * administrative packages, such as :doc:`/developers/packages/ubos-admin`;
+ * application packages, such as :doc:`/developers/toyapps/gladiwashere`.
 
 The UBOS team then tests the packages in the ``dev`` channel. This is the only intended
 use of the ``dev`` channel; application developers and users should never directly
@@ -29,8 +29,8 @@ The ``red`` channel is only used by developers, not end users, and can be compar
 to traditional "alpha"-quality software. Application developers use the ``red``
 channel to make sure their applications continue to work with upcoming UBOS upgrades.
 
-When the ``red`` channel is sufficiently stable and apps on the ``red`` channel
-pass their automated tests, the packages on the ``red`` channel are promoted to the
+When the packages on the ``red`` channel is sufficiently stable and apps on the ``red``
+channel pass their automated tests, the packages on the ``red`` channel are promoted to the
 ``yellow`` channel.
 
 The ``yellow`` channel is similar to traditional "beta"-quality software, and is typically
@@ -64,10 +64,10 @@ reliable enough yet.
 
 For example, when the Apache web server became available in version 2.4,
 several keywords and configuration settings changed from 2.2. Most
-notably, the ``Allow from`` syntax became unavailable. This meant that
-all web apps would break that used this syntax somewhere in their
-Apache configuration. Until applications have had time to use the new
-syntax, Apache would have been held back.
+notably, the ``Allow from`` syntax became unavailable; if any apps used
+that syntax, Apache would refuse to start. While this move from Apache 2.2
+to 2.4 predates the UBOS release process, it is a great example for under
+which circumstances packages may be held back.
 
 Similarly, major new versions of applications are generally held at
 ``red`` or ``yellow`` for some time until they are promoted to ``green``.
