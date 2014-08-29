@@ -23,13 +23,6 @@
         <div class="headertitle"><a
           href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></div>
         {%- endblock %}
-        <div class="rel">
-          {%- for rellink in rellinks|reverse %}
-          <a href="{{ pathto(rellink[0]) }}" title="{{ rellink[1]|striptags|e }}"
-             {{ accesskey(rellink[2]) }}>{{ rellink[3] }}</a>
-          {%- if not loop.last %}{{ reldelim2 }}{% endif %}
-          {%- endfor %}
-        </div>
        </div>
     </div>
 {% endblock %}
@@ -75,21 +68,12 @@
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          {%- for rellink in rellinks|reverse %}
-          <a href="{{ pathto(rellink[0]) }}" title="{{ rellink[1]|striptags|e }}"
-             {{ accesskey(rellink[2]) }}>{{ rellink[3] }}</a>
-          {%- if not loop.last %}{{ reldelim2 }}{% endif %}
-          {%- endfor %}
-        </div>
-
-        <div class="right">
-    {%- if show_copyright %}
-      {%- if hasdoc('copyright') %}
-        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
-      {%- else %}
-        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
-      {%- endif %}
-    {%- endif %}
+         <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="float: left; margin-right: 20px">
+          <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+         <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UBOS documentation</span>
+         by <a xmlns:cc="http://creativecommons.org/ns#" href="http://indiecomputing.com/" property="cc:attributionName" rel="cc:attributionURL">Indie Computing Corp.</a>
+         is licensed under<br>
+         a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
         </div>
         <div class="clearer"></div>
       </div>

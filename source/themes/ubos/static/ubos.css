@@ -10,7 +10,7 @@ body {
     background: #e0e0e0;
 }
 div.header, div.content, div.footer {
-    width: 70em;
+    width: 980px;
     margin: 0 auto;
 }
 div.header-wrapper {
@@ -27,7 +27,6 @@ a {
 }
 div.bodywrapper a {
     text-decoration: none;
-    R=156 G=199 B=255
     border-bottom: 1px solid #9cc7ff;
     box-shadow: 0px -3px 0px #9cc7ff inset;
 }
@@ -155,15 +154,14 @@ dt:target, .highlighted {
 }
 
 div.header {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 
 div.header .headertitle {
     font-weight: 700;
     font-size: 200%;
     letter-spacing: .08em;
-    margin-bottom: .6em;
+    padding: 0 32px;
 }
 
 div.header .headertitle a {
@@ -172,6 +170,7 @@ div.header .headertitle a {
 
 div.header div.rel {
     margin-top: .6em;
+    padding: 0 32px;
 }
 
 div.header div.rel a {
@@ -187,14 +186,13 @@ p.logo {
 
 div.document {
     float: left;
-    width: 48em;
+    width: 710px;
     padding: 2em;
     background: #ffffff;
     min-height: 600px;
 }
 
 div.body {
-    padding-right: 2em;
     text-align: left;
 }
 
@@ -303,7 +301,7 @@ div.document table.indextable th {
 /* Sidebar */
 
 div.sidebar {
-    width: 16em;
+    width: 174px;
     float: right;
     padding: 2em 1em;
     background: #f0f0f0;
@@ -368,23 +366,19 @@ div.sidebar li.toctree-l1.current li.toctree-l2 a {
 }
 
 div.sidebar input[type="text"] {
-    width: 170px;
-}
-
-div.sidebar input[type="submit"] {
-    width: 30px;
+    width: 140px;
 }
 
 /* Footer */
 
 div.footer-wrapper {
+    border-top: 3px solid #606060;
     background: #7b7b7b;
     background: -webkit-linear-gradient(top, #8b8b8b 0%, #5e5e5e 25%, #7b7b7b 100%);
     background: -moz-linear-gradient(top, #8b8b8b 0%, #5e5e5e 25%, #7b7b7b 100%);
     background: -ms-linear-gradient(top, #8b8b8b 0%, #5e5e5e 25%, #7b7b7b 100%);
     background: -o-linear-gradient(top, #8b8b8b 0%, #5e5e5e 25%, #7b7b7b 100%);
-    border-bottom: 3px solid #606060;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 div.footer, div.footer a {
@@ -392,16 +386,17 @@ div.footer, div.footer a {
 }
 
 div.footer .left {
-    text-transform: uppercase;
     width: 50%;
+    padding-left: 32px;
     float: left;
     text-align: left;
-}
-div.footer .right {
-    width: 50%;
-    float: right;
-    text-align: right;
+    font-size: 10px;
 }
 dl.glossary dt {
     font-weight: bold;
 }
+
+div.frontpage {
+    margin: 0 auto;
+}
+
