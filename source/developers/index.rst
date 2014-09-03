@@ -12,6 +12,7 @@ Work in progress ... more to come.
    toyapps/index
    buildrelease
    ubos-backup
+   logging
    packages/index
    rebuilding
    faq
