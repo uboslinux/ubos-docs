@@ -8,8 +8,8 @@ UBOS makes this really simple::
 will perform all necessary steps. This includes:
 
 #. Checking whether software upgrades are available.
-#. Displaying an "upgrade in progress" message when accessed over the web during the
-   upgrade.
+#. Displaying an "upgrade in progress" message to users who attempt to access your
+   device over the web during the upgrade.
 #. Temporarily backing up the data of all installed apps.
 #. Uninstalling all installed apps.
 #. Downloading and installing upgraded packages.

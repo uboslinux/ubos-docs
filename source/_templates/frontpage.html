@@ -1,15 +1,22 @@
 {% extends "layout.html" %}
 {% set title = _('Welcome') %}
 {% block body %}
-  <h1 style="text-align: center; margin: 0.5em 0 0.2em 0; text-weight: bold">Welcome to UBOS&trade;</h1>
-  <h2 style="text-align: center; margin: 0 0 0.6em 0; border: 0">The Linux distro for personal servers<br>
+  <h1 style="text-align: center; margin: 2em 0 0.2em 0; text-weight: bold">Welcome to UBOS&trade;</h1>
+  <h2 style="text-align: center; padding: 0; margin: 0; border: 0">The Linux distro for personal servers<br>
   and intelligent devices</h2>
-
+  <p style="text-align: center; margin-bottom: 0.5em">&mdash; Status: alpha &mdash;</p>
   <div class="frontpage">
-   <p style="margin-bottom: 15px">This is work in progress. For now, you have a choice of:</p>
    <table style="width: 100%; border-collapse: separate; border-spacing: 5px; border: 0">
     <tr>
-     <td style="width: 50%; padding: 20px; text-align: center; border: 1px solid #808080">
+     <td colspan="2" style="width: 50%; padding-top: 20px; text-align: center; border: 1px solid #808080">
+      <a href="{{ pathto("about") }}" style="text-decoration:none; box-shadow: none">
+       <h3>About UBOS</h3>
+       <p>Start here.</p>
+      </a>
+     </td>
+    </tr>
+    <tr>
+     <td style="width: 50%; padding-top: 20px; text-align: center; border: 1px solid #808080">
       <a href="{{ pathto("users/index") }}" style="text-decoration:none; box-shadow: none">
        <h3>How to use UBOS</h3>
        <p>If you would like to easily run web<br>
@@ -19,7 +26,7 @@
           start here.</p>
       </a>
      </td>
-     <td style="padding: 20px; text-align: center;  border: 1px solid #808080">
+     <td style="padding-top: 20px; text-align: center;  border: 1px solid #808080">
       <a href="{{ pathto("developers/index") }}" style="text-decoration:none; box-shadow: none">
        <h3>How to develop for UBOS</h3>
        <p>If you are a developer<br>

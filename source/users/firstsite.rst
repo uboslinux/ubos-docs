@@ -8,21 +8,21 @@ Setting up your first web app
    UBOS device. You may be able to do this by editing your client machine's ``/etc/host``,
    or by configuring your home router or public DNS server.
 
-   We'll do better, but not yet; bear with us.
+   We'll do better in the future, but not yet; please bear with us.
 
 Follow these steps:
 
 #. Decide which web app to install. In this example, we'll use Wordpress.
 
 #. Decide at which URL the web app will be installed. In this example, we'll
-   use host ``family``.
+   use host ``family`` and run Wordpress at relative path ``/blog``.
 
 #. Execute the following command::
 
       > sudo ubos-admin createsite
 
-   This command will ask a number of questions, and once you have answered them, it will
-   set up your new app. Here is an example transcript::
+   This command will ask a number of questions. Once you have answered them, it will
+   appear to think for a while and then set up your new app. Here is an example transcript::
 
       > sudo ubos-admin createsite
       App to run: wordpress
@@ -38,3 +38,6 @@ Follow these steps:
 #. Access your new app. You can reach it directly by visiting ``http://family/blog/``, or
    you can see the list of apps installed at host ``http://family/``, and select Wordpress
    from there.
+
+If you are curious what UBOS just did under the hood, please refer to
+:doc:`/developers/understanding/createsite`.

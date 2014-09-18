@@ -24,7 +24,7 @@ To create a UBOS development machine in VirtualBox, follow these steps:
      develop on the UBOS red channel. Select Type: "Linux", and Version:
      "Arch Linux (64 bit)". Click "Continue".
 
-   * Select the amount of RAM you want to give it. 1024MB is a good start, and you can change
+   * Select the amount of RAM you want to give it. 2048MB is a good start, and you can change
      that later. Click "Continue".
 
    * Select "Create a virtual hard drive now", and click "Create".
@@ -167,6 +167,9 @@ To create a UBOS development machine in VirtualBox, follow these steps:
          [virt]
          Server = http://depot.ubos.net/red/$arch/virt
 
+      Note the ``red`` in these URLs, which reflects the :term:`Release channel` on
+      which you will be developing. ``red`` is recommended for development.
+
    #. Add the UBOS buildmaster as a trusted source of packages::
 
          pacman-key -r F55B8552153EC14D
@@ -176,7 +179,6 @@ To create a UBOS development machine in VirtualBox, follow these steps:
 
       * ``base-devel``: Basic tools to create UBOS/Arch Linux packages
       * ``ubos-admin``: UBOS administration commands
-      * ``ubos-networking``: UBOS networking commands
       * ``virtualbox-guest``: Makes VirtualBox behave more nicely by allowing drag-and-drop
         and the like with your host operating system. Unfortunately that will pull in a
         significant number of X-Windows packages as well.
@@ -184,7 +186,7 @@ To create a UBOS development machine in VirtualBox, follow these steps:
       To install those::
 
          pacman -Syu
-         pacman -S base-devel ubos-admin ubos-networking virtualbox-guest
+         pacman -S base-devel ubos-admin virtualbox-guest
 
       If it asks you whether you'd like only a selection of some packages
       instead of all, we recommend you say "all" so you won't miss stuff later.

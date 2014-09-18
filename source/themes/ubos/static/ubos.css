@@ -176,6 +176,7 @@ div.header div.rel a {
 }
 p.logo {
     float: left;
+    margin-left: 32px;
     margin-right: 10px;
 }
 
@@ -184,7 +185,7 @@ p.logo {
 div.document {
     float: left;
     width: 710px;
-    padding: 2em;
+    padding: 0 2em 1em 2em;
     background: #ffffff;
     min-height: 600px;
 }
@@ -195,6 +196,7 @@ div.body {
 
 div.document h1 {
     line-height: 120%;
+    margin-top: 30px;
 }
 
 div.document ul,
@@ -301,7 +303,7 @@ div.sidebar {
     width: 174px;
     float: right;
     padding: 2em 1em;
-    box-shadow: 2px 2px 2px #b0b0b0;
+    box-shadow: 2px 2px 2px #c0c0c0;
 }
 div.sidebar > * {
     font-size: 12px;

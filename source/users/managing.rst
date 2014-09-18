@@ -31,6 +31,12 @@ edit the Site JSON::
 
    > sudo ubos-admin createsite --dry-run
 
+For an annotated example, see :doc:`firstsite`.
+
+If you are curious what UBOS does under the hood, please refer to
+:doc:`/developers/understanding/createsite`.
+
+
 Deploy a site
 -------------
 
@@ -43,7 +49,7 @@ You can manually create the Site JSON, or have UBOS create it for you, by execut
 
    > sudo ubos-admin createsite --dry-run
 
-and interactively answering the questions asked.
+and interactively answering the questions asked. For an annotated example, see :doc:`firstsite`.
 
 When deploying a site over the network, option ``--stdin`` may be preferable over
 option ``--file``. For example, if you maintain your Site JSON files on your desktop,
@@ -54,6 +60,9 @@ site, on your UBOS device (hostname ``indiebox``) over ssh::
 
 Note: ``ubos-admin createsite`` is just a wrapper around ``ubos-admin deploy``.
 
+If you are curious what UBOS does under the hood, please refer to
+:doc:`/developers/understanding/deploy`.
+
 Undeploy a site
 ---------------
 
@@ -63,4 +72,8 @@ To undeploy a site with siteid <siteid>, execute::
 
 .. warning:: This does not create a backup of your data. You need to do that yourself
    first if you would like to retain the data from the to-be-undeployed site.
+
    (See :doc:`backup`.)
+
+If you are curious what UBOS does under the hood, please refer to
+:doc:`/developers/understanding/undeploy`.

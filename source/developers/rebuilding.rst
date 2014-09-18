@@ -1,7 +1,7 @@
 Rebuilding UBOS for yourself
 ============================
 
-Here are the steps to rebuild UBOS from scratch:
+If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
 #. You need a build system running `Arch Linux <http://archlinux.com/>`_.
 
@@ -84,23 +84,27 @@ Here are the steps to rebuild UBOS from scratch:
    bunch of compiler warnings; hopefully somebody will fix this upstream some day. But
    it seems to work for us.
 
-   Then install the package::
+   Then install the package. We use a * here as the version of this package might have
+   changed since we wrote this page::
 
-      ubos> sudo pacman -U --noconfirm multipath-tools-*.pkg*
+      ubos> sudo pacman -U --noconfirm multipath-tools-*.pkg.tar.xz
 
    Now, the UBOS tools. For that, we need git::
 
       ubos> sudo pacman -S git
       ubos> mkdir -p ~/git/github.com/indiebox
       ubos> cd ~/git/github.com/indiebox
-      ubos> for p in ubos-admin macrobuild macrobuild-ubos; do
+      ubos> for p in ubos-admin macrobuild macrobuild-ubos perl; do
       > git clone https://github.com/indiebox/$p
       > done
+      ubos> for p in perl-log-journald; do
+      > ( cd perl/$p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
+      > done
       ubos> for p in ubos-perl-utils ubos-admin; do
-      > ( cd ubos-admin/$p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg* )
+      > ( cd ubos-admin/$p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
       > done
       ubos> for p in macrobuild macrobuild-ubos; do
-      > ( cd $p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg* )
+      > ( cd $p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
       > done
 
 #. Now we can build. For that, we need the URL to an Arch Linux mirror from where we
@@ -108,8 +112,8 @@ Here are the steps to rebuild UBOS from scratch:
    `here <https://wiki.archlinux.org/index.php/Mirror>`_.
 
    The following command needs to be a single line (or a backslash needs to be at the end
-   of the line as shown). It will put the entire UBOS distribution together.
-   Replace ``$ARCHMIRROR`` with the URL to the Arch Linux mirror that you picked::
+   of the line as shown). It will put the entire UBOS distribution together in the ``dev``
+   channel. Replace ``$ARCHMIRROR`` with the URL to the Arch Linux mirror that you picked::
 
       ubos> macrobuild UBOS::Macrobuild::BuildTasks::BuildDev \
           --configdir ~/git/github.com/indiebox/macrobuild-ubos/config \

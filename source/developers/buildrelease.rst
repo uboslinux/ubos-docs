@@ -15,8 +15,8 @@ staged in the UBOS ``dev`` channel.
 Other packages that are part of UBOS but not (currently) part of Arch Linux, are also
 staged in the ``dev`` channel. This includes:
 
- * administrative packages, such as :doc:`/developers/packages/ubos-admin`;
- * application packages, such as :doc:`/developers/toyapps/gladiwashere`.
+ * administrative packages, such as ``ubos-admin``;
+ * application packages, such as ``gladiwashere``.
 
 The UBOS team then tests the packages in the ``dev`` channel. This is the only intended
 use of the ``dev`` channel; application developers and users should never directly
@@ -47,27 +47,31 @@ This table shows the approximate update schedule:
    ======================= =======================
    dev channel             several times a day
    dev to red channel      once a week
-   red to yellow channel   once a week
-   yellow to green channel once a month
+   red to yellow channel   to be determined
+   yellow to green channel to be determined
    ======================= =======================
 
 Updates may be performed more frequently, for example for emergency bug fixes or
-security patches.
+security patches. Images may be generated less frequently, as repeated downloads are
+time-consuming and expensive, and installations can be easily brought to the current
+version with::
+
+   > ubos-admin update
 
 When may packages be held back?
 -------------------------------
 
 Packages may generally be held back from promotion to the next channel
 if it is known, or suspected, that either the package is insufficiently
-stable for the next channel, or that the upgrade process may not be
-reliable enough yet.
+stable for the next channel, that the upgrade process may not be reliable
+enough yet, or that other packages will break as a consequence of the upgrade.
 
 For example, when the Apache web server became available in version 2.4,
 several keywords and configuration settings changed from 2.2. Most
 notably, the ``Allow from`` syntax became unavailable; if any apps used
 that syntax, Apache would refuse to start. While this move from Apache 2.2
-to 2.4 predates the UBOS release process, it is a great example for under
-which circumstances packages may be held back.
+to 2.4 predates the UBOS release process and thus UBOS was not affected, it is a
+great example for under which circumstances packages may be held back.
 
 Similarly, major new versions of applications are generally held at
 ``red`` or ``yellow`` for some time until they are promoted to ``green``.

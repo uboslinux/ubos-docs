@@ -4,10 +4,9 @@ Backup format
 Idea
 ----
 
-The idea of the UBOS Backup File Format is to have single files that can contain all
-data necessary to reconstruct a site, including all applications installed at the site
-and their data. This supports use cases such as backup, restore, archival,
-checkpointing and many others.
+The UBOS Backup File Format defines how to store all data and meta-data necessary to
+reconstruct the installation of one or more apps at one or more sites, in a single file.
+This supports use cases such as backup, restore, archival, checkpointing and many others.
 
 This file format can be defined once, and used by all apps.
 
@@ -65,7 +64,7 @@ Meta-data
 In-ZIP hierarchical structure
 -----------------------------
 
-All other content of the ZIP file is structured by AppConfiguration, Installable, role
+All other content of the ZIP file is structured by AppConfiguration, installable, role
 and retention bucket. This structure is similar to the structure of :term:`Site JSON`
 files and :term:`UBOS Manifest JSON` files. This allows a backup file to contain the data
 of several installations of the same application without conflicts (for example, two
@@ -95,7 +94,7 @@ Wordpress installations at different virtual hosts or relative path name).
 
 ``appconfigs/a2233/gladiwashere/apache2/uploads``
    The name of the retention bucket that was backed up. This is the same as specified in
-   the UBOS Manifest JSON]] file by the installable. ``gladiwashere`` doesn't actually
+   the UBOS :term:`UBOS Manifest JSON` file by the installable. ``gladiwashere`` doesn't actually
    define such a retention bucket, but if it did, the relevant part of
    the manifest JSON would look like this::
 
@@ -118,7 +117,7 @@ File and directory content
 
 Assume that a directory ``/srv/http/sites/s1122/blog/uploads`` of some web application
 needs to be backed up. Let's assume that this directory belongs to an application that
-is installed at context path <code>/blog</code> of some site
+is installed at context path ``/blog`` of some site
 (application package ``myapp``, siteid ``s1122``, appconfigid ``a3344``).
 
 Let's also assume this application has declared this directory as an AppConfiguration
@@ -138,7 +137,8 @@ Then, the recursive directory tree starting with root directory
 
 Note that the filename in the ZIP file comes from the ``retentionbucket`` field in the
 UBOS manifest, not from the name field or the name of the application. That way, the names
-of files and directories can be easily changed without impacting backups.
+of files and directories can be easily changed from one version of the installable to
+the next without impacting backups.
 
 MySQL database content
 ^^^^^^^^^^^^^^^^^^^^^^

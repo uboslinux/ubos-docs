@@ -4,15 +4,17 @@ Backup and Restore
 UBOS backup files
 -----------------
 
-To make backup and restore easy, UBOS has its own backup file format. UBOS
-backup files typically use the extension ``.ubos-backup``. A single UBOS
-backup file contains all backup data for at least one app installation or site, including
-files and/or database dumps.
+To make backup and restore easy, UBOS uses standard ZIP files, with certain additional
+conventions. To distinguish them from
+arbitrary other ZIP files, UBOS backup files typically use the extension ``.ubos-backup``.
 
-A UBOS backup file is simply a ZIP file, employing certain conventions about what
-data is stored where and with which names inside the ZIP file. In particular,
-UBOS backup files store both application data, and meta-data about how the apps were
-installed and configured whose data is contained in the file. This makes UBOS backup
+You can backup all the data of all the apps installed on your device to a single
+UBOS backup file. Or, you can use separate backup files for each site on your devices.
+You can also back up just a single app at a site to a backup file, and backup all
+other apps at the same site to a different backup file.
+
+UBOS keeps track inside the backup file what apps
+you backed up, and how they were configured. This makes UBOS backup
 files essentially self-documenting, and makes it possible that backups can be interpreted
 even at some considerable time in the future.
 
@@ -31,7 +33,8 @@ For example::
 
    > sudo ubos-admin backup --out ~/backup-$(date +%Y%m%d%H%M).ubos-backup
 
-will create a backup file with the current date in the user's home directory.
+will create a backup file containing all installed apps at all sites on the local host.
+The filename will contain the current date.
 
 To create a local backup of all the data of only the apps installed at a particular site
 with a given :term:`siteid` and save that data to file ``<backupfile>``, execute::
@@ -53,7 +56,8 @@ To restore all data from a backup file ``<backupfile>`` to the current device::
 
 .. warning::
 
-   This command will mercilessly overwrite current data. For example, if the backup
+   This command will mercilessly overwrite current data of currently installed apps
+   on the local device. For example, if the backup
    contains a site with a certain siteid, and there is a site with the same siteid
    active on the device, the current site will be replaced by the site defined in and
    with the data contained in the backup file. The previous data at the site will be
@@ -76,5 +80,9 @@ a site with a different siteid or appconfigid from the one in the backup file, u
 
 This command will look for a site whose siteid starts with ``s1`` in the backup file
 ``/tmp/backup.ubos-backup``, and restore all data to a site currently installed on the
-local device whose siteid starts with ``s2``. Note the arrow in the ``-translate``
+local device whose siteid starts with ``s2``. Note the arrow in the ``--translate``
 argument: make sure you escape the ``>`` character in your shell.
+
+This latter form of the restore command allows you to quickly restore data to a different
+site, or -- when used with ``ubos-admin backup`` -- to quickly make copies of a
+currently installed site.
