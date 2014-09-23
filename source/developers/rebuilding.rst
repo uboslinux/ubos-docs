@@ -122,11 +122,11 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 #. Now we can build. For that, we need the URL to an Arch Linux mirror from where we
    take already-built packages.
 
-   * When building for x86, mirrors are listed
-     `here <https://wiki.archlinux.org/index.php/Mirror>`_.
+   * When building for x86, select one of these
+     `x86 mirrors <https://wiki.archlinux.org/index.php/Mirror>`_.
 
-   * When building for ARM, mirrors are listed
-     `here <http://archlinuxarm.org/about/mirrors>`_.
+   * When building for ARM, select one of these
+     `ARM mirrors <http://archlinuxarm.org/about/mirrors>`_.
 
    Visit the URL you picked with a browser, and make sure that the directories you
    see include ``core``, ``community``, ``extra``, and so forth. Different mirrors put

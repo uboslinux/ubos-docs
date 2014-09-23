@@ -9,6 +9,7 @@ Work in progress ... more to come.
    develop-in-virtualbox
    toyapps
    understanding-ubos-admin
+   ubos-manifest
    buildrelease
    ubos-backup
    logging

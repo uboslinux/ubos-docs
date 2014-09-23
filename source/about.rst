@@ -91,13 +91,15 @@ UBOS Features:
    made available incrementally. This ensures that devices can continue to be updated
    and keep running for the long-term.
 
- * UBOS is all **free/libre and open software**, so there's no proprietary lock-in.
+ * UBOS itself is all **free/libre and open software**, so there's no proprietary lock-in
+   and you can keep us honest by reviewing our code.
    There is one exception: some hardware platforms, notably some versions of ARM,
    require "blobs" to function. (The Free Software Foundation provides a
    `great description <https://www.fsf.org/resources/hw/single-board-computers>`_ of the
    problem.) UBOS bundles those blobs (but only on those platforms) in order to be able to
-   support those platforms. Of course, you can install whatever software you like on
-   your personal server running UBOS.
+   support those platforms. Of course, you can install and run whatever software you
+   like on your devices, in addition to what is available through the official UBOS
+   repositories.
 
 Thank you, Arch Linux
 ---------------------

@@ -6,8 +6,33 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 .. glossary::
 
    App
+      On UBOS, an app is a software application that provides direct value to the user
+      without any further additions, integrations or customizations. Apps generally
+      have software dependencies only on packages provided as part of UBOS.
+
+      UBOS apps are typically web apps, i.e. apps whose primary user interface is
+      presented using a web browser. Some examples for UBOS apps are:
+
+      * ​Wordpress (blogging and publishing)
+      * A house monitoring application
+
+      Apps can generally be installed more than one on the same device, in
+      multiple :term:`app configurations <App configuration>`. Middleware components
+      (e.g. databases) are not considered apps because the user generally does not
+      directly interact with it.
 
    Accessory
+      An accessory on UBOS is a software module that adds to or modifies the
+      functionality of an :term:`app`. Accessories includes things such as plugins,
+      themes, skins, extensions, add-ons and the like. UBOS uses the term
+      "accessory" as a consistent, common term for all of those.
+
+      Examples for what Cloudstore would call accessories are:
+
+      * themes or skins that change the graphic layout of Wordpress;
+      * a module that requires users to fill out a captcha before they can register
+        for a wiki
+      * a module that adds a Facebook Like button to an app.
 
    App configuration
       The installation of an app at a particular Site (aka virtual host) with a certain
@@ -41,6 +66,14 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       A rolling-release GNU/Linux distribution developed at
       http://archlinux.org/ and ported to various ARM architectures at
       http://archlinuxarm.org/ .
+
+   Customization point
+      A variable whose value can be customized by the user. For example, an
+      app might allow the user to configure the title of the app upon installation.
+      In this case, it declares a customization point ``title`` in its manifest
+      JSON. The user can specify a value for the customization point in their
+      Site JSON. That way, each installation of the app can have a different
+      title, for example.
 
    Device
       Any physical or virtualized computer running UBOS. This could be
