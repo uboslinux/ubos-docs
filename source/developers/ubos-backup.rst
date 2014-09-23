@@ -32,8 +32,9 @@ ZIP file may be deflated (aka compressed) according to standard ZIP conventions.
 Meta-data
 ---------
 
-``ubos-filetype``
-   This file contains the fixed string ``backup`` to identify this file as a backup file.
+``filetype``
+   This file contains the fixed string ``UBOS backup v1`` to identify this ZIP file as
+   a UBOS backup file in version 1.
 
 ``starttime``
    This file contains the (starting) time at which this backup file was being created, in

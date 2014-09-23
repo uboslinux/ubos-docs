@@ -5,6 +5,21 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
 .. glossary::
 
+   App
+
+   Accessory
+
+   App configuration
+      The installation of an app at a particular Site (aka virtual host) with a certain
+      context path. For example, if a device runs two virtual hosts ``example.com``
+      and ``example.net``, and Wordpress is installed at ``example.com/blog``, at
+      ``example.com/notes`` and at the root of ``example.net/``, the host runs
+      three Wordpress App Configurations. If can also run several other App Configurations
+      for other apps. Each of the App Configuration usually has its own database,
+      data storage, list of accessories and customization parameters.
+
+      App Configurations are identified through :term:`appconfigids <appconfigid>`.
+
    appconfigid
       UBOS identifies each app installed at a particular site with a unique identifier,
       such as ``aa6b76deec72fc2e86c812372e5922b9533ca2d58``. UBOS commands that refer to a
@@ -32,6 +47,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       a Raspberry PI, an x86 server, an instance on Amazon EC2 or a virtual machine
       on your desktop with virtualization software such as VirtualBox.
 
+   Indie application
+      A web application that can be installed on hardware, or on a hosting provider
+      of the user's choosing. Contrast with a typical website were the user does not
+      have this choice.
+
    Indie IoT
       The part of the `Internet of Things <https://en.wikipedia.org/wiki/Internet_of_Things>`_
       that is independently owned and operated. For example, the
@@ -41,16 +61,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       product that kept data local and allowed the owner to modify it at will would
       be part of the IndieIoT.
 
-   Indie Web Application
-      A web application that can be installed on hardware, or on a hosting provider
-      of the user's choosing. Contrast with a typical website were the user does not
-      have this choice.
-
    Package
       A set of code components that logically belong together. For example,
       the ``wordpress`` package contains all code specific to Wordpress.
 
-   Personal Server
+   Personal server
       A computer that is primarily accessed over the network, and fully owned by the
       person who purchased it. For example, a Raspberry Pi running a web application that
       allows users to control the lights in their house from a web browser would be

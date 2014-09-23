@@ -3,9 +3,10 @@ Rebuilding UBOS for yourself
 
 If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
-#. You need a build system running `Arch Linux <http://archlinux.com/>`_.
+#. You need a build system running `Arch Linux <http://archlinux.com/>`_ on
+   the processor architecture that you like to use.
 
-   For example, you can spin up an Amazon EC2 instance running Arch Linux by
+   For example, you can spin up an Amazon EC2 instance running Arch Linux x86 by
    starting a suitable image from
    `Uplink Labs <https://www.uplinklabs.net/projects/arch-linux-on-ec2/>`_.
    Allocate at least 8GB of disk, preferably more. (For how to configure an
@@ -16,6 +17,10 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
    with virtualization software such as VirtualBox, VMWare, Xen and so forth.
    Installation instructions for Arch Linux can be found on the
    `Arch Linux wiki <https://wiki.archlinux.org/index.php/Installation_Guide>`_.
+
+   If you are building for ARM, it's easiest to install Arch Linux on your
+   ARM device with an image from the
+   `Arch Linux ARM project <http://archlinuxarm.org/>`_.
 
    Whichever method you used to get an Arch system set up, when you have it
    working, log in as root.
@@ -72,13 +77,13 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
    We need to install some tools from official Arch repositories and the
    `Arch User Repository (AUR) <https://aur.archlinux.org/>`_::
 
-      ubos> sudo pacman -S --noconfirm libaio php
+      ubos> sudo pacman -S --noconfirm base-devel libaio php
       ubos> mkdir -p ~/aur
       ubos> cd ~/aur
       ubos> curl -L -O https://aur.archlinux.org/packages/mu/multipath-tools/multipath-tools.tar.gz
       ubos> tar xfz multipath-tools.tar.gz
       ubos> cd multipath-tools
-      ubos> makepkg -c -f
+      ubos> makepkg -c -f -A
 
    This last command will take a bit as the package has to be compiled. It does print a
    bunch of compiler warnings; hopefully somebody will fix this upstream some day. But
@@ -107,13 +112,32 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
       > ( cd $p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
       > done
 
+   If you are on an x86 platform, you also need to:
+
+      ubos> pacman -S --noconfirm virtualbox grub
+
+   For a brief description of the ``macrobuild`` tool, go to
+   https://github.com/indiebox/macrobuild .
+
 #. Now we can build. For that, we need the URL to an Arch Linux mirror from where we
-   take already-built packages. Some choices are
-   `here <https://wiki.archlinux.org/index.php/Mirror>`_.
+   take already-built packages.
+
+   * When building for x86, mirrors are listed
+     `here <https://wiki.archlinux.org/index.php/Mirror>`_.
+
+   * When building for ARM, mirrors are listed
+     `here <http://archlinuxarm.org/about/mirrors>`_.
+
+   Visit the URL you picked with a browser, and make sure that the directories you
+   see include ``core``, ``community``, ``extra``, and so forth. Different mirrors put
+   their archives at different levels in the file system, and the UBOS build will be
+   unable to find the packages it needs if you don't point it to the right level
+   in the hierarchy.
 
    The following command needs to be a single line (or a backslash needs to be at the end
    of the line as shown). It will put the entire UBOS distribution together in the ``dev``
-   channel. Replace ``$ARCHMIRROR`` with the URL to the Arch Linux mirror that you picked::
+   channel. Replace ``$ARCHMIRROR`` with the URL to the Arch Linux mirror that you picked,
+   and $ARCH with ``x86_64``, ``armv6h`` or ``armv7h``::
 
       ubos> macrobuild UBOS::Macrobuild::BuildTasks::BuildDev \
           --configdir ~/git/github.com/indiebox/macrobuild-ubos/config \

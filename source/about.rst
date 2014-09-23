@@ -1,61 +1,50 @@
 About UBOS
 ==========
 
-Context
--------
-
-Consider the `Raspberry Pi <http://raspberrypi.org/>`_: for USD $35, you get a credit
-card-sized computer that just a few years ago would have qualified as a
-`"server" <https://en.wikipedia.org/wiki/Server_%28computing%29>`_.
-In fact, many makers use it as a server for personal file or web sites, or
-various :term:`Indie IoT` and home automation projects. While the Raspberry Pi
-currently is the most famous, there are many other tiny computers that are not much
-more expensive and even more powerful, such as the BeagleBone series, the CubieBoard,
-the Wandboard, and
-`many others <https://en.wikipedia.org/wiki/Comparison_of_single-board_computers>`_.
-
-There is just one problem. Regardless whether the hardware is massive and expensive (such
-as those used for high-traffic websites), or cheap and tiny like the Raspberry Pi:
-**servers are complex to set up, and take a lot of time to maintain**. They typically
-require expert-level server administration knowledge, which only hard-core geeks have. And
-even those geeks who have the ability to maintain their own servers often do not have the
-time to do so. But poorly maintained servers are a major security risk, and what's the fun
-in a cool project if it stops running or its software is quickly out of date because nobody finds
-the time for ongoing systems administration?
-
-It's even more difficult for embedded computers: they may be hidden in the back of
-a closet or even be built "into" some thing. Not only are they often difficult to reach
-when something goes wrong, they usually don't even have a keyboard or a monitor, so
-maintenance can be a real headache.
-
-This is also a big problem for vendors shipping hardware with one of those boards
-inside: software still needs to updated, and the device needs to be maintained;
-unpatched embedded systems are recognized as one of the major security risks for the
-industry going forward.
-
 UBOS Goals
 ----------
 
 UBOS was created:
 
  * to make systems administration of :term:`personal servers <Personal Server>` 10 times
-   faster, 10 times simpler, and 10 times less error-prone, so that everybody can
-   successfully own and use their own personal servers and does not need to become part
-   of some big internet company's take-over-the-world and spy-on-everybody strategy;
+   faster, 10 times simpler, and 10 times less error-prone.
 
- * to support the developers of :term:`indie web applications <Indie Web Application>`,
-   and of indie technology with a Linux distro specifically for them, so they have one thing less
-   to worry about and can focus on creating great new products that delight their users.
+ * to support the developers of :term:`indie applications <Indie Application>`,
+   and of indie technology with a Linux distro specifically for them, so their users can
+   be more successful more often running their great new apps in the long term.
+
+Even if you are a hard-core geek, UBOS can save you a lot of time and hassle because it
+automates a lot of time-consuming, error-prone manual configuration work that you have to do on
+other distros. If you are not, UBOS makes even complex setups easy. Don't know how to
+configure SSL? With UBOS, you don't need to!
 
 Actually, we strive to do better than "10 times faster and simpler and more reliable",
 but everybody has got to start somewhere :-)
+
+About Personal Servers
+----------------------
+
+A personal server is any computer that is owned by you and that you access with a web
+browser from your phone, your tablet, or PC, over the network. Personal servers can be big
+and expensive, or can be small and cheap like a Raspberry Pi.
+
+Depending on what :term:`indie applications <Indie application>` you install, it can be used
+for most things that "the cloud" can be used for, such as a file server, to share calendars
+or photos, or post status updates to your friends.
+
+But unlike "the cloud", your personal server is your's: you decide which data to store there
+and which not, which apps you run, or under which conditions you let others use it. Privacy
+is there by default: none of your data ever leaves, or is accessed by anybody unless you
+let them.
+
+Personal server are also great to connect Internet-of-Things devices.
 
 UBOS Features:
 --------------
 
  * With UBOS, **web applications can be installed, and fully configured with a single command**.
    This takes out the drudgery of software installation and configuration on servers and
-   allows many more people to run their own :term:`indie web applications <Indie Web Application>`.
+   allows many more people to run their own :term:`indie applications <Indie application>`.
 
    Wanting to run a, say, Python app should not require users having to know anything
    about Python; same about other languages, frameworks, databases and the like. You don't
@@ -89,7 +78,7 @@ UBOS Features:
  * Unlike most other distros, UBOS does not try to provide every conceivable package.
    Instead, we try to provide **as few packages as possible** by eliminating alternate packages
    that provide the same functionality. For example, we picked Apache over nginx (due to
-   larger software support). To support the goals of UBOS, this has great advantages: for
+   broader software support). To support the goals of UBOS, this has great advantages: for
    example, it makes testing much simpler, because UBOS has far less code, and far fewer
    configurations need to be tested. This in turn makes application developers' lives
    easier.
@@ -102,13 +91,13 @@ UBOS Features:
    made available incrementally. This ensures that devices can continue to be updated
    and keep running for the long-term.
 
- * UBOS only uses **free/libre and open software**, so there's no proprietary lock-in.
-   There is only one exception: some hardware platforms, notably some versions of ARM,
+ * UBOS is all **free/libre and open software**, so there's no proprietary lock-in.
+   There is one exception: some hardware platforms, notably some versions of ARM,
    require "blobs" to function. (The Free Software Foundation provides a
    `great description <https://www.fsf.org/resources/hw/single-board-computers>`_ of the
    problem.) UBOS bundles those blobs (but only on those platforms) in order to be able to
-   support those platforms. Developers are strongly encouraged not to develop code that
-   depends on such "blobs".
+   support those platforms. Of course, you can install whatever software you like on
+   your personal server running UBOS.
 
 Thank you, Arch Linux
 ---------------------
