@@ -50,19 +50,19 @@ The following symbolic names are currently defined:
       The name of the Apache2 configuration fragment which may be written
       by this app configuration.
 
-      Example: ``/etc/httpd/ubos/appconfigs/s1020304050/a1121314151.conf``
+      Example: ``/etc/httpd/ubos/appconfigs/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5.conf``
 
    ``${appconfig.apache2.dir}``
       The directory in which Apache requires this app configuration's web server files.
       No trailing slash.
 
-      Example: ``/srv/http/sites/s11223344556677889900/blog`` (if the app configuration
-      is at relative path ``/blog`` on a site with siteid ``s11223344556677889900``)
+      Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/blog`` (if the app configuration
+      is at relative path ``/blog`` on a site with siteid ``s753ca4a344f56c38aad05172dee6a53f6647af62``)
 
    ``${appconfig.appconfigid}``
       The identifier of the app configuration as specified in the site JSON file.
 
-      Example: ``a12345678901234567890``
+      Example: ``a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
    ``${appconfig.context}``
       Context path for this app configuration as specified in the site JSON file
@@ -71,13 +71,13 @@ The following symbolic names are currently defined:
 
       Example: ``/blog``, (empty string)
 
-   ``${appconfig.contextorroot}``
+   ``${appconfig.contextnoslashorroot}``
       Context path for this app configuration as specified in the site JSON file.
-      (or, if not given, the default from the manifest JSON).
-      No trailing slash. However, the root context is string ``ROOT``.
+      (or, if not given, the default from the manifest JSON), but without either
+      leading or trailing slash. If root context, the string is ``ROOT``.
       This variable makes some Tomcat configuration statements easier.
 
-      Example: ``/blog``, ``ROOT``
+      Example: ``blog``, ``ROOT``
 
    ``${appconfig.contextorslash}``
       Context path for this app configuration as specified in the site JSON file.
@@ -93,13 +93,13 @@ The following symbolic names are currently defined:
       If this app configuration needs to define one or more cron jobs, this is
       the preferred filename it should use for this purpose.
 
-      Example: ``/etc/cron.d/50-a12345678901234567890``
+      Example: ``/etc/cron.d/50-a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
    ``${appconfig.datadir}``
       A directory in which this app configuration should preferably store data (outside of
       the webserver's DocumentRoot). No trailing slash.
 
-      Example: ``/var/lib/wordpress/a13243546576879809/uploads``
+      Example: ``/var/lib/wordpress/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
    ``${appconfig.mysql.dbhost.maindb}``
       Database host for the database whose symbolic name in the Manifest JSON is ``maindb``.
@@ -127,7 +127,7 @@ The following symbolic names are currently defined:
 
       Example: ``n0ts0s3cr3t``
 
-   ``${appconfig.tomcat7.contextdir}``
+   ``${appconfig.tomcat7.contextfile}``
       The name of the Tomcat7 context configuration file which may be written
       by this app configuration.
 
@@ -137,7 +137,7 @@ The following symbolic names are currently defined:
       The directory in which Tomcat requires this app configuration's application server
       files. No trailing slash.
 
-      Example: ``/var/lib/tomcat7/sites/s11223344556677889900/a12345678901234567890``
+      Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
    ``${host.tmpdir}``
       Name of a directory in which to create temporary files. By using this symbolic
@@ -158,7 +158,7 @@ The following symbolic names are currently defined:
       for the app or accessory in this
       app configuration, as determined from the Manifest JSON file and the Site JSON file.
 
-      Example: ``/var/lib/ubos/appconfigpars/a12345678901234567890/mypackage/foo";``
+      Example: ``/var/lib/ubos/appconfigpars/a12345678901234567890/mypackage/foo``
 
    ``${installable.customizationpoints.foo.value}``
       The value of customization point ``foo``
@@ -182,6 +182,8 @@ The following symbolic names are currently defined:
    ``${package.codedir}``
       Directory in which the package's code should be installed. No trailing slash.
 
+     Example: ``/usr/share/wordpress``
+
    ``${package.datadir}``
       Directory in which the package can store data. No trailing slash.
       You may want to use ``${appconfig.datadir}`` instead.
@@ -189,14 +191,15 @@ The following symbolic names are currently defined:
       Example: ``/var/lib/wordpress``
 
    ``${package.manifestdir}``
-      Directory in which packages write their manifests. No trailing slash.
+      Directory in which packages write their manifests. No trailing slash. You should
+      not need to use this.
 
       Value: ``/var/lib/ubos/manifests``
 
    ``${package.name}``
       Name of the package currently being installed.
 
-      Example: ``foobar``
+      Example: ``wordpress``
 
    ``${site.admin.credential}``
       Password for the site's administrator account.
@@ -222,23 +225,23 @@ The following symbolic names are currently defined:
    ``${site.apache2.authgroupfile}``
       The groups file for HTTP authentication for this site.
 
-      Example: ``/etc/httpd/ubos/sites/s00998877665544332211.groups``
+      Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.groups``
 
    ``${site.apache2.htdigestauthuserfile}``
       The digest-based user file for HTTP authentication for this site.
 
-      Example: ``/etc/httpd/ubos/sites/s00998877665544332211.htdigest``
+      Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.htdigest``
 
    ``${site.apache2.sitedocumentdir}``
       The Apache DocumentRoot for this site. No trailing slash.
 
-      Example: ``/srv/http/sites/s00998877665544332211``
+      Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
 
    ``${site.apache2.sitefragmentfile}``
       The Apache configuration file fragment for this site. No trailing slash.
       You should not have to use this.
 
-      Example: ``/etc/httpd/ubos/sites/s00998877665544332211.conf``
+      Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.conf``
 
    ``${site.hostname}``
       The virtual hostname of the site to which this app configuration
@@ -256,17 +259,17 @@ The following symbolic names are currently defined:
    ``${site.siteid}``
       The site identifier of this site per the Site JSON file.
 
-      Example: ``s00998877665544332211``
+      Example: ``s753ca4a344f56c38aad05172dee6a53f6647af62``
 
    ``${site.tomcat7.contextdir}``
       The Tomcat context directory for this site. No trailing slash.
 
-      Example: ``/etc/tomcat7/Catalina/example.com``
+      Example: ``/etc/tomcat7/Catalina/indiebox.example.org``
 
    ``${site.tomcat7.sitedocumentdir}``
       The Tomcat DocumentRoot for this site. No trailing slash.
 
-      Example: ``/var/lib/tomcat7/sites/s00998877665544332211``
+      Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
 
    ``${tomcat7.gname}``
        Name of the Linux group used for running the Tomcat application server.
