@@ -66,6 +66,9 @@ dt:hover > a.headerlink {
 .right {
     float: right;
 }
+.strike {
+  text-decoration: line-through;
+}
 
 .line-block {
     display: block;
