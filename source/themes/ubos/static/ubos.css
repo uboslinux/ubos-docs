@@ -24,10 +24,12 @@ div.header-wrapper {
 a {
     color: inherit;
 }
-div.bodywrapper a {
+div.bodywrapper a,
+.link {
     text-decoration: none;
     box-shadow: 0px -3px 0px #80b4e6 inset;
 }
+
 div.footer a {
     text-decoration: underline;
 }
