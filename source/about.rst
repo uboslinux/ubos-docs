@@ -32,12 +32,12 @@ Depending on what :term:`indie applications <Indie application>` you install, it
 for most things that "the cloud" can be used for, such as a file server, to share calendars
 or photos, or post status updates to your friends.
 
-But unlike "the cloud", your personal server is your's: you decide which data to store there
+But unlike "the cloud", your personal server is yours: you decide which data to store there
 and which not, which apps you run, or under which conditions you let others use it. Privacy
 is there by default: none of your data ever leaves, or is accessed by anybody unless you
 let them.
 
-Personal server are also great to connect Internet-of-Things devices.
+A personal server is also great to connect Internet-of-Things devices to.
 
 UBOS Features:
 --------------
