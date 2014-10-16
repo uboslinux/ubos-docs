@@ -18,43 +18,85 @@ for UBOS. Here is a complete :-) screen shot:
 
 .. image:: /images/helloworld-screenshot.png
 
-This describes the flow for the developer of the package:
+This describes the lifecycle of the package, as it is created by a developer and installed,
+updated and uninstalled by a user:
 
-#. Developer creates the package. In its root directory::
+#. The developer creates the files for the package. If you have cloned the git repository above,
+   you find the files for ``helloworld`` in directory ``helloworld``; or you can browse
+   them `on github <https://github.com/indiebox/toyapps/tree/master/helloworld>`_. They are:
 
-      > cd .../helloworld
+   * ``appicons``: icon files (optional)
+   * ``PKGBUILD``: package build script with some package meta-data (see below)
+   * ``htaccess``: Apache configuration file that makes Apache default to ``index.php`` when
+     the app is installed
+   * ``index.php``: minimalistic PHP file printing "Hello World"
+   * ``ubos-manifest.json``: UBOS meta-data file (see below)
+
+#. The developer creates the package. In its root directory::
+
       > makepkg -f
 
    This will create the package file named ``helloworld-*-any.pkg.tar.xz`` (where
    ``*`` is a particular version number).
 
-#. Developer installs the package. This only dumps the files in the package on the
+#. The user installs the package. This only dumps the files in the package on the
    hard drive, it does not install the app at any virtual host::
 
       > sudo pacman -U helloworld-*-any.pkg.tar.xz
 
-#. Developer installs this web app at a particular virtual host::
+   This command will install a locally built package locally, but it is equivalent to
+   what happens when a user obtains the same app via the UBOS :term:`Depot`.
+
+#. The user installs this web app at a particular virtual host::
 
       > sudo ubos-admin createsite
 
    (See also :doc:`/users/firstsite`: use the app name ``helloworld``
    instead of ``wordpress``)
 
-#. Perform a software upgrade of the ``helloworld`` package (only), keeping mind that
-   the web app is currently deployed on this host at least once::
+#. Now assume that a new version of the package is available. If the new package is available
+   locally, the user can perform a software upgrade of the ``helloworld`` package (only)::
 
       > sudo ubos-admin update --pkgfile <pkgfile>
 
    where ``<pkgfile>`` is a new version of the package file created as shown above.
+   If distributed through the UBOS :term:`Depot`, the argument ``--pkgfile`` will be
+   omitted, and UBOS will upgrade all software on the host to the most recent version.
 
-#. Develop uninstalls the app from the particular virtual host, but keeps the
+#. Undeploy the app by undeployed the entire virtual host. This will keeps the
    package installed::
 
       > sudo ubos-admin undeploy --siteid <siteid>
 
    where ``<siteid>`` is the identifier of the installed site.
 
-Let's look at the anatomy of the package::
+#. If the user wishes the package entirely::
+
+      > sudo pacman -R helloworld
+
+Let's look at the anatomy of the package. The ``PKGBUILD`` script's ``package`` method
+puts it together::
+
+   package() {
+   # Manifest
+       mkdir -p $pkgdir/var/lib/ubos/manifests
+       install -m0644 $startdir/ubos-manifest.json $pkgdir/var/lib/ubos/manifests/${pkgname}.json
+   # Icons
+       mkdir -p $pkgdir/srv/http/_appicons/$pkgname
+       install -m644 $startdir/appicons/{72x72,144x144}.png $pkgdir/srv/http/_appicons/$pkgname/
+       install -m644 $startdir/appicons/license.txt $pkgdir/srv/http/_appicons/$pkgname/
+   # Code
+       mkdir -p $pkgdir/usr/share/${pkgname}
+       install -m755 $startdir/index.php $pkgdir/usr/share/${pkgname}/
+       install -m644 $startdir/htaccess $pkgdir/usr/share/${pkgname}/
+   }
+
+You can see that this script creates three directories, and installs a few files in them.
+The Arch Linux wiki
+`describes PKGBUILD <https://wiki.archlinux.org/index.php/Creating_packages>`_;
+there is nothing UBOS-specific about this.
+
+This corresponds to what the package file contains after ``makepkg`` has completed::
 
    > tar tfJ helloworld-*-any.pkg.tar.xz
    .PKGINFO
@@ -77,11 +119,6 @@ Let's look at the anatomy of the package::
    var/lib/ubos/manifests/
    var/lib/ubos/manifests/helloworld.json
 
-This package was put together by the ``makepkg`` command, as seen above, based on the
-information in the ``PKGBUILD`` file in the source tree. The Arch Linux wiki
-`describes this process <https://wiki.archlinux.org/index.php/Creating_packages>`_;
-there is nothing UBOS-specific about this.
-
 .. image:: /images/helloworld-icon.png
    :class: right
 
@@ -97,8 +134,8 @@ and an Apache ``htaccess`` file so this HTML is emitted even if the path ends wi
 More complex web apps would put the bulk of their code and auxiliary files there.
 
 Finally, ``var/lib/ubos/manifests/`` contains the :term:`UBOS Manifest JSON` file for this
-application, which describes what needs to happen upon ``ubos-admin deploy``. For this
-app, the manifest file looks as follows::
+application, which describes what needs to happen upon ``ubos-admin deploy`` and when
+other ``ubos-admin`` commands are executed. For this app, the manifest file looks as follows::
 
    {
      "type" : "app",
@@ -137,7 +174,7 @@ Let's discuss these items in sequence:
   such as ``mysql`` if they make use of MySQL in addition to Apache.
 
 * By default, this app wants to be deployed at the relative path ``/hello`` of a
-  virtual host. This can be overridden by the user in the :term:``Site JSON file``.
+  virtual host. This can be overridden by the user in the :term:`Site JSON` file.
 
 * For the ``apache2`` role, this app requires packages ``php`` and ``php-apache``, as it
   is a PHP app. It requires that the Apache module ``php5`` has been enabled before it
