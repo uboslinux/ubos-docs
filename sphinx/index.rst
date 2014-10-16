@@ -10,4 +10,4 @@ Contents:
    glossary
 
 .. role:: strike
-    :class: strike
+   :class: strike
