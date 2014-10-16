@@ -77,6 +77,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       Site JSON. That way, each installation of the app can have a different
       title, for example.
 
+   Depot
+      The site http://depot.ubos.net/ through which UBOS packages are distributed.
+      The UBOS depot hosts several :term:`repositories <Repository>` in several
+      :term:`release channels <Release channel>`.
+
    Device
       Any physical or virtualized computer running UBOS. This could be
       a Raspberry PI, an x86 server, an instance on Amazon EC2 or a virtual machine
