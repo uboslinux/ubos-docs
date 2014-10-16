@@ -1,15 +1,6 @@
 Setting up your first web app
 =============================
 
-.. note:: Currently, you need to set up your own DNS.
-
-   For example, if you create a site called ``foo.example.com``, you are responsible
-   for making sure that ``foo.example.com`` resolves the the IP address of your
-   UBOS device. You may be able to do this by editing your client machine's ``/etc/host``,
-   or by configuring your home router or public DNS server.
-
-   We'll do better in the future, but not yet; please bear with us.
-
 Follow these steps:
 
 #. Decide which web app to install. In this example, we'll use Wordpress.
@@ -41,3 +32,13 @@ Follow these steps:
 
 If you are curious what UBOS just did under the hood, please refer to
 :doc:`/developers/understanding/createsite`.
+
+.. note:: Currently, you need to set up your own DNS.
+
+   For example, if you create a site called ``foo.example.com``, you are responsible
+   for making sure that ``foo.example.com`` resolves the the IP address of your
+   UBOS device. You may be able to do this by editing your client machine's ``/etc/host``,
+   or by configuring your home router or public DNS server.
+
+   We'll do better in the future, but not yet; please bear with us.
+

@@ -132,7 +132,9 @@ Each member of the ``appconfigs`` array is a JSON hash with the following entrie
    The value for each package is again a JSON hash, with the name of the customization
    point as the key, and a JSON hash as a value. Typically, this last JSON hash
    only has a single entry named ``value``, whose value is the value of the
-   customization point. For example::
+   customization point. For example:
+
+   .. code-block:: json
 
       "customizationpoints" : {
         "wordpress" : {

@@ -28,8 +28,11 @@ Specify ``gladiwashere`` as the name of the app.
 Manifest JSON
 -------------
 
+
 Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
-``helloworld``'s, but has several more entries::
+``helloworld``'s, but has several more entries:
+
+.. code-block:: json
 
    {
      "type" : "app",

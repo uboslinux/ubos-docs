@@ -42,11 +42,13 @@ Meta-data
    This file contains the (starting) time at which this backup file was being created, in
    the UTC time zone in RFC 3339 format.
 
-   Example: ``2014-12-31T23:59:01.234Z``.
+   Example: ``2014-12-31T23:59:01.234Z``
 
 ``sites/``
    This directory contains the :term:`Site JSON` files of all sites that have been backed up
    to this file.
+
+   For example:
 
 ``sites/s1111111111222222222233333333334444444444.json``
    The Site JSON file for a site with siteid ``s111111111122222222223333333333334444444444``,

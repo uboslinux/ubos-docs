@@ -140,7 +140,9 @@ other ``ubos-admin`` commands are executed.
 App manifest
 ------------
 
-For this app, the manifest file looks as follows::
+For this app, the manifest file looks as follows:
+
+.. code-block:: json
 
    {
      "type" : "app",

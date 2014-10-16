@@ -81,9 +81,10 @@ div.sidebar {
     line-height: 120%;
   }
   a:hover, div.header a:hover {
-    text-decoration: underline;
+    background: #e0e0e0;
   }
   h3 {
+    margin: 6px 0 10px 0;
     font-weight: 500;
     letter-spacing: .08em;
     text-transform: uppercase;
@@ -104,12 +105,12 @@ div.sidebar {
   li.toctree-l3 {
     margin-left: 2em;
   }
+  h3 > a,
   li > a {
     color: #404040;
   }
   li.current > a {
     font-weight: bold;
-    text-decoration: underline;
   }
 }
 dt {
@@ -117,4 +118,23 @@ dt {
 }
 dd {
     margin-left: 3em;
+}
+h5 {
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+div.toctree-wrapper ul {
+    margin: 0;
+    padding: 0;
+}
+div.toctree-wrapper > ul > li > a {
+    font-weight: bold;
+}
+div.toctree-wrapper li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div.toctree-wrapper li li {
+    margin: 0 0 0 2em;
 }
