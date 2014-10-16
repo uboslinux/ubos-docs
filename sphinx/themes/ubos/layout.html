@@ -41,10 +41,12 @@
 
   <div class="content-wrapper">
    <div class="content">
+{% block sidebar %}
     <div class="sidebar">
      <h3><a href="/docs/">Documentation Overview</a></h3>
 {{ toctree() }}
     </div>
+{% endblock %}
 {% block supertitle %}
 <h5><a href="/docs/">Documentation:</a></h5>
 {% endblock %}

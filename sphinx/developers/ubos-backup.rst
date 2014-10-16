@@ -105,7 +105,9 @@ Wordpress installations at different virtual hosts or relative path name).
    The name of the retention bucket that was backed up. This is the same as specified in
    the UBOS :term:`UBOS Manifest JSON` file by the installable. ``gladiwashere`` doesn't
    actually define an ``uploads`` retention bucket, but if it did, the relevant part of
-   the manifest JSON would look like this::
+   the manifest JSON would look like this:
+
+   .. code-block:: json
 
       {
           ...
