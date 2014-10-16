@@ -1,21 +1,17 @@
-UBOS documentation
-==================
+UBOS website and documentation
+==============================
 
-Found on-line at http://ubos.net/docs/
+On-line at [ubos.net](http://ubos.net/)
+
+* The main site is created with [Jekyll](http://jekyllrb.com/)
+* The /docs subdirectory is created with [Sphinx](http://sphinx-doc.org/)
 
 Found errors, omissions, improvements? Submit a pull request!
 
-Hint: After you cloned this repository, the documentation is found in the ``source`` directory. Then, rebuild
-the HTML with::
+To re-generate the site:
 
 ```
-   make clean html
+   make clean all
 ```
 
-make sure there are no errors or warnings, and check your work by opening
-
-```
-   build/html/index.html
-```
-
-in a web browser.
+The result will be in directory `stage`.
