@@ -1,0 +1,37 @@
+---
+layout: page
+title: Quick Start
+---
+
+<h2>Get the image</h2>
+
+<ul>
+ <li>To run in VirtualBox: download
+     <a href="http://depot.ubos.net/red/x86_64/images/ubos_red_x86_64_LATEST-1part-vbox.vmdk.xz">this image</a>,
+     uncompress, and use as the main virtual hard drive in VirtualBox.</li>
+ <li>To boot UBOS from a USB stick: download
+     <a href="http://depot.ubos.net/red/x86_64/images/ubos_red_x86_64_LATEST-1part.img.xz">this image</a>,
+     uncompress, and write to a USB stick in "raw" format.</li>
+</ul>
+
+<p>For a detailed series of steps, refer to the
+   <a href="/docs/users/installation.html">Installation section</a> in the
+   UBOS user documentation.</p>
+
+<h2>Install one or more apps</h2>
+
+<p>Once booted, log in from the console as root. To install ownCloud:</p>
+<pre># ubos-admin createsite</pre>
+<p>and answer the questions. Use <code>owncloud</code> as the name of the app.</p>
+
+<p>To show installed apps and at which virtual hosts they run:</p>
+<pre># ubos-admin listsites</pre>
+
+<p>To remove an app:</p>
+<pre># ubos-admin undeploy --host <i>hostname</i></pre>
+
+<p>To back up all data from your apps:</p>
+<pre># ubos-admin backup --out <i>all.ubos-backup</i></pre>
+
+<p>For details, refer to the
+   <a href="/docs/users/index.html">UBOS user documentation</a>.</p>

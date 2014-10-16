@@ -1,1 +1,3 @@
-build/
+stage/
+cache/
+.sass-cache/

@@ -1,0 +1,15 @@
+# Site settings
+title: UBOS - The Linux Distro for Personal Servers and IoT Devices
+description: >
+  Indie, Indie Web, Linux, FLOSS, open-source, Personal, Personal Server. Raspberry Pi, Beagle Bone, Atom, Web app, decentralized, private, privacy
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://ubos.net" # the base hostname & protocol for your site
+twitter_username: indieboxproject
+github_username:  indiebox
+
+permalink: /blog/:year/:month/:day/:title
+paginate: 10
+paginate_path: "blog/archive:num"
+
+# Build settings
+markdown: kramdown

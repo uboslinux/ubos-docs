@@ -1,0 +1,67 @@
+{#
+    ubos/layout.html
+    ~~~~~~~~~~~~~~~~~
+
+    Sphinx layout template for the ubos theme.
+#}
+<!DOCTYPE html>
+<html>
+{% block head %}
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ title|striptags|e }} - UBOS Documentation</title>
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+{% endblock %}
+  <body>
+{% block header %}
+ <div class="header-wrapper">
+  <div class="header">
+   <header>
+    <nav>
+     <a href="/">
+      <img src="/images/ubos-logo-header.png" alt="[UBOS]">
+     </a>
+     <ul>
+      <li><a href="/quickstart/">Getting Started</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/docs/">Documentation</a></li>
+      <li><a href="/community/">Community</a></li>
+      <li><a href="/blog/">Development Blog</a></li>
+     </ul>
+    </nav>
+   </header>
+  </div>
+ </div>
+{% endblock %}
+
+  <div class="content-wrapper">
+   <div class="content">
+    <div class="sidebar">
+     <h3>Documentation Overview</h3>
+{{ toctree() }}
+    </div>
+{% block body %} {% endblock %}
+   </div>
+  </div>
+
+{% block footer %}
+<div class="footer-wrapper">
+ <div class="footer">
+  <footer>
+   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" style="float: left; margin-right: 20px">
+    <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+   </a>
+   <p>&copy; 2014 <a href="http://indiecomputing.com/">Indie Computing Corp.</a>
+      <a href="/legal/">Legal</a>.
+   </p>
+  </footer>
+ </div>
+</div>
+{% endblock %}
+ </body>
+</html>

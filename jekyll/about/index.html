@@ -1,0 +1,119 @@
+---
+layout: page
+title: About
+---
+
+<h2>UBOS History</h2>
+
+<p>Many people want more control over their data. This includes data such as family photos,
+public posts, medical records, and the data from the Internet-of-Things sensors in their
+home. For that reason, many geeks have set up their own servers at home or at a colocation.</p>
+
+<p>The trouble is that operating your own server takes skill, and lots of time, so most people
+cannot take back control over their data on their own.</p>
+
+<p>The <b>Indie Box Project</b> set out to make it possible for normal people to set up and
+run their own Personal Server, an "indie box" &mdash; independent of the big internet overlords.</p>
+
+<p><b>UBOS</b> was created as the Linux distro that runs on Indie Boxes. It is also a great
+distro for other kinds of computers that can run server-side applications but do not have
+system administrators on staff, such as open IoT gateways. For a comparison to
+other distros, see <a href="#features">features</a> below.</p>
+
+<h2>UBOS Requirements</h2>
+
+<ul>
+ <li>Dramatically reduce the time needed for system administration of personally-owned
+     "server" computers running web apps.</li>
+ <li>Ability to run head-less, i.e. without a display or keyboard attached.</li>
+ <li>High-level commands for installation, uninstallation, and other operations on
+     server-side apps. E.g. a single command should be able to install and configure any
+     kind of app including all of its dependencies, databases, virtual hosts, services etc.</li>
+ <li>Make no assumptions about which apps are installed on which server, or even that
+     any two UBOS servers will run the same apps. Every user is unique. This makes UBOS
+     very different from Linux distros targeted towards data centers and server farms.</li>
+ <li>Be available consistently across various hardware platforms.</li>
+</ul>
+<p>(We are still working on some of those)</p>
+
+<h2><a name="features"></a>UBOS Features</h2>
+
+<ul>
+ <li>
+  <p>With UBOS, <b>web applications can be installed, and fully configured with a single
+     command</b>. This takes out the drudgery of software installation and configuration on
+     servers and allows many more people to run their own websites.</p>
+
+  <p>Wanting to run a, say, Python app should not require users having to know anything
+     about Python; same about other languages, frameworks, databases and the like. You don't
+     care about which language was used to create apps on your smart phone either.</p>
+
+  <p>On UBOS, unlike other Linux distros, a typical user never has to edit a Linux-level
+     configuration file (say in <code>/etc/</code>), provision a database, start or stop
+     services, and the like.</p>
+ </li>
+
+ <li>
+  <p>UBOS <b>fully automates app management at virtual hosts</b>. You can run, say, five
+     different instances of Wordpress with different plugins and themes at five different
+     hostnames on the same computer, or even at the same hostname (e.g. example.com/blog1,
+     example.com/blog2 etc.).
+     You can deploy all of them individually or at the same time with a single command.</p>
+ </li>
+
+ <li>
+  <p>UBOS <b>pre-installs and pre-configures networking and other infrastructure</b>, so it
+     is ready to be used as soon as it has booted. For example, not only does UBOS boot as a
+     dhcp client, but also runs a web server with a default web application.
+     This allows the user to use UBOS immediately, with little to no systems configuration.</p>
+
+  <p>On other distros, this is an open-ended manual process.</p>
+ </li>
+
+ <li>
+  <p>UBOS <b>"full-stack testing"</b> ensures that core UBOS operating system, networking,
+     middleware, and apps, are all tested with each other before a new UBOS release is
+     pushed out. This reduces the likelihood that, for example, an upgrade to the database
+     or web server will break a web application.</p>
+
+  <p>Some Linux distros perform similar testing with desktop applications, but we are not
+     aware of any other distros that do it for server-side, web applications.</p>
+ </li>
+
+ <li>
+  <p>Unlike most other distros, UBOS does not try to provide every conceivable package.
+     Instead, we try to provide <b>as few packages as possible</b> by eliminating alternate
+     packages that provide overlapping functionality. For example, we picked Apache over
+     nginx (due to broader software support). To support the goals of UBOS, this has great
+     advantages: it makes testing much simpler, because UBOS has far less code, and far fewer
+     configurations need to be tested. This in turn makes application developers' lives
+     easier and installations less brittle.</p>
+
+  <p>Users who wish to use other packages not provided through UBOS can still obtain those
+     from the Arch Linux repositories. UBOS is a (compatible) derivative of Arch Linux.</p>
+ </li>
+
+ <li>
+  <p>UBOS uses a <b>rolling-release development model</b> (see
+     <a href="https://en.wikipedia.org/wiki/Rolling_release">Wikipedia page</a>).
+     UBOS never requires major upgrades; instead, updates are made available incrementally.
+     This ensures that devices can continue to be updated and keep running for the long-term.</p>
+ </li>
+
+ <li>
+  <p>UBOS itself is all <b>free/libre and open software</b>, so there's no proprietary lock-in
+     and you can keep us honest by reviewing our code.</p>
+  <p>There is one exception: some hardware platforms, notably some versions of ARM,
+     require &quot;blobs&quot; to function. (The Free Software Foundation provides a
+     <a href="https://www.fsf.org/resources/hw/single-board-computers">great description</a>.)
+     UBOS bundles those blobs in order to be able to support those platforms. Of course, you
+     can install and run whatever software you like on your devices, in addition to what is
+     available through the official UBOS repositories.</p>
+ </li>
+</ul>
+
+<h2><a name="arch"></a>Thank you, Arch Linux!</h2>
+
+<p>UBOS is a derivative of the <a href="http://archlinux.org/">Arch Linux</a> distro.
+We try to use as many packages as possible directly from Arch. Thank you, Arch Linux,
+we couldn't do without you!</p>
