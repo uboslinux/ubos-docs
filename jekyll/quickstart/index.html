@@ -22,16 +22,20 @@ title: Quick Start
 
 <p>Once booted, log in from the console as root. To install ownCloud:</p>
 <pre># ubos-admin createsite</pre>
-<p>and answer the questions. Use <code>owncloud</code> as the name of the app.</p>
+<p>and answer the questions. Use <code>owncloud</code> as the name of the app.
+   <a href="/docs/users/managing.html#interactively-create-a-new-site-with-a-single-app">Details</a>.</p>
 
 <p>To show installed apps and at which virtual hosts they run:</p>
 <pre># ubos-admin listsites</pre>
+<p><a href="/docs/users/managing.html#display-the-currently-installed-sites-and-apps">Details</a>.</p>
 
-<p>To remove an app:</p>
+<p>To remove all apps at a virtual host, and the site itself:</p>
 <pre># ubos-admin undeploy --host <i>hostname</i></pre>
+<p><a href="/docs/users/managing.html#undeploy-a-site">Details</a>.</p>
 
 <p>To back up all data from your apps:</p>
 <pre># ubos-admin backup --out <i>all.ubos-backup</i></pre>
+<p><a href="/docs/users/backup.html#creating-a-local-backup">Details</a>.</p>
 
 <p>For details, refer to the
    <a href="/docs/users/index.html">UBOS user documentation</a>.</p>

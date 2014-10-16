@@ -27,7 +27,7 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       themes, skins, extensions, add-ons and the like. UBOS uses the term
       "accessory" as a consistent, common term for all of those.
 
-      Examples for what Cloudstore would call accessories are:
+      Examples for what UBOS would call accessories are:
 
       * themes or skins that change the graphic layout of Wordpress;
       * a module that requires users to fill out a captcha before they can register
@@ -58,9 +58,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
          > sudo ubos-admin listsites
 
       Because the appconfigid is long and unwieldy, you can alternatively use
-      only its first few characters, as long as they are unique on your host.
+      only its first few characters, as long as they are unique on your host and you
+      append three periods at the end.
+
       For example, if there is no other app installed on your device whose appconfigid
-      starts with ``aa``, you can use ``aa`` as a shorthand.
+      starts with ``aa``, you can use ``aa...`` as a shorthand.
 
    Arch Linux
       A rolling-release GNU/Linux distribution developed at
@@ -106,6 +108,10 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       their house from a web browser connecting to some vendor's website, this may
       involve a "server" in their house, but not one they control.
 
+   PKGBUILD
+      The build script for creating a UBOS or Arch Linux package. The Arch Linux wiki
+      has a `good description <https://wiki.archlinux.org/index.php/PKGBUILD>`_.
+
    Release channel
       A maturity level for an UBOS release. See also :doc:`developers/buildrelease`.
       UBOS is developed on channel ``red``, which contains bleeding-edge,
@@ -136,12 +142,12 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       A JSON file that contains all meta-data about a :term:`Site`, including
       hostname, which apps are installed at which relative URLs, and so forth.
       To obtain the Site JSON for a particular installed site with
-      :term:`siteid` <siteid>, execute::
+      :term:`siteid` ``<siteid>``, execute::
 
          > sudo ubos-admin showsite --json --siteid <siteid>
 
       To deploy or update a deployed site to the configuration contained in a
-      Site JSON file called <site-json-file>, execute::
+      Site JSON file called ``<site-json-file>``, execute::
 
          > sudo ubos-admin deploy --file <site-json-file>
 
@@ -156,12 +162,14 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
          > sudo ubos-admin listsites
 
       Because the siteid is long and unwieldy, you can alternatively use
-      only its first few characters, as long as they are unique on your host.
-      For example, if there is no other site installed on your host whose siteid starts
-      with ``s41``, you can use ``s41`` as a shorthand.
+      only its first few characters, as long as they are unique on your host and you
+      append three periods at the end.
 
-      Many commands also accept the hostname of the site instead of the siteid.
+      For example, if there is no other site installed on your host whose siteid starts
+      with ``s41``, you can use ``s41...`` as a shorthand.
+
+      Many commands also accept the current hostname of the site instead of the siteid.
 
    UBOS manifest json
       A JSON file that contains meta-data about an app or accessory beyond the
-      meta-data provided by PKGBUILD.
+      meta-data provided by :term:`PKGBUILD`.

@@ -31,7 +31,6 @@ UBOS is both a subset and a superset of Arch Linux:
 
 * UBOS only includes a subset of the Arch Linux packages. For example, UBOS has picked
   Apache2 as its (current) web server and thus does not provide any other web servers.
-  (See the UBOS Goals in :doc:`/about` ).
 
 * UBOS provides packages such as ``ubos-admin`` for one-command device
   administration, which are not available on Arch Linux; given that Arch Linux is
@@ -52,9 +51,10 @@ packages.
 
 Take WordPress as an example. If you install a WordPress package, a package manager will
 dump all the WordPress code on your drive, but it is left to you to create a database and
-edit the Apache virtual host configuration. (And WordPress is much better than most web
-applications where you typically also need to edit configuration files, change file
-permissions, and sometimes even get additional services to run.)
+edit the Apache virtual host configuration. That is in spite of the fact that installing
+WordPress is much simpler than installing most web applications where you often also
+need to install (or even compile) additional dependencies, and sometimes even get additional
+services to run.
 
 If you want to run the same application more than once on the same machine (for example,
 at different virtual hosts), package managers are not able to help at all. Certainly they

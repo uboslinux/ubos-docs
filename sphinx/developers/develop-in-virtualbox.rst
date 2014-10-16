@@ -76,7 +76,7 @@ To create a UBOS development machine in VirtualBox, follow these steps:
 
          mount /dev/sda1 /mnt
 
-   #. Make sure you have a network connection.::
+   #. Make sure you have a network connection::
 
          ip addr
 

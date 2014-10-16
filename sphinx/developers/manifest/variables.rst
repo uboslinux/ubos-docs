@@ -69,7 +69,7 @@ The following symbolic names are currently defined:
    (or, if not given, the default from the manifest JSON).
    No trailing slash. The root context is a zero-length string.
 
-   Example: ``/blog``, (empty string)
+   Examples: ``/blog`` or (empty string)
 
 ``${appconfig.contextnoslashorroot}``
    Context path for this app configuration as specified in the site JSON file.
@@ -77,7 +77,7 @@ The following symbolic names are currently defined:
    leading or trailing slash. If root context, the string is ``ROOT``.
    This variable makes some Tomcat configuration statements easier.
 
-   Example: ``blog``, ``ROOT``
+   Examples: ``blog`` or ``ROOT``
 
 ``${appconfig.contextorslash}``
    Context path for this app configuration as specified in the site JSON file.
@@ -87,7 +87,7 @@ The following symbolic names are currently defined:
    usually take a context path without trailing slash, but require a single
    slash when the context path would otherwise be empty.
 
-   Example: ``/blog``, ``/``
+   Examples: ``/blog`` or ``/``
 
 ``${appconfig.cronjobfile}``
    If this app configuration needs to define one or more cron jobs, this is

@@ -3,7 +3,7 @@ Rebuilding UBOS for yourself
 
 If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
-#. You need a build system running `Arch Linux <http://archlinux.com/>`_ on
+#. You need a build system running `Arch Linux <http://archlinux.org/>`_ on
    the processor architecture that you like to use.
 
    For example, you can spin up an Amazon EC2 instance running Arch Linux x86 by
@@ -112,7 +112,7 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
       > ( cd $p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
       > done
 
-   If you are on an x86 platform, you also need to:
+   If you are on an x86 platform, you also need to::
 
       ubos> pacman -S --noconfirm virtualbox grub
 

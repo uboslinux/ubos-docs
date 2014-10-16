@@ -13,7 +13,7 @@ To find out about options for this command, add a ``--help`` argument.
 Display site information
 ------------------------
 
-To show information about a currently installed site with siteid :term:`siteid`, execute::
+To show information about a currently installed site with :term:`siteid` <siteid>, execute::
 
    > sudo ubos-admin showsite --siteid <siteid>
 
@@ -41,7 +41,7 @@ Deploy a site
 -------------
 
 To deploy a site for the first time, or to update an already-deployed site, with
-:term:`Site JSON` <site.json>, execute::
+:term:`Site JSON` file ``<site.json>``, execute::
 
    > ubos-admin deploy [--quiet] [--siteid <siteid>] ... --file <site.json>
 
@@ -66,7 +66,7 @@ If you are curious what UBOS does under the hood, please refer to
 Undeploy a site
 ---------------
 
-To undeploy a site with siteid <siteid>, execute::
+To undeploy a site with siteid ``<siteid>``, execute::
 
    > sudo ubos-admin undeploy --siteid <siteid>
 

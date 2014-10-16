@@ -33,12 +33,16 @@ Meta-data
 ---------
 
 ``filetype``
-   This file contains the fixed string ``UBOS::Backup::ZipFileBackup;v1`` to identify this ZIP file as
+   This file contains a fixed string to identify this ZIP file as
    a UBOS backup file in version 1.
+
+   Fixed string: ``UBOS::Backup::ZipFileBackup;v1``
 
 ``starttime``
    This file contains the (starting) time at which this backup file was being created, in
-   the UTC time zone in RFC 3339 format, e.g. ``2014-12-31T23:59:01.234Z``.
+   the UTC time zone in RFC 3339 format.
+
+   Example: ``2014-12-31T23:59:01.234Z``.
 
 ``sites/``
    This directory contains the :term:`Site JSON` files of all sites that have been backed up
@@ -52,9 +56,6 @@ Meta-data
 
    If additional sites have been backed up to this file, their site JSON files would also
    be found in this directory.
-
-   Site JSON files in a backup do not contain either SSL material, nor the administrator
-   credential.
 
 ``installables/``
    This directory contains the :term:`UBOS manifest JSON` files of all installed applications

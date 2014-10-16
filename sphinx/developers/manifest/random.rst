@@ -18,9 +18,13 @@ For example, ``${randomHex(8)}`` might generate ``4f218aab``.
 ``randomIdentifier``
    Generates a random identifier consisting of lower-case letters.
 
+   Example: ``fokhngly``
+
 ``randomPassword``
    Generates a random password consisting of letters and numbers
    (but not special characters).
+
+   Example: ``GGs5PCMK``
 
 If you need to generate different kinds of random values, you can always
 do that in an :doc:`Perl script <perlscript>`.

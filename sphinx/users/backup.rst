@@ -55,35 +55,34 @@ To restore all data from a backup file ``<backupfile>`` to the current device::
 
    > sudo ubos-admin restore --in <backupfile>
 
-.. warning::
-
-   This command will mercilessly overwrite current data of currently installed apps
-   on the local device. For example, if the backup
-   contains a site with a certain siteid, and there is a site with the same siteid
-   active on the device, the current site will be replaced by the site defined in and
-   with the data contained in the backup file. The previous data at the site will be
-   irretrievably lost.
+This command will refuse to work if a site, or app configuration, with the same
+identifier(s) is already deployed. If you wish to restore a previous version of
+a currently deployed site from backup, undeploy the current site first.
 
 To restore a site with a certain siteid from a backup file ``<backupfile>`` to the
-current device, but leave all other sites unchanged, specify the :term:`siteid`::
+current device, but leave all other sites unchanged, specify the :term:`siteid`
+(``<siteid>``)::
 
    > sudo ubos-admin restore --siteid <siteid> --in <backupfile>
 
-To restore only one app, instead of all apps at a site, specify the :term:`appconfigid`::
+To restore only one app, instead of all apps at a site, specify the :term:`appconfigid`
+(``<appconfigid>``) and the hostname of the site (``<tohostname>``) to which the app shall be added::
 
-   > ubos-admin restore --appconfigid <appconfigid> --in <backupfile>
+   > ubos-admin restore --appconfigid <appconfigid> --tohostname <tohostname> --in <backupfile>
 
-Finally, if you want to import the data from one site, or just one installed app to
-a site with a different siteid or appconfigid from the one in the backup file, use the
-``--translate`` option. For example::
+Alternatively you can use the site id of the site (``<tositeid>``) to which the app shall be added::
 
-   > sudo ubos-admin restore --siteid s1 --translate 's1=>s2' --in /tmp/backup.ubos-backup
+   > ubos-admin restore --appconfigid <appconfigid> --tositeid <tositeid> --in <backupfile>
 
-This command will look for a site whose siteid starts with ``s1`` in the backup file
-``/tmp/backup.ubos-backup``, and restore all data to a site currently installed on the
-local device whose siteid starts with ``s2``. Note the arrow in the ``--translate``
-argument: make sure you escape the ``>`` character in your shell.
+Finally, to copy a site or app configuration and use new identifiers and a new hostname,
+use one of the following::
 
-This latter form of the restore command allows you to quickly restore data to a different
-site, or -- when used with ``ubos-admin backup`` -- to quickly make copies of a
-currently installed site.
+   > ubos-admin restore --siteid <fromsiteid> --createnew --hostname <newhostname> --in <backupfile>
+
+or::
+
+   > ubos-admin restore --siteid <fromsiteid> --createnew --newsiteid <tositeid> --hostname <newhostname> --in <backupfile>
+
+To see the full set of options, invoke::
+
+   > ubos-admin restore --help

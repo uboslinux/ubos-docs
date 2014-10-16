@@ -43,13 +43,13 @@ The Site JSON file is a JSON hash with the following entries:
       User identifier for the administrator. Example: ``admin``.
 
    ``username`` (required)
-      Human-readable name for the administrator. Example: "John Smith".
+      Human-readable name for the administrator. Example: ``John Smith``.
 
    ``credential`` (required)
-      Credential for the administrator account. Example: "s3cr3t".
+      Credential for the administrator account. Example: ``s3cr3t``.
 
    ``email`` (required)
-      Contact e-mail for the administrator. Example: "admin@family.example.org".
+      Contact e-mail for the administrator. Example: ``admin@family.example.org``.
 
 ``ssl`` (optional)
    This section is optional. If provided, UBOS will set up the site to be only

@@ -3,6 +3,14 @@ layout: default
 isFrontPage: true
 ---
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <style>
 div.banner {
   background: #fffae4;
@@ -13,7 +21,18 @@ div.banner {
 </style>
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
-  <img src="{{ "/images/ubos-logo-big.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin-top: 92px;">
+  <img src="{{ "/images/ubos-logo-big.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;">
+  <table style="width: 100%; margin: 0">
+   <tr>
+    <td style="width: 50%; padding: 0 10px 0 0; text-align: right">
+     <div class="fb-like" data-href="http://ubos.net/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    </td>
+    <td style="padding: 10px 0 0 10px; text-align: left">
+     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ubos.net/" data-text="UBOS: Linux distro for personal servers & user-owned #IoT devices" data-via="indieboxproject" data-dnt="true">Tweet</a>
+     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </td>
+   </tr>
+  </table>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
   <h1>Let's keep control over our data.</h1>
@@ -171,6 +190,6 @@ Done.</pre>
  <div class="clearer"></div>
  <p style="text-align: center; margin-top: 10px">
     Ready?
-    <a href="{{ "/getting-started/" | prepend: site.baseurl }}">Get started!</a>
+    <a href="{{ "/quickstart/" | prepend: site.baseurl }}">Get started!</a>
  </p>
 </div>
