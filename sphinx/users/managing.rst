@@ -17,6 +17,8 @@ To show information about a currently installed site with :term:`siteid` <siteid
 
    > sudo ubos-admin showsite --siteid <siteid>
 
+You can abbreviate the siteid by appending three dots, if what you specify is unique.
+You can also use ``--host <hostname`` instead.
 
 Interactively create a new site with a single app
 -------------------------------------------------
