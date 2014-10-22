@@ -153,10 +153,7 @@ To create a UBOS development machine in VirtualBox, follow these steps:
    #. Then, start the virtual machine again and log on as root. There is no password by
       default. (You might want to change that.)
 
-   #. Add the UBOS repositories. Add the following lines to ``/etc/pacman.conf``
-      *before* the other Arch Linux repositories are specified.
-      You may want to look for a line that starts with ``[core]`` and insert before
-      that line::
+   #. Add the UBOS repositories. Add the following lines to ``/etc/pacman.conf``::
 
          [os]
          Server = http://depot.ubos.net/red/$arch/os

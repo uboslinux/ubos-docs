@@ -122,8 +122,9 @@ Each member of the ``appconfigs`` array is a JSON hash with the following entrie
    For example: ``[ 'wordpress-plugin-webmention' ]``
 
 ``customizationpoints`` (optional)
-   If provided, this entry must be a JSON hash, providing values for customization
-   points of the app and/or accessories at this AppConfiguration. They keys in this
+   If provided, this entry must be a JSON hash, providing values for
+   :doc:`customization points <manifest/customizationpoints>` of the app and/or
+   accessories at this AppConfiguration. They keys in this
    JSON hash are the package names of the packages installed at this AppConfiguration,
    i.e. the package name of the app, and any additional accessories. (By doing this,
    there cannot be any namespace collisions between customization points defined

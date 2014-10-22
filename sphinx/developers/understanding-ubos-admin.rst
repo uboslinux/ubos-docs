@@ -8,7 +8,7 @@ the various subcommands do and how they do that, consult the following sections:
    :maxdepth: 1
 
    understanding/createsite
-   understanding/backup-and-restore
    understanding/deploy
    understanding/undeploy
    understanding/update
+   understanding/backup-and-restore

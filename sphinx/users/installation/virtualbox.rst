@@ -38,10 +38,10 @@ download times, this should take no more than 10 minutes to set up.
      unless your Ethernet or Wifi network isn't willing to hand out more than one DHCP address
      to the same machine; it happens on some tightly managed networks). Or:
 
-   * Activate two virtual networking interfaces, one as "NAT", and one as "Host only":
+   * Activate two virtual networking interfaces, one as "NAT", and one as "Host-only Adapter":
      Click on "Network" in the right pane. In the pop-up, first select tab "Adapter 1", and choose "NAT".
      Then, select tab "Adapter 2", make sure that "Enable Network Adapter" is checked,
-     and choose "Host-only adapter". Click "Ok".
+     and choose "Host-only Adapter". Click "Ok".
 
 #. In the main window, click "Start". The virtual machine should now be booting.
    (For now, ignore that the boot loader says "Arch Linux". As we said, UBOS is an
