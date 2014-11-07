@@ -77,7 +77,7 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
    We need to install some tools from official Arch repositories and the
    `Arch User Repository (AUR) <https://aur.archlinux.org/>`_::
 
-      ubos> sudo pacman -S --noconfirm base-devel libaio php
+      ubos> sudo pacman -S --noconfirm base-devel libaio php dosfstools
       ubos> mkdir -p ~/aur
       ubos> cd ~/aur
       ubos> curl -L -O https://aur.archlinux.org/packages/mu/multipath-tools/multipath-tools.tar.gz
