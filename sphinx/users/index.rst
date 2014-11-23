@@ -10,3 +10,4 @@ How to use UBOS
    managing
    backup
    upgrading
+   writing-image

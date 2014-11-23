@@ -12,44 +12,12 @@ This will leave your PC's hard drive unchanged and lets you try out UBOS easily:
    should **not** contain the letters ``-vbox``, otherwise you get some unnecessary
    VirtualBox code with your image.
 
-#. Write this image file "raw" to a USB flash drive. This operation depends on your
-   operating system, and there are many excellent guides on-line for all sorts of
-   operating systems.
+#. Write this image file "raw" to a USB flash drive. This
+   operation depends on your operating system:
 
-   If you are on Linux, this should work:
-
-   * Determine the device name of your USB flash drive. For example, run ``lsblk`` before
-     you insert the USB flash drive, and then after. The device that has shown up is
-     the device that you just inserted, minus the partition number (if any). For
-     example, the device name may be ``/dev/sdx``.
-
-     .. warning:: Make sure you get the device name right, otherwise you might accidentally
-        destroy the data on some other hard drive!
-
-        Also make sure your boot stick does not contain any valuable data; it will be
-        mercilessly overwritten.
-
-   * Determine the file name of the image you downloaded. Let's assume it is
-     ``~/Downloads/ubos_yellow_x86_64_LATEST.img``. If you downloaded a compressed
-     version, uncompress the file first.
-
-   * Write the image using ``dd``, such as::
-
-         > dd if=~/Downloads/ubos_yellow_x86_64_LATEST.img of=/dev/sdx bs=1M
-
-     replacing ``/dev/sdx`` with the device name of your USB flash drive.
-
-     This may take 10min or longer, depending on the speed of your USB drive, so be
-     patient.
-
-   * When done, for good measure::
-
-        > sync
-
-     and wait for a little bit. Rumor has it some flash drives keep writing for some
-     time after the OS thinks they are done. If that is true for your device, and you
-     remove the device prematurely, you may end up with a corrupted image without a good
-     way of telling that it happened.
+   * :doc:`/users/writing-image/windows`
+   * :doc:`/users/writing-image/macosx`
+   * :doc:`/users/writing-image/linux`
 
 #. Remove the USB flash drive, insert it into a spare x86 computer that is currently off,
    and boot that computer from the USB flash drive. Depending on that computer's BIOS,

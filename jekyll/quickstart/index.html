@@ -7,6 +7,7 @@ title: Quick Start
 <style>
 table#platforms {
   border-collapse: separate;
+  border-spacing: 5px;
 }
 table#platforms td {
   width: 33%;
@@ -50,22 +51,20 @@ table#platforms img {
 
 <h2>Install one or more apps</h2>
 
-<p>Once booted, log in from the console as root. To install ownCloud, or any other app:</p>
+<p>Once booted, log in from the console as root. To install any app:</p>
 <pre># ubos-admin createsite</pre>
-<p>and answer the questions. Use <code>owncloud</code> as the name of the app.
-   <a href="/docs/users/managing.html#interactively-create-a-new-site-with-a-single-app">Details</a>.</p>
+<p>and answer the questions.
+   <a href="/blog/2014/11/24/ubos-beta1-available/">This post</a> has the list of
+   currently available apps.</p>
 
 <p>To show installed apps and at which virtual hosts they run:</p>
 <pre># ubos-admin listsites</pre>
-<p><a href="/docs/users/managing.html#display-the-currently-installed-sites-and-apps">Details</a>.</p>
 
 <p>To remove all apps at a virtual host, and the site itself:</p>
 <pre># ubos-admin undeploy --host <i>hostname</i></pre>
-<p><a href="/docs/users/managing.html#undeploy-a-site">Details</a>.</p>
 
 <p>To back up all data from your apps:</p>
 <pre># ubos-admin backup --out <i>all.ubos-backup</i></pre>
-<p><a href="/docs/users/backup.html#creating-a-local-backup">Details</a>.</p>
 
 <p>For details, refer to the
    <a href="/docs/users/index.html">UBOS user documentation</a>.</p>
