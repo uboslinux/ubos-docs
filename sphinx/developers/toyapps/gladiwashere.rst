@@ -9,7 +9,7 @@ that use a database for UBOS. Here is a screen shot:
 
 To obtain the source code::
 
-   > git clone https://github.com/indiebox/toyapps
+   > git clone https://github.com/indiebox/ubos-toyapps
 
 Go to subdirectory ``gladiwashere``.
 

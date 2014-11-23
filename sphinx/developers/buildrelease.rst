@@ -44,12 +44,12 @@ This table shows the approximate update schedule:
 
 .. table:: Approximate channel update schedule
 
-   ======================= =======================
-   dev channel             several times a day
+   ======================= ===============================
+   dev channel             as often as several times a day
    dev to red channel      once a week
    red to yellow channel   to be determined
    yellow to green channel to be determined
-   ======================= =======================
+   ======================= ===============================
 
 Updates may be performed more frequently, for example for emergency bug fixes or
 security patches. Images may be generated less frequently, as repeated downloads are

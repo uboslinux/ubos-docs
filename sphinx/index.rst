@@ -5,8 +5,9 @@ Contents:
    :maxdepth: 3
    :numbered:
 
-   How to use UBOS <users/index>
-   How to develop for UBOS <developers/index>
+   users/index
+   developers/index
+   releases/index
    glossary
 
 .. role:: strike

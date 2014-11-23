@@ -1,5 +1,5 @@
-UBOS User Documentation
-=======================
+How to use UBOS
+===============
 
 .. toctree::
    :maxdepth: 2
@@ -10,4 +10,3 @@ UBOS User Documentation
    managing
    backup
    upgrading
-   ssl-site

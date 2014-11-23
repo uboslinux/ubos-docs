@@ -1,5 +1,5 @@
-UBOS Developer Documentation
-============================
+How to develop for UBOS
+=======================
 
 Work in progress ... more to come.
 

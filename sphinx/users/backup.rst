@@ -34,7 +34,7 @@ For example::
    > sudo ubos-admin backup --out ~/backup-$(date +%Y%m%d%H%M).ubos-backup
 
 will create a backup file containing all installed apps at all sites on the local host.
-The filename will contain the current date.
+For your convenience, this command will create a file whose filename contains the current date.
 
 To create a local backup of all the data of only the apps and accessories installed at a
 particular site with a :term:`siteid` and save that data to file ``<backupfile>``, execute::
@@ -60,17 +60,16 @@ identifier(s) is already deployed. If you wish to restore a previous version of
 a currently deployed site from backup, undeploy the current site first.
 
 To restore a site with a certain siteid from a backup file ``<backupfile>`` to the
-current device, but leave all other sites unchanged, specify the :term:`siteid`
-(``<siteid>``)::
+current device, but leave all other sites unchanged, specify the :term:`siteid`::
 
    > sudo ubos-admin restore --siteid <siteid> --in <backupfile>
 
 To restore only one app, instead of all apps at a site, specify the :term:`appconfigid`
-(``<appconfigid>``) and the hostname of the site (``<tohostname>``) to which the app shall be added::
+and the hostname of the site to which the app shall be added::
 
    > ubos-admin restore --appconfigid <appconfigid> --tohostname <tohostname> --in <backupfile>
 
-Alternatively you can use the site id of the site (``<tositeid>``) to which the app shall be added::
+Alternatively you can use the site id of the site to which the app shall be added::
 
    > ubos-admin restore --appconfigid <appconfigid> --tositeid <tositeid> --in <backupfile>
 

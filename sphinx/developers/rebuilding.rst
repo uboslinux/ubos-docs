@@ -31,8 +31,8 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
 #. Create a non-root build user, e.g.::
 
-      root> useradd -m ubos
-      root> passwd ubos
+      root> useradd -m buildmaster
+      root> passwd buildmaster
 
    This build user should be able to ``sudo`` many commands. For example, image generation
    requires mounting drives and creating files owned by root. It is easiest if you allow
@@ -41,9 +41,9 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
       root> pacman -S sudo
 
-   Then create file ``/etc/sudoers.d/ubos`` with the following content::
+   Then create file ``/etc/sudoers.d/buildmaster`` with the following content::
 
-      ubos ALL = NOPASSWD: ALL
+      buildmaster ALL = NOPASSWD: ALL
 
    Make sure the permissions are correct::
 
@@ -52,8 +52,8 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
    If you access your build machine primarily over the network, we recommend you
    set up key-based ssh login for the build user::
 
-      root> mkdir ~ubos/.ssh
-      root> cat > ~ubos/.ssh/authorized_keys
+      root> mkdir ~buildmaster/.ssh
+      root> cat > ~buildmaster/.ssh/authorized_keys
 
    Paste a suitable ssh public key into your shell, e.g. one you got from running
    ``ssh-keygen`` on your local machine. You may already have one on your local
@@ -61,29 +61,42 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
    Then, on the build machine, correct the permissions of the newly created files::
 
-      root> chown -R ubos:ubos ~ubos/.ssh
-      root> chmod 0700 ~ubos/.ssh
-      root> chmod 0600 ~ubos/.ssh/authorized_keys
+      root> chown -R buildmaster:buildmaster ~buildmaster/.ssh
+      root> chmod 0700 ~buildmaster/.ssh
+      root> chmod 0600 ~buildmaster/.ssh/authorized_keys
 
    Log off as root, and re-login as the build user. You now should be able to say::
 
-      ubos> sudo whoami
+      buildmaster> sudo whoami
       root
 
    From now on, we will execute all commands as the build user, and use ``sudo``
    when we need more privileges.
 
 #. Install the build tools.
-   We need to install some tools from official Arch repositories and the
+
+   We need to install some tools from official Arch repositories::
+
+      buildmaster> sudo pacman -S --noconfirm base-devel git libaio php mariadb perl-dbd-mysql perl-www-curl dosfstools
+
+   If you are on an x86 platform, you also need to::
+
+      ubos> pacman -S --noconfirm virtualbox grub
+
+   On ARM, you also need to::
+
+      ubos> sudo pacman-key --init
+      ubos> sudo pacman -S archlinuxarm-keyring
+
+   One tool we need is only in the
    `Arch User Repository (AUR) <https://aur.archlinux.org/>`_::
 
-      ubos> sudo pacman -S --noconfirm base-devel libaio php dosfstools
-      ubos> mkdir -p ~/aur
-      ubos> cd ~/aur
-      ubos> curl -L -O https://aur.archlinux.org/packages/mu/multipath-tools/multipath-tools.tar.gz
-      ubos> tar xfz multipath-tools.tar.gz
-      ubos> cd multipath-tools
-      ubos> makepkg -c -f -A
+      buildmaster> mkdir -p ~/aur
+      buildmaster> cd ~/aur
+      buildmaster> curl -L -O https://aur.archlinux.org/packages/mu/multipath-tools/multipath-tools.tar.gz
+      buildmaster> tar xfz multipath-tools.tar.gz
+      buildmaster> cd multipath-tools
+      buildmaster> makepkg -c -f -A
 
    This last command will take a bit as the package has to be compiled. It does print a
    bunch of compiler warnings; hopefully somebody will fix this upstream some day. But
@@ -94,85 +107,31 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
       ubos> sudo pacman -U --noconfirm multipath-tools-*.pkg.tar.xz
 
-   Now, the UBOS tools. For that, we need git::
+   Now, the UBOS tools. For that, we use git::
 
-      ubos> sudo pacman -S git
-      ubos> mkdir -p ~/git/github.com/indiebox
-      ubos> cd ~/git/github.com/indiebox
-      ubos> for p in ubos-admin macrobuild macrobuild-ubos perl; do
-      > git clone https://github.com/indiebox/$p
-      > done
-      ubos> for p in perl-log-journald; do
-      > ( cd perl/$p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
-      > done
-      ubos> for p in ubos-perl-utils ubos-admin; do
-      > ( cd ubos-admin/$p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
-      > done
-      ubos> for p in macrobuild macrobuild-ubos; do
-      > ( cd $p; makepkg -c -f -s; sudo pacman -U --noconfirm $p-*pkg.tar.xz )
-      > done
+      buildmaster> mkdir -p ~/git/github.com/indiebox
+      buildmaster> cd ~/git/github.com/indiebox
+      buildmaster> git clone https://github.com/indiebox/ubos-buildconfig
 
-   If you are on an x86 platform, you also need to::
+#. Now we can build. This will install a few more tools as part of the process.
+   Make sure to enter the backslashes as the last character in the line, or leave out
+   the backslashes and do not break the line::
 
-      ubos> pacman -S --noconfirm virtualbox grub
+      buildmaster> cd ~/git/github.com/indiebox/ubos-buildconfig
+      buildmaster> make -f Makefile.dev \
+           IMPERSONATEDEPOT= \
+           code-is-current build-packages
 
-   For a brief description of the ``macrobuild`` tool, go to
-   https://github.com/indiebox/macrobuild .
-
-#. Now we can build. For that, we need the URL to an Arch Linux mirror from where we
-   take already-built packages.
-
-   * When building for x86, select one of these
-     `x86 mirrors <https://wiki.archlinux.org/index.php/Mirror>`_.
-
-   * When building for ARM, select one of these
-     `ARM mirrors <http://archlinuxarm.org/about/mirrors>`_.
-
-   Visit the URL you picked with a browser, and make sure that the directories you
-   see include ``core``, ``community``, ``extra``, and so forth. Different mirrors put
-   their archives at different levels in the file system, and the UBOS build will be
-   unable to find the packages it needs if you don't point it to the right level
-   in the hierarchy.
-
-   The following command needs to be a single line (or a backslash needs to be at the end
-   of the line as shown). It will put the entire UBOS distribution together in the ``dev``
-   channel. Replace ``$ARCHMIRROR`` with the URL to the Arch Linux mirror that you picked,
-   and $ARCH with ``x86_64``, ``armv6h`` or ``armv7h``::
-
-      ubos> macrobuild UBOS::Macrobuild::BuildTasks::BuildDev \
-          --configdir ~/git/github.com/indiebox/macrobuild-ubos/config \
-          --archUpstreamSite $ARCHMIRROR \
-          --arch x86_64 \
-          --builddir ~/build \
-          --repodir ~/repository/dev
-
-   If you want to see more of what is happening, add ``-v`` or even ``-v -v``.
-
-   This command may take a while, mostly depending on the speed of your internet connection
-   and the speed of the mirror that you chose.
+   This command may take a while, mostly depending on the speed of your internet connection,
+   the speed of the mirror that you chose, and, of course the speed of your device.
    But when it is done, the UBOS repositories will be at ``~/repository/dev``
 
 #. To create boot images, continue by executing the following command::
 
-      ubos> macrobuild UBOS::Macrobuild::BuildTasks::CreateAllImages \
-          --channel dev \
-          --arch x86_64 \
-          --repodir ~/repository \
-          --imagedir ~/images \
-          --adminSshKeyFile /etc/macrobuild-ubos/keys/ubos-admin.pub \
-          --adminHasRoot 1
-
-   Again, ``-v`` or ``-v -v`` will provide more build output. The passed-in file
-   ``/etc/macrobuild-ubos/keys/ubos-admin.pub`` will be set as an
-   authorized key that enables user ``ubos-admin`` to log on via ssh if the
-   user specifies the corresponding private key.
-
-   In this example invocation, we set it to the default public key that enables automatic
-   administration; you can alternatively set it to any key you like.
-
-   If you specify ``--adminHasRoot 1``, ``ubos-admin`` will be able to ``sudo``
-   any command; otherwise only the command ``sudo ubos-admin`` but not, for example
-   ``sudo bash``.
+      buildmaster> cd ~/git/github.com/indiebox/ubos-buildconfig
+      buildmaster> make -f Makefile.dev \
+           IMPERSONATEDEPOT= \
+           code-is-current build-images
 
 To use your freshly built UBOS, refer to :doc:`/users/installation`, using your created
 boot image instead of the one downloaded from ubos.net, and pointing ``/etc/pacman.conf``

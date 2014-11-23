@@ -1,13 +1,14 @@
-Understanding creating a new site
----------------------------------
+``ubos-admin createsite``
+=========================
 
 This should be read in conjunction with :doc:`/users/firstsite`.
 
-When you entered ``wordpress``, UBOS downloaded and examined the Wordpress package;
+When you entered ``wordpress``, UBOS downloaded and examined the ``wordpress`` package;
 more specifically, the :term:`UBOS manifest JSON` of the Wordpress package. This
 allowed UBOS to determine that Wordpress is a web application which prefers to run
 on a virtual host (aka site) at relative path ``/blog``. It also determined that you
-are able to override this path if you wish.
+are able to override this path if you wish. This is where ``ubos-admin createsite``
+knew about ``/blog`` from.
 
 If you had entered any accessories, UBOS would also have downloaded those.
 
@@ -38,3 +39,7 @@ After you answered all the required questions, UBOS proceeded as follows:
   you like to see all Site JSONs currently installed on your host, execute::
 
      > ubos-admin listsites --json
+
+Strictly speaking, ``ubos-admin createsite`` creates a site with a single
+AppConfiguration consisting of the app you specified and the accessories you specified,
+if any.

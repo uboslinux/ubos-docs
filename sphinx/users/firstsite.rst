@@ -6,7 +6,7 @@ Follow these steps:
 #. Decide which web app to install. In this example, we'll use Wordpress.
 
 #. Decide at which URL the web app will be installed. In this example, we'll
-   use host ``family`` and run Wordpress at relative path ``/blog``.
+   use host ``family.example.com`` and run Wordpress at relative path ``/blog``.
 
 #. Execute the following command::
 
@@ -17,17 +17,17 @@ Follow these steps:
 
       > sudo ubos-admin createsite
       App to run: wordpress
-      Hostname for app: family
+      Hostname for app: family.example.com
       App wordpress suggests context path /blog
       Enter context path: /blog
       Any accessories for wordpress? Enter list:
       Site admin user id (e.g. admin): admin
       Site admin user name (e.g. John Doe): admin
-      Site admin user password (e.g. s3cr3t):
+      Site admin user password (e.g. s3cr3t): .
       Site admin user e-mail (e.g. foo@bar.com): root@localhost
 
-#. Access your new app. You can reach it directly by visiting ``http://family/blog/``, or
-   you can see the list of apps installed at host ``http://family/``, and select Wordpress
+#. Access your new app. You can reach it directly by visiting ``http://family.example.com/blog/``, or
+   you can see the list of apps installed at host ``http://family.example.com/``, and select Wordpress
    from there.
 
 If you are curious what UBOS just did under the hood, please refer to

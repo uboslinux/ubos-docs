@@ -4,15 +4,45 @@ title: Quick Start
 ---
 
 <h2>Get the image</h2>
-
-<ul>
- <li>To run in VirtualBox: download
-     <a href="http://depot.ubos.net/red/x86_64/images/ubos_red_x86_64_LATEST-1part-vbox.vmdk.xz">this
-     image</a> (approx. 550MB), uncompress, and use as the main virtual hard drive in VirtualBox.</li>
- <li>To boot UBOS from a USB stick: download
-     <a href="http://depot.ubos.net/red/x86_64/images/ubos_red_x86_64_LATEST-1part.img.xz">this
-     image</a> (approx. 550MB), uncompress, and write to a USB stick in "raw" format.</li>
-</ul>
+<style>
+table#platforms {
+  border-collapse: separate;
+}
+table#platforms td {
+  width: 33%;
+  vertical-align: top;
+  padding: 5px 10px;
+  border: 1px solid #808080;
+  border-radius: 10px;
+}
+table#platforms img {
+  display: block;
+  margin: 15px auto 20px auto;
+}
+</style>
+<table id="platforms">
+ <tr>
+  <td>
+   <img src="/images/rpi-83x100.png" alt="[Raspberry Pi]">
+   <p><b>To run UBOS on the Raspberry Pi:</b></p>
+   <p>Download <a href="http://depot.ubos.net/yellow/armv6h/images/ubos_yellow_armv6h_LATEST.img.xz">this
+      image</a> (approx. 400MB), uncompress, and write to a USB stick in "raw" format.</p>
+  </td>
+  <td>
+   <img src="/images/vbox-82x100.png" alt="[Virtual Box]">
+   <p><b>To run UBOS in VirtualBox:</b></p>
+   <p>Download <a href="http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_x86_64_LATEST-vbox.vmdk.xz">this
+      image</a> (approx. 550MB), uncompress, and use as the main virtual hard drive in VirtualBox.</p>
+  </td>
+  <td>
+   <img src="/images/pc-79x100.png" a
+   lt="[PC]">
+   <p><b>To boot a PC from a UBOS USB stick:</b></p>
+   <p>Download <a href="http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_x86_64_LATEST.img.xz">this
+      image</a> (approx. 480MB), uncompress, and write to a USB stick in "raw" format.</p>
+  </td>
+ </tr>
+</table>
 
 <p>For a detailed series of steps, refer to the
    <a href="/docs/users/installation.html">Installation section</a> in the
@@ -20,7 +50,7 @@ title: Quick Start
 
 <h2>Install one or more apps</h2>
 
-<p>Once booted, log in from the console as root. To install ownCloud:</p>
+<p>Once booted, log in from the console as root. To install ownCloud, or any other app:</p>
 <pre># ubos-admin createsite</pre>
 <p>and answer the questions. Use <code>owncloud</code> as the name of the app.
    <a href="/docs/users/managing.html#interactively-create-a-new-site-with-a-single-app">Details</a>.</p>

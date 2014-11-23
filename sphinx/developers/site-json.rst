@@ -4,7 +4,8 @@ Site JSON
 A Site JSON file describes the structure of a site, aka virtual hostname. Generally,
 a Site:
 
-* has a certain hostname, such as ``family.example.com``;
+* has a certain hostname, such as ``family.example.com``, or ``*`` if the site
+  should respond to all requests regardless of HTTP host header;
 * has a single administrator, for which username, e-mail address etc. are given;
 * may or may not have SSL information (key, certificate etc.) so the site can be
   served over HTTPS;
@@ -33,7 +34,7 @@ The Site JSON file is a JSON hash with the following entries:
    40 hex characters. E.g. ``s054257e710d12d7d06957d8c91ab2dc1b22d7b4c``.
 
 ``hostname`` (required)
-   The hostname for the site. E.g. ``family.example.org``.
+   The hostname for the site, or ``*``. E.g. ``family.example.org``.
 
 ``admin`` (required)
    The admin section defines the administrator for the site. It has the following
@@ -54,7 +55,7 @@ The Site JSON file is a JSON hash with the following entries:
 ``ssl`` (optional)
    This section is optional. If provided, UBOS will set up the site to be only
    accessible via HTTPS. UBOS will also automatically redirect incoming HTTP requests
-   to their HTTPS equivalent. (See also :doc:`/users/ssl-site`.)
+   to their HTTPS equivalent.
 
    ``key`` (required)
       The key for the ssl site.

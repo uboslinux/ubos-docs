@@ -193,8 +193,8 @@ To create a UBOS development machine in VirtualBox, follow these steps:
 
       Then, enable the UBOS and VirtualBox services::
 
-         systemctl enable ubos-admin vboxservice
-         systemctl start ubos-admin vboxservice
+         systemctl enable ubos-admin ubos-httpd vboxservice
+         systemctl start  ubos-admin ubos-httpd vboxservice
 
    #. Install whatever other development tools you might want or need. For example::
 

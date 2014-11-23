@@ -4,7 +4,10 @@ Developer FAQ
 Why is it called UBOS?
 ----------------------
 
-Why not?
+Why not? :-)
+
+Also, you can pronounce it in a way that makes a lot of sense for the kinds of things
+UBOS was created to do.
 
 .. _faq_arch_ubos_rel:
 

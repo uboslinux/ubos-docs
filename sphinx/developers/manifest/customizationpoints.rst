@@ -49,3 +49,16 @@ this:
      "value" : "...",
      "encoding" : "base64"
    }
+
+Customization points may be declared as private:
+
+.. code-block:: json
+
+   "customizationpoints" : {
+     "apikey" : {
+       "type"       : "string",
+       "private"    : true ...
+     }
+   }
+
+If declared as private, only ``root`` is allowed to see the provided values.

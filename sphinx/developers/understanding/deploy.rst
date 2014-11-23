@@ -1,5 +1,5 @@
-Understanding deploying a new site
-==================================
+``ubos-admin deploy``
+=====================
 
 To deploy a new site, or redeploy an existing site with an updated configuration,
 invoke::
@@ -7,6 +7,7 @@ invoke::
    > sudo ubos-admin deploy --file <site.json>
 
 This requires a :term:`Site JSON` file that defines the configuration of the site.
+
 The simplest way of creating a Site JSON file is to invoke::
 
    > sudo ubos-admin createsite -n
@@ -16,15 +17,12 @@ and to answer the questions on the console. By adding the ``-n`` options to the 
 for the site. (Leaving out the ``-n`` will not emit the JSON, but invoke
 ``ubos-admin deploy`` automatically)
 
-For each of the sites to deployed
-----------------------------------
-
 If the Site JSON file is valid, UBOS will perform the following steps:
 
 #. Install required packages that haven't been installed yet.
 
 #. If the site has previously been deployed, the site will be suspended, and
-   its data temporarily backed up.
+   the data of all the apps and accessories at the site will temporarily be backed up.
 
 #. The frontpage will be replaced with a placeholder saying "upgrade in progress".
 
@@ -41,7 +39,4 @@ If the Site JSON file is valid, UBOS will perform the following steps:
    will be run that were specified by the app and any accessories.
 
 #. The frontpage of the site will be re-enabled.
-
-For each of the apps that is part of a site to be deployed
-----------------------------------------------------------
 
