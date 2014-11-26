@@ -4,6 +4,10 @@ Running UBOS in a VirtualBox virtual machine
 To run UBOS in a VirtualBox virtual machine, follow these instructions. Not counting
 download times, this should take no more than 10 minutes to set up.
 
+Note: UBOS is a 64bit operating system, for which VirtualBox requires hardware virtualization
+support. This is generally available on all reasonably modern processors, but may have to
+be switched on in the BIOS first. See `VirtualBox documentation <https://www.virtualbox.org/manual/ch10.html#hwvirt>`_.
+
 #. `Download VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ from virtualbox.org
    and install it if you haven't already.
 
