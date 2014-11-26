@@ -1,8 +1,6 @@
 How to develop for UBOS
 =======================
 
-Work in progress ... more to come.
-
 .. toctree::
    :maxdepth: 2
 
@@ -16,5 +14,6 @@ Work in progress ... more to come.
    buildrelease
    ubos-backup
    logging
+   principles
    rebuilding
    faq
