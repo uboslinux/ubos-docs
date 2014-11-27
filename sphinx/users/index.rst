@@ -7,6 +7,7 @@ How to use UBOS
    installation
    networking
    firstsite
+   create-ssl-site
    managing
    backup
    upgrading

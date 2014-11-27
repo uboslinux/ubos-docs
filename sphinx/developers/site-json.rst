@@ -52,16 +52,16 @@ The Site JSON file is a JSON hash with the following entries:
    ``email`` (required)
       Contact e-mail for the administrator. Example: ``admin@family.example.org``.
 
-``ssl`` (optional)
+``tls`` (optional)
    This section is optional. If provided, UBOS will set up the site to be only
    accessible via HTTPS. UBOS will also automatically redirect incoming HTTP requests
    to their HTTPS equivalent.
 
    ``key`` (required)
-      The key for the ssl site.
+      The key for the tls site.
 
    ``crt`` (required)
-      The certificate for the ssl site as issued by your certificate authority.
+      The certificate for the tls site as issued by your certificate authority.
 
    ``crtchain`` (required)
       The certificate chain of your certificate authority, which provides
@@ -69,8 +69,8 @@ The Site JSON file is a JSON hash with the following entries:
       your certificate.
 
    ``cacrt`` (optional)
-      If you use SSL client authentication (not common), the certificate chain
-      of the certificate authorities that your SSL clients are using.
+      If you use TLS client authentication (not common), the certificate chain
+      of the certificate authorities that your TLS clients are using.
 
 ``wellknown`` (optional)
    This section is optional. It contains the data for well-known files that your
