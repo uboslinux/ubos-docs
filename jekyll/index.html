@@ -67,9 +67,39 @@ span.news-meta {
   display: inline-block;
   width: 110px;
 }
+#mc_embed_signup_scroll span.label {
+  display: inline-block;
+  width: 90px;
+}
+#mc_embed_signup_scroll div.mc-field-group input {
+  width: 135px;
+}
+
 </style>
 <div class="section news">
  <div class="section-header"><span><a href="/blog/" style="color: inherit">NEWS</a></span></div>
+ <div style="float: right; width: 250px; margin: 0 10px; padding: 5px 20px; background: #f0f0f0" id="mc_embed_signup">
+  <p>Low-volume announcement list:</p>
+  <form action="//indiecomputing.us7.list-manage.com/subscribe/post?u=876818b1a61be9d1134264f2e&amp;id=55dcbe96d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+   <div id="mc_embed_signup_scroll">
+    <div class="mc-field-group">
+     <label for="mce-EMAIL"><span class="label">Email:</span></label>
+     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"> *
+    </div>
+    <div class="mc-field-group">
+      <label for="mce-NAME"><span class="label">Your name:</span></label>
+      <input type="text" value="" name="NAME" class="" id="mce-NAME">
+     </div>
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+     </div>
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_876818b1a61be9d1134264f2e_55dcbe96d9" tabindex="-1" value=""></div>
+    <div class="clear" style="margin-left: 90px"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+   </div>
+  </form>
+ </div>
+
  <ul class="news-posts">
 {% for post in site.posts limit:3 %}
   <li style="margin: 0">
@@ -91,6 +121,7 @@ p.feeds {
   <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
   • <a href="https://twitter.com/indieboxproject">Twitter</a>
   • <a href="https://www.facebook.com/ubos.net">Facebook</a>
+
  </p>
 </div>
 
@@ -180,7 +211,8 @@ Done.</pre>
   <p>Plenty of options for more fine-grained control.</p>
  </div>
  <div class="clearer"></div>
- <p style="text-align: center; margin-top: 10px">
+
+ <p style="text-align: center; margin-top: 20px">
     Ready?
     <a href="{{ "/quickstart/" | prepend: site.baseurl }}">Get started!</a>
  </p>
