@@ -7,32 +7,37 @@ General
 -------
 
 * Invoking ``ubos-admin`` more than once simultaneously may have unpredictable
-  results. See `this issue <https://github.com/indiebox/ubos-admin/issues/19>`_.
+  results. See https://github.com/indiebox/ubos-admin/issues/19.
 
 * Backups always contain key material. See
-  `this issue <https://github.com/indiebox/ubos-admin/issues/13>`_.
+  https://github.com/indiebox/ubos-admin/issues/13.
 
 * There is currently no command that can show which apps and accessories are available
-  for install. See `this issue <https://github.com/indiebox/ubos-admin/issues/11>`_.
-  For now, refer to this `blog post <http://ubos.net/blog/2014/11/20/ubos-beta1-available/>`_.
+  for install. See https://github.com/indiebox/ubos-admin/issues/11.
+  For now, refer to the
+  `UBOS Beta 1 available blog post <http://ubos.net/blog/2014/11/20/ubos-beta1-available/>`_.
 
 * Need more ``ubos-admin`` sub-commands to modify existing sites and to create SSL sites.
   Note: you can always use ``ubos-admin deploy`` and ``ubos-admin undeploy`` directly.
-  See issues `here <https://github.com/indiebox/ubos-admin/issues/10>`_,
-  `here <https://github.com/indiebox/ubos-admin/issues/8>`_ and
-  `here <https://github.com/indiebox/ubos-admin/issues/6>`_.
+  See issues https://github.com/indiebox/ubos-admin/issues/10,
+  https://github.com/indiebox/ubos-admin/issues/8 and
+  https://github.com/indiebox/ubos-admin/issues/6.
 
 * Some sections in the documentation are still placeholders. See
-  `documentation issues <https://github.com/indiebox/ubos-docs/issues>`_.
+  documentation issues https://github.com/indiebox/ubos-docs/issues.
 
 x86-specific
 ------------
 
 * The grub bootloader reports the operating system as "Arch", not "UBOS".
-  See `this issue <https://github.com/indiebox/macrobuild-ubos/issues/2>`_.
+  See https://github.com/indiebox/macrobuild-ubos/issues/2.
 
 * UBOS currently misses some tools to install UBOS on a hard drive after booting from
-  a USB stick. See `this issue <https://github.com/indiebox/ubos-buildconfig/issues/1>`_.
+  a USB stick. See https://github.com/indiebox/ubos-buildconfig/issues/1.
+
+* Added: ``cloud-init`` produces many messages (including apparent errors and warnings)
+  on the console. These are harmless, but annoying. See
+  https://github.com/indiebox/ubos-admin/issues/22.
 
 Raspberry Pi-specific
 ---------------------
@@ -51,7 +56,7 @@ Specific to particular applications
 -----------------------------------
 
 * ownCloud must not be installed at the wildcard ("``*``") host; instead, an valid
-  DNS name must be used. See `this issue <https://github.com/indiebox/ubos-owncloud/issues/1>`_.
+  DNS name must be used. See https://github.com/indiebox/ubos-owncloud/issues/1.
 
-`Last updated: 2014-11-21 16:30 PST`
+`Last updated: 2014-12-08 10:30 PST`
 
