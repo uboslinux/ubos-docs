@@ -33,7 +33,7 @@ To write the image:
 
 * Write the image using ``dd``, such as::
 
-      > dd if=~/Downloads/ubos_yellow_x86_64_LATEST.img of=/dev/rdiskN bs=1M
+      > dd if=~/Downloads/ubos_yellow_x86_64_LATEST.img of=/dev/rdiskN bs=1m
 
   replacing ``/dev/rdiskN`` with the device name of your USB stick or SD card.
   You can use either ``/dev/diskN`` or ``/dev/rdiskN`` (replacing ``N`` with
