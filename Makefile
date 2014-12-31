@@ -12,7 +12,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) sou
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
-.PHONY: all clean jekyll sphinx
+.PHONY: all clean jekyll sphinx open
 
 all: jekyll sphinx
 
@@ -24,3 +24,6 @@ sphinx:
 
 jekyll:
 	jekyll build -s jekyll -d $(STAGEDIR)
+
+open:
+	open -a Firefox http://localhost/
