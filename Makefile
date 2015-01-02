@@ -14,7 +14,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
 .PHONY: all clean jekyll sphinx open
 
-all: jekyll sphinx
+all: jekyll sphinx static
 
 clean:
 	rm -rf $(STAGEDIR)/*
@@ -24,6 +24,9 @@ sphinx:
 
 jekyll:
 	jekyll build -s jekyll -d $(STAGEDIR)
+
+static:
+	install -m644 images/ubos.ico $(STAGEDIR)/favicon.ico
 
 open:
 	open -a Firefox http://localhost/
