@@ -6,14 +6,14 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 #. You need a build system running `Arch Linux <http://archlinux.org/>`_ on
    the processor architecture that you like to use.
 
-   For example, you can spin up an Amazon EC2 instance running Arch Linux x86 by
+   For example, you can spin up an Amazon EC2 instance running Arch Linux x86_64 by
    starting a suitable image from
    `Uplink Labs <https://www.uplinklabs.net/projects/arch-linux-on-ec2/>`_.
    Allocate at least 8GB of disk, preferably more. (For how to configure an
    EC2 instance, please refer to
    `Amazon's documentation <http://aws.amazon.com/ec2>`_.)
 
-   Alternatively, you could use a spare physical x86 server, or a virtual machine
+   Alternatively, you could use a spare physical x86 server (64bit), or a virtual machine
    with virtualization software such as VirtualBox, VMWare, Xen and so forth.
    Installation instructions for Arch Linux can be found on the
    `Arch Linux wiki <https://wiki.archlinux.org/index.php/Installation_Guide>`_.
@@ -79,7 +79,7 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
       buildmaster> sudo pacman -S --noconfirm base-devel git libaio php mariadb perl-dbd-mysql perl-www-curl dosfstools
 
-   If you are on an x86 platform, you also need to::
+   If you are on an x86_64 host, you also need to::
 
       ubos> pacman -S --noconfirm virtualbox grub
 

@@ -5,7 +5,7 @@ You can install UBOS on a USB flash drive, and boot a standard PC directly from 
 This will leave your PC's hard drive unchanged and lets you try out UBOS easily:
 
 #. Download a UBOS boot image from `depot.ubos.net`.
-   Beta 1 images for x86 are at
+   Beta 1 images for x86_64 are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
    Look for a file named ``ubos_yellow_x86_64_LATEST.img``
    or ``ubos_yellow_x86_64_LATEST.img.xz`` (the same, compressed). This file
@@ -19,7 +19,7 @@ This will leave your PC's hard drive unchanged and lets you try out UBOS easily:
    * :doc:`/users/writing-image/macosx`
    * :doc:`/users/writing-image/linux`
 
-#. Remove the USB flash drive, insert it into a spare x86 computer that is currently off,
+#. Remove the USB flash drive, insert it into a spare PC that is currently off,
    and boot that computer from the USB flash drive. Depending on that computer's BIOS,
    you may have to set its BIOS to allow booting from USB first, or change the boot order, so the
    computer actually boots from the USB flash drive and not some other drive. Some BIOSs
