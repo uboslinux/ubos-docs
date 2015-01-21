@@ -27,6 +27,8 @@ jekyll:
 
 static:
 	install -m644 images/ubos.ico $(STAGEDIR)/favicon.ico
+	[ -d "$(STAGEDIR)/files" ] || mkdir "$(STAGEDIR)/files"
+	install -m644 files/* $(STAGEDIR)/files/
 
 open:
 	open -a Firefox http://localhost/
