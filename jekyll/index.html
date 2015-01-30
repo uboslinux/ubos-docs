@@ -77,9 +77,9 @@ span.news-meta {
 
 </style>
 <div class="section news">
- <div class="section-header"><span><a href="/blog/" style="color: inherit">NEWS</a></span></div>
+ <div class="section-header"><span><a href="/blog/" style="color: inherit">BLOG POSTS</a></span></div>
  <div style="float: right; width: 250px; margin: 0 10px; padding: 5px 20px; background: #f0f0f0" id="mc_embed_signup">
-  <p>Low-volume announcement list:</p>
+  <p style="margin: 0; padding: 0">Low-volume announcement list:</p>
   <form action="//indiecomputing.us7.list-manage.com/subscribe/post?u=876818b1a61be9d1134264f2e&amp;id=55dcbe96d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
    <div id="mc_embed_signup_scroll">
     <div class="mc-field-group">
@@ -103,7 +103,6 @@ span.news-meta {
  <ul class="news-posts">
 {% for post in site.posts limit:3 %}
   <li style="margin: 0">
-   <span class="news-meta">{{ post.date | date: "%b %-d, %Y" }}:</span>
    <span class="news-title">
     <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
    </span>
