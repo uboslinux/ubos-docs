@@ -11,7 +11,11 @@ layout: default
 {% endif %}
 {% if page.meta %}
         • {{ page.meta }}
-{% endif %}</p>
+{% endif %}
+{% if page.categories.size > 0 %}
+        • Tags: {{ page.categories | category_links }}.
+{% endif %}
+</p>
   </header>
 
   <article class="post-content">

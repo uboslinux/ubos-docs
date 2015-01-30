@@ -13,3 +13,7 @@ paginate_path: "blog/archive:num"
 
 # Build settings
 markdown: kramdown
+
+# From https://raw.githubusercontent.com/recurser/jekyll-plugins/master/generate_categories.rb
+category_dir:  tags
+category_title_prefix: 'Tag: '

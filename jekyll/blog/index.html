@@ -8,6 +8,9 @@ title: Development Blog
  <h2><a class="text-primary" href="{{ post.url }}">{{ post.title }}</a></h2>
  <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} • posted by {{ post.author }}</p>
  <p>{{ post.excerpt | strip_html }}</p>
+{% if post.categories.size > 0 %}
+ <p class="post-meta">Tags: {{ post.categories | category_links }}.</p>
+{% endif %}
 </div>
 {% endfor %}
 
@@ -20,7 +23,7 @@ title: Development Blog
     {% for page in (1..paginator.total_pages) %}
         <li>
             {% if page == 1 %}
-                <a class="text-primary" href="{{ '/devblog/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                <a class="text-primary" href="{{ '/blog/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
             {% else %}
                 <a class="text-primary" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
             {% endif %}
