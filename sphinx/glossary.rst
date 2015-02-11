@@ -94,12 +94,13 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
    Indie IoT
       The part of the `Internet of Things <https://en.wikipedia.org/wiki/Internet_of_Things>`_
-      that is independently owned and operated. For example, the
-      `NEST thermostat <http://nest.com/>`_
-      is not part of the Indie IoT (Google hermetically seals the device, and siphons
+      that is independently owned and operated. Contrast with "Overlord IoT".
+      For example, the
+      `NEST thermostat <http://nest.com/>`_ is not part of the Indie IoT (Google hermetically
+      seals the device, and siphons
       all the data before the "owner" of the device sees it), while a similar
       product that kept data local and allowed the owner to modify it at will would
-      be part of the IndieIoT.
+      be part of the Indie IoT.
 
    Package
       A set of code components that logically belong together. For example,

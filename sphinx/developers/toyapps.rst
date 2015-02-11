@@ -9,14 +9,15 @@ real web apps on UBOS:
   package a real web application for UBOS.
 * Glad-I-Was-Here is a slightly more complex "guestbook" web application that uses a
   MySQL database to store the guestbook entries. We use it to illustrate how to package
-  web apps that use a database.
+  web apps that use a database. It comes in two versions: one implemented in PHP, and
+  one in Java.
 
 .. toctree::
    :maxdepth: 1
 
    toyapps/helloworld
    toyapps/gladiwashere
-
+   toyapps/gladiwashere-java
 
 
 

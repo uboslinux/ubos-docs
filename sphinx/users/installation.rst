@@ -9,3 +9,4 @@ Here are your current options:
    installation/raspberrypi
    installation/virtualbox
    installation/x86_bootstick
+   installation/x86_disk

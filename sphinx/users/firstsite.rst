@@ -33,12 +33,14 @@ Follow these steps:
 If you are curious what UBOS just did under the hood, please refer to
 :doc:`/developers/understanding/createsite`.
 
-.. note:: Currently, you need to set up your own DNS.
+.. note:: About DNS
 
-   For example, if you create a site called ``foo.example.com``, you are responsible
-   for making sure that ``foo.example.com`` resolves the the IP address of your
-   UBOS device. You may be able to do this by editing your client machine's ``/etc/host``,
-   or by configuring your home router or public DNS server.
+   You may want to use mDNS/zeroconf.
 
-   We'll do better in the future, but not yet; please bear with us.
+   If your host is a PC, for example, it will be reachable by most browsers / clients
+   at URL ``http://ubos-pc.local/``. You may want to specify that name as the hostname
+   in the ``createsite`` command above, and you save yourself DNS setup. To determine the
+   hostname, execute ``hostname`` on the commandline, or use a mDNS browser.
 
+   Alternatively, you can manually set up DNS with your router, your DNS server or such,
+   depending on your network configuration.

@@ -47,6 +47,8 @@ at a single site with a given :term:`appconfigid` and save that data to file
 
    > sudo ubos-admin backup --appconfigid <appconfigid> --out <backupfile>
 
+If your site uses TLS, and you do not want to store your TLS key material in the
+backup, execute the backup command with the ``--notls`` option.
 
 Restoring from backup
 ---------------------

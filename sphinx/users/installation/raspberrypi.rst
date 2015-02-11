@@ -1,19 +1,22 @@
-Running UBOS on Raspberry Pi
-============================
+Run UBOS on Raspberry Pi
+========================
 
 You can run UBOS on your Raspberry Pi by downloading an image, writing it to an SD card,
 and booting your Raspberry Pi with that card.
 
 Both Raspberry Pi "Model B" and "Model B Plus" are supported out of the box. ("Model A"
 and "Model A Plus" do not have built-in networking, which UBOS requires to install
-new apps.) If you are not sure which model you have, consult
-`this page <http://www.raspberrypi.org/products/>`_.
+new apps.) Support for Raspberry Pi 2 will be coming soon. If you are not sure which model
+you have, consult `this page <http://www.raspberrypi.org/products/>`_.
 
 #. Download a UBOS boot image from `depot.ubos.net`.
-   Beta 1 images for the Raspberry Pi are at
+   Beta images for the Raspberry Pi are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
-   Look for a file named ``ubos_yellow_armv6h_LATEST.img``
-   or ``ubos_yellow_armv6h_LATEST.img.xz`` (the same, compressed).
+   Look for a file named ``ubos_yellow_rpi_LATEST.img.xz`` (compressed)
+
+#. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
+   double-clicking it, or executing ``xz -d ubos_yellow_rpi_LATEST.vmdk.xz``
+   on the command line.
 
 #. Write this image file "raw" to an SD card appropriate for your Raspberry Pi. This
    operation depends on your operating system:

@@ -1,16 +1,19 @@
-Running UBOS from a boot stick
-==============================
+Run UBOS from a boot stick
+==========================
 
 You can install UBOS on a USB flash drive, and boot a standard PC directly from it.
 This will leave your PC's hard drive unchanged and lets you try out UBOS easily:
 
 #. Download a UBOS boot image from `depot.ubos.net`.
-   Beta 1 images for x86_64 are at
+   Beta images for x86_64 are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_x86_64_LATEST.img``
-   or ``ubos_yellow_x86_64_LATEST.img.xz`` (the same, compressed). This file
-   should **not** contain the letters ``-vbox``, otherwise you get some unnecessary
+   Look for a file named ``ubos_yellow_pc_x86_64_LATEST.xz`` (compressed). This file
+   should **not** contain the letters ``vbox``, otherwise you get some unnecessary
    VirtualBox code with your image.
+
+#. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
+   double-clicking it, or executing ``xz -d ubos_yellow_pc_x86_64_LATEST.vmdk.xz``
+   on the command line.
 
 #. Write this image file "raw" to a USB flash drive. This
    operation depends on your operating system:

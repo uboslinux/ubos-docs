@@ -1,5 +1,5 @@
-Running UBOS in a VirtualBox virtual machine
-============================================
+Run UBOS in a VirtualBox virtual machine
+========================================
 
 To run UBOS in a VirtualBox virtual machine, follow these instructions. Not counting
 download times, this should take no more than 10 minutes to set up.
@@ -12,12 +12,15 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    and install it if you haven't already.
 
 #. Download the UBOS boot image for VirtualBox from `depot.ubos.net`.
-   Beta 1 images for x86_64 are at
+   Beta 2 images for Virtualbox (64bit) are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_x86_64_LATEST-vbox.vmdk`` or
-   ``ubos_yellow_x86_64_LATEST-vbox.vmdk.xz`` (the same, compressed). This file
-   **should contain** the letters ``-vbox``, indicating that it contains VirtualBox-supporting
-   code.
+   Look for a file named ``ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz`` (compressed)
+   This file **should contain** the letters ``vbox-pc``, indicating that it contains
+   VirtualBox-supporting code.
+
+#. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
+   double-clicking it, or executing ``xz -d ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz``
+   on the command line.
 
 #. In VirtualBox, create a new virtual machine:
 
@@ -48,8 +51,6 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
      and choose "Host-only Adapter". Click "Ok".
 
 #. In the main window, click "Start". The virtual machine should now be booting.
-   (For now, ignore that the boot loader says "Arch Linux". See
-   `this issue <https://github.com/indiebox/macrobuild-ubos/issues/2>`_.)
 
 #. When the boot process is finished, UBOS should announce itself on the console.
    Log in as user ``root``. By default, there is no password on the console.

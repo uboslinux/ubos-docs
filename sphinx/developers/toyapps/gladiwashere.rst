@@ -1,5 +1,5 @@
-Glad-I-Was-Here
-===============
+Glad-I-Was-Here (PHP)
+=====================
 
 Glad-I-Was-Here is a slightly more complex "guestbook" web application that uses a MySQL database
 to store the guestbook entries. We use it to illustrate how to package web apps

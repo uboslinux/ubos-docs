@@ -20,7 +20,7 @@ Client networking configuration
 
 By default, UBOS is in the ``client`` networking configuration. This this configuration,
 UBOS activates all network interfaces that it can find, and looks to receive an IP
-address through DHCP on any of them.
+address through DHCP on any of them. It also advertises itself through mDNS/zeroconf.
 
 For example, if you run UBOS on a board that has two Ethernet ports, you can connect
 an Ethernet cable to either one of them (or both), and UBOS will attempt to obtain an
