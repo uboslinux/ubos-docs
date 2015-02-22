@@ -29,6 +29,7 @@ static:
 	install -m644 images/ubos.ico $(STAGEDIR)/favicon.ico
 	[ -d "$(STAGEDIR)/files" ] || mkdir "$(STAGEDIR)/files"
 	install -m644 files/* $(STAGEDIR)/files/
+	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
 
 open:
 	open -a Firefox http://localhost/

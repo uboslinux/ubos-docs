@@ -102,6 +102,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       product that kept data local and allowed the owner to modify it at will would
       be part of the Indie IoT.
 
+   Network Configuration
+      In UBOS, a network configuration is a set of active network interfaces, their
+      configuration, and the configuration of associated services such as DNS,
+      firewall, and the like.
+
    Package
       A set of code components that logically belong together. For example,
       the ``wordpress`` package contains all code specific to Wordpress.

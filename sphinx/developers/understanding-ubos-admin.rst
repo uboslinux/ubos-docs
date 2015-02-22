@@ -10,8 +10,11 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/backup
    understanding/createsite
    understanding/deploy
+   understanding/listnetconfigs
+   understanding/listnics
    understanding/listsites
    understanding/restore
+   understanding/setnetconfig
    understanding/showappconfig
    understanding/showsite
    understanding/undeploy
