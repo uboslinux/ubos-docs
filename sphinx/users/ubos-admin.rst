@@ -1,5 +1,5 @@
-``ubos-admin`` reference
-========================
+Command reference
+=================
 
 Summarizes common uses of ``ubos-admin``. To invoke an ``ubos-admin`` sub-command, execute:
 
