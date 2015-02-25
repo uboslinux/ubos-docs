@@ -23,7 +23,7 @@ two optional components:
    }
 
 The ``type`` declaration states whether the manifest is for an
-:doc:`app or an accessory <../appsaccessories>`. An app uses:
+:doc:`app or an accessory <../key-concepts>`. An app uses:
 
 .. code-block:: json
 

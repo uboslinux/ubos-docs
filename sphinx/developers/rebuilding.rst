@@ -77,7 +77,10 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
    We need to install some tools from official Arch repositories::
 
-      buildmaster> sudo pacman -S --noconfirm base-devel git libaio php mariadb perl-dbd-mysql perl-www-curl dosfstools
+      buildmaster> sudo pacman -S --noconfirm base-devel libaio php git perl-lchown \
+          perl-json perl-log-log4perl cronie ntp btrfs-progs mariadb perl-dbi perl-dbd-mysql \
+          perl-archive-zip apache mod_wsgi2 perl-www-curl parted dosfstools arch-install-scripts \
+          rsync perl-http-date maven polkit
 
    If you are on an x86_64 host, you also need to::
 

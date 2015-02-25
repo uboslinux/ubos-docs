@@ -6,39 +6,17 @@ and the Manifest JSON may refer to certain symbolic names.
 
 See also :doc:`functions`.
 
-The following symbolic names are currently defined:
+Commonly-used variables
+-----------------------
 
-``${apache2.appconfigfragmentdir}``
-   Directory that contains Apache configuration file fragments, one per app
-   configuration. You may want to use ``${appconfig.apache2.appconfigfragmentfile}``
-   instead.
-
-   Example: ``/etc/httpd/ubos/appconfigs``
+The following symbolic names are currently defined and commonly used by developers when
+packaging their apps or accessories for UBOS:
 
 ``${apache2.gname}``
    Name of the Linux group used for running the Apache web server.
    This is convenient for setting ownership of files.
 
    Example: ``http``
-
-``${apache2.sitefragmentdir}``
-   Directory that contains Apache configuration file fragments, one per site
-   (aka virtual host). You may want to use ``${site.apache2.sitefragmentfile}``
-   instead.
-
-   Example: ``/etc/httpd/ubos/sites``
-
-``${apache2.sitesdir}``
-   Directory that contains the Apache DocumentRoots of the various sites installed on
-   the host. You may want to use ``${site.apache2.sitedocumentdir}`` or
-   ``${appconfig.apache2.dir}`` instead.
-
-   Example: ``/srv/http/sites``
-
-``${apache2.ssldir}``
-   Directory that contains SSL information.
-
-   Example: ``/etc/httpd/ubos/ssl``
 
 ``${apache2.uname}``
    Name of the Linux user account used for running the Apache web server.
@@ -104,27 +82,31 @@ The following symbolic names are currently defined:
 
 ``${appconfig.mysql.dbhost.maindb}``
    Database host for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``localhost``
 
 ``${appconfig.mysql.dbname.maindb}``
    Actual name of the database whose symbolic name in the manifest JSON
-   is ``maindb``.
+   is ``maindb``. Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``database477``
 
 ``${appconfig.mysql.dbport.maindb}``
    Database port for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``3306``
 
 ``${appconfig.mysql.dbuser.maindb}``
    Database user for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``fred``
 
 ``${appconfig.mysql.dbusercredential.maindb}``
    Database password for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``n0ts0s3cr3t``
 
@@ -185,18 +167,6 @@ The following symbolic names are currently defined:
 
   Example: ``/usr/share/wordpress``
 
-``${package.datadir}``
-   Directory in which the package can store data. No trailing slash.
-   You may want to use ``${appconfig.datadir}`` instead.
-
-   Example: ``/var/lib/wordpress``
-
-``${package.manifestdir}``
-   Directory in which packages write their manifests. No trailing slash. You should
-   not need to use this.
-
-   Value: ``/var/lib/ubos/manifests``
-
 ``${package.name}``
    Name of the package currently being installed.
 
@@ -233,17 +203,6 @@ The following symbolic names are currently defined:
 
    Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.htdigest``
 
-``${site.apache2.sitedocumentdir}``
-   The Apache DocumentRoot for this site. No trailing slash.
-
-   Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
-
-``${site.apache2.sitefragmentfile}``
-   The Apache configuration file fragment for this site. No trailing slash.
-   You should not have to use this.
-
-   Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.conf``
-
 ``${site.hostname}``
    The virtual hostname of the site to which this app configuration
    belongs. This is often different from ``${hostname}``, which is
@@ -265,12 +224,7 @@ The following symbolic names are currently defined:
 ``${site.tomcat7.contextdir}``
    The Tomcat context directory for this site. No trailing slash.
 
-   Example: ``/etc/tomcat7/Catalina/indiebox.example.org``
-
-``${site.tomcat7.sitedocumentdir}``
-   The Tomcat DocumentRoot for this site. No trailing slash.
-
-   Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+   Example: ``/etc/tomcat7/Catalina/ubos.example.org``
 
 ``${tomcat7.gname}``
     Name of the Linux group used for running the Tomcat application server.
@@ -278,14 +232,74 @@ The following symbolic names are currently defined:
 
     Example: ``tomcat7``
 
-``${tomcat7.sitesdir}``
-    Directory that contains the Tomcat DocumentRoots of the various sites installed on
-    the host. You may want to use ``${site.tomcat7.sitedocumentdir}`` instead.
-
-    Example: ``/var/lib/tomcat7/sites``
-
 ``${tomcat7.uname}``
     Name of the Linux user account used for running the Tomcat application server.
     This is convenient for setting ownership of files.
 
     Example: ``tomcat7``
+
+Other variables
+---------------
+
+While these symbolic names are defined, their use by developers is not usually required
+and thus discouraged.
+
+``${apache2.appconfigfragmentdir}``
+   Directory that contains Apache configuration file fragments, one per app
+   configuration. You may want to use ``${appconfig.apache2.appconfigfragmentfile}``
+   instead.
+
+   Example: ``/etc/httpd/ubos/appconfigs``
+
+``${apache2.sitefragmentdir}``
+   Directory that contains Apache configuration file fragments, one per site
+   (aka virtual host). You may want to use ``${site.apache2.sitefragmentfile}``
+   instead.
+
+   Example: ``/etc/httpd/ubos/sites``
+
+``${apache2.sitesdir}``
+   Directory that contains the Apache DocumentRoots of the various sites installed on
+   the host. You may want to use ``${site.apache2.sitedocumentdir}`` or
+   ``${appconfig.apache2.dir}`` instead.
+
+   Example: ``/srv/http/sites``
+
+``${apache2.ssldir}``
+   Directory that contains SSL information.
+
+   Example: ``/etc/httpd/ubos/ssl``
+
+``${package.datadir}``
+   Directory in which the package can store data. No trailing slash.
+   You may want to use ``${appconfig.datadir}`` instead.
+
+   Example: ``/var/lib/wordpress``
+
+``${package.manifestdir}``
+   Directory in which packages write their manifests. No trailing slash. You should
+   not need to use this.
+
+   Value: ``/var/lib/ubos/manifests``
+
+``${site.apache2.sitedocumentdir}``
+   The Apache DocumentRoot for this site. No trailing slash.
+
+   Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+
+``${site.apache2.sitefragmentfile}``
+   The Apache configuration file fragment for this site. No trailing slash.
+   You should not have to use this.
+
+   Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.conf``
+
+``${site.tomcat7.sitedocumentdir}``
+   The Tomcat DocumentRoot for this site. No trailing slash.
+
+   Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+
+``${tomcat7.sitesdir}``
+    Directory that contains the Tomcat DocumentRoots of the various sites installed on
+    the host. You may want to use ``${site.tomcat7.sitedocumentdir}`` instead.
+
+    Example: ``/var/lib/tomcat7/sites``

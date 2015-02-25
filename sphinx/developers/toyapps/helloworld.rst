@@ -13,15 +13,17 @@ To obtain the source code::
 
 Go to subdirectory ``helloworld``.
 
-Package lifecycle
------------------
+Package lifecycle and app deployment
+------------------------------------
 
-This describes the lifecycle of the package, as it is created by a developer and installed,
-updated and uninstalled by a user:
+The first thing to understand about how UBOS apps are packaged and deployed is the
+lifecycle of a package from the developer's perspective, and then how a user deploys
+and undeploys the app contained in the package:
 
 #. The developer creates the files for the package. If you have cloned the git repository above,
    you find the files for ``helloworld`` in directory ``helloworld``; or you can browse
-   them `on github <https://github.com/indiebox/ubos-toyapps/tree/master/helloworld>`_. They are:
+   them `on github <https://github.com/indiebox/ubos-toyapps/tree/master/helloworld>`_. They are,
+   in alphabetical sequence:
 
    * ``appicons``: icon files (optional)
    * ``PKGBUILD``: package build script with some package meta-data (see below)
@@ -35,7 +37,14 @@ updated and uninstalled by a user:
       > makepkg -f
 
    This will create the package file named ``helloworld-*-any.pkg.tar.xz`` (where
-   ``*`` is a particular version number).
+   ``*`` is a particular version number defined in the ``PKGBUILD`` file).
+   ``makepkg`` is the packaging command for ``pacman`` packages, the types of
+   packages we use in UBOS.
+
+#. The developer makes the package available to the user. In the general case, this involves
+   uploading the package to the UBOS depot, UBOS quality assurance etc etc, but for our purposes
+   here, ignore all that and simply assume that the package file created by the developer
+   has somehow arrived on the user's UBOS device.
 
 #. The user installs the package. This only dumps the files in the package on the
    hard drive, it does not install the app at any virtual host::
@@ -51,6 +60,10 @@ updated and uninstalled by a user:
 
    (See also :doc:`/users/firstsite`: use the app name ``helloworld``
    instead of ``wordpress``)
+
+   This will put all the right files in the right web server directories, activate
+   needed Apache modules, restart servers, and the like. When this command completes,
+   the app is ready for use.
 
 #. Now assume that a new version of the package is available. If the new package is available
    locally, the user can perform a software upgrade of the ``helloworld`` package (only)::

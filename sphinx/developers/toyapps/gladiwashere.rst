@@ -2,8 +2,11 @@ Glad-I-Was-Here (PHP)
 =====================
 
 Glad-I-Was-Here is a slightly more complex "guestbook" web application that uses a MySQL database
-to store the guestbook entries. We use it to illustrate how to package web apps
-that use a database for UBOS. Here is a screen shot:
+to store the guestbook entries. If you have not already read through the :doc:`helloworld` app
+documentation, we recommend you do so first.
+
+We use Glad-I-Was-Here to illustrate how to package web apps for UBOS that use a MySQL database.
+Here is a screen shot of the app:
 
 .. image:: /images/gladiwashere-screenshot.png
 
@@ -13,8 +16,8 @@ To obtain the source code::
 
 Go to subdirectory ``gladiwashere``.
 
-Package lifecycle
------------------
+Package lifecycle and app deployment
+------------------------------------
 
 This app can, obviously, be built and deployed with a similar set of commands as
 :doc:`helloworld` above::
@@ -27,7 +30,6 @@ Specify ``gladiwashere`` as the name of the app.
 
 Manifest JSON
 -------------
-
 
 Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
 ``helloworld``'s, but has several more entries:

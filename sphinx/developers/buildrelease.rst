@@ -47,7 +47,7 @@ This table shows the approximate update schedule:
    ======================= ===============================
    dev channel             as often as several times a day
    dev to red channel      once a week
-   red to yellow channel   to be determined
+   red to yellow channel   once a month
    yellow to green channel to be determined
    ======================= ===============================
 

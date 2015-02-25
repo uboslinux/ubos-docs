@@ -1,38 +1,82 @@
-Setting up networking
-=====================
+Setting up networking and DNS
+=============================
 
-UBOS today knows two networking configurations; there may be more in the future.
+UBOS is trying to make network setup easy as well. Unfortunately, UBOS can only do so
+much because it's usually other computers on the network -- like routers and DNS
+servers -- that determine much of what UBOS can and cannot do. Every network tends to
+be a bit different, and UBOS is trying to do its best to fit in without requiring
+network changes.
 
-To show all available networking configurations::
+UBOS devices typically run apps that you access with a web browser from another device,
+your phone or laptop. This only works if those other devices have a way of reliably
+finding your UBOS device on the network. Because of that, things are a little bit more
+complicated than for other types of devices, like your laptop or phone connecting to WiFi.
 
-   > ubos-admin listnetconfigs
+IP address
+----------
 
-To completely turn off networking::
+Like most laptops and mobile devices, by default, UBOS devices connected by Ethernet
+to your network automatically attempt to obtain an IP address via
+`DHCP <https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol>`_. So your
+UBOS device should automatically obtain a (random) IP address if you have plugged it into
+Ethernet at the time of boot.
 
-   > ubos-admin setnetconfig off
+If you'd like to have a static IP address for your UBOS device, we recommend that you
+configure your DHCP server to always hand out the same IP address to your UBOS device.
+This tends to be an easier, and typically more maintainable process than maintaining
+static IP addresses on all the devices on your network. For example, depending on the model
+of your home router, you may be able to do this:
 
-To turn on networking, pick a networking configuration and activate it with::
+* Log into the administrative interface of your home router, and look for a page
+  that lists all currently connected devices on your network.
+* Look for your UBOS device, and note its MAC address.
+* In some part of the administrative interface of your home router, you may be
+  able to assign a consistent IP address for the device with this MAC address.
 
-   > ubos-admin setnetconfig <name-of-netconfig>
+mDNS hostnames
+--------------
 
-Client networking configuration
--------------------------------
+By default, UBOS devices announce themselves on the local-area network with the
+following names:
 
-By default, UBOS is in the ``client`` networking configuration. This this configuration,
-UBOS activates all network interfaces that it can find, and looks to receive an IP
-address through DHCP on any of them. It also advertises itself through mDNS/zeroconf.
+=========================== ===============================
+UBOS installed on:          Hostname
+=========================== ===============================
+PC                          ``ubos-pc.local``
+Virtual PC in VirtualBox    ``ubos-vbox-pc.local``
+Raspberry Pi                ``ubos-raspberry-pi.local``
+=========================== ===============================
 
-For example, if you run UBOS on a board that has two Ethernet ports, you can connect
-an Ethernet cable to either one of them (or both), and UBOS will attempt to obtain an
-IP address as soon as it is connected.
+So for example, if you run UBOS on a Raspberry Pi, after the Raspberry Pi has booted,
+you should be able to access your Raspberry Pi on your local network at ``http://ubos-rpi.local/``.
 
-This is the default networking configuration, so a device running UBOS can immediately
-connect to the internet without any further setup.
+Access should work on all operating systems and types of devices, **except on Windows** if
+you do not have iTunes installed. (Yes, this sounds strange. Basically, Microsoft does
+not support mDNS, but Apple does, and Apple adds it to your Windows PC as soon as you
+install iTunes. Apple calls this feature Bonjour.) So if you are unlucky enough to run
+Windows, please install iTunes there and mDNS resolution should work.
 
-Standalone networking configuration
------------------------------------
+The advantage of using these mDNS hostnames is that no DNS setup is required, and you do
+not need to assign a static IP address to your device.
 
-In the ``standalone`` networking configuration, UBOS assigns static IP addresses to all of the
-network interfaces that it can find. This mode is intended for situations in which
-no network management infrastructure (like DHCP servers) are available, but where
-the UBOS device still needs to be reachable via IP networking.
+The disadvantage of using these hostnames is that they only work on the local network,
+and that you cannot run more than one site on the same UBOS device.
+
+Non-mDNS (regular) hostnames
+----------------------------
+
+If you would like to use more than one site on the same device, or you would like to
+use a hostname of your choosing (say, ``family.example.com``) you need to set up
+DNS yourself. This can sometimes be performed in the administration interface of
+your home router.
+
+For example, depending on the model of your home router, you may be able to do this:
+
+* Log into the administrative interface of your home router, and look for a page
+  that lists all currently connected devices on your network.
+* Look for your UBOS device, and note its MAC address.
+* In some part of the administrative interface of your home router, you may be
+  able to assign a consistent hostnamefor the device with this MAC address.
+
+Unfortunately, this entirely depends on the features of your home router, and is outside
+of UBOS's control.

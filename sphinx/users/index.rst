@@ -11,4 +11,5 @@ How to use UBOS
    managing
    backup
    upgrading
+   ubos-admin
    writing-image

@@ -2,9 +2,10 @@ UBOS Manifest
 =============
 
 Each app or accessory on UBOS has a ``ubos-manifest.json`` file, which contains
-the meta-data that allows UBOS to correctly install, uninstall, backup, upgrade
+the meta-data that allows UBOS to correctly deploy, undeploy, backup, restore, upgrade
 etc. the app or accessory. It optionally also contains human-readable information
-about the package.
+about the package. This file augments the information in the ``PKGBUILD`` file used by
+the pacman package manager that UBOS invokes.
 
 This section describes the UBOS manifest and how to use it.
 

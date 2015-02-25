@@ -1,32 +1,38 @@
 ``ubos-admin update``
 =====================
 
-With this single command, users can update and upgrade all aspects of their device.
-Invoke as follows::
+See also :doc:`../../users/ubos-admin`.
 
-   > ubos-admin update
+Invoking this command will:
 
-This will:
+#. Suspend all currently deployed sites and all apps and accessories on them, and
+   replace them with a placeholder "Upgrade in progress" page.
 
-* Suspend all currently deployed sites and all apps and accessories on them, and
-  replace them with a placeholder "Upgrade in progress" page.
+#. Create a temporary backup of all data of all currently deployed apps and accessories
+   on all sites on the device.
 
-* Create a temporary backup of all data of all currently deployed apps and accessories
-  on all sites on the device.
+#. Undeploy all site, and all the apps and accessories on the device.
 
-* Undeploy all site, and all the apps and accessories on the,
+#. Upgrade the code on the device. There are two modes:
 
-* Download and install all upgraded packages one device. This includes operating-system
-  packages, middleware packages and application packages. This step is equivalent (and
-  in fact uses ``pacman -Syu``)
+   * If a ``--pkgfile <pkgfile>`` argument was given, only this single package will be installed
+     from this package file. This uses ``pacman -U <pkgfile>``.
 
-* Restore all sites with all apps and accessories from the previously made backup,
-  but with the most recent code version.
+   * If no ``--pkgfile`` argument was given, UBOS will download and install all available
+     upgraded packages on the the device. This includes operating-system packages, middleware
+     packages and application packages. This step is equivalent (and in fact uses
+     ``pacman -Syu``)
 
-* Run any necessary data migrations.
+#. Restore all sites with all apps and accessories from the previously made backup,
+   but with the most recent code version.
 
-* Replaces the placeholder pages with the applications again.
+#. Run any necessary data migrations.
 
-UBOS never upgrades "in-place" but performs a new installation of the application again,
-with subsequent restore-from-backup. This makes it less likely that "leftover" files
+#. Replaces the placeholder pages with the applications again.
+
+The individual steps are largely the same as documented in :doc:`backup`, :doc:`deploy`,
+:doc:`restore`, and :doc:`undeploy`.
+
+Note that UBOS never upgrades "in-place" but performs a new installation of the application
+again, with subsequent restore-from-backup. This makes it less likely that "leftover" files
 get in the way of smooth operation of the new version of the app.

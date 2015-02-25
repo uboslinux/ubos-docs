@@ -28,12 +28,12 @@ To write the image:
   if the device name is ``/dev/diskN``.
 
 * Determine the file name of the image you downloaded. Let's assume it is
-  ``~/Downloads/ubos_yellow_x86_64_LATEST.img``. If you downloaded a compressed
+  ``~/Downloads/ubos_yellow_pc_x86_64_LATEST.img``. If you downloaded a compressed
   version, uncompress the file first.
 
 * Write the image using ``dd``, such as::
 
-      > dd if=~/Downloads/ubos_yellow_x86_64_LATEST.img of=/dev/rdiskN bs=1m
+      > dd if=~/Downloads/ubos_yellow_pc_x86_64_LATEST.img of=/dev/rdiskN bs=1m
 
   replacing ``/dev/rdiskN`` with the device name of your USB stick or SD card.
   You can use either ``/dev/diskN`` or ``/dev/rdiskN`` (replacing ``N`` with

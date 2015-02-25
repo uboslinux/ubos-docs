@@ -1,5 +1,5 @@
-Run UBOS in a VirtualBox virtual machine
-========================================
+Run UBOS in a VirtualBox virtual machine (64bit)
+================================================
 
 To run UBOS in a VirtualBox virtual machine, follow these instructions. Not counting
 download times, this should take no more than 10 minutes to set up.
@@ -14,12 +14,17 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 #. Download the UBOS boot image for VirtualBox from `depot.ubos.net`.
    Beta 2 images for Virtualbox (64bit) are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz`` (compressed)
+   Look for a file named ``ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz``.
    This file **should contain** the letters ``vbox-pc``, indicating that it contains
    VirtualBox-supporting code.
 
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
-   double-clicking it, or executing ``xz -d ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz``
+   double-clicking it, or executing
+
+   .. code-block:: none
+
+      xz -d ubos_yellow_vbox-pc_x86_64_LATEST.vmdk.xz
+
    on the command line.
 
 #. In VirtualBox, create a new virtual machine:
@@ -27,7 +32,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    * Click "New".
 
    * Enter a name for the virtual machine, such as "UBOS (yellow) 1".
-     Select Type: "Linux", and Version: "Arch Linux (64 bit)". Click "Continue".
+     Select Type: "Linux", and Version: "Other Linux (64 bit)". Click "Continue".
 
    * Select the amount of RAM you want to give it. 1024MB is a good start, and you can change
      that later. Click "Continue".
@@ -57,7 +62,9 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
 #. If you have not changed the VirtualBox default network configuration, and your host computer
    has internet connectivity, your virtual UBOS computer should automatically acquire an IP
-   address. You can check with::
+   address. You can check with
+
+   .. code-block:: none
 
       > ip addr
 
@@ -65,7 +72,9 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    For more information, refer to VirtualBox's
    `Virtual networking <http://www.virtualbox.org/manual/ch06.html>`_ documentation.
 
-#. Update the code to the latest and greatest::
+#. Update UBOS to the latest and greatest:
+
+   .. code-block:: none
 
       > ubos-admin update
 

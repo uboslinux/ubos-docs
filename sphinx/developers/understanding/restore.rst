@@ -1,6 +1,8 @@
 ``ubos-admin restore``
 ======================
 
+See also :doc:`../../users/ubos-admin`.
+
 This command allows users to restore a previously made backup in the
 :doc:`/developers/ubos-backup` format.
 

@@ -1,7 +1,7 @@
 Accessoryinfo section
 =====================
 
-Accessories must provide this section. Here is an example:
+Accessories must provide this section in a :doc:`../ubos-manifest`. Here is an example:
 
 .. code-block:: json
 
@@ -12,7 +12,7 @@ Accessories must provide this section. Here is an example:
    }
 
 ``appid`` is the name of the package that contains the app to which this accessory
-belongs. In this example, the accessory belongs to the wordpress app. This value is
+belongs. In this example, the accessory belongs to the ``wordpress`` app. This value is
 required.
 
 ``accessoryid`` and ``accessorytype`` are optional fields. If they are given, they

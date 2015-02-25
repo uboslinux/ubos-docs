@@ -36,15 +36,19 @@ UBOS is both a subset and a superset of Arch Linux:
   Apache2 as its (current) web server and thus does not provide any other web servers.
 
 * UBOS provides packages such as ``ubos-admin`` for one-command device
-  administration, which are not available on Arch Linux; given that Arch Linux is
-  intended as a broadly configurable system for the power user, philosophically they
-  are not very compatible.
+  administration, which are not available on Arch Linux. Given that Arch Linux is
+  intended as a very configurable system for the power user, and ``ubos-admin`` requires
+  a much tighter set of conventions, ``ubos-admin`` does not make much sense on Arch itself.
 
 * UBOS provides several :term:`release channels <Release channel>`.
 
 * UBOS releases are "full-stack" tested before they are made available. Arch Linux
   only performs unit testing, and generally requires a system administrator to
   manually review and resolve possible issues. See also :doc:`buildrelease`.
+
+In spite of this, many packages available on UBOS are identical to those on
+`Arch Linux <http://archlinux.org/>`_, and its sibling,
+`Arch Linux ARM <http://archlinuxarm.org/>`_.
 
 Doesn’t apt / dpkg / yum / pacman etc. do this already?
 -------------------------------------------------------

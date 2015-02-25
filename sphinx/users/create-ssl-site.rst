@@ -12,14 +12,22 @@ easy. You have two options:
    and money, is more complicated, and requires that you own an official domain name
    for your site.
 
-For a self-signed site, simply execute the following command::
+Self-signed certificate
+-----------------------
 
-   > sudo ubos-admin createsite --tls --selfsign
+For a self-signed site, simply execute the following command:
+
+.. code-block:: none
+
+   > sudo ubos-admin createsite --tls --selfsigned
 
 and continue to answer the questions just as you did in :doc:`firstsite`. Done!
 
 Once the site is up, you will notice that visiting the site without the https prefix
 automatically redirects you to the secure, https version.
+
+Official certificate
+--------------------
 
 For a site whose keys are signed by a certificate authority, you need to perform the
 following steps. Let's assume you want to run ``example.org`` with SSL; replace this

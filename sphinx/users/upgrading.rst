@@ -5,7 +5,7 @@ UBOS makes this really simple::
 
    > sudo ubos-admin update
 
-will perform all necessary steps. This includes:
+This single command will perform all necessary steps. This includes:
 
 #. Checking whether software upgrades are available.
 #. Displaying an "upgrade in progress" message to users who attempt to access your

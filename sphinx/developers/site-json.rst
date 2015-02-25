@@ -17,9 +17,13 @@ a Site:
 
 UBOS captures all of this information in a single JSON file with a particular structure,
 called the Site JSON file. You can usually interact with Site JSON files as opaque
-blobs, but if you like to see the Site JSON file a site you have currently deployed, run::
+blobs, but if you like to see the Site JSON file for a site you have currently deployed,
+determine its ``siteid`` and run::
 
    > sudo ubos-admin showsite --json --siteid <siteid>
+
+If you run this command as a user other than root, no credential information will be
+included.
 
 The easiest way of creating a Site JSON file is with the ``createsite`` command::
 
@@ -47,7 +51,8 @@ The Site JSON file is a JSON hash with the following entries:
       Human-readable name for the administrator. Example: ``John Smith``.
 
    ``credential`` (required)
-      Credential for the administrator account. Example: ``s3cr3t``.
+      Credential for the administrator account. Example: ``s3cr3t``. Only shown to the
+      root user.
 
    ``email`` (required)
       Contact e-mail for the administrator. Example: ``admin@family.example.org``.
@@ -58,19 +63,21 @@ The Site JSON file is a JSON hash with the following entries:
    to their HTTPS equivalent.
 
    ``key`` (required)
-      The key for the tls site.
+      The key for the tls site. Only shown to the root user.
 
    ``crt`` (required)
       The certificate for the tls site as issued by your certificate authority.
+      Only shown to the root user.
 
    ``crtchain`` (required)
       The certificate chain of your certificate authority, which provides
       credibility not to you, but to your certificate authority, which signed
-      your certificate.
+      your certificate. Only shown to the root user.
 
    ``cacrt`` (optional)
       If you use TLS client authentication (not common), the certificate chain
       of the certificate authorities that your TLS clients are using.
+      Only shown to the root user.
 
 ``wellknown`` (optional)
    This section is optional. It contains the data for well-known files that your

@@ -1,14 +1,10 @@
 ``ubos-admin backup``
 =====================
 
-To create a backup of all sites on your device, just one site, or just one app installed
-at one site, use::
+See also :doc:`../../users/ubos-admin`.
 
-   > ubos-admin backup <arguments>
-
-There are many variations of this command; to see them, invoke ``ubos-admin backup --help``.
-
-Regardless of which variation of the command is used, UBOS generally performs the
+There are many variations of this command. Regardless of which variation of the command is
+used, UBOS generally performs the
 following actions:
 
 * It suspends the site(s) affected by the backup, and temporarily replaces them with a
@@ -21,7 +17,7 @@ following actions:
   .. code-block:: json
 
      "retentionpolicy" : "keep",
-     "retentionbucket" : "aBucket"
+     "retentionbucket" : "name"
 
   Each of the AppConfigurationItems with these two fields will be backed up. All other
   AppConfiguration items will be ignored.

@@ -1,7 +1,7 @@
 Roles section
 =============
 
-The roles section in an UBOS Manifest defines how the app or accessory needs to be installed
+The roles section in an UBOS Manifest defines how the app or accessory needs to be deployed
 and related information. For example, the roles section defines:
 
 * which files or directories need to be created in the file system;
@@ -24,7 +24,7 @@ Generally, upon installation of an app or accessory, the roles are processed in 
 
 Upon uninstallation of an app or accessory, the roles are processed in the opposite sequence.
 
-Here are common fields for all of them:
+Here are common fields for all roles:
 
 Common fields
 -------------
@@ -32,7 +32,7 @@ Common fields
 Depends
 ^^^^^^^
 
-When the app or accessory is installed for this role, the field
+When the app or accessory is deployed for this role, the field
 ``depends`` identifies required packages. Often, these dependencies could also be listed
 in the package's :term:`PKGBUILD` file, but this additional field allows the declaration of
 dependencies that are only required if this role is used.
@@ -48,7 +48,7 @@ Example:
 App Config Items
 ^^^^^^^^^^^^^^^^
 
-This section captures the items that need to be put in place before an installation of
+This section captures the items that need to be put in place before a deployment of
 an app or accessory is functional. These items can be things such as files, directories,
 symbolic links, or databases; but also scripts that need to be run.
 
@@ -189,13 +189,13 @@ Installers, Uninstallers, Upgraders
 
 These fields identify scripts to be run when certain events occur:
 
-* field ``installers`` is processed when the app or accessory is installed;
-* field ``uninstallers`` is processed when the app or accessory is uninstalled;
-* field ``upgraders`` is processed after an app or accessory has been installed and
-  data has been restored that potentially must be migrated to work with the installed
+* field ``installers`` is processed when the app or accessory is deployed;
+* field ``uninstallers`` is processed when the app or accessory is undeployed;
+* field ``upgraders`` is processed after an app or accessory has been deployed and
+  data has been restored that potentially must be migrated to work with the current
   version of the app or accessory.
 
-Note that during software upgrades, install and uninstall events may occur as well.
+Note that during software upgrades, deployment and undeployment may occur as well.
 
 Each of these fields points to an array. Each of the elements in the array is a separate
 script that will be run in the sequence listed.

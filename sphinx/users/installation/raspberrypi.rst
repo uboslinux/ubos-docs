@@ -12,10 +12,15 @@ you have, consult `this page <http://www.raspberrypi.org/products/>`_.
 #. Download a UBOS boot image from `depot.ubos.net`.
    Beta images for the Raspberry Pi are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
-   Look for a file named ``ubos_yellow_rpi_LATEST.img.xz`` (compressed)
+   Look for a file named ``ubos_yellow_rpi_LATEST.img.xz``.
 
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
-   double-clicking it, or executing ``xz -d ubos_yellow_rpi_LATEST.vmdk.xz``
+   double-clicking it, or executing
+
+   .. code-block:: none
+
+      xz -d ubos_yellow_rpi_LATEST.img.xz
+
    on the command line.
 
 #. Write this image file "raw" to an SD card appropriate for your Raspberry Pi. This
@@ -25,14 +30,12 @@ you have, consult `this page <http://www.raspberrypi.org/products/>`_.
    * :doc:`/users/writing-image/macosx`
    * :doc:`/users/writing-image/linux`
 
-#. Remove the SD card, insert it into your Raspberry PI, connect an Ethernet cable,
-   and plug in the Raspberry Pi power cord.
+#. Remove the SD card and insert it into your Raspberry PI. On first boot, it is recommended
+   you have a monitor and keyboard connected to your Raspberry Pi. Then, plug in the
+   Raspberry Pi's USB power.
 
-   It is recommended you connect a monitor and keyboard to your Raspberry Pi for your
-   first boot.
-
-#. When the boot process is finished, log in as user ``root`` from the console. By
-   default, there is no password on the console.
+#. When the boot process is finished, log in as user ``root`` from the attached keyboard
+   and monitor. By default, there is no password on the console.
 
 #. Now: wait. The Raspberry Pi is not a very fast computer, and UBOS needs to generate
    a few cryptographic keys before it is ready to use. That might take 5 or 10 minutes.
@@ -43,13 +46,17 @@ you have, consult `this page <http://www.raspberrypi.org/products/>`_.
       systemctl is-system-running
 
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
-   your computer should automatically acquire an IP address. You can check with::
+   your computer should automatically acquire an IP address. You can check with:
+
+   .. code-block:: none
 
       > ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
-#. Update the code to the latest and greatest::
+#. Update UBOS to the latest and greatest:
+
+   .. code-block:: none
 
       > ubos-admin update
 

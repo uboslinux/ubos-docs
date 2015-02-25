@@ -24,10 +24,8 @@ To write the image:
      will be mercilessly overwritten.
 
 * In Disk Imager, select the image file you downloaded, and the drive letter you
-  noted earlier. Click "Write".
-
-  This may take 10min or longer, depending on the speed of your USB stick or
-  SD card, so be patient.
+  noted earlier. Click "Write". This may take 10min or longer, depending on the speed of
+  your USB stick or SD card, so be patient.
 
 * When done, for good measure wait for a little bit. Rumor has it some flash drives keep
   writing for some time after the OS thinks they are done. If that is true for your device,

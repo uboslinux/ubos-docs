@@ -23,12 +23,12 @@ To write the image:
      will be mercilessly overwritten.
 
 * Determine the file name of the image you downloaded. Let's assume it is
-  ``~/Downloads/ubos_yellow_x86_64_LATEST.img``. If you downloaded a compressed
+  ``~/Downloads/ubos_yellow_pc_x86_64_LATEST.img``. If you downloaded a compressed
   version, uncompress the file first.
 
 * Write the image using ``dd``, such as::
 
-     > dd if=~/Downloads/ubos_yellow_x86_64_LATEST.img of=/dev/sdx bs=1M
+     > dd if=~/Downloads/ubos_yellow_pc_x86_64_LATEST.img of=/dev/sdx bs=1M
 
   replacing ``/dev/sdx`` with the device name of your USB stick or SD card.
 

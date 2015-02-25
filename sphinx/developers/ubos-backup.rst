@@ -4,11 +4,12 @@ Backup format
 Idea
 ----
 
-The UBOS Backup File Format defines how to store all data and meta-data necessary to
-reconstruct the installation of one or more apps at one or more sites, in a single file.
+The UBOS Backup File Format defines how to store, in a single file, all data and meta-data
+necessary to reconstruct the installation of one or more apps at one or more sites.
 This supports use cases such as backup, restore, archival, checkpointing and many others.
 
-This file format can be defined once, and used by all apps.
+This file format can be defined once in an application-independent manner, and thus can be
+used by all apps.
 
 See also :doc:`/users/backup`.
 

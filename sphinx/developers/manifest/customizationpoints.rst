@@ -4,6 +4,11 @@ Customization points section
 Apps and accessories may defined "customization points", which enable the user to
 configure the app or accessory at deploy time.
 
+If you invoke ``ubos-admin createsite`` and specify an app that declares one or more
+required customization points, you will be asked for values for those customization points.
+(If you specify ``--askForAllCustomizationPoints`` as argument, you will be asked for
+values for all customization points, not just the requires ones.)
+
 Here is an example:
 
 .. code-block:: json

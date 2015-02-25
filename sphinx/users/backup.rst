@@ -8,15 +8,16 @@ To make backup and restore easy, UBOS uses standard ZIP files, with certain addi
 conventions. To distinguish them from arbitrary other ZIP files, UBOS backup files
 typically use the extension ``.ubos-backup``.
 
-You can backup all the data of all the apps installed on your device to a single
-UBOS backup file. Or, you can use separate backup files for each site on your devices.
+With a single command, you can backup all the data of all the apps installed on your device
+to a single UBOS backup file. Or, you can use separate backup files for each site on your devices.
 You can also back up just a single app at a site to a backup file, and backup all
 other apps at the same site to a different backup file.
 
 UBOS keeps track inside the backup file what apps you backed up, and how they were
 configured at the time they were backed up. This makes UBOS backup files essentially
 self-documenting, and makes it possible that backups can be interpreted even at some
-considerable time in the future.
+considerable time in the future: all information required to restore an app to the state
+is was in at the time the backup was created is contained in the UBOS backup file.
 
 The details of the UBOS backup format are
 :doc:`documented for developers </developers/ubos-backup>`.

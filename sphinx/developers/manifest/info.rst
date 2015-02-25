@@ -1,7 +1,7 @@
 Info section
 ------------
 
-The info section is optional but recommended. It contains user-friendly, localized
+The info section in a :doc:`../ubos-manifest` is optional but recommended. It contains user-friendly, localized
 information about the app or accessory. Here is an example:
 
 .. code-block:: json

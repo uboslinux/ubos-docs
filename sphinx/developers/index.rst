@@ -5,8 +5,7 @@ How to develop for UBOS
    :maxdepth: 2
 
    develop-in-virtualbox
-   appsaccessories
-   sitesappconfigurations
+   key-concepts
    toyapps
    understanding-ubos-admin
    ubos-manifest

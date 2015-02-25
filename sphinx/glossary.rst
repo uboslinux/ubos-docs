@@ -31,7 +31,7 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
       * themes or skins that change the graphic layout of Wordpress;
       * a module that requires users to fill out a captcha before they can register
-        for a wiki
+        for a wiki;
       * a module that adds a Facebook Like button to an app.
 
    App configuration
@@ -84,7 +84,7 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
    Device
       Any physical or virtualized computer running UBOS. This could be
-      a Raspberry PI, an x86 server, an instance on Amazon EC2 or a virtual machine
+      a Raspberry Pi, an x86 server, an instance on Amazon EC2 or a virtual machine
       on your desktop with virtualization software such as VirtualBox.
 
    Indie application
@@ -102,6 +102,11 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       product that kept data local and allowed the owner to modify it at will would
       be part of the Indie IoT.
 
+   Multicast DNS (mDNS)
+      The `multicast DNS system <https://en.wikipedia.org/wiki/Multicast_DNS>`_ allows
+      users to use certain human-friendly hostnames (like ``ubos-pc.local``) on local-area
+      networks without having to configure DNS servers.
+
    Network Configuration
       In UBOS, a network configuration is a set of active network interfaces, their
       configuration, and the configuration of associated services such as DNS,
@@ -109,7 +114,8 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
    Package
       A set of code components that logically belong together. For example,
-      the ``wordpress`` package contains all code specific to Wordpress.
+      the ``wordpress`` package contains all code specific to Wordpress, but no code
+      that might also be used by other packages.
 
    Personal server
       A computer that is primarily accessed over the network, and fully owned by the
