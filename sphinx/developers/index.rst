@@ -4,15 +4,17 @@ How to develop for UBOS
 .. toctree::
    :maxdepth: 2
 
+   app-howto
    develop-in-virtualbox
    key-concepts
    toyapps
-   understanding-ubos-admin
    ubos-manifest
    site-json
+   app-test
    buildrelease
    ubos-backup
    logging
-   principles
+   understanding-ubos-admin
    rebuilding
+   principles
    faq

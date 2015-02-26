@@ -1,6 +1,9 @@
 Site JSON
 =========
 
+Overview
+--------
+
 A Site JSON file describes the structure of a site, aka virtual hostname. Generally,
 a Site:
 
@@ -30,6 +33,9 @@ The easiest way of creating a Site JSON file is with the ``createsite`` command:
    > sudo ubos-admin createsite -n
 
 (The ``-n`` flag will only generate and print the Site JSON and not deploy the site)
+
+Structure
+---------
 
 The Site JSON file is a JSON hash with the following entries:
 
@@ -102,6 +108,9 @@ The Site JSON file is a JSON hash with the following entries:
    the installation of an app at a particular context path at a particular site,
    together with any accessories and/or customization parameters that are
    specific to this installation of the app.
+
+AppConfigs
+----------
 
 Each member of the ``appconfigs`` array is a JSON hash with the following entries:
 
