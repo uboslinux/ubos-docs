@@ -226,6 +226,9 @@ Apache2 role
 
 The ``apache2`` role knows additional fields.
 
+Context
+^^^^^^^
+
 Web apps must specify one of the following two fields:
 
 * ``defaultcontext``: the relative URL path at which the app is installed by default.
@@ -235,6 +238,9 @@ Web apps must specify one of the following two fields:
   at any relative URL, but this is the default.
 * ``fixedcontext``: some web apps can only be installed at a particular relative URL,
   or only at the root of a site. Use ``fixedcontext`` to declare that relative URL.
+
+Apache modules
+^^^^^^^^^^^^^^
 
 ``apache2modules`` is a list of names of Apache2 modules that need to be activated before
 the app or accessory can be successfully run. Here is an example:
@@ -251,6 +257,9 @@ UBOS will activate it and restart Apache2 without any further work by the app or
 Note that the ``apache2`` role still needs to declare a dependency on ``php5``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
 
+PHP modules
+^^^^^^^^^^^
+
 ``phpmodules`` is a list of names of PHP modules that need to be activated before
 the app or accessory can be successfully run. Here is an example:
 
@@ -265,3 +274,37 @@ activated; if not, UBOS will activate it and restart Apache2.
 
 Note that the ``apache2`` role still needs to declare a dependency on ``php-gd``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
+
+Robots.txt contribution
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The optional ``robotstxt`` section can be used by apps to insert allowed and disallowed
+paths into a site's ``robots.txt``. The site's ``robots.txt`` file is being generated
+automatically by assembling such fragments, unless a complete ``robots.txt`` has been
+provided by the user in the Site JSON.
+
+The ``robotstxt`` section in the manifest may contain fields ``allow`` and ``disallow``,
+both JSON arrays, which hold the exact string values that will be inserted into the
+generated ``robots.txt`` file.
+
+For example, if an app had this fragment in the ``apache2`` role in its UBOS Manifest JSON:
+
+.. code-block:: json
+
+   "wellknown" : {
+     "robotstxt" : {
+       "disallow" : [
+         "/wp-admin/"
+       ]
+     }
+   }
+
+and if the app was installed at ``http://example.com/blog``, and no other apps at the
+same site had contributions to the generated ``robots.txt`` file, then the generated
+``robots.txt`` file would look like this:
+
+.. code-block:: none
+
+   User-Agent: *
+   Disallow: /blog/wp-admin/
+
