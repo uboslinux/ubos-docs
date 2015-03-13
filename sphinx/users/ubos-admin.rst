@@ -1,23 +1,14 @@
 Command reference
 =================
 
-Summarizes common uses of ``ubos-admin``. To invoke an ``ubos-admin`` sub-command, execute:
+``ubos-admin`` is the central administration command for UBOS.  When invoked without arguments,
+it lists available sub-commands.
+
+To invoke an ``ubos-admin`` sub-command, execute:
 
 .. code-block:: none
 
    > ubos-admin <subcommand> <arguments>
-
-To find all sub-commands, execute:
-
-.. code-block:: none
-
-   > ubos-admin
-
-or
-
-.. code-block:: none
-
-   > ubos-admin --help
 
 To obtain help on a particular sub-command, execute:
 
@@ -25,7 +16,7 @@ To obtain help on a particular sub-command, execute:
 
    > ubos-admin <subcommand> --help
 
-For details how these subcommands work, refer to :doc:`../developers/understanding-ubos-admin`
+For technical details how these sub-commands work, refer to :doc:`../developers/understanding-ubos-admin`
 in :doc:`../developers/index`.
 
 ``ubos-admin backup``

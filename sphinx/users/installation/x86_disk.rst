@@ -46,6 +46,43 @@ log on as root. Then:
 
    and remove your boot stick. UBOS should now be booting.
 
+#. If your screen goes blank during the boot, please refer to
+   `../troubleshooting`.
+
+#. When the boot process is finished, log in as user ``root``. By default, there is no
+   password on the console.
+
+#. Wait until UBOS is ready. You can tell by executing:
+
+   .. code-block:: none
+
+      > systemctl is-system-running
+
+   On the first boot, this may take a while, because UBOS has to generate some cryptographic
+   keys, and Linux is trying very hard to use good random numbers for that purpose. To
+   speed up the process, generate lots of random activity, such as looking through the
+   file system, and typing lots on the keyboard. You only need to do that once, on the
+   first boot.
+
+   Once the system is running, continue.
+
+#. If you have Ethernet plugged in, and your network runs DHCP (most networks do), your
+   computer should automatically acquire an IP address. You can check with:
+
+   .. code-block:: none
+
+      > ip addr
+
+   Make sure you are connected to the internet before attempting to proceed.
+
+#. Update UBOS to the latest and greatest:
+
+   .. code-block:: none
+
+      > ubos-admin update
+
+#. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
+
 Alternate configurations
 ------------------------
 
@@ -78,4 +115,4 @@ and then specify the image file instead of the device:
 
    > ubos-install ubos-image.img
 
-
+If your screen goes blank during the

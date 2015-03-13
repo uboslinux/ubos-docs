@@ -87,6 +87,9 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       a Raspberry Pi, an x86 server, an instance on Amazon EC2 or a virtual machine
       on your desktop with virtualization software such as VirtualBox.
 
+   Flock
+      See :term:`Shepherd`.
+
    Indie application
       A web application that can be installed on hardware, or on a hosting provider
       of the user's choosing. Contrast with a typical website were the user does not
@@ -151,6 +154,14 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       major jumps. This allows user devices to be more up-to-date more of the time,
       and avoids often error-prone major upgrades.
 
+   Shepherd
+      The UBOS shepherd is the person who administers one or more devices running
+      UBOS. These devices are called the flock. The Shepherd uses a USB stick, called
+      the UBOS Staff, to configure the devices in the flock by booting the devices
+      while the Staff has been inserted into the device's USB port. Configuration
+      information picked up by the UBOS device will remain valid until the Shepherd
+      reboots the device with the Staff present again.
+
    Site
       Short for website; all the apps and functionality at the same hostname,
       e.g. virtual host. Sites are referred to by :term:`siteids <siteid>`.
@@ -186,6 +197,9 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       with ``s41``, you can use ``s41...`` as a shorthand.
 
       Many commands also accept the current hostname of the site instead of the siteid.
+
+   Staff
+      See :term:`Shepherd`.
 
    UBOS manifest json
       A JSON file that contains meta-data about an app or accessory beyond the

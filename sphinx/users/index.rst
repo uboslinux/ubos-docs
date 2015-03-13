@@ -12,4 +12,6 @@ How to use UBOS
    backup
    upgrading
    ubos-admin
+   shepherd-staff
    writing-image
+   troubleshooting

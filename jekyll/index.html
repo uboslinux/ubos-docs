@@ -14,10 +14,10 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2015/02/09/ubos-beta2-is-here/">
-   Beta 2 available now<br>for
-   <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" style="margin: 5px 0">
-   and x86 servers (64bit).
+  <a href="/blog/2015/03/13/ubos-beta3-is-out/">
+   Beta 3 now available<br>
+   for x86, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> and
+   <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">
   </a>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
@@ -101,12 +101,18 @@ span.news-meta {
  </div>
 
  <ul class="news-posts">
-{% for post in site.posts limit:3 %}
+{% assign counter = '0' %}
+{% for post in site.posts %}
+{% for cat in post.categories %}
+{% if cat == "hot" and counter < '3' %}
+    {% capture counter %}{{ counter | plus:'1' }}{% endcapture %}
   <li style="margin: 0">
    <span class="news-title">
     <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
    </span>
   </li>
+{% endif %}
+{% endfor %}
 {% endfor %}
  </ul>
  <style>
@@ -213,7 +219,6 @@ Done.</pre>
  <div class="clearer"></div>
 
  <p style="text-align: center; margin-top: 20px">
-    Ready?
-    <a href="{{ "/quickstart/" | prepend: site.baseurl }}">Get started!</a>
+    <a href="{{ "/quickstart/" | prepend: site.baseurl }}" class="get-started-button">Get started!</a>
  </p>
 </div>

@@ -6,8 +6,12 @@ and booting your Raspberry Pi with that card.
 
 Both Raspberry Pi "Model B" and "Model B Plus" are supported out of the box. ("Model A"
 and "Model A Plus" do not have built-in networking, which UBOS requires to install
-new apps.) Support for Raspberry Pi 2 will be coming soon. If you are not sure which model
-you have, consult `this page <http://www.raspberrypi.org/products/>`_.
+new apps.)
+
+If you have a Raspberry Pi 2, go to :doc:`this page <raspberrypi2>`.
+
+If you are not sure which model you have, consult
+`this page <http://www.raspberrypi.org/products/>`_.
 
 #. Download a UBOS boot image from `depot.ubos.net`.
    Beta images for the Raspberry Pi are at
@@ -38,8 +42,8 @@ you have, consult `this page <http://www.raspberrypi.org/products/>`_.
    and monitor. By default, there is no password on the console.
 
 #. Now: wait. The Raspberry Pi is not a very fast computer, and UBOS needs to generate
-   a few cryptographic keys before it is ready to use. That might take 5 or 10 minutes.
-   To determine whether UBOS ready, execute:
+   a few cryptographic keys before it is ready to use and initialize a few other things
+   on the first boot. That might take 5 or 10 minutes. To determine whether UBOS ready, execute:
 
    .. code-block:: none
 

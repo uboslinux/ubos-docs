@@ -57,8 +57,23 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
 #. In the main window, click "Start". The virtual machine should now be booting.
 
-#. When the boot process is finished, UBOS should announce itself on the console.
-   Log in as user ``root``. By default, there is no password on the console.
+#. When the boot process is finished, log in as user ``root``. By default, there is no
+   password on the console.
+
+#. Wait until UBOS is ready. You can tell by executing:
+
+   .. code-block:: none
+
+      > systemctl is-system-running
+
+   On the first boot, this may take a while, because UBOS has to generate some cryptographic
+   keys, and Linux is trying very hard to use good random numbers for that purpose. On VirtualBox,
+   UBOS cheats by generating random numbers using the ``haveged`` package. Virtual machines are
+   notorious for having little available entropy, and without ``haveged``, you'd have to wait
+   far too long until the keys are generated. The downside is that the generated random numbers
+   may be a bit less random; that should only matter to you if you are truly paranoid, however.
+
+   Once the system is running, continue.
 
 #. If you have not changed the VirtualBox default network configuration, and your host computer
    has internet connectivity, your virtual UBOS computer should automatically acquire an IP
