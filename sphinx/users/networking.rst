@@ -45,6 +45,8 @@ UBOS installed on:          Hostname
 PC                          ``ubos-pc.local``
 Virtual PC in VirtualBox    ``ubos-vbox-pc.local``
 Raspberry Pi                ``ubos-raspberry-pi.local``
+Raspberry Pi 2              ``ubos-raspberry-pi2.local``
+Beagle Bone Black           ``ubos-bbb.local``
 =========================== ===============================
 
 So for example, if you run UBOS on a Raspberry Pi, after the Raspberry Pi has booted,
@@ -61,6 +63,17 @@ not need to assign a static IP address to your device.
 
 The disadvantage of using these hostnames is that they only work on the local network,
 and that you cannot run more than one site on the same UBOS device.
+
+If you wish to change your device's mDNS hostname, change its Linux hostname, and restart
+the Avahi daemon. Assuming you would like the new name to be ``mydevice``, you can do this
+by executing the following commands:
+
+.. code-block:: none
+
+   > sudo hostname mydevice
+   > sudo hostname > /etc/hostname
+   > sudo systemctl restart avahi-daemon
+
 
 Non-mDNS (regular) hostnames
 ----------------------------
