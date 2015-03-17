@@ -66,13 +66,13 @@ and that you cannot run more than one site on the same UBOS device.
 
 If you wish to change your device's mDNS hostname, change its Linux hostname, and restart
 the Avahi daemon. Assuming you would like the new name to be ``mydevice``, you can do this
-by executing the following commands:
+by executing the following commands as ``root``:
 
 .. code-block:: none
 
-   > sudo hostname mydevice
-   > sudo hostname > /etc/hostname
-   > sudo systemctl restart avahi-daemon
+   > hostname mydevice
+   > hostname > /etc/hostname
+   > systemctl restart avahi-daemon
 
 
 Non-mDNS (regular) hostnames
