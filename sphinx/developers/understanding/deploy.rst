@@ -39,3 +39,10 @@ If the Site JSON file is valid, UBOS will perform the following steps:
    will be run that were specified by the app and any accessories.
 
 #. The frontpage of the site will be re-enabled.
+
+UBOS uses the ``siteid`` and the ``appconfigid`` fields in the
+:doc:`../site-json` to determine whether a site and/or an AppConfiguration is being newly
+deployed, redeployed or undeployed. This makes it easy to move a site from one hostname to
+another (the Site JSON is the same with the same ``siteid`` and ``appconfigid``, but a
+changed ``hostname``), or to move an app from one context path to another (the
+``appconfigid`` is the same, just the ``context`` is different).
