@@ -12,7 +12,7 @@ Here is a screen shot of the app:
 
 To obtain the source code::
 
-   > git clone https://github.com/indiebox/ubos-toyapps
+   > git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``gladiwashere``.
 

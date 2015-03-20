@@ -4,8 +4,8 @@ description: >
   Indie, Indie Web, Linux, FLOSS, open-source, Personal, Personal Server. Raspberry Pi, Beagle Bone, Atom, Web app, decentralized, private, privacy
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ubos.net" # the base hostname & protocol for your site
-twitter_username: indieboxproject
-github_username:  indiebox
+twitter_username: uboslinux
+github_username:  uboslinux
 
 permalink: /blog/:year/:month/:day/:title
 paginate: 10

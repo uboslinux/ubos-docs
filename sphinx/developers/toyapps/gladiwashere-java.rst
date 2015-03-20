@@ -17,7 +17,7 @@ To obtain the source code:
 
 .. code-block:: none
 
-   > git clone https://github.com/indiebox/ubos-toyapps
+   > git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``gladiwashere-java``.
 

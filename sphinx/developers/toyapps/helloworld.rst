@@ -9,7 +9,7 @@ for UBOS. Here is a complete :-) screen shot:
 
 To obtain the source code::
 
-   > git clone https://github.com/indiebox/ubos-toyapps
+   > git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``helloworld``.
 
@@ -22,7 +22,7 @@ and undeploys the app contained in the package:
 
 #. The developer creates the files for the package. If you have cloned the git repository above,
    you find the files for ``helloworld`` in directory ``helloworld``; or you can browse
-   them `on github <https://github.com/indiebox/ubos-toyapps/tree/master/helloworld>`_. They are,
+   them `on github <https://github.com/uboslinux/ubos-toyapps/tree/master/helloworld>`_. They are,
    in alphabetical sequence:
 
    * ``appicons``: icon files (optional)

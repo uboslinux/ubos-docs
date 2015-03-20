@@ -14,6 +14,6 @@ you need to take:
 
 #. Test that your app plays nicely on UBOS with :doc:`webapptest <app-test>`.
 
-#. Augment the list of UBOS build files `here <https://github.com/indiebox/ubos-buildconfig/tree/master/config/hl/us>`_,
+#. Augment the list of UBOS build files `here <https://github.com/uboslinux/ubos-buildconfig/tree/master/config/hl/us>`_,
    and file a pull request, so your app gets built and tested by the official UBOS build.
 

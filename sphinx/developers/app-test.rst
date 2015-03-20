@@ -10,7 +10,7 @@ to a new version. We do not ever want to ask a user to "fix the app installation
 if we can help it.
 
 To aid in testing this, we use a tool called ``webapptest`` (source is
-`here <https://github.com/indiebox/ubos-tools/tree/master/webapptest>`_), which has been
+`here <https://github.com/uboslinux/ubos-tools/tree/master/webapptest>`_), which has been
 written specifically for this purpose. ``webapptest`` is not a regular application testing tool;
 it is not intended to find out whether, say, your app runs nicely in Internet Explorer.
 Instead, it focuses on testing installation, uninstallation, backup and restore; something
@@ -25,7 +25,7 @@ To test the Glad-I-Was-Here toy application with all the default settings, run:
 
    > webapptest run GladIWasHereTest1.pm
 
-(see `GladIWasHereTest1.pm here <https://github.com/indiebox/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_)
+(see `GladIWasHereTest1.pm here <https://github.com/uboslinux/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_)
 
 This will go through a series of steps deploying ``gladiwashere`` on your local device,
 interacting with the app by filling out a guestbook entry, backing up the app data,
@@ -73,7 +73,7 @@ Test description
 ----------------
 
 To define a test for webapptest, follow the example in
-`GladIWasHereTest1.pm <https://github.com/indiebox/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_.
+`GladIWasHereTest1.pm <https://github.com/uboslinux/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_.
 
 The essence of the test description is a series of states and transitions between. The
 states are states (with different data) that the application can be in. In ``GladIWasHereTest1``,
@@ -93,4 +93,4 @@ The essence of the test are the ``getMustContain`` and similar statements in the
 the location at which the app was installed), and make sure that the received content
 contains a certain pattern. If not, it will print the provided error message.
 
-The full API is `here <https://github.com/indiebox/ubos-tools/blob/master/webapptest/vendor_perl/UBOS/WebAppTest/TestContext.pm>`_.
+The full API is `here <https://github.com/uboslinux/ubos-tools/blob/master/webapptest/vendor_perl/UBOS/WebAppTest/TestContext.pm>`_.

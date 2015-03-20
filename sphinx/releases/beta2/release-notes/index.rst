@@ -32,7 +32,7 @@ New features
     migration tool upon upgrades.
 
 * Lots of more pre-release tests, including a
-  `suite of workouts <https://github.com/indiebox/ubos-workout>`_, more tests for the
+  `suite of workouts <https://github.com/uboslinux/ubos-workout>`_, more tests for the
   apps, and more test plans including tests for the correct generation of things such
   as ``robots.txt``.
 
@@ -99,9 +99,9 @@ For developers
 * There's a new example app for how to run a Java webapp under Tomcat, with an Apache
   reverse proxy in front so users don't have to use a different port number. (It's real easy!)
   This example app is called
-  `gladiwashere-java <https://github.com/indiebox/ubos-toyapps/tree/master/gladiwashere-java>`_
+  `gladiwashere-java <https://github.com/uboslinux/ubos-toyapps/tree/master/gladiwashere-java>`_
   and is a direct port of the equivalent php example app
-  `gladiwashere <https://github.com/indiebox/ubos-toyapps/tree/master/gladiwashere>`_.
+  `gladiwashere <https://github.com/uboslinux/ubos-toyapps/tree/master/gladiwashere>`_.
 
 * ``ubos-admin update`` now can limits its updates to a list of local packages. This is
   very convenient for the developer of a package.
@@ -125,9 +125,9 @@ Known issues
 
 * On VirtualBox, ``cloud-init`` produces many messages (including apparent errors and
   warnings) on the console. These are harmless, but annoying. See
-  https://github.com/indiebox/ubos-admin/issues/22.
+  https://github.com/uboslinux/ubos-admin/issues/22.
 
 * Wildcard sites incorrectly redirect to https when TLS is used, see
-  `bug report <https://github.com/indiebox/ubos-admin/issues/42>`_.
+  `bug report <https://github.com/uboslinux/ubos-admin/issues/42>`_.
 
 `Last updated: 2015-02-09 16:30 PST`

@@ -112,15 +112,15 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
    Now, the UBOS tools. For that, we use git::
 
-      buildmaster> mkdir -p ~/git/github.com/indiebox
-      buildmaster> cd ~/git/github.com/indiebox
-      buildmaster> git clone https://github.com/indiebox/ubos-buildconfig
+      buildmaster> mkdir -p ~/git/github.com/uboslinux
+      buildmaster> cd ~/git/github.com/uboslinux
+      buildmaster> git clone https://github.com/uboslinux/ubos-buildconfig
 
 #. Now we can build. This will install a few more tools as part of the process.
    Make sure to enter the backslashes as the last character in the line, or leave out
    the backslashes and do not break the line::
 
-      buildmaster> cd ~/git/github.com/indiebox/ubos-buildconfig
+      buildmaster> cd ~/git/github.com/uboslinux/ubos-buildconfig
       buildmaster> make -f Makefile.dev \
            IMPERSONATEDEPOT= \
            code-is-current build-packages
@@ -131,7 +131,7 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
 #. To create boot images, continue by executing the following command::
 
-      buildmaster> cd ~/git/github.com/indiebox/ubos-buildconfig
+      buildmaster> cd ~/git/github.com/uboslinux/ubos-buildconfig
       buildmaster> make -f Makefile.dev \
            IMPERSONATEDEPOT= \
            code-is-current build-images
