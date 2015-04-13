@@ -76,7 +76,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
        "mysql" : {
          "appconfigitems" : [
            {
-             "type"             : "mysql-database",
+             "type"             : "database",
              "name"             : "maindb",
              "retentionpolicy"  : "keep",
              "retentionbucket"  : "maindb",
@@ -124,7 +124,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
 * The third item creates a symbolic link, which is also possible.
 
 * This app also uses role ``mysql``. It requires a database (an ``appconfigitem`` of
-  type ``mysql-database`` whose symbolic name is ``maindb``. This symbolic name will
+  type ``database`` whose symbolic name is ``maindb``. This symbolic name will
   be replaced with an actual provisioned database name; in the previous bullet it
   was replaced with ``somedbname``. A user will be provisioned for the database
   automatically, with the specified privileges.

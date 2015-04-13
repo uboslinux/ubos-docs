@@ -76,7 +76,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
         "mysql" : {
                "appconfigitems" : [
                    {
-                       "type"             : "mysql-database",
+                       "type"             : "database",
                        "name"             : "maindb",
                        "retentionpolicy"  : "keep",
                        "retentionbucket"  : "maindb",

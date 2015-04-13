@@ -80,7 +80,7 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
       buildmaster> sudo pacman -S --noconfirm base-devel libaio php git perl-lchown \
           perl-json perl-log-log4perl cronie ntp btrfs-progs mariadb perl-dbi perl-dbd-mysql \
           perl-archive-zip apache mod_wsgi2 perl-www-curl parted dosfstools arch-install-scripts \
-          rsync perl-http-date maven polkit
+          rsync perl-http-date maven polkit python2-setuptools
 
    If you are on an x86_64 host, you also need to::
 
