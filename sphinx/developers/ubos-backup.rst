@@ -163,7 +163,7 @@ appconfigid ``a4444444444333333333322222222221111111111``).
 Assume also that it declares that it wishes the database to be backed up, like this::
 
    {
-       "type"            : "mysql-database",
+       "type"            : "database",
        "name"            : "maindb",
        "retention"       : "backup",
        "retentionbucket" : "maindb.mysqldump",
