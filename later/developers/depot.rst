@@ -1,2 +1,0 @@
-UBOS Software Depot
-===================

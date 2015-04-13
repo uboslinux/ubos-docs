@@ -54,6 +54,13 @@ Follow these steps:
    file system, and typing lots on the keyboard. You only need to do that once, on the
    first boot.
 
+   To speed up the key generation process, at the potential loss of some entropy,
+   execute:
+
+   .. code-block:: none
+
+      > systemctl start haveged
+
    Once the system is running, continue.
 
 #. If you have Ethernet plugged in, and your network runs DHCP (most networks do), your

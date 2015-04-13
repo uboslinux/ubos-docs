@@ -1,2 +1,0 @@
-UBOS file system layout
-=======================

@@ -157,9 +157,10 @@ the next without impacting backups.
 MySQL database content
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Assume that a UBOS Manifest JSON file declares a MySQL database as one of its AppConfiguration
-items (application package ``myapp``, siteid ``s1111111111222222222233333333334444444444``,
-appconfigid ``a4444444444333333333322222222221111111111``).
+Assume that a UBOS Manifest JSON file declares a database as one of its AppConfiguration
+items in the ``mysql`` role (application package ``myapp``, siteid
+``s1111111111222222222233333333334444444444``, appconfigid
+``a4444444444333333333322222222221111111111``).
 Assume also that it declares that it wishes the database to be backed up, like this::
 
    {
@@ -173,6 +174,31 @@ Assume also that it declares that it wishes the database to be backed up, like t
 Then, upon backup, the content of the MySQL database will be exported by UBOS with the
 ``mysqldump`` tool to a file called ``maindb.mysqldump`` in directory
 ``appconfigs/a4444444444333333333322222222221111111111/myapp/mysql/`` in the backup
+ZIP file.
+
+Note that the filename in the ZIP file comes from the ``retentionbucket`` field in the
+UBOS manifest, not from the name field or the name of the application.
+
+Postgresql database content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Assume that a UBOS Manifest JSON file declares a database as one of its AppConfiguration
+items in the ``postgresql`` role (application package ``myapp``, siteid
+``s1111111111222222222233333333334444444444``, appconfigid
+``a4444444444333333333322222222221111111111``).
+Assume also that it declares that it wishes the database to be backed up, like this::
+
+   {
+       "type"            : "database",
+       "name"            : "maindb",
+       "retention"       : "backup",
+       "retentionbucket" : "maindb.dump",
+       ...
+   }
+
+Then, upon backup, the content of the Postgresql database will be exported by UBOS with the
+``pg_dump`` tool to a file called ``maindb.dump`` in directory
+``appconfigs/a4444444444333333333322222222221111111111/myapp/postgresql/`` in the backup
 ZIP file.
 
 Note that the filename in the ZIP file comes from the ``retentionbucket`` field in the

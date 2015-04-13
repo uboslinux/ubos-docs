@@ -4,7 +4,7 @@ Site JSON
 Overview
 --------
 
-A Site JSON file describes the structure of a site, aka virtual hostname. Generally,
+A Site JSON file describes the structure of a site, aka virtual host. Generally,
 a Site:
 
 * has a certain hostname, such as ``family.example.com``, or ``*`` if the site
@@ -30,7 +30,7 @@ included.
 
 The easiest way of creating a Site JSON file is with the ``createsite`` command::
 
-   > sudo ubos-admin createsite -n
+   > sudo ubos-admin createsite -n -o newsite.json
 
 (The ``-n`` flag will only generate and print the Site JSON and not deploy the site)
 
@@ -123,7 +123,7 @@ Each member of the ``appconfigs`` array is a JSON hash with the following entrie
    For example, if you want to run Wordpress at ``http://example.org/blog``, the
    context path would be ``/blog`` (no trailing slash). If you want to run an app
    at the root of the site, specify an empty string. If this field is not provided,
-   UBOS will use the default context from the :doc:`ubos-manifest`.
+   UBOS will use the app's default context from the :doc:`ubos-manifest`.
 
 ``isdefault`` (optional)
    If provided, the value must be boolean ``true``. This instructs UBOS to automatically

@@ -1,9 +1,9 @@
-Glad-I-Was-Here (PHP)
-=====================
+Glad-I-Was-Here (PHP, MySQL)
+=================================
 
-Glad-I-Was-Here is a slightly more complex "guestbook" web application that uses a MySQL database
-to store the guestbook entries. If you have not already read through the :doc:`helloworld` app
-documentation, we recommend you do so first.
+Compared to :doc:`helloworld`, Glad-I-Was-Here is a slightly more complex "guestbook" web application
+that uses a MySQL database to store the guestbook entries. If you have not already read through
+the :doc:`helloworld` app documentation, we recommend you do so first.
 
 We use Glad-I-Was-Here to illustrate how to package web apps for UBOS that use a MySQL database.
 Here is a screen shot of the app:
@@ -44,8 +44,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
          "defaultcontext" : "/guestbook",
          "depends" : [
            "php",
-           "php-apache",
-           "php-gd"
+           "php-apache"
          ],
          "apache2modules" : [
            "php5"
@@ -137,3 +136,6 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
   after upgrades), a script of type ``sqlscript`` needs to be run whose source can
   be found at ``/usr/share/gladiwashere/sql/create.sql``. This script initializes
   the schema of the database.
+
+Visit :doc:`gladiwashere-postgresql` for a version of this app that uses Postgresql,
+and :doc:`gladiwashere-java` for one that uses Java.

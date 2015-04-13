@@ -23,6 +23,12 @@ Invoking this command will:
      packages and application packages. This step is equivalent (and in fact uses
      ``pacman -Syu``)
 
+#. Apply a heuristic whether or not the device should be rebooted. For example, if the
+   Linux kernel has been upgraded, a reboot is typically necessary. This heuristic can
+   be overridden with command-line flags to ``ubos-admin update``. If the device is to
+   be rebooted, it will be rebooted in this step. The remaining steps will be executed
+   automatically after the reboot.
+
 #. Restore all sites with all apps and accessories from the previously made backup,
    but with the most recent code version.
 

@@ -55,14 +55,19 @@ table#platforms img {
 
 <h2>Install one or more apps</h2>
 
-<p>Once booted, log in from the console as root. To install any app:</p>
+<p>Once booted, log in from the console as root, or via ssh using the
+   <a href="/docs/users/shepherd-staff.html">UBOS staff</a>. To install any app:</p>
 <pre># ubos-admin createsite</pre>
 <p>and answer the questions.
-   <a href="/blog/2014/11/24/ubos-beta1-available/">This post</a> has the list of
+   <a href="/docs/releases/beta4/apps/">Here</a> is the list of
    currently available apps.</p>
 
 <p>To show installed apps and at which virtual hosts they run:</p>
 <pre># ubos-admin listsites</pre>
+
+<p>To upgrade operating system, middleware, all installed apps, and perform any
+   necessary data migrations and/or reboots:</p>
+<pre># ubos-admin update</pre>
 
 <p>To remove all apps at a virtual host, and the site itself:</p>
 <pre># ubos-admin undeploy --host <i>hostname</i></pre>

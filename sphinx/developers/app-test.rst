@@ -41,6 +41,7 @@ execute:
    default            - Walks through all States and Transitions, and attempts to backup and restore each State.
    deploy-only        - Only tests whether the application can be installed.
    deploy-update      - Tests whether the application can be installed and updated.
+   redeploy           - Tests that the application can be re-deployed after install at different hostnames.
    restore-all-states - Restores from a local backup file for each State, and tests upgrade.
    simple             - Walks through all States and Transitions in sequence.
    well-known         - Walks twice through all States and Transitions in sequence, checking well-known site fields only.

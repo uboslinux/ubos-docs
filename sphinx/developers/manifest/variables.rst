@@ -81,31 +81,61 @@ packaging their apps or accessories for UBOS:
    Example: ``/var/lib/wordpress/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
 ``${appconfig.mysql.dbhost.maindb}``
-   Database host for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Database host for the MySQL database whose symbolic name in the Manifest JSON is ``maindb``.
    Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``localhost``
 
 ``${appconfig.mysql.dbname.maindb}``
-   Actual name of the database whose symbolic name in the manifest JSON
+   Actual name of the MySQL database whose symbolic name in the manifest JSON
    is ``maindb``. Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``database477``
 
 ``${appconfig.mysql.dbport.maindb}``
-   Database port for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Database port for the MySQL database whose symbolic name in the Manifest JSON is ``maindb``.
    Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``3306``
 
 ``${appconfig.mysql.dbuser.maindb}``
-   Database user for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Database user for the MySQL database whose symbolic name in the Manifest JSON is ``maindb``.
    Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``fred``
 
 ``${appconfig.mysql.dbusercredential.maindb}``
-   Database password for the database whose symbolic name in the Manifest JSON is ``maindb``.
+   Database password for the MySQL database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``n0ts0s3cr3t``
+
+``${appconfig.postgresql.dbhost.maindb}``
+   Database host for the Postgresql database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``localhost``
+
+``${appconfig.postgresql.dbname.maindb}``
+   Actual name of the Postgresql database whose symbolic name in the manifest JSON
+   is ``maindb``. Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``database477``
+
+``${appconfig.postgresql.dbport.maindb}``
+   Database port for the Postgresql database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``3306``
+
+``${appconfig.postgresql.dbuser.maindb}``
+   Database user for the Postgresql database whose symbolic name in the Manifest JSON is ``maindb``.
+   Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``fred``
+
+``${appconfig.postgresql.dbusercredential.maindb}``
+   Database password for the Postgresql database whose symbolic name in the Manifest JSON is ``maindb``.
    Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``n0ts0s3cr3t``

@@ -14,8 +14,8 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2015/03/13/ubos-beta3-is-out/">
-   Beta 3 now available<br>
+  <a href="/blog/2015/04/13/ubos-beta4-is-out/">
+   Beta 4 now available<br>
    for x86, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> and
    <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">
   </a>
@@ -133,7 +133,7 @@ p.feeds {
 <style>
 div.apps img {
     float: left;
-    margin: 10px 10px 0 50px;
+    margin: 10px 10px 0 35px;
 }
 div.apps p {
     float: right;
@@ -143,23 +143,29 @@ div.apps p {
 </style>
 <div class="section apps">
  <div class="section-header"><span>APPS</span></div>
- <a href="http://owncloud.org/" title="Owncloud: Your cloud, your data, your way!">
+ <a href="http://owncloud.org/" title="Owncloud: your cloud, your data, your way!">
   <img src="{{ "/images/owncloud-72x72.png"  | prepend: site.baseurl }}" alt="[ownCloud]">
  </a>
- <a href="http://wordpress.org/" title="Blog tools, publishing platform, and CMS">
+ <a href="http://mediagoblin.org/" title="Mediagoblin: free software media publishing platform">
+  <img src="{{ "/images/mediagoblin-72x72.png"  | prepend: site.baseurl }}" alt="[Mediagoblin]">
+ </a>
+ <a href="http://wordpress.org/" title="Wordpress: blog tools, publishing platform, and CMS">
   <img src="{{ "/images/wordpress-72x72.png" | prepend: site.baseurl }}" alt="[Wordpress]">
  </a>
- <a href="http://mediawiki.org/" title="The wiki that Wikipedia runs on">
+ <a href="http://mediawiki.org/" title="Mediawiki: the wiki that Wikipedia runs on">
   <img src="{{ "/images/mediawiki-72x72.png" | prepend: site.baseurl }}" alt="[Mediawiki]">
  </a>
- <a href="http://selfoss.aditu.de/" title="The new multipurpose rss reader, live stream, mashup, aggregation web application">
+ <a href="http://selfoss.aditu.de/" title="Selfoss: multipurpose rss reader, live stream, mashup, aggregation web application">
   <img src="{{ "/images/selfoss-72x72.png"   | prepend: site.baseurl }}" alt="[Selfoss]">
  </a>
- <a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli" title="Your own URL shortener">
+ <a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli" title="Shaarli: your own URL shortener">
   <img src="{{ "/images/shaarli-72x72.png"   | prepend: site.baseurl }}" alt="[Shaarli]">
  </a>
- <a href="http://withknown.com/" title="Publishing platform for everyone">
+ <a href="http://withknown.com/" title="Known: publishing platform for everyone">
   <img src="{{ "/images/idno-72x72.png"      | prepend: site.baseurl }}" alt="[Known]">
+ </a>
+ <a href="http://webtrees.net/" title="Webtrees: collaborative genealogy application">
+  <img src="{{ "/images/webtrees-72x72.png"  | prepend: site.baseurl }}" alt="[Webtrees]">
  </a>
 <p class="sidenote">More apps coming. <a href="https://github.com/uboslinux/apps-wanted/issues">Request.</a></p>
 </div>
@@ -200,7 +206,7 @@ div.howto pre {
   <h2>Install an app</h2>
   <pre># ubos-admin createsite
 App: <i>owncloud</i>
-Host: <i>family.home.com</i></pre>
+Host: <i>ubos-pc.local</i></pre>
   <p>Code installed, database provisioned, virtual host configured...</p>
  </div>
  <div class="howtoitem">

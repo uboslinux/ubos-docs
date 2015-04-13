@@ -68,7 +68,8 @@ at different virtual hosts), package managers are not able to help at all. Certa
 also don't help with backups, restores, SSL configuration and many other administration
 tasks that UBOS helps automate.
 
-P.S. We build on ``pacman`` and each UBOS package is a valid pacman package.
+P.S. We build on ``pacman`` (the Arch Linux package manager) and each UBOS package is a
+valid pacman package.
 
 Doesn’t puppet / chef / ansible etc. do this already?
 -----------------------------------------------------

@@ -16,6 +16,7 @@ If the Site JSON file is valid, UBOS will perform the following steps:
    * packages listed in the ``depends`` section of the
      :doc:`manifest JSONs <../ubos-manifest>` of the
      apps and accessories, for those roles that are being used on the device.
+   * the database engine(s) required for the app, if not already installed.
 
 #. If the site has previously been deployed, the site will be suspended, and
    the data of all the apps and accessories at the site will temporarily be backed up.

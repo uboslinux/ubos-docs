@@ -17,5 +17,6 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/setnetconfig
    understanding/showappconfig
    understanding/showsite
+   understanding/status
    understanding/undeploy
    understanding/update
