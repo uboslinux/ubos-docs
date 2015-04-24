@@ -143,3 +143,8 @@ div.toctree-wrapper li li {
 table.docutils {
     width: 100%;
 }
+ul.pagination li {
+    display: inline;
+    margin: 0 10px;
+    list-style: none;
+}
