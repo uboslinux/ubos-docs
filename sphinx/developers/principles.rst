@@ -24,6 +24,7 @@ Software
 * Make sure developers of different apps do not step of each other's feet, even if
   they aren't aware of each other.
 * Users expect port 80 and port 443. Don't use other ports where users can see them.
+* Let users pick domain names and paths; many users feel strongly about that.
 * Administration via ssh instead of device agents. It's easier to bootstrap and maintain.
 * The primary user interface is shell commands.
 * Use Linux package management (i.e. ``pacman``) wherever possible.

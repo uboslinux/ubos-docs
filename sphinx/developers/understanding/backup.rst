@@ -20,7 +20,7 @@ following actions:
      "retentionbucket" : "name"
 
   Each of the AppConfigurationItems with these two fields will be backed up. All other
-  AppConfiguration items will be ignored.
+  AppConfiguration items will be ignored for the purposes of backup.
 
 * The actual backup performed depends on the type of AppConfigurationItem. For example,
   a MySQL database will be dumped, and the resulting dump will be backed up.

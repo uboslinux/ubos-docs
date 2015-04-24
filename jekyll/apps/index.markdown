@@ -63,3 +63,8 @@ Some apps already have some accessories, which you may or may not want to instal
 
  * **Jenkins plugins**: `jenkins-plugin-git`, `jenkins-plugin-git-client`, and `jenkins-plugin-scm-api`
    for Git integration.
+
+<br>
+
+And there are a few toy/demo and utility apps as well, including an app that simply redirects
+(app `redirect`), which sometime is handy.

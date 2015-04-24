@@ -40,6 +40,27 @@ Perl fragments typically look like this:
    # potentially more possible values of $operation
    1;
 
+The meaning of the ``$operation`` is as follows:
+
+* ``deploy``: applies to Perl scripts that are declared as an AppConfigurationItem. Invoked
+  when the AppConfigurationItem is deployed as part of the deployment or redeployment
+  of an app to a site.
+* ``undeploy`` the reverse operation of ``deploy``. It applies to Perl scripts that are
+  declared as an AppConfigurationItem. Invoked when the AppConfigurationItem is undeployed
+  as part of the undeployment of an app from a site.
+* ``install``: applies to Perl scripts that are declared as an ``installer`` in the manifest.
+  Invoked when an app is deployed or redeployed to a site, after all the AppConfigurationItems
+  have been deployed, but only if no data is to be restored (i.e. it is a virgin install).
+* ``upgrade``: applies to Perl scripts that are declared as an ``updater`` in the manifest.
+  Invoked when an app is deployed or redeployed to a site, after all the AppConfigurationItems
+  have been deployed, but only if backup data is to be restored (i.e. it is a restore or
+  upgrade, rather than a virgin install).
+* * ``uninstall``: applies to Perl scripts that are declared as an ``installer`` in the manifest.
+  Invoked when an app is undeployed from a site, before all the AppConfigurationItems
+  have been undeployed.
+
+The same Perl script may be used to handle server of these operations.
+
 For an example, refer to ``initialize.pl`` and ``upgrade.pl`` in the Wordpress package for UBOS.
 Source code is `here <https://github.com/uboslinux/ubos-wordpress/blob/master/wordpress/bin>`_.
 

@@ -1,7 +1,8 @@
 Hello World
 ===========
 
-Hello World is an extremely simple Web applications that that just prints Hello World.
+Hello World is an extremely simple Web applications that that just displays Hello World
+in a user's web browser.
 We use it to give you a taste for what is involved to package a real web application
 for UBOS. Here is a complete :-) screen shot:
 

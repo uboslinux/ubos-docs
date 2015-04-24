@@ -32,7 +32,7 @@ Accessories
 
 UBOS also supports what we call accessories. An accessory is a software module that adds
 to or modifies the functionality of an app. Accessories cannot be used on their own, without
-an app that the belong to.
+an app that they belong to.
 
 Outside of UBOS, accessories have a variety of names including plugins, themes, skins, extensions,
 add-ons and the like. We use the term "accessory" as a consistent, common term for all of those.
@@ -49,8 +49,8 @@ an installable UBOS package is largely the same for apps and accessories.
 Sites and AppConfigurations
 ---------------------------
 
-In UBOS terminology, a site is the collection of apps (and, optionally, accessories) that
-run at the same DNS hostname. Several sites may run on the same device. We call each
+In UBOS terminology, a "site" is the collection of apps (and, optionally, accessories) that
+run at the same DNS hostname. Several such sites may run on the same device. We call each
 installation of an app (and, optionally, its accessories and values for customization points)
 an AppConfiguration.
 
@@ -60,7 +60,7 @@ and the apps and AppConfigurations on each site. (It leaves out accessories.)
 .. table:: Device, sites and AppConfigurations
 
    +-----------------------------------------------------+
-   | Apache (listening on port 80 and 443)               |
+   | Apache (listening on either port 80 or 443)         |
    +========================+============================+
    | Site 1: example.com    | Site 2: example.net        |
    +------------------------+----------------------------+

@@ -33,7 +33,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
 ``gladiwashere``'s, with the following differences:
 
 * It declares a different ``defaultcontext`` so you can run both the MySQL and the
-  Postgresql version of this app at the same time on the same device.
+  Postgresql version of this app at the same time on the same device with the defaults.
 
 * It specifies the ``postgresql`` role instead of the ``mysql`` role, to use
   Postgresql instead of MySQL.
@@ -100,9 +100,9 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
    }
 
 * ``phpmodules`` lists the PHP modules that the app requires. In this case, it needs
-  Postgresql drivers.
+  Postgresql drivers, and not MySQL drivers.
 
-* My specifying the role ``postgresql`` instead of ``mysql`` in the lower part of
+* By specifying the role ``postgresql`` instead of ``mysql`` in the lower part of
   the manifest file, UBOS knows that the database to be provisioned (and backed up,
   restored etc.) is supposed to be a Postgresql database.
 

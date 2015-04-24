@@ -6,8 +6,8 @@ The Java version of Glad-I-Was-Here is functionally equivalent to the
 runs under Tomcat. If you have not already read through the :doc:`PHP version <gladiwashere>`
 of Glad-I-Was-Here, we recommend you do so first.
 
-From a user perspective, the technology used to implement a particular application
-is totally irrelevant. We cannot require the user to access, say, Java apps at
+From a user perspective, the technology used to implement a particular application that runs
+on UBOS is totally irrelevant. We cannot require the user to access, say, Java apps at
 a different port number than other apps installed on the same device. Because of that,
 Java apps on UBOS are usually configured with Apache as a reverse proxy in front of
 the Tomcat application server. Apache takes incoming requests at port 80 or 443, and

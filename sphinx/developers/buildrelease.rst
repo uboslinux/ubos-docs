@@ -10,7 +10,8 @@ The following diagram shows the UBOS build and release process graphically:
 
 UBOS is a derivative of :term:`Arch Linux`. As the Arch Linux project releases
 new :term:`packages <package>`, the :ref:`subset <faq_arch_ubos_rel>` relevant to UBOS is
-staged in the UBOS ``dev`` channel.
+staged in the UBOS ``dev`` channel. We do this for each architecture, including `x86_64`,
+`armv6`, `armv7` and so forth.
 
 Other packages that are part of UBOS but not (currently) part of Arch Linux, are also
 staged in the ``dev`` channel. This includes:

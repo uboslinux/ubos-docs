@@ -9,7 +9,7 @@ their data can be reliably backed up, restored, and migrated when your app moves
 to a new version. We do not ever want to ask a user to "fix the app installation" manually
 if we can help it.
 
-To aid in testing this, we use a tool called ``webapptest`` (source is
+To aid in testing this, we use a test tool called ``webapptest`` (source is
 `here <https://github.com/uboslinux/ubos-tools/tree/master/webapptest>`_), which has been
 written specifically for this purpose. ``webapptest`` is not a regular application testing tool;
 it is not intended to find out whether, say, your app runs nicely in Internet Explorer.
@@ -76,7 +76,7 @@ Test description
 To define a test for webapptest, follow the example in
 `GladIWasHereTest1.pm <https://github.com/uboslinux/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_.
 
-The essence of the test description is a series of states and transitions between. The
+The essence of the test description is a series of states and transitions between them. The
 states are states (with different data) that the application can be in. In ``GladIWasHereTest1``,
 those are:
 

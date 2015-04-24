@@ -3,7 +3,7 @@
 
 See also :doc:`../../users/ubos-admin`.
 
-If the Site JSON file is valid, UBOS will perform the following steps:
+If the Site JSON file provided to this command is valid, UBOS will perform the following steps:
 
 #. Install required packages that haven't been installed yet. This includes:
 

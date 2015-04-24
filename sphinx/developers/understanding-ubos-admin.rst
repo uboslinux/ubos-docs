@@ -13,6 +13,7 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/listnetconfigs
    understanding/listnics
    understanding/listsites
+   understanding/read-configuration-from-staff
    understanding/restore
    understanding/setnetconfig
    understanding/showappconfig
@@ -20,3 +21,4 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/status
    understanding/undeploy
    understanding/update
+   understanding/write-configuration-to-staff

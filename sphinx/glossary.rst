@@ -14,12 +14,12 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       presented using a web browser. Some examples for UBOS apps are:
 
       * ​Wordpress (blogging and publishing)
-      * A house monitoring application
+      * A house monitoring application, accessible over http or https.
 
       Apps can generally be installed more than one on the same device, in
       multiple :term:`app configurations <App configuration>`. Middleware components
       (e.g. databases) are not considered apps because the user generally does not
-      directly interact with it.
+      directly interact with them.
 
    Accessory
       An accessory on UBOS is a software module that adds to or modifies the

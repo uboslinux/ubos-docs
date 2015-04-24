@@ -32,7 +32,8 @@ The easiest way of creating a Site JSON file is with the ``createsite`` command:
 
    > sudo ubos-admin createsite -n -o newsite.json
 
-(The ``-n`` flag will only generate and print the Site JSON and not deploy the site)
+(The ``-n`` flag will only generate the Site JSON and not deploy the site; the
+``-o newsite.json`` flag will save the generated Site JSON to file ``newsite.json``.)
 
 Structure
 ---------
