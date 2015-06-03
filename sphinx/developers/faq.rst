@@ -1,6 +1,8 @@
 Developer FAQ
 =============
 
+(See also the :doc:`user FAQ <../users/faq>`.)
+
 Why is it called UBOS?
 ----------------------
 

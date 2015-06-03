@@ -15,3 +15,4 @@ How to use UBOS
    shepherd-staff
    writing-image
    troubleshooting
+   faq
