@@ -140,17 +140,17 @@ packaging their apps or accessories for UBOS:
 
    Example: ``n0ts0s3cr3t``
 
-``${appconfig.tomcat7.contextfile}``
-   The name of the Tomcat7 context configuration file which may be written
+``${appconfig.tomcat8.contextfile}``
+   The name of the Tomcat8 context configuration file which may be written
    by this app configuration.
 
-   Example: ``/etc/tomcat7/Catalina/example.com/ROOT.xml``
+   Example: ``/etc/tomcat8/Catalina/example.com/ROOT.xml``
 
-``${appconfig.tomcat7.dir}``
+``${appconfig.tomcat8.dir}``
    The directory in which Tomcat requires this app configuration's application server
    files. No trailing slash.
 
-   Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
+   Example: ``/var/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
 ``${host.tmpdir}``
    Name of a directory in which to create temporary files. By using this symbolic
@@ -251,22 +251,22 @@ packaging their apps or accessories for UBOS:
 
    Example: ``s753ca4a344f56c38aad05172dee6a53f6647af62``
 
-``${site.tomcat7.contextdir}``
+``${site.tomcat8.contextdir}``
    The Tomcat context directory for this site. No trailing slash.
 
-   Example: ``/etc/tomcat7/Catalina/ubos.example.org``
+   Example: ``/etc/tomcat8/Catalina/ubos.example.org``
 
-``${tomcat7.gname}``
+``${tomcat8.gname}``
     Name of the Linux group used for running the Tomcat application server.
     This is convenient for setting ownership of files.
 
-    Example: ``tomcat7``
+    Example: ``tomcat8``
 
-``${tomcat7.uname}``
+``${tomcat8.uname}``
     Name of the Linux user account used for running the Tomcat application server.
     This is convenient for setting ownership of files.
 
-    Example: ``tomcat7``
+    Example: ``tomcat8``
 
 Other variables
 ---------------
@@ -323,13 +323,13 @@ and thus discouraged.
 
    Example: ``/etc/httpd/ubos/sites/s753ca4a344f56c38aad05172dee6a53f6647af62.conf``
 
-``${site.tomcat7.sitedocumentdir}``
+``${site.tomcat8.sitedocumentdir}``
    The Tomcat DocumentRoot for this site. No trailing slash.
 
-   Example: ``/var/lib/tomcat7/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+   Example: ``/var/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
 
-``${tomcat7.sitesdir}``
+``${tomcat8.sitesdir}``
     Directory that contains the Tomcat DocumentRoots of the various sites installed on
-    the host. You may want to use ``${site.tomcat7.sitedocumentdir}`` instead.
+    the host. You may want to use ``${site.tomcat8.sitedocumentdir}`` instead.
 
-    Example: ``/var/lib/tomcat7/sites``
+    Example: ``/var/lib/tomcat8/sites``

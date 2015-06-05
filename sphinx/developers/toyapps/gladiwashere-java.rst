@@ -62,12 +62,12 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
                    }
                ]
            },
-           "tomcat7" : {
+           "tomcat8" : {
                "defaultcontext" : "/guestbook",
                "appconfigitems" : [
                    {
                        "type"         : "file",
-                       "name"         : "${appconfig.tomcat7.contextfile}",
+                       "name"         : "${appconfig.tomcat8.contextfile}",
                        "template"     : "tmpl/context.xml.tmpl",
                        "templatelang" : "varsubst"
                    }
@@ -114,7 +114,7 @@ Here are the differences:
   in the package as a template, so UBOS can correctly parameterize it for the particular
   AppConfiguration (see below).
 
-* There's a new ``tomcat7`` section which configures Tomcat. All that's needed here is
+* There's a new ``tomcat8`` section which configures Tomcat. All that's needed here is
   a Tomcat "context file", which again is parameterized (see below).
 
 Note that there are no commands required to install or start Tomcat; UBOS does this
@@ -189,4 +189,4 @@ example:
    </Context>
 
 For details on how to configure Tomcat, see the
-`Tomcat documentation <https://tomcat.apache.org/tomcat-7.0-doc/config/context.html>`_.
+`Tomcat documentation <https://tomcat.apache.org/tomcat-8.0-doc/config/context.html>`_.
