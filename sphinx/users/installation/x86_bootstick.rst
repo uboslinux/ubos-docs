@@ -21,7 +21,7 @@ Follow these steps:
 
    .. code-block:: none
 
-      xz -d ubos_yellow_pc_x86_64_LATEST.xz
+      > xz -d ubos_yellow_pc_x86_64_LATEST.xz
 
    on the command line.
 
