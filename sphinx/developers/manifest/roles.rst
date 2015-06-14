@@ -13,14 +13,14 @@ and related information. For example, the roles section defines:
 The roles section is structured by roles. Currently supported roles are:
 
 * ``apache2``: information related to the web tier;
-* ``tomcat7``: information related to the Java apps running on Tomcat (if applicable);
+* ``tomcat8``: information related to the Java apps running on Tomcat (if applicable);
 * ``mysql``: information related to MySQL databases (if applicable).
 * ``postgresql``: information related to Postgresql databases (if applicable).
 
 Generally, upon installation of an app or accessory, the roles are processed in this sequence:
 
 #. ``mysql`` or ``postgresql`` (if applicable)
-#. ``tomcat7`` (if applicable)
+#. ``tomcat8`` (if applicable)
 #. ``apache2``
 
 Upon uninstallation of an app or accessory, the roles are processed in the opposite sequence.
