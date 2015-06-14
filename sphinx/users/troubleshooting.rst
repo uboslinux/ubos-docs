@@ -77,6 +77,41 @@ is bad, or writing the UBOS disk image to the card wasn't successful. This unfor
 happens. We recommend you write the image on the disk or stick again, and try again.
 If that fails, try a different boot stick or SD card.
 
+Logging on problems
+-------------------
+
+I can't log on via SSH
+^^^^^^^^^^^^^^^^^^^^^^
+
+To log into your UBOS device over the network with SSH, you need to have set up a
+root password, or an SSH key. By default, you can log into your UBOS device as root
+without password on the console, but not over the network.
+
+To set up a root password, log in as root at the console and execute::
+
+   passwd
+
+To set up SSH keys, you might want to consider using the :doc:`UBOS staff <shepherd-staff>`.
+
+My non-English keyboard layout is all screwed up
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To reconfigure your keyboard for your language, follow the
+`instructions <https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console>`_
+from Arch Linux.
+
+App installation and management problems
+----------------------------------------
+
+On any device: a package not found error when installing a new app
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This can happen if you haven't updated your UBOS device for some time. ``ubos-admin``
+will attempt to install a package that has been upgraded since, and can't find the
+old version.
+
+Always execute ``ubos-admin update`` before installing a new app.
+
 Image problems
 --------------
 
