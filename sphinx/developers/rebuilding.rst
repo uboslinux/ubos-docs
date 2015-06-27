@@ -122,7 +122,6 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
       buildmaster> cd ~/git/github.com/uboslinux/ubos-buildconfig
       buildmaster> make -f Makefile.dev \
-           IMPERSONATEDEPOT= \
            code-is-current build-packages
 
    This command may take a while, mostly depending on the speed of your internet connection,
@@ -133,7 +132,6 @@ If you are paranoid, and wish to rebuild UBOS from scratch, follow these steps:
 
       buildmaster> cd ~/git/github.com/uboslinux/ubos-buildconfig
       buildmaster> make -f Makefile.dev \
-           IMPERSONATEDEPOT= \
            code-is-current build-images
 
 To use your freshly built UBOS, refer to :doc:`/users/installation`, using your created
