@@ -45,7 +45,7 @@ The meaning of the ``$operation`` is as follows:
 * ``deploy``: applies to Perl scripts that are declared as an AppConfigurationItem. Invoked
   when the AppConfigurationItem is deployed as part of the deployment or redeployment
   of an app to a site.
-* ``undeploy`` the reverse operation of ``deploy``. It applies to Perl scripts that are
+* ``undeploy``: the reverse operation of ``deploy``. It applies to Perl scripts that are
   declared as an AppConfigurationItem. Invoked when the AppConfigurationItem is undeployed
   as part of the undeployment of an app from a site.
 * ``install``: applies to Perl scripts that are declared as an ``installer`` in the manifest.
@@ -55,7 +55,7 @@ The meaning of the ``$operation`` is as follows:
   Invoked when an app is deployed or redeployed to a site, after all the AppConfigurationItems
   have been deployed, but only if backup data is to be restored (i.e. it is a restore or
   upgrade, rather than a virgin install).
-* * ``uninstall``: applies to Perl scripts that are declared as an ``installer`` in the manifest.
+* ``uninstall``: applies to Perl scripts that are declared as an ``installer`` in the manifest.
   Invoked when an app is undeployed from a site, before all the AppConfigurationItems
   have been undeployed.
 
