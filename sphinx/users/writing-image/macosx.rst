@@ -10,7 +10,11 @@ reader (if it has one), or use a USB adapter.
 To write the image:
 
 * Determine the device name of your USB stick or SD card. That is easiest if you
-  run ``diskutil list`` before you insert the USB stick or SD card, and then after. The
+  run::
+
+      > diskutil list
+
+  before you insert the USB stick or SD card, and then after. The
   device that has shown up is the device that you just inserted.
   For example, the device name may be ``/dev/disk8``.
 

@@ -65,9 +65,23 @@ hard drive permanently on this PC, add an extra argument to the ``ubos-install``
 command that holds your magic incantation. For example, if you install UBOS on your
 first hard drive, say::
 
-   ubos-install /dev/sda --additionalkernelparameter video=LVDS-1:d
+   ubos-install /dev/sda --addkernelparameter video=LVDS-1:d
 
 This will put the incantation into the grub setting permanently.
+
+**Q**: If I forgot to add that kernel parameter during installation, do I need to reinstall?
+
+**A**: No. Open ``/etc/default/grub`` with a text editor of your choice, and look for the
+line that starts with ``GRUB_CMDLINE_LINUX_DEFAULT``. Append the parameter you wanted, and save
+the file. For example, you may want this line to read::
+
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet video=LVDS-1:d"
+
+Then, update your boot loader by invoking::
+
+   grub-install --recheck /dev/sda
+
+Of course, specify a device name other than `/dev/sda` if you boot from a different hard drive.
 
 On any device: nothing happens when UBOS is supposed to be booting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -103,6 +117,16 @@ from Arch Linux.
 App installation and management problems
 ----------------------------------------
 
+There's an error message about pacman and gpg when attempting to install an app
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Most likely, UBOS isn't finished generating its cryptographic keys on the first boot.
+Execute::
+
+   > sudo systemctl is-system-running
+
+and only proceed once its reports "running".
+
 On any device: a package not found error when installing a new app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -124,4 +148,6 @@ web, such as `here <http://www.midwesternmac.com/blogs/jeff-geerling/resizing-vi
 "I need help"
 -------------
 
-Come find us `on IRC <http://ubos.net/community/>`_ and ask. We don't bite.
+Come find us `here <http://ubos.net/community/>`_ and ask. We don't bite. At least not
+if we had breakfast.
+

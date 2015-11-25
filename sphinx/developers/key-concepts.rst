@@ -2,13 +2,14 @@ Key Concepts
 ============
 
 UBOS is built around a small number of key concepts, which are essential for understanding
-how UBOS works. They are:
+how application management works in UBOS, and how apps have to behave so they can be
+managed. These concepts are:
 
 * apps
 * accessories
 * sites
 * app configurations, and
-* app configuration items (only of interest to developers).
+* app configuration items.
 
 They are described below:
 

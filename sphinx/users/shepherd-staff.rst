@@ -47,7 +47,8 @@ This file ``id_rsa.pub`` must contain a valid ``ssh`` public key. You can use an
 Have UBOS auto-generate a new key pair:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To have UBOS auto-generate a new key pair, insert a blank UBOS Staff during boot. UBOS
+To have UBOS auto-generate a new key pair, insert a USB flash drive named ``UBOS-STAFF``
+during boot that does not have the ``shepherd`` directory yet. UBOS
 will automatically generate the key pair, save it to the UBOS Staff, and create a
 shepherd account on the device.
 

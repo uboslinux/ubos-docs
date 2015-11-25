@@ -3,9 +3,10 @@ Setting up your first web app
 
 Follow these steps:
 
-#. Decide which web app to install. In this example, we'll use Wordpress.
+#. Decide which web app to install. You can find the current set of available apps
+   `here <http:/apps/>`_. In this example, we'll use Wordpress.
 
-#. Decide at which URL the web app will be installed. In this example, we'll
+#. Decide at which URL you'd like to run the app.  In this example, we'll
    use host ``*`` and run Wordpress at relative path ``/blog``. By specifying ``*``,
    meaning "any", you have the most choices for which URL will work in your browser
    to access your new Wordpress installation:
@@ -20,8 +21,9 @@ Follow these steps:
 
      * if installed on a Raspberry Pi, Wordpress will be reachable at ``http://ubos-rpi.local/blog/``
 
-     Unfortunately that only works on Windows if you have iTunes installed. It should work
-     on all other devices out of the box, including Macs, Linux PCs, iOS and Android devices.
+     Unfortunately that only works on older versions of Windows if you have iTunes installed.
+     It should work on all other devices out of the box, including Macs, Linux PCs, iOS and
+     Android devices.
 
    * If your UBOS device has an official DNS entry on its own, you should use this one, because
      if gives you the opportunity to run multiple sites (with their own distinct apps) on

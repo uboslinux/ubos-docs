@@ -1,5 +1,5 @@
-Build and Release Process
-=========================
+UBOS build and release process
+==============================
 
 Channels and promotions
 -----------------------

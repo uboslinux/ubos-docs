@@ -8,8 +8,8 @@ network interfaces, their configuration, and the configuration of associated ser
 such as DNS, firewall, and the like.
 
 UBOS knows about a set of possible netconfigs, but in the general case, only some of
-them can be applied to the current device. For example, a 'router' netconfig requires
-the device to have at least two network interfaces.
+them can be applied to the current device. For example, netconfig that implements a
+router requires the device to have at least two network interfaces.
 
 This command iterates through the netconfigs defined in Perl package
 ``UBOS::Networking::NetConfigs``, determines which of those apply, and prints them.

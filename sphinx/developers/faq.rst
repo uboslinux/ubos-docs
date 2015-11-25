@@ -90,3 +90,53 @@ What about docker?
 Docker is great to isolate independent apps from each other; it isn't so great for
 running, say, 5 instances of Wordpress and 3 of ownCloud on several different virtual
 hosts on the same port 80.
+
+You can probably run UBOS inside docker; let us `know <http://ubos.net/community/">`_
+if you do.
+
+Why do you recommend to develop in Arch Linux instead of UBOS itself?
+---------------------------------------------------------------------
+
+For development, developers usually want to use more packages than are contained in UBOS,
+e.g. graphical desktop environments, editors, debuggers, test scripts and so forth. These
+are out of scope for UBOS. Most of them are available on Arch Linux, however.
+
+As UBOS is an Arch Linux derivative, this keeps development system and run-time system
+close. If you develop in Arch, and run your UBOS apps in a UBOS container, you get the
+best of both worlds.
+
+Why do you advise against using a Raspberry Pi or other ARM device as a UBOS development machine?
+-------------------------------------------------------------------------------------------------
+
+The Raspberry Pi is fine to run UBOS on. But we recommend you use a PC or virtual machine
+to develop for UBOS, for these two reasons:
+
+* Development is not much fun on a slow device, and ARM-based devices like a Raspberry Pi
+  are substantially slower than a modern PC
+
+* The Raspberry Pi and other ARM devices use an SD Card as its hard drive. SD Cards,
+  unfortunately, do not lend themselves to repeated compile cycles, and have a habit of
+  dying when over-used, perhaps taking your code with them.
+
+If you must use an ARM-based device, we recommend that at least you store your valuable code
+on an external (USB) hard drive. Compilations will be faster, too.
+
+If you want to try anyway, get Arch for your platform from
+`Arch Linux ARM <http://archlinuxarm.org/>`_ and continue with
+:doc:`installing the UBOS tools <install-ubos-tools>`.
+
+How are the various UBOS images different from each other?
+----------------------------------------------------------
+
+UBOS images for VirtualBox by default run the VirtualBox client tools, which enables
+the virtual machine to integrate better with the host system.
+
+The differences between the images on x86_64 are very small; one or two packages installed
+or not, and a handful of ``systemctl enable ...`` calls, so if you already have an image
+for x86_64, it should be straightforward to use it for physical machine, VirtualBox
+or containers without needing to download another image.
+
+The same is true for ARM platforms. However, there are larger differences between the
+images for, say, Raspberry Pi 2 and BeagleBone Black, although they use the same ARM
+processor architecture. For example, their boot methods are different.
+
