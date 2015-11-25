@@ -16,11 +16,17 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 h1 {
-    line-height: 1;
+    line-height: 1.1;
     font-size: 42px;
+    margin-bottom: $spacing-unit * 0.7;
 }
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, li, figure, %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+h2, h3, h4, h5, h6 {
+    margin-top: $spacing-unit * 0.7;
+    margin-bottom: $spacing-unit / 4;
+}
+p, blockquote, pre, ul, ol, dl, li, figure, %vertical-rhythm {
+    margin-top: $spacing-unit / 4;
+    margin-bottom: $spacing-unit / 4;
 }
 
 img {
