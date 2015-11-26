@@ -145,6 +145,48 @@ In VirtualBox: I'm running out of space on my disk image. What now?
 You can resize your VirtualBox disk image. Instructions can be found on the
 web, such as `here <http://www.midwesternmac.com/blogs/jeff-geerling/resizing-virtualbox-disk-image>`_.
 
+Container problems
+------------------
+
+Cannot reach the public internet from a container running UBOS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this case, chances are that your host operating system is not correctly configured for
+networking containers. Here is a list of things to check:
+
+1. On your host, a new network interface is generated just for the UBOS container. Using::
+
+      ip addr
+
+   check that such an interface appears when you create the container, and it
+   has a suitable IP address such as ``10.0.0.1``. If not, check that you are running
+   ``systemd-networkd`` on the host with a suitable configuration file.
+
+2. In your UBOS container, using::
+
+      ip addr
+
+   make sure your container has a corresponding
+   IP address such as ``10.0.0.2``. If not, check that you are running
+   ``systemd-networkd`` on the host with a suitable configuration file.
+
+3. Test that you can ping the container from the host, and the host from the container with
+   a command such as::
+
+      ping 10.0.0.1
+
+   If you can't and both host and container have correct IP addresses,
+   make sure your host does not run a firewall that prevents the communication from
+   happening.
+
+4. If the container can communicate with the host, and the host with the public internet,
+   but the container cannot communicate with the public internet, chances are that
+   some of the involved network interfaces aren't forwarding packets. This is common because
+   most Linux distros deactivate packet forwarding by default. The simplest way to
+   globally switch on packet forwarding on the host is to execute::
+
+      sudo sysctl net.ipv4.ip_forward=1
+
 "I need help"
 -------------
 

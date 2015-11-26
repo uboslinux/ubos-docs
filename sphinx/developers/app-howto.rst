@@ -7,7 +7,7 @@ take the following steps:
 #. Say "Hi" on the `mailing list or on IRC </contact/>`_. We don't bite, and might even be
    helpful :-)
 
-#. Set up a :doc:`build machine <develop-in-virtualbox>`.
+#. Set up a :doc:`development machine <setting-up-development-machine>`.
 
 #. Package your app using ``makepkg``, with a ``PKGBUILD`` file and a
    :doc:`ubos-manifest`. You can find examples in :doc:`toyapps`, and documentation

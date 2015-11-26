@@ -37,4 +37,4 @@ following actions:
 
 To show all available network configurations, execute
 :doc:`listnetconfigs`. The set of currently available network configurations is
-work in progress.
+documented :doc:`here <../../users/networking>`.

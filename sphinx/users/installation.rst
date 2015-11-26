@@ -9,6 +9,9 @@ Here are your current options:
    installation/raspberrypi
    installation/raspberrypi2
    installation/beagleboneblack
-   installation/virtualbox
    installation/x86_bootstick
    installation/x86_disk
+   installation/virtualbox
+   installation/x86_container
+   installation/armv6h_container
+   installation/armv7h_container

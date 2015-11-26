@@ -12,16 +12,14 @@ Follow these steps:
 #. Download a UBOS boot image from `depot.ubos.net`.
    Beta images for x86_64 are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_pc_x86_64_LATEST.xz``. This file
-   should **not** contain the letters ``vbox``, otherwise you get some unnecessary
-   VirtualBox code with your image.
+   Look for a file named ``ubos_yellow-pc_x86_64_LATEST.xz``.
 
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
    double-clicking it, or executing
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_pc_x86_64_LATEST.xz
+      > xz -d ubos_yellow-pc_x86_64_LATEST.xz
 
    on the command line.
 
@@ -42,15 +40,15 @@ Follow these steps:
 #. When the boot process is finished, log in as user ``root``. By default, there is no
    password on the console.
 
-#. Wait until UBOS is ready. You can tell by executing:
+#. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
+   and initialize a few other things on the first boot. That might take 5 or 10 minutes.
+   To determine whether UBOS ready, execute:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      systemctl is-system-running
 
-   On the first boot, this may take a while, because UBOS has to generate some cryptographic
-   keys, and Linux is trying very hard to use good random numbers for that purpose. To
-   speed up the process, generate lots of random activity, such as looking through the
+   To speed up the process, generate lots of random activity, such as looking through the
    file system, and typing lots on the keyboard. You only need to do that once, on the
    first boot.
 

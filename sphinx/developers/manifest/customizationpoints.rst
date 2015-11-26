@@ -67,3 +67,28 @@ Customization points may be declared as private:
    }
 
 If declared as private, only ``root`` is allowed to see the provided values.
+
+By default, ``ubos-admin createsite`` will ask the user for values of customization points
+in a random sequence. To order the sequence in which the questions are asked, add
+an ``index`` field whose value is an integer, and which is used for sorting.
+For example:
+
+.. code-block:: json
+
+   "customizationpoints" : {
+     "last" : {
+       "type"       : "string",
+       "index"      : 3
+     },
+     "first" : {
+       "type"       : "string",
+       "index"      : 1
+     },
+     "middle" : {
+       "type"       : "string",
+       "index"      : 2
+     },
+   }
+
+These customization points will be presented to the user in sequence ``first``, ``middle``,
+``last``.

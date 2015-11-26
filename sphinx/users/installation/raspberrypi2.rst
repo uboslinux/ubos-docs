@@ -2,26 +2,28 @@ Run UBOS on Raspberry Pi 2
 ==========================
 
 You can run UBOS on your Raspberry Pi 2 by downloading an image, writing it to an SD card,
-and booting your Raspberry Pi 2 with that card.
+and booting your Raspberry Pi 2 with that card. (Alternatively you can keep running your
+existing Linux distro on your Raspberry Pi 2, and run UBOS in a Linux container.
+This is :doc:`described here <armv7h_container>`.)
 
 Raspberry Pi 2 "Model B" is supported out of the box.
-
-If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
 
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.
 
+If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
+
 #. Download a UBOS boot image from `depot.ubos.net`.
    Beta images for the Raspberry Pi 2 are at
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
-   Look for a file named ``ubos_yellow_rpi2_LATEST.img.xz``.
+   Look for a file named ``ubos_yellow-rpi2_LATEST.img.xz``.
 
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
    double-clicking it, or executing
 
    .. code-block:: none
 
-      xz -d ubos_yellow_rpi2_LATEST.img.xz
+      xz -d ubos_yellow-rpi2_LATEST.img.xz
 
    on the command line.
 
@@ -31,12 +33,16 @@ If you are not sure which model you have, consult
    * :doc:`/users/writing-image/macosx`
    * :doc:`/users/writing-image/linux`
 
-#. Remove the micro-SD card and insert it into your Raspberry Pi 2. On first boot, it is recommended
-   you have a monitor and keyboard connected to your Raspberry Pi 2. Then, plug in the
-   Raspberry Pi 2's USB power.
+#. On first boot, it is recommended you have a monitor and keyboard connected to your
+   Raspberry Pi 2. If this is impractical, create a :doc:`UBOS staff <../shepherd-staff>`
+   so you can securely log in over the network without the need for monitor or keyboard.
+
+#. Remove the micro-SD card and insert it into your Raspberry Pi 2. If you created a UBOS staff,
+   insert the staff into the USB port. Then, plug in the Raspberry Pi 2's USB power.
 
 #. When the boot process is finished, log in as user ``root`` from the attached keyboard
-   and monitor. By default, there is no password on the console.
+   and monitor. By default, there is no password on the console. If you used a UBOS staff,
+   you can log in over the network instead as described :doc:`here <../shepherd-staff>`.
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
    and initialize a few other things on the first boot. That might take 5 or 10 minutes.

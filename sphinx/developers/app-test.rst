@@ -57,18 +57,26 @@ Alternate scaffolds
 .. code-block:: none
 
    > webapptest listscaffolds
-   here  - A trivial scaffold that runs tests on the local machine without any insulation.
-   ssh   - A scaffold that runs tests on the remote machine that is already set up, and accessible via ssh.
-   v-box - A scaffold that runs tests on the local machine in a VirtualBox virtual machine.
+   container - A scaffold that runs tests on the local machine in a Linux container.
+   here      - A trivial scaffold that runs tests on the local machine without any insulation.
+   ssh       - A scaffold that runs tests on the remote machine that is already set up, and accessible via ssh.
+   v-box     - A scaffold that runs tests on the local machine in a VirtualBox virtual machine.
 
-By default, ``webapptest`` runs the ``here`` scaffold, meaning that it deploys the to-be-tested
-app on the local device. By using the ``ssh`` scaffold, the to-be-tested app can be tested on
-a remote device over ssh. This is particularly useful for cross-platform testing. Finally,
-the ``v-box`` scaffold sets up and tears down an entire UBOS virtual machine for the test.
-This is only available on x86_64.
+If using ``webapptest`` with the ``here`` scaffold, ``webapptest`` deploys the to-be-tested
+app on the local device (which needs to run UBOS). By using the ``ssh`` scaffold, the to-be-tested
+app can be tested on a remote device over ssh. This is particularly useful for cross-platform
+testing. The ``v-box`` scaffold sets up and tears down an entire UBOS virtual machine for
+the test. This is only available on x86_64. Finally, the ``container`` scaffold creates a
+Linux container into which UBOS and the to-be-tested app will be installed, using
+``systemd-nspawn``.
 
-Some of these scaffolds need parameters (e.g. the hostname of the ssh host), which are specified by
-appending them to the name of the scaffold.
+Some of these scaffolds need parameters (e.g. the hostname of the ssh host or the image to boot
+from), which are specified by appending them to the name of the scaffold like this:
+
+.. code-block:: none
+
+   > webapptest run --scaffold container:directory=/build/my-ubos-image-dir
+
 
 Test description
 ----------------

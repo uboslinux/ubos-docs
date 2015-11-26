@@ -5,8 +5,8 @@ How to develop for UBOS
    :maxdepth: 2
 
    app-howto
-   develop-in-virtualbox
    key-concepts
+   setting-up-development-machine
    toyapps
    ubos-manifest
    site-json

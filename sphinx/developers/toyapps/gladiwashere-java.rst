@@ -151,7 +151,7 @@ This is accomplished with the following template:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <Context path="${appconfig.context}"
-            antiJARLocking="true"
+            antiResourceLocking="true"
             cookies="false"
             docBase="${package.codedir}/lib/gladiwashere-java.war">
      <Resource auth="Container"
@@ -173,7 +173,7 @@ example:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <Context path="/guestbook"
-            antiJARLocking="true"
+            antiResourceLocking="true"
             cookies="false"
             docBase="/usr/share/gladiwashere-java/lib/gladiwashere-java.war">
      <Resource auth="Container"

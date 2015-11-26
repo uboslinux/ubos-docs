@@ -128,6 +128,10 @@ If you want to try anyway, get Arch for your platform from
 How are the various UBOS images different from each other?
 ----------------------------------------------------------
 
+UBOS images for containers are identical to those for physical machines, except that
+they do not run certain services by default which are usually provided by the
+host (such as for setting the system time).
+
 UBOS images for VirtualBox by default run the VirtualBox client tools, which enables
 the virtual machine to integrate better with the host system.
 

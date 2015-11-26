@@ -29,6 +29,7 @@ other distros, see <a href="#features">features</a> below.</p>
  <li>High-level commands for installation, uninstallation, and other operations on
      server-side apps. E.g. a single command should be able to install and configure any
      kind of app including all of its dependencies, databases, virtual hosts, services etc.</li>
+ <li>Automatic or high-level networking configuration including firewall setup.</li>
  <li>Make no assumptions about which apps are installed on which server, or even that
      any two UBOS servers will run the same apps. Every user is unique. This makes UBOS
      very different from Linux distros targeted towards data centers and server farms.</li>
@@ -63,11 +64,21 @@ other distros, see <a href="#features">features</a> below.</p>
  <li>
   <p>UBOS <b>pre-installs and pre-configures networking and other infrastructure</b>, so it
      is ready to be used as soon as it has booted. For example, not only does UBOS boot as a
-     dhcp client, but also runs a web server with a default web application.
-     This allows the user to use UBOS immediately, with little to no systems configuration.</p>
+     dhcp client, but also runs a web server with a default web application behind a
+     preconfigured firewall. This allows the user to use UBOS immediately, with little to
+     no systems configuration.</p>
 
   <p>On other distros, this is an open-ended manual process requiring substantial
      systems administration knowledge and even more patience.</p>
+ </li>
+
+ <li>
+  <p>Systems that have two Ethernet interfaces can be turned into a <b>home router/gateway</b>
+     with a single command. In this "gateway" configuration, UBOS automatically sets up
+     network masquerading, a firewall, a local DNS and DHCP server.</p>
+
+  <p>Apps installed on the system can either be only accessible on the local-area network,
+     or also on the public internet.</p>
  </li>
 
  <li>

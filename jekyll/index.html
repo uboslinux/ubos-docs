@@ -14,10 +14,11 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2015/04/13/ubos-beta4-available/">
-   Beta 4 now available<br>
-   for x86, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> and
-   <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">
+  <a href="/blog/2015/12/01/ubos-beta5-available/">
+   Beta 5 now available<br>
+   for x86, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> 1 &amp; 2,
+   <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">,<br>
+   VirtualBox and Linux containers
   </a>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
@@ -193,14 +194,19 @@ div.howto pre {
  <div class="section-header"><span>HOWTO</span></div>
  <div class="howtoitem">
   <h2>Run UBOS</h2>
-  <p>Install UBOS on
-     <a href="/docs/users/installation/x86_bootstick.html">a bootstick</a> or
-     <a href="/docs/users/installation/x86_disk.html">a hard drive</a> for
-     an x86 PC (64bit), or on
-     <a href="/docs/users/installation/raspberrypi.html">a Raspberry Pi</a> or
-     <a href="/docs/users/installation/beagleboneblack.html">Beagle Bone Black</a>
-     SD card, or use a <a href="/docs/users/installation/virtualbox.html">VirtualBox
-     image</a> to run virtualized UBOS in VirtualBox.</p>
+  <ul>
+   <li>on an x86 PC (64bit)
+       (<a href="/docs/users/installation/x86_bootstick.html">bootstick</a>,
+       <a href="/docs/users/installation/x86_disk.html">hard drive</a>,
+       <a href="/docs/users/installation/x86_container.html">container</a>, or
+       <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>),</li>
+   <li>a Raspberry Pi 1 (<a href="/docs/users/installation/raspberrypi.html">SDCard</a> or
+       <a href="/docs/users/installation/armv6h_container.html">container</a>) or
+       Raspberry Pi 2 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a> or
+       <a href="/docs/users/installation/armv7h_container.html">container</a>)</li>
+   <li>Beagle Bone Black (<a href="/docs/users/installation/beagleboneblack.html">SDCard</a> or
+       <a href="/docs/users/installation/armv7h_container.html">container</a>).</li>
+  </ul>
  </div>
  <div class="howtoitem">
   <h2>Install an app</h2>

@@ -127,24 +127,7 @@ interface. Invoke:
 
 To set one of these netconfigs, execute ``ubos-admin setnetconfig``.
 
-``ubos-admin listnics``
------------------------
-
-This command lists all network interfaces on the current device detected by UBOS.
-For example:
-
-.. code-block:: none
-
-   > ubos-admin listnics
-   enp0s8 - ether
-
-In this case, a single interface called ``enp0s8`` was detected of type Ethernet. This
-list may or may not be the same that the Linux kernel detects.
-
-More details are available with the ``--verbose`` flag.
-
-Users do not usually need to invoke this.
-
+More network configurations may be available in packages not currently installed.
 
 ``ubos-admin listsites``
 ------------------------
@@ -214,8 +197,10 @@ This command has many other ways of invocation; please refer to:
 ``ubos-admin setnetconfig``
 ---------------------------
 
-Sets a network configuration for your device. Currently, only a handful are available,
-but there will be more:
+Sets a network configuration for your device. Some of these networking configurations
+require the installation of additional ``ubos-networking-XXX`` packages. To determine
+the currently installed and available networking configurations, execute
+``ubos-admin listnetconfigs``.
 
 To switch networking off:
 
@@ -235,6 +220,13 @@ To assign static IP addresses to all network interfaces:
 .. code-block:: none
 
    > sudo ubos-admin setnetconfig standalone
+
+If your device has two Ethernet interfaces and you would like to use it as a home
+gateway/router:
+
+.. code-block:: none
+
+   > sudo ubos-admin setnetconfig gateway
 
 
 ``ubos-admin showappconfig``
