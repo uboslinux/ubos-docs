@@ -121,10 +121,6 @@ to develop for UBOS, for these two reasons:
 If you must use an ARM-based device, we recommend that at least you store your valuable code
 on an external (USB) hard drive. Compilations will be faster, too.
 
-If you want to try anyway, get Arch for your platform from
-`Arch Linux ARM <http://archlinuxarm.org/>`_ and continue with
-:doc:`installing the UBOS tools <install-ubos-tools>`.
-
 How are the various UBOS images different from each other?
 ----------------------------------------------------------
 
