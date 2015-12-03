@@ -1,5 +1,6 @@
 stage/
 cache/
 later/
+removed/
 .sass-cache/
 .jekyll-metadata

@@ -81,7 +81,7 @@ Then, update your boot loader by invoking::
 
    grub-install --recheck /dev/sda
 
-Of course, specify a device name other than `/dev/sda` if you boot from a different hard drive.
+Of course, specify a device name other than ``/dev/sda`` if you boot from a different hard drive.
 
 On any device: nothing happens when UBOS is supposed to be booting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

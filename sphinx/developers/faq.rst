@@ -3,16 +3,6 @@ Developer FAQ
 
 (See also the :doc:`user FAQ <../users/faq>`.)
 
-Why is it called UBOS?
-----------------------
-
-Why not? :-)
-
-Also, you can pronounce it in a way that makes a lot of sense for the kinds of things
-UBOS was created to do.
-
-.. _faq_arch_ubos_rel:
-
 Why did you derive UBOS from Arch Linux?
 ----------------------------------------
 
@@ -28,6 +18,7 @@ with web apps. But when we discovered rolling updates as provided by Arch Linux,
 was no going back: rolling upgrades are excellent for the types of systems we are
 building UBOS for.
 
+.. _faq_arch_ubos_rel:
 
 What is the relationship between UBOS and Arch Linux?
 -----------------------------------------------------
