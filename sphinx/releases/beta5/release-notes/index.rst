@@ -67,6 +67,8 @@ New features and improvements
 
   * Wordpress and plugins
 
+  * and others.
+
 * Management infrastructure:
 
   * ``ubos-admin createsite`` now orders the questions about customization points in
@@ -101,6 +103,8 @@ New features and improvements
 
   * Updated to track all the other changes from beta 4.
 
+* Removed ``jenkins`` from ARM. It takes too many resources to run it.
+
 To upgrade
 ----------
 
@@ -119,12 +123,28 @@ If you have Java installed on your UBOS device, you must manually invoke::
    > sudo archlinux-java set java-8-openjdk
 
 Once we are out of beta, this kind of thing would be automated, of course, but for
-the time being it wasn't important enough to automate.
+the time being this manual step is probably acceptable.
+
+Known problems
+--------------
+
+* The BeagleBone Black boot process may not work correctly in all configurations.
+  We are currently reconsidering support for this device, as there have been far
+  fewer downloads than for other devices.
+
+* The ``gateway`` network configuration adds a DNS rule to the wrong network interface.
+  This prevents devices on the LAN from accessing the gateway's DNS server.
+
+* ``ubos-install`` under some circumstances will fail due to missing a missing ``mkfs``
+  command. Workaround: ``pacman -S dosfstools`` and try again.
+
+* mDNS lookup is not automatically enabled. To enable, ``pacman -S nss-mdns``.
+
+
 
 Questions? Need help?
 ---------------------
 
 Select "Documentation" or "Community" from the top of the page.
 
-`Last updated: 2015-12-02 17:20 PST`
-
+`Last updated: 2015-12-07 08:33 PST`
