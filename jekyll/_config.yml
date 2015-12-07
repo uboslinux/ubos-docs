@@ -7,7 +7,7 @@ url: "http://ubos.net" # the base hostname & protocol for your site
 twitter_username: uboslinux
 github_username:  uboslinux
 
-permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title.html
 paginate: 10
 paginate_path: "blog/archive:num"
 
