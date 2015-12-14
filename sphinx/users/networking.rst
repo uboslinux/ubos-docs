@@ -112,6 +112,9 @@ with delegation to the ISP's DNS server.
 If the UBOS device has more than two network interfaces, additional interfaces will be
 created as separate local networks on different subnets.
 
+Applications running on the UBOS device are accessible from the local network ("downstream")
+but not from the public internet ("upstream").
+
 In this mode:
 
 * **network interfaces**: All network interfaces are active.
@@ -132,11 +135,18 @@ In this mode:
 * **firewall**: All parts other than ``ssh`` are firewalled on the "upstream" interface.
   Application ports are accessible from the "downstream" interfaces.
 
+Network configuration: ``public-gateway``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This network configuration is identical to ``gateway``, except that applications running on
+the UBOS device are accessible btoh from the local network ("downstream") and from the public
+internet ("upstream").
+
 Network configuration: ``nspawn-container``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This network configuration is used by UBOS when run in a Linux container started by
-``systemd-nspawn``. It is very similar to ``client`` but there are no mDNS
+``systemd-nspawn`` or by Docker. It is very similar to ``client`` but there are no mDNS
 advertisements.
 
 Network configuration: ``off``

@@ -63,7 +63,7 @@ To do so:
 
       > sudo systemctl start haveged
 
-   on your host (not UBOS container).
+   on your host (not container).
 
 #. Your container should automatically acquire an IP address. You can check with:
 

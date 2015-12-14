@@ -3,11 +3,11 @@ layout: page
 title: Quick Start
 ---
 
-<h2>Get the image</h2>
 <style>
 table#platforms {
   border-collapse: separate;
   border-spacing: 5px;
+  margin-top: 10px;
 }
 table#platforms td {
   width: 33%;
@@ -21,15 +21,16 @@ table#platforms img {
   margin: 15px auto 20px auto;
 }
 </style>
+<h2>For physical hardware, get the image</h2>
 <table id="platforms">
  <tr>
   <td>
    <img src="/images/rpi-83x100.png" alt="[Raspberry Pi]">
    <p><b>To run UBOS on the Raspberry Pi:</b></p>
    <p>Download <a href="http://depot.ubos.net/yellow/armv6h/images/ubos_yellow_rpi_LATEST.img.xz">this
-      image for Raspberry Pi 1</a> (approx. 420MB), or
+      image for Raspberry Pi&nbsp;1 and Zero</a> (approx. 420MB), or
       <a href="http://depot.ubos.net/yellow/armv7h/images/ubos_yellow_rpi2_LATEST.img.xz">this
-      image for Raspberry Pi 2</a> (approx. 320MB),
+      image for Raspberry Pi&nbsp;2</a> (approx. 320MB),
       uncompress, and write to a USB stick in "raw" format.</p>
   </td>
   <td>
@@ -48,12 +49,24 @@ table#platforms img {
   </td>
  </tr>
 </table>
+<h2>For Docker</h2>
+<table id="platforms">
+ <tr>
+  <td>
+   <p><b>To run UBOS on Docker:</b></p>
+   <pre>&gt; alias ubos-docker-yellow='docker run -i -t --cap-add NET_ADMIN --cap-add NET_BIND_SERVICE
+  --cap-add NET_BROADCAST --cap-add NET_RAW --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro
+  -e container=docker ubos/ubos-yellow /bin/init'
+&gt; ubos-docker-yellow</pre>
+  </td>
+ </tr>
+</table>
 
-<p>For a detailed series of steps, refer to the
+<p>For more details, refer to the
    <a href="/docs/users/installation.html">Installation section</a> in the
-   UBOS user documentation.</p>
+   UBOS user documentation. It also describes how to run UBOS in a Linux container.</p>
 
-<h2>Install one or more apps</h2>
+<h2>Then: Install one or more apps</h2>
 
 <p>Once booted, log in from the console as root, or via ssh using the
    <a href="/docs/users/shepherd-staff.html">UBOS staff</a>. To install any app:</p>

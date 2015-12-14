@@ -1,14 +1,21 @@
-Run UBOS on Raspberry Pi 1
-==========================
+Run UBOS on Raspberry Pi 1 or Zero
+==================================
 
 You can run UBOS on your Raspberry Pi by downloading an image, writing it to an SD card,
 and booting your Raspberry Pi with that card. (Alternatively you can keep running your
 existing Linux distro on your Raspberry Pi, and run UBOS in a Linux container.
 This is :doc:`described here <armv6h_container>`.)
 
-Both Raspberry Pi "Model B" and "Model B Plus" are supported out of the box. ("Model A"
-and "Model A Plus" do not have built-in networking, which UBOS requires to install
-new apps.)
+The following Raspberry Pi models are supported out of the box:
+
+* Raspberry Pi "Model A"
+* Raspberry Pi "Model A Plus"
+* Raspberry Pi "Model B"
+* Raspberry Pi "Model B Plus"
+* Raspberry Pi "Zero"
+
+UBOS does require networking for most use cases, so it is recommended you use a
+Raspberry Pi with built-in networking, or a compatible networking adapter.
 
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.

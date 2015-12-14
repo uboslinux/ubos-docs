@@ -14,11 +14,11 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2015/12/07/ubos-beta5-available/">
-   Beta 5 now available<br>
-   for PCs, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> 1 &amp; 2,
+  <a href="/blog/2015/12/14/ubos-beta6-available/">
+   Beta 6 now available<br>
+   for PCs, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> 1 &amp; 2 &amp; Zero,
    <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">,<br>
-   VirtualBox and Linux containers
+   VirtualBox, Linux container &amp; Docker
   </a>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
@@ -123,6 +123,7 @@ p.feeds {
 }
  </style>
  <p class="feeds sidenote">
+  <a href="/blog/">More news</a> &mdash;
   Follow UBOS:
   <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
   • <a href="https://twitter.com/uboslinux">Twitter</a>
@@ -143,7 +144,7 @@ div.apps p {
 }
 </style>
 <div class="section apps">
- <div class="section-header"><span>APPS</span></div>
+ <div class="section-header"><a href="/apps/" style="color: inherit"><span>APPS</span></a></div>
  <a href="http://owncloud.org/" title="Owncloud: your cloud, your data, your way!">
   <img src="{{ "/images/owncloud-72x72.png"  | prepend: site.baseurl }}" alt="[ownCloud]">
  </a>
@@ -168,7 +169,7 @@ div.apps p {
  <a href="http://webtrees.net/" title="Webtrees: collaborative genealogy application">
   <img src="{{ "/images/webtrees-72x72.png"  | prepend: site.baseurl }}" alt="[Webtrees]">
  </a>
-<p class="sidenote">More apps coming. <a href="https://github.com/uboslinux/apps-wanted/issues">Request.</a></p>
+ <p class="sidenote">More apps coming. <a href="https://github.com/uboslinux/apps-wanted/issues">Request.</a></p>
 </div>
 
 <style>
@@ -198,11 +199,12 @@ div.howto pre {
    <li>on an x86 PC (64bit)
        (<a href="/docs/users/installation/x86_bootstick.html">bootstick</a>,
        <a href="/docs/users/installation/x86_disk.html">hard drive</a>,
-       <a href="/docs/users/installation/x86_container.html">container</a>, or
-       <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>),</li>
-   <li>a Raspberry Pi 1 (<a href="/docs/users/installation/raspberrypi.html">SDCard</a> or
+       <a href="/docs/users/installation/x86_container.html">container</a>,
+       <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>, or
+       <a href="/docs/users/installation/x86_docker.html">Docker</a>)</li>
+   <li>a Raspberry Pi&nbsp;1 or Zero (<a href="/docs/users/installation/raspberrypi.html">SDCard</a> or
        <a href="/docs/users/installation/armv6h_container.html">container</a>) or
-       Raspberry Pi 2 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a> or
+       Pi&nbsp;2 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a> or
        <a href="/docs/users/installation/armv7h_container.html">container</a>)</li>
    <li>Beagle Bone Black (<a href="/docs/users/installation/beagleboneblack.html">SDCard</a> or
        <a href="/docs/users/installation/armv7h_container.html">container</a>).</li>

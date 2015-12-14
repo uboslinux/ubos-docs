@@ -13,5 +13,6 @@ Here are your current options:
    installation/x86_disk
    installation/virtualbox
    installation/x86_container
+   installation/x86_docker
    installation/armv6h_container
    installation/armv7h_container
