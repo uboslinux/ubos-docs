@@ -12,7 +12,7 @@ Follow these steps:
 #. Download a UBOS boot image from `depot.ubos.net`.
    Beta images for x86_64 are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_pc_LATEST.img.xz``.
+   Look for a file named ``ubos_yellow-pc_LATEST.img.xz``.
 
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
    double-clicking it, or executing

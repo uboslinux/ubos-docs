@@ -17,7 +17,7 @@ To do so:
 #. Download a UBOS container image from `depot.ubos.net`.
    Beta images for x86_64 containers are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_container-pc_LATEST.tar.xz``.
+   Look for a file named ``ubos_yellow_container-x86_64_LATEST.tar.xz``.
 
 #. Uncompress and unpack the downloaded file into a suitable directory by executing:
 
