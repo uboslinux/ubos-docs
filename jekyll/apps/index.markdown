@@ -12,10 +12,10 @@ Here's the current list of apps available on UBOS (alphabetically)::
    **Jenkins**, the continuous integration app we use to build UBOS itself on UBOS.<br>
    Install with `ubos-admin createsite`, specify app `jenkins`.
 
-<img src="/images/idno-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+<img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Known**: Publishing Platform for Everyone<br>
-   Install with `ubos-admin createsite`, specify app `idno`
+   Install with `ubos-admin createsite`, specify app `known`
 
 <img src="/images/mediagoblin-72x72.png" alt="[Mediagoblin]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
