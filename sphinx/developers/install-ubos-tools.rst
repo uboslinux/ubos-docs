@@ -20,13 +20,13 @@ The, as root, edit ``/etc/pacman.conf``, and append, at the end, the following s
 This will get you the UBOS development tools in the yellow, aka beta, channel.
 
 
-Install the ubos-tools metapackage
-----------------------------------
+Install the ubos-tools-arch metapackage
+---------------------------------------
 
 Execute::
 
    pacman -Sy
-   pacman -S ubos-tools
+   pacman -S ubos-tools-arch
 
 Now is a good time to install any other development tools you might want, such as::
 

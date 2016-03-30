@@ -54,7 +54,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
            "php-pgsql"
          ],
          "apache2modules" : [
-           "php5"
+           "php7"
          ],
          "phpmodules" : [
            "pgsql"

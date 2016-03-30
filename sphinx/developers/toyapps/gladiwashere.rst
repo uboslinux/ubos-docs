@@ -47,7 +47,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
            "php-apache"
          ],
          "apache2modules" : [
-           "php5"
+           "php7"
          ],
          "phpmodules" : [
            "mysql",

@@ -107,6 +107,11 @@ The following table shows all attributes of AppConfigurationItems:
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
 | JSON Entry          | Description 	                             | Relative path context         | Mutually exclusive with |
 +=====================+==============================================+===============================+=========================+
+| ``charset``         | Default character set for SQL database       | N/A                           | N/A                     |
+|                     | (default: Unicode)                           |                               |                         |
++---------------------+----------------------------------------------+-------------------------------+-------------------------+
+| ``collate``         | Default collation set for SQL database       | N/A                           | N/A                     |
++---------------------+----------------------------------------------+-------------------------------+-------------------------+
 | ``delimiter``       | SQL delimiter for sql scripts                | N/A                           | N/A                     |
 |                     | (default: ``;``)                             |                               |                         |
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
@@ -122,7 +127,8 @@ The following table shows all attributes of AppConfigurationItems:
 |                     | should belong to (default: ``root``).        |                               |                         |
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
 | ``name``            | the name of the created file, directory,     | ``${appconfig.apache2.dir}``  | ``names``               |
-|                     | symlink, or root of the directory tree       |                               |                         |
+|                     | symlink, or root of the directory tree, or   |                               |                         |
+|                     | the symbolic name of a database              |                               |                         |
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
 | ``names``           | the names of the created files, directories, | ``${appconfig.apache2.dir}``  | ``name``                |
 |                     | symlinks, or roots of the directory trees if |                               |                         |
@@ -252,13 +258,13 @@ the app or accessory can be successfully run. Here is an example:
 .. code-block:: json
 
    "apache2modules" : [
-     "php5"
+     "php7"
    ]
 
-This declaration will make sure that the ``php5`` module is active in Apache2; if not yet,
+This declaration will make sure that the ``php7`` module is active in Apache2; if not yet,
 UBOS will activate it and restart Apache2 without any further work by the app or accessory.
 
-Note that the ``apache2`` role still needs to declare a dependency on ``php5``;
+Note that the ``apache2`` role still needs to declare a dependency on ``php7``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
 
 PHP modules

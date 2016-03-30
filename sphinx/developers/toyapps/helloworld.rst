@@ -170,7 +170,7 @@ For this app, the manifest file looks as follows:
            "php-apache"
          ],
          "apache2modules" : [
-           "php5"
+           "php7"
          ],
          "appconfigitems" : [
            {
@@ -199,7 +199,7 @@ Let's discuss these items in sequence:
   virtual host. This can be overridden by the user in the :term:`Site JSON` file.
 
 * For the ``apache2`` role, this app requires packages ``php`` and ``php-apache``, as it
-  is a PHP app. It requires that the Apache module ``php5`` has been enabled before it
+  is a PHP app. It requires that the Apache module ``php7`` has been enabled before it
   can be run.
 
 * Finally, each installation of this app requires two files to be installed in the
