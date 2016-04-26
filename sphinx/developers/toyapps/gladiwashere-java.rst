@@ -127,6 +127,10 @@ The Apache reverse proxy configuration is quite straightforward:
 
 .. code-block:: none
 
+   ProxyPass /robots.txt !
+   ProxyPass /favicon.ico !
+   ProxyPass /sitemap.xml !
+
    ProxyPass ${appconfig.contextorslash} ajp://127.0.0.1:8009${appconfig.contextorslash}
    ProxyPassReverse ${appconfig.contextorslash} ajp://127.0.0.1:8009${appconfig.contextorslash}
 
@@ -140,6 +144,10 @@ resulting file as ``.htaccess`` in the web server directory, such as:
 
 Apache requires both of those statements, see the
 `Apache documentation <https://httpd.apache.org/docs/2.2/mod/mod_proxy.html>`_.
+
+The three lines at the beginning declare that the files ``robots.txt``, ``favicon.ico`` and
+``sitemap.xml`` shall not be mapped to the application if the application runs at the root of
+the site. This allows the Site JSON entries for the content of those files to continue to be used.
 
 Tomcat context file
 -------------------
