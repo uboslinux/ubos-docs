@@ -49,6 +49,13 @@ To create a backup or a single app configuration at a site and save it to a file
 
 You can determine the ``<siteid>`` or ``<appconfigid>`` with ``ubos-admin listsites``.
 
+``ubos-admin backupinfo``
+-------------------------
+
+To determine the content of a ``.ubos-backup`` file::
+
+   > ubos-admin backupinfo --in <backupfile>
+
 ``ubos-admin createsite``
 -------------------------
 
@@ -142,13 +149,6 @@ This will list hostnames, siteids, whether or not the site has SSL/TLS enabled,
 apps installed at the various sites, their appconfigids, and the relative context
 paths.
 
-This command can also be used to show the sites and apps that were backed up to
-a UBOS backup file:
-
-.. code-block:: none
-
-   > sudo ubos-admin listsites --backupfile <backupfile>
-
 For example:
 
 .. code-block:: none
@@ -179,7 +179,7 @@ This command will not overwrite existing sites or apps; if you wish to replace t
 need to undeploy them first with ``ubos-admin undeploy``.
 
 To only restore a single site (of several) contained in the same backup file, specify
-the ``siteid`` as an argument:
+the ``--siteid`` or ``--hostname`` as an argument:
 
 .. code-block:: none
 
