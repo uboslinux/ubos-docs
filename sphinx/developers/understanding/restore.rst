@@ -3,30 +3,25 @@
 
 See also :doc:`../../users/ubos-admin`.
 
-This command allows users to restore a previously made backup in the
-:doc:`/developers/ubos-backup` format.
-
-It is important that backups can be restored, even if:
-
-* the site configuration has changed since the site was backed up. For example, the
-  user might have added another app to the site, removed one, changed relative URLs
-  of the app at the site, changed customization points, or even changed the host name
-  of the site.
-
-* the app version currently running on the device is more recent than the version of
-  the app that was running at the time the backup was made. This is common.
-
-* the data needs to be restored to a different site than the site that was backed up.
-
-* only some of the data in a backup should be restored. For example, a backup might
-  contain data of three apps, installed at two sites, but only the data of one of those
-  apps should be restored.
-
-To address these use cases, the command::
+This command::
 
    > ubos-admin restore <arguments>
 
-provides a number of different options. To see them, invoke ``ubos-admin restore --help``.
+supports a number of different use cases:
+
+* Restore all sites and all apps contained in the backup to the same
+  configuration as at the time of the backup. This includes hostnames,
+  context paths, other customization, and even TLS keys and certificates
+  (assuming the backup file contains all of those)
+
+* Restore only some sites or apps contained in the backup.
+
+* Restore sites or apps to different hostnames and/or context paths than
+  they had been deployed to at the time the backup was created.
+
+* Restore an app and its data, installed at one site, to a different site.
+
+To see the supported options, invoke ``ubos-admin restore --help``.
 
 Generally, UBOS performs the following actions:
 
@@ -49,8 +44,12 @@ Generally, UBOS performs the following actions:
 
 * The app's and accessories' ``upgraders`` are run (see :doc:`/developers/manifest/roles`),
   so the imported data can be migrated to the structure needed by the current versions of
-  the apps and accessories.
+  the apps and accessories. This supports the situation where the backup was created
+  with an older version of an app than it currently installed on the device.
 
 * The site is resumed, and the placeholder is removed.
+
+This command internally uses a plug-in architecture, which allows the support of
+alternate backup formats without changing the invocation by the user.
 
 See also: :doc:`backup`.

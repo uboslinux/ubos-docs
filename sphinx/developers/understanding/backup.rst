@@ -4,8 +4,7 @@
 See also :doc:`../../users/ubos-admin`.
 
 There are many variations of this command. Regardless of which variation of the command is
-used, UBOS generally performs the
-following actions:
+used, UBOS generally performs the following actions:
 
 * It suspends the site(s) affected by the backup, and temporarily replaces them with a
   placeholder page.

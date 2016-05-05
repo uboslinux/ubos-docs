@@ -22,7 +22,7 @@ To show information about a currently installed site with :term:`siteid` <siteid
    > sudo ubos-admin showsite --siteid <siteid>
 
 You can abbreviate the siteid by appending three dots, if what you specify is unique.
-You can also use ``--host <hostname>`` instead.
+You can also use ``--hostname <hostname>`` instead.
 
 Interactively create a new site with a single app
 -------------------------------------------------
@@ -107,6 +107,15 @@ To undeploy a site with siteid ``<siteid>``, execute:
 .. warning:: This does not create a backup of your data. You need
    :doc:`to do that yourself <backup>`
    first if you would like to retain the data from the to-be-undeployed site.
+
+You can abbreviate the siteid by appending three dots, if what you specify is unique.
+You can also use ``--hostname <hostname>`` instead.
+
+.. code-block:: none
+
+   > sudo ubos-admin undeploy --all
+
+will undeploy all currently deployed sites. Use with care.
 
 If you are curious what UBOS does under the hood, please refer to
 :doc:`/developers/understanding/undeploy`.
