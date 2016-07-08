@@ -43,8 +43,8 @@ In spite of this, many packages available on UBOS are identical to those on
 `Arch Linux <http://archlinux.org/>`_, and its sibling,
 `Arch Linux ARM <http://archlinuxarm.org/>`_.
 
-Doesn’t apt / dpkg / yum / pacman etc. do this already?
--------------------------------------------------------
+Doesn’t apt / dpkg / yum / pacman etc. do what ubos-admin does already?
+-----------------------------------------------------------------------
 
 No. They all manage software packages, they do not manage full configurations of those
 packages.
@@ -78,12 +78,7 @@ of code on many servers. This difference has ramifications on the tools.
 What about docker?
 ------------------
 
-Docker is great to isolate independent apps from each other; it isn't so great for
-running, say, 5 instances of Wordpress and 3 of ownCloud on several different virtual
-hosts on the same port 80.
-
-You can probably run UBOS inside docker; let us `know <http://ubos.net/community/">`_
-if you do.
+Did we say UBOS runs on Docker?
 
 Why do you recommend to develop in Arch Linux instead of UBOS itself?
 ---------------------------------------------------------------------
@@ -109,8 +104,9 @@ to develop for UBOS, for these two reasons:
   unfortunately, do not lend themselves to repeated compile cycles, and have a habit of
   dying when over-used, perhaps taking your code with them.
 
-If you must use an ARM-based device, we recommend that at least you store your valuable code
-on an external (USB) hard drive. Compilations will be faster, too.
+If you must use an ARM-based device, we recommend that use use a modern Raspberry Pi
+with multiple cores, and at least you store your valuable code on an external (USB) hard drive
+instead of notoriously unreliable SD Cards. Compilations will be faster, too.
 
 How are the various UBOS images different from each other?
 ----------------------------------------------------------
@@ -130,4 +126,3 @@ or containers without needing to download another image.
 The same is true for ARM platforms. However, there are larger differences between the
 images for, say, Raspberry Pi 2 and BeagleBone Black, although they use the same ARM
 processor architecture. For example, their boot methods are different.
-

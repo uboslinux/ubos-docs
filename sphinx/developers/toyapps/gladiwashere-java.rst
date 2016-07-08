@@ -6,12 +6,8 @@ The Java version of Glad-I-Was-Here is functionally equivalent to the
 runs under Tomcat. If you have not already read through the :doc:`PHP version <gladiwashere>`
 of Glad-I-Was-Here, we recommend you do so first.
 
-From a user perspective, the technology used to implement a particular application that runs
-on UBOS is totally irrelevant. We cannot require the user to access, say, Java apps at
-a different port number than other apps installed on the same device. Because of that,
-Java apps on UBOS are usually configured with Apache as a reverse proxy in front of
-the Tomcat application server. Apache takes incoming requests at port 80 or 443, and
-forwards them to Tomcat.
+This app runs using Tomcat. If you like to try it, it is recommended to try it
+on a PC, and not an ARM device, as Tomcat requires substantial computing resources.
 
 To obtain the source code:
 
@@ -20,6 +16,19 @@ To obtain the source code:
    > git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``gladiwashere-java``.
+
+Reverse proxy
+-------------
+
+From a user perspective, the technology used to implement a particular application that runs
+on UBOS is totally irrelevant. We cannot require the user to access, say, Java apps at
+a different port number than other apps installed on the same device, because this
+makes no sense to the user.
+
+Because of that, Java apps on UBOS are usually configured with Apache as a reverse
+proxy in front of the Tomcat application server. Apache takes incoming requests at
+port 80 or 443, and forwards them to Tomcat. This is what this app does as
+well.
 
 Package lifecycle and app deployment
 ------------------------------------
@@ -152,7 +161,7 @@ the site. This allows the Site JSON entries for the content of those files to co
 Tomcat context file
 -------------------
 
-Tomcat also needs to be told which app to run, and which parameters to pass ot it.
+Tomcat also needs to be told which app to run, and which parameters to pass to it.
 This is accomplished with the following template:
 
 .. code-block:: none
@@ -162,6 +171,10 @@ This is accomplished with the following template:
             antiResourceLocking="true"
             cookies="false"
             docBase="${package.codedir}/lib/gladiwashere-java.war">
+
+     <Loader className="org.diet4j.tomcat.TomcatModuleLoader"
+                        rootmodule="gladiwashere-java"/>
+
      <Resource auth="Container"
                type="javax.sql.DataSource"
                driverClassName="com.mysql.jdbc.Driver"
@@ -184,6 +197,10 @@ example:
             antiResourceLocking="true"
             cookies="false"
             docBase="/usr/share/gladiwashere-java/lib/gladiwashere-java.war">
+
+    <Loader className="org.diet4j.tomcat.TomcatModuleLoader"
+                       rootmodule="gladiwashere-java"/>
+
      <Resource auth="Container"
                type="javax.sql.DataSource"
                driverClassName="com.mysql.jdbc.Driver"
@@ -198,3 +215,21 @@ example:
 
 For details on how to configure Tomcat, see the
 `Tomcat documentation <https://tomcat.apache.org/tomcat-8.0-doc/config/context.html>`_.
+
+This app is now using the `diet4j module management framework <http://diet4j.org/>`_
+so Java apps fit more nicely into UBOS package management. As a result, this
+Tomcat app uses the diet4j ``TomcatModuleLoader`` to load its code, instead of
+the default Tomcat loader.
+
+Instead of a giant WAR containing all dependencies, this app only ships its own
+code and installs it into ``/usr/lib/java`` where diet4j can find it and its
+dependent modules at run-time. See this line in the ``PKGBUILD`` file:
+
+.. code-block:: none
+
+   # Code
+     install -m644 -D ${startdir}/maven/target/${pkgname}-${pkgver}.war \
+                      ${pkgdir}/usr/lib/java/${_groupId//.//}/${pkgname}/${pkgver}/${pkgname}-${pkgver}.war
+
+which basically says: take the generated (thin) ``.war`` file, and put it into
+``/usr/lib/java/net/ubos/ubos-toyapps/gladiwashere-java/<version>/gladiwashere-java-<version>.war``.

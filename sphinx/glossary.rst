@@ -105,6 +105,10 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       product that kept data local and allowed the owner to modify it at will would
       be part of the Indie IoT.
 
+   Letsencrypt
+      A new certificate authority that provides free SSL/TLS certificates
+      accepted by most browsers. See `<https://letsencrypt.org/>`_.
+
    Multicast DNS (mDNS)
       The `multicast DNS system <https://en.wikipedia.org/wiki/Multicast_DNS>`_ allows
       users to use certain human-friendly hostnames (like ``ubos-pc.local``) on local-area

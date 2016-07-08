@@ -10,7 +10,7 @@ a Site:
 * has a certain hostname, such as ``family.example.com``, or ``*`` if the site
   should respond to all requests regardless of HTTP host header;
 * has a single administrator, for which username, e-mail address etc. are given;
-* may or may not have SSL information (key, certificate etc.) so the site can be
+* may or may not have SSL/TLS information (key, certificate etc.) so the site can be
   served over HTTPS;
 * runs one or more apps at different context paths, such as Wordpress at ``/blog``,
   and a wiki at ``/wiki``.
@@ -69,19 +69,23 @@ The Site JSON file is a JSON hash with the following entries:
    accessible via HTTPS. UBOS will also automatically redirect incoming HTTP requests
    to their HTTPS equivalent.
 
-   ``key`` (required)
+   ``letsencrypt`` (mutually exclusive with ``key``, ``crt``, ``crtchain`` and ``cacrt``)
+      If ``true``, obtain a certificate from letsencrypt.org, and set up the site
+      with it. Also start an automatic renewal process.
+
+   ``key`` (required unless ``letsencrypt`` is provided)
       The key for the tls site. Only shown to the root user.
 
-   ``crt`` (required)
+   ``crt`` (required unless ``letsencrypt`` is provided)
       The certificate for the tls site as issued by your certificate authority.
       Only shown to the root user.
 
-   ``crtchain`` (required)
+   ``crtchain`` (required unless ``letsencrypt`` is provided)
       The certificate chain of your certificate authority, which provides
       credibility not to you, but to your certificate authority, which signed
       your certificate. Only shown to the root user.
 
-   ``cacrt`` (optional)
+   ``cacrt`` (optional, but must not be given if ``letsencrypt`` is provided)
       If you use TLS client authentication (not common), the certificate chain
       of the certificate authorities that your TLS clients are using.
       Only shown to the root user.

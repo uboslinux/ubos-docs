@@ -1,7 +1,7 @@
 # Site settings
 title: UBOS - The Linux Distro for Personal Servers and Indie IoT Devices
 description: >
-  Indie, Indie Web, Linux, distro, FLOSS, open-source, Personal, Personal Server, Raspberry Pi, Beagle Bone, Atom, Web app, decentralized, private, privacy, IoT, Internet of Things
+  Indie, Indie Web, Linux, distro, FLOSS, open-source, Personal, Personal Server, Raspberry Pi, Beagle Bone, EC2, Atom, Web app, decentralized, private, privacy, IoT, Internet of Things
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ubos.net" # the base hostname & protocol for your site
 twitter_username: uboslinux
@@ -19,4 +19,3 @@ category_dir:  tags
 category_title_prefix: 'Tag: '
 
 gems: [jekyll-paginate]
-

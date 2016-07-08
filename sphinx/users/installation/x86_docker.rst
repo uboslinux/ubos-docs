@@ -9,7 +9,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      docker run \
+      > docker run \
           -i -t \
           --cap-add NET_ADMIN --cap-add NET_BIND_SERVICE --cap-add NET_BROADCAST \
           --cap-add NET_RAW --cap-add SYS_ADMIN \

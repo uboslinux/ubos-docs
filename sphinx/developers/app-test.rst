@@ -19,7 +19,8 @@ typical testing tools don't focus on.
 Example: Testing Glad-I-Was-Here locally
 ----------------------------------------
 
-To test the Glad-I-Was-Here toy application with all the default settings, run:
+To test the Glad-I-Was-Here toy application with all the default settings on a device
+running UBOS, execute:
 
 .. code-block:: none
 
@@ -63,12 +64,16 @@ Alternate scaffolds
    v-box     - A scaffold that runs tests on the local machine in a VirtualBox virtual machine.
 
 If using ``webapptest`` with the ``here`` scaffold, ``webapptest`` deploys the to-be-tested
-app on the local device (which needs to run UBOS). By using the ``ssh`` scaffold, the to-be-tested
-app can be tested on a remote device over ssh. This is particularly useful for cross-platform
-testing. The ``v-box`` scaffold sets up and tears down an entire UBOS virtual machine for
-the test. This is only available on x86_64. Finally, the ``container`` scaffold creates a
-Linux container into which UBOS and the to-be-tested app will be installed, using
-``systemd-nspawn``.
+app on the local device (which needs to run UBOS). This is also the default.
+
+By using the ``ssh`` scaffold, the to-be-tested app can be tested on a remote UBOS device over ssh.
+This is particularly useful for cross-platform testing.
+
+The ``v-box`` scaffold sets up and tears down an entire UBOS virtual machine for
+the test. This is only available on x86_64.
+
+Finally, the ``container`` scaffold creates a Linux container into which UBOS and the
+to-be-tested app will be installed, using ``systemd-nspawn``.
 
 Some of these scaffolds need parameters (e.g. the hostname of the ssh host or the image to boot
 from), which are specified by appending them to the name of the scaffold like this:
@@ -92,6 +97,9 @@ those are:
 * ``comment-posted``: a single comment has been posted
 
 Obviously, depending on the application, many more states can be defined.
+
+For each of these states, a script is run that tests that the application is indeed
+in this state. 
 
 Transitions capture instructions for how ``webapptest`` can move the application from one
 state to another. Here, we have only one, called ``post-comment``, which contains the

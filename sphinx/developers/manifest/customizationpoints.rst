@@ -7,7 +7,7 @@ configure the app or accessory at deploy time.
 If you invoke ``ubos-admin createsite`` and specify an app that declares one or more
 required customization points, you will be asked for values for those customization points.
 (If you specify ``--askForAllCustomizationPoints`` as argument, you will be asked for
-values for all customization points, not just the requires ones.)
+values for all customization points, not just the required ones.)
 
 Here is an example:
 
@@ -24,9 +24,9 @@ Here is an example:
    }
 
 This app, or accessory, declares a single customization point whose programmatic name is
-``title``. It is of type string, meaning that values provided for it must be valid strings.
-No value has to be provided by the user for this customization point; if none is provided,
-the default value "My wiki" will be used instead.
+``title``. It is of type string, meaning that a value provided for it must be a valid string.
+No value has to be provided by the user for this customization point, as it is not
+``required``; if none is provided, the default value "My wiki" will be used instead.
 
 Customization points are useful to set information such as the title of the installed
 app, a logo, or settings such as whether comments should be allowed etc.
@@ -35,6 +35,7 @@ The following types of customization points are currently recognized:
 
 * ``string``: A text string. May not contain newlines.
 * ``email``: A valid e-mail address.
+* ``url``: A valid URL.
 * ``text``: A text string that may contain many lines.
 * ``password``: A password. UBOS may enforce certain rules about password strength.
 * ``boolean``: Either ``true`` or ``false``.
@@ -51,7 +52,7 @@ this:
 .. code-block:: json
 
    "default" : {
-     "value" : "...",
+     "value" : "VUJPUw0K",
      "encoding" : "base64"
    }
 
@@ -62,14 +63,15 @@ Customization points may be declared as private:
    "customizationpoints" : {
      "apikey" : {
        "type"       : "string",
-       "private"    : true ...
+       "private"    : true
+       ...
      }
    }
 
 If declared as private, only ``root`` is allowed to see the provided values.
 
 By default, ``ubos-admin createsite`` will ask the user for values of customization points
-in a random sequence. To order the sequence in which the questions are asked, add
+in an undefined sequence. To order the sequence in which the questions are asked, add
 an ``index`` field whose value is an integer, and which is used for sorting.
 For example:
 

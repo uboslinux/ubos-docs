@@ -10,11 +10,12 @@ How to develop for UBOS
    toyapps
    ubos-manifest
    site-json
+   understanding-ubos-admin
    app-test
+   logging
    buildrelease
    ubos-backup
-   logging
-   understanding-ubos-admin
    rebuilding
    principles
+   tips-and-tricks
    faq

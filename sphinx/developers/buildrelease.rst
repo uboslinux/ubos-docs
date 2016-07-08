@@ -10,8 +10,8 @@ The following diagram shows the UBOS build and release process graphically:
 
 UBOS is a derivative of :term:`Arch Linux`. As the Arch Linux project releases
 new :term:`packages <package>`, the :ref:`subset <faq_arch_ubos_rel>` relevant to UBOS is
-staged in the UBOS ``dev`` channel. We do this for each architecture, including `x86_64`,
-`armv6`, `armv7` and so forth.
+staged in the UBOS ``dev`` channel. We do this for each architecture, including ``x86_64``,
+``armv6``, ``armv7`` and so forth.
 
 Other packages that are part of UBOS but not (currently) part of Arch Linux, are also
 staged in the ``dev`` channel. This includes:
@@ -37,9 +37,10 @@ channel pass their automated tests, the packages on the ``red`` channel are prom
 The ``yellow`` channel is similar to traditional "beta"-quality software, and is typically
 used both by developers and friendly end users.
 
-Once the ``yellow`` channel is sufficiently stable, the packages are promoted to
+Once the ``yellow`` channel is sufficiently stable, the packages will be promoted to
 the ``green``, aka production channel, where they become generally available to
-all UBOS users.
+all UBOS users. As UBOS is currently in beta, no releases have been made to the ``green``
+channel yet.
 
 This table shows the approximate update schedule:
 

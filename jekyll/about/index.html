@@ -12,13 +12,13 @@ home. For that reason, many geeks have set up their own servers at home or at a 
 <p>The trouble is that operating your own server takes skill, and lots of time, so most people
 cannot take back control over their data on their own.</p>
 
-<p>The <b>Indie Box Project</b> set out to make it possible for normal people to set up and
-run their own Personal Server, an "indie box" &mdash; independent of the big internet overlords.</p>
+<p>We created <b>UBOS</b>, a new Linux distro, in order to make it simple to set up and
+maintain a Linux server that runs common web applications and keeps data under control
+of the owner of the server. It's our vision that everybody should have an server in their
+home one day that stays independent of the big commercial and governmental overlords.
+And runs UBOS of course. We call such a server an "Indie Box".</p>
 
-<p><b>UBOS</b> was created as the Linux distro that runs on Indie Boxes. It is also a great
-distro for other kinds of computers that can run server-side applications but do not have
-system administrators on staff, such as open IoT gateways. For a comparison to
-other distros, see <a href="#features">features</a> below.</p>
+<p>For a comparison of UBOS to other distros, see <a href="#features">features</a> below.</p>
 
 <h2>UBOS Requirements</h2>
 
@@ -29,7 +29,8 @@ other distros, see <a href="#features">features</a> below.</p>
  <li>High-level commands for installation, uninstallation, and other operations on
      server-side apps. E.g. a single command should be able to install and configure any
      kind of app including all of its dependencies, databases, virtual hosts, services etc.</li>
- <li>Automatic or high-level networking configuration including firewall setup.</li>
+ <li>Automatic or high-level networking configuration including firewall and
+     SSL/TLS setup.</li>
  <li>Make no assumptions about which apps are installed on which server, or even that
      any two UBOS servers will run the same apps. Every user is unique. This makes UBOS
      very different from Linux distros targeted towards data centers and server farms.</li>
@@ -59,6 +60,8 @@ other distros, see <a href="#features">features</a> below.</p>
      hostnames on the same computer, or even at the same hostname (e.g. example.com/blog1,
      example.com/blog2 etc.).
      You can deploy all of them individually or at the same time with a single command.</p>
+ <p>UBOS can now also automatically obtain SSL/TLS certificates from
+    <a href="https://letsencrypt.org/">Letsencrypt.org</a>.</p>
  </li>
 
  <li>
@@ -114,6 +117,7 @@ other distros, see <a href="#features">features</a> below.</p>
  <li>
   <p>UBOS itself is all <b>free/libre and open software</b>, so there's no proprietary lock-in
      and you can keep us honest by reviewing our code.</p>
+
   <p>There is one exception: some hardware platforms, notably some versions of ARM,
      require &quot;blobs&quot; to function. (The Free Software Foundation provides a
      <a href="https://www.fsf.org/resources/hw/single-board-computers">great description</a>.)

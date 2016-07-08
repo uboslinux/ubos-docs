@@ -1,20 +1,20 @@
-Run UBOS on Raspberry Pi 2
-==========================
+Run UBOS on Raspberry Pi 2 or 3
+===============================
 
-You can run UBOS on your Raspberry Pi 2 by downloading an image, writing it to an SD card,
-and booting your Raspberry Pi 2 with that card. (Alternatively you can keep running your
-existing Linux distro on your Raspberry Pi 2, and run UBOS in a Linux container.
+You can run UBOS on your Raspberry Pi 2 or Raspberry 3 by downloading an image, writing
+it to an SD card, and booting your Raspberry Pi with that card. (Alternatively you can keep
+running your existing Linux distro on your Raspberry Pi, and run UBOS in a Linux container.
 This is :doc:`described here <armv7h_container>`.)
 
-Raspberry Pi 2 "Model B" is supported out of the box.
+Raspberry Pi 2 "Model B" and Raspberry Pi 3 "Model B" are supported out of the box.
 
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.
 
-If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
+If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this page <raspberrypi>`.
 
 #. Download a UBOS boot image from `depot.ubos.net`.
-   Beta images for the Raspberry Pi 2 are at
+   Beta images for the Raspberry Pi 2 and 3 are at
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
    Look for a file named ``ubos_yellow-rpi2_LATEST.img.xz``.
 
@@ -23,7 +23,7 @@ If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
 
    .. code-block:: none
 
-      xz -d ubos_yellow-rpi2_LATEST.img.xz
+      > xz -d ubos_yellow-rpi2_LATEST.img.xz
 
    on the command line.
 
@@ -50,7 +50,7 @@ If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
 
    .. code-block:: none
 
-      systemctl is-system-running
+      > systemctl is-system-running
 
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
    your computer should automatically acquire an IP address. You can check with:
@@ -68,6 +68,3 @@ If you have the original Raspberry Pi, go to :doc:`this page <raspberrypi>`.
       > ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
-
-
-

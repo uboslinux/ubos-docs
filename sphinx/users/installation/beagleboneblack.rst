@@ -16,7 +16,7 @@ This is :doc:`described here <armv7h_container>`.)
 
    .. code-block:: none
 
-      xz -d ubos_yellow-bbb_LATEST.img.xz
+      > xz -d ubos_yellow-bbb_LATEST.img.xz
 
    on the command line.
 
@@ -27,7 +27,7 @@ This is :doc:`described here <armv7h_container>`.)
    * :doc:`/users/writing-image/linux`
 
 #. On first boot, it is recommended you have a monitor and keyboard connected to your
-   Raspberry Pi. If this is impractical, create a :doc:`UBOS staff <../shepherd-staff>`
+   Beagle Bone Black. If this is impractical, create a :doc:`UBOS staff <../shepherd-staff>`
    so you can securely log in over the network without the need for monitor or keyboard.
 
 #. Remove the micro-SD card and insert it into your Beagle Bone Black. If you created a UBOS staff,
@@ -43,7 +43,7 @@ This is :doc:`described here <armv7h_container>`.)
 
    .. code-block:: none
 
-      systemctl is-system-running
+      > systemctl is-system-running
 
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
    your computer should automatically acquire an IP address. You can check with:
@@ -61,6 +61,3 @@ This is :doc:`described here <armv7h_container>`.)
       > ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
-
-
-

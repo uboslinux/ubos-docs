@@ -59,7 +59,7 @@ The meaning of the ``$operation`` is as follows:
   Invoked when an app is undeployed from a site, before all the AppConfigurationItems
   have been undeployed.
 
-The same Perl script may be used to handle server of these operations.
+The same Perl script may be used to handle several of these operations.
 
 For an example, refer to ``initialize.pl`` and ``upgrade.pl`` in the Wordpress package for UBOS.
 Source code is `here <https://github.com/uboslinux/ubos-wordpress/blob/master/wordpress/bin>`_.

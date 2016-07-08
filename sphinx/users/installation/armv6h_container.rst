@@ -1,23 +1,23 @@
-Run UBOS in an ARMv6 Linux container (e.g. Raspberry Pi 1)
-==========================================================
+Run UBOS in an ARMv6 Linux container (e.g. Raspberry Pi Zero, 1)
+================================================================
 
 These instructions are the same for all ARMv6-based devices.
 
-If you already run Linux on an ARMv6-based device such as a Raspberry Pi,
-you can run UBOS in a Linux container with
-`systemd-nspawn`. This allows you to try out UBOS without having to do a bare metal installation.
-The only requirement is that your Linux machine runs `systemd` in a recent version.
+If you already run Linux on an ARMv6-based device such as the original Raspberry Pi
+or the Raspberry Pi Zero, you can run UBOS in a Linux container with
+``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
+The only requirement is that your Linux machine runs ``systemd`` in a recent version.
 
-We tested against `systemd` versions 219 and later:
+We tested against ``systemd`` versions 219 and later:
 
 * running UBOS in a container within UBOS;
 * running UBOS in a container within Arch Linux ARM.
 
-Chances are it also works on other `systemd`-based distros.
+Chances are it also works on other ``systemd``-based distros.
 
 To do so:
 
-#. Download a UBOS container image from `depot.ubos.net`.
+#. Download a UBOS container image from ``depot.ubos.net``.
    Beta images for ARMv6 containers are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
    Look for a file named ``ubos_yellow_container-armv6h_LATEST.tar.xz``.
@@ -32,10 +32,14 @@ To do so:
    on the command line.
 
    If you are running btrfs as your filesystem, you may want to create a subvolume and
-   unpack into that subvolume instead, as `systemd-nspawn` is btrfs-aware and that can speed
+   unpack into that subvolume instead, as ``systemd-nspawn`` is btrfs-aware and that can speed
    up things and save some disk space. However, btrfs is optional.
 
-#. Boot the container. `systemd-nspawn` has a wide variety of options, in particular
+#. Consider adding some virtual memory to your device, if you have an attached
+   hard drive. This will alleviate memory pressures on the device that has little
+   RAM.
+
+#. Boot the container. ``systemd-nspawn`` has a wide variety of options, in particular
    for how to set up networking. A private network, as we do it here, is one simple
    option, but you may want to choose a different option, depending on your needs:
 
@@ -90,4 +94,4 @@ To do so:
 #. To shut down your container, either:
 
    * hit ^] three times, or
-   * in a separate shell, execute `sudo machinectl poweroff ubos`
+   * in a separate shell, execute ``sudo machinectl poweroff ubos``

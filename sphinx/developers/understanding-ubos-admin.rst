@@ -8,6 +8,7 @@ the various subcommands do and how they do that, consult the following sections:
    :maxdepth: 1
 
    understanding/backup
+   understanding/backup-to-amazon-s3
    understanding/createsite
    understanding/deploy
    understanding/listnetconfigs

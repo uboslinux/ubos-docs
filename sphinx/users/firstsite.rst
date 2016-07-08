@@ -14,20 +14,29 @@ Follow these steps:
    * you can use the IP address of your UBOS device. For example, if the IP address
      is ``192.168.1.10``, Wordpress will be reachable at ``http://192.168.1.10/blog/``
 
-   * UBOS devices now use mDNS to advertise themselves on the network. The name depends
-     on the type of device:
+   * UBOS devices (not containers or cloud) use mDNS to advertise themselves on the
+     local network. The name depends on the type of device:
 
      * if installed on a PC, Wordpress will be reachable at ``http://ubos-pc.local/blog/``
 
-     * if installed on a Raspberry Pi, Wordpress will be reachable at ``http://ubos-rpi.local/blog/``
+     * if installed on a Raspberry Pi Zero or 1, Wordpress will be reachable at
+       ``http://ubos-raspberry-pi.local/blog/``
+
+     * if installed on a Raspberry Pi 2 or 3, Wordpress will be reachable at
+       ``http://ubos-raspberry-pi2.local/blog/``
 
      Unfortunately that only works on older versions of Windows if you have iTunes installed.
      It should work on all other devices out of the box, including Macs, Linux PCs, iOS and
-     Android devices.
+     Android devices. Again, this option does not exist for running UBOS in a
+     a Linux container or on Amazon EC2.
 
    * If your UBOS device has an official DNS entry on its own, you should use this one, because
      if gives you the opportunity to run multiple sites (with their own distinct apps) on
-     the same device, like web hosting companies do with virtual hosting.
+     the same device, like web hosting companies do with virtual hosting. This is the
+     recommended option for running UBOS in the cloud.
+
+   * If you are just trying out UBOS, you can fake DNS entry by editing your
+     ``/etc/hosts`` file.
 
    See also :doc:`networking`.
 
@@ -60,4 +69,3 @@ Follow these steps:
 
 If you are curious what UBOS just did under the hood, please refer to
 :doc:`/developers/understanding/createsite`.
-

@@ -18,13 +18,25 @@ If the Site JSON file provided to this command is valid, UBOS will perform the f
      apps and accessories, for those roles that are being used on the device.
    * the database engine(s) required for the app, if not already installed.
 
-#. If the site has previously been deployed, the site will be suspended, and
+#. If the site has previously been deployed, the existing site will first be suspended, and
    the data of all the apps and accessories at the site will temporarily be backed up.
 
-#. The frontpage will be replaced with a placeholder saying "upgrade in progress".
+#. The site's frontpage will be replaced with a placeholder saying "upgrade in progress".
 
 #. If the site has previously been deployed, all apps and accessories at the
    deployed site will be undeployed.
+
+#. If the site specifies to use a Letsencrypt certificate, and no valid certificate
+   is available on the device, ``certbot`` will automatically contact the Letsencrypt
+   web service and attempt to obtain a valid certificate for the site. This
+   involves the temporary publication of a document in the site's ``.well-known``
+   subdirectory.
+
+   If a valid certificate was found or obtained, the site will then be set up
+   with it. If no valid certificate could be obtained (e.g. because Letsencrypt
+   could not contact the device due to DNS problems or a lack of public IP
+   address, per Letsencrypt requirements), the site will still be set up,
+   but without SSL/TLS.
 
 #. All the apps and the accessories in the new Site JSON will be deployed.
    For each of them, the :doc:`manifest JSONs <../ubos-manifest>`

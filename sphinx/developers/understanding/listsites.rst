@@ -10,11 +10,7 @@ as specified in the command-line options.
 By default, the output is intended for human consumptions, but JSON output is supported
 as well.
 
-If ``--backupfile`` is given, it will instead iterate over the sites and AppConfigurations
-that were backed up to the backup file.
-
 If invoked as root, all information available can be printed. If invoked as a non-root
 user, credential information (such as passwords and TLS keys) are not printed.
 
 See also :doc:`showsite` and :doc:`showappconfig`.
-

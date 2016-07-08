@@ -60,6 +60,32 @@ To determine the correct ``appconfigid``, use ``ubos-admin listsites``.
 If your site uses TLS, and you do not want to store your TLS key material in the
 backup, execute the backup command with the ``--notls`` option.
 
+Creating a backup that is being saved to Amazon S3
+--------------------------------------------------
+
+Instead of create a backup file that is stored on your local disk, UBOS can
+automatically upload it to your account at Amazon Web Services and store it
+in its Simple Storage Service (S3).
+
+First, install the ``amazons3`` package::
+
+   > sudo pacman -S amazons3
+
+This makes the ``ubos-admin backup-to-amazon-s3`` command available.
+
+This command is being invoked in the same manner as the ``ubos-admin backup``
+command described above, but has additional options for specifying the
+name of the S3 bucket to use, and the name of the file to create.
+
+When you invoke this command for the first time, it will ask you for the
+necessary credential information so it can store the backup on your account
+at Amazon Web Services. This credential information will be stored on your
+device, so you do not need to enter it every time you run a backup.
+
+If you have a GPG key pair with key id ``<keyid>``, you can
+optionally specify ``--encryptid <keyid>``. This will encrypt the backup
+first before uploading to S3.
+
 Determining what a backup file contains
 ---------------------------------------
 
@@ -75,7 +101,7 @@ Restoring from backup
 
 You can restore data either by specifying a local ``.ubos-backup`` file
 (using the ``--in <backupfile>`` command-line options) or by specifying an
-http URL from which the backupfile will first be downloaded (using the
+http or https URL from which the backup file will first be downloaded (using the
 ``--url <backupurl>`` command-line options). In this section, we will assume
 your backup file is local but all commands should work equally with remote
 files.
@@ -88,10 +114,11 @@ the same ``.ubos-backup`` file), execute::
 This command will refuse to work if restoring the backup would cause a
 conflict with a site that is already installed. Possible conflicts include
 the following:
-* a currently deployed site runs at the same hostname as one to be restored
-* a currently deployed site has the same site identifier as one to be restored
-* a currently deployed app has the same app config identifier as one to be restored
-* a currently deployed app runs at the same context as one to be restored
+
+* a currently deployed site runs at the same hostname as one to be restored;
+* a currently deployed site has the same site identifier as one to be restored;
+* a currently deployed app has the same app config identifier as one to be restored;
+* a currently deployed app runs at the same context as one to be restored.
 
 If you wish to restore a previous version of a currently deployed site from
 backup, either back up and then undeploy the current site first, or restore
@@ -104,7 +131,7 @@ current device, but leave all other sites unchanged, specify the :term:`siteid`:
    > sudo ubos-admin restore --siteid <siteid> --in <backupfile>
 
 Alternatively, you can use the hostname of the site that was used at the time
-of the backup:
+of the backup::
 
    > sudo ubos-admin restore --hostname <hostname> --in <backupfile>
 

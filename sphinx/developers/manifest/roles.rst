@@ -14,8 +14,9 @@ The roles section is structured by roles. Currently supported roles are:
 
 * ``apache2``: information related to the web tier;
 * ``tomcat8``: information related to the Java apps running on Tomcat (if applicable);
-* ``mysql``: information related to MySQL databases (if applicable).
-* ``postgresql``: information related to Postgresql databases (if applicable).
+* ``mysql``: information related to MySQL databases (if applicable);
+* ``postgresql``: information related to Postgresql databases (if applicable);
+* ``generic``: information not related to any of the other tiers (this is rare).
 
 Generally, upon installation of an app or accessory, the roles are processed in this sequence:
 
@@ -87,9 +88,9 @@ App Config Item types are currently supported:
   as the ``mysql`` role);
 * ``perlscript``: a Perl script that needs to be run;
 * ``sqlscript``: A SQL script that needs to be run (only use this for the ``mysql`` role);
-* ``symlink``: A symbolic link.
-* ``systemd-service``: A systemd service to be running while the AppConfiguration is deployed
-* ``systemd-timer``: A systemd timer to be active while the AppConfiguration is deployed
+* ``symlink``: A symbolic link;
+* ``systemd-service``: A systemd service to be running while the AppConfiguration is deployed;
+* ``systemd-timer``: A systemd timer to be active while the AppConfiguration is deployed.
 
 The field ``name`` is the name of the file, directory, database, systemd service or timer to
 be created or operated on.
@@ -105,7 +106,7 @@ or the destination of the symbolic link.
 The following table shows all attributes of AppConfigurationItems:
 
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
-| JSON Entry          | Description 	                             | Relative path context         | Mutually exclusive with |
+| JSON Entry          | Description                                  | Relative path context         | Mutually exclusive with |
 +=====================+==============================================+===============================+=========================+
 | ``charset``         | Default character set for SQL database       | N/A                           | N/A                     |
 |                     | (default: Unicode)                           |                               |                         |
@@ -205,7 +206,8 @@ These fields identify scripts to be run when certain events occur:
   data has been restored that potentially must be migrated to work with the current
   version of the app or accessory.
 
-Note that during software upgrades, deployment and undeployment may occur as well.
+Note that during software upgrades, deployment and undeployment may occur as well
+(see :doc:`../understanding/update`).
 
 Each of these fields points to an array. Each of the elements in the array is a separate
 script that will be run in the sequence listed.
@@ -317,4 +319,3 @@ same site had contributions to the generated ``robots.txt`` file, then the gener
 
    User-Agent: *
    Disallow: /blog/wp-admin/
-

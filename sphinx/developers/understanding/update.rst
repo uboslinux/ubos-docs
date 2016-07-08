@@ -15,13 +15,13 @@ Invoking this command will:
 
 #. Upgrade the code on the device. There are two modes:
 
-   * If a ``--pkgfile <pkgfile>`` argument was given, only this single package will be installed
-     from this package file. This uses ``pacman -U <pkgfile>``.
+   * If one or more ``--pkgfile <pkgfile>`` arguments were given, only the specified
+     package files will be installed. This uses ``pacman -U <pkgfile>``.
 
    * If no ``--pkgfile`` argument was given, UBOS will download and install all available
      upgraded packages on the the device. This includes operating-system packages, middleware
-     packages and application packages. This step is equivalent (and in fact uses
-     ``pacman -Syu``)
+     packages and application packages. This step is equivalent to (and in fact uses)
+     ``pacman -Syu``.
 
 #. Apply a heuristic whether or not the device should be rebooted. For example, if the
    Linux kernel has been upgraded, a reboot is typically necessary. This heuristic can

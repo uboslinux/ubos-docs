@@ -1,4 +1,4 @@
-Run UBOS on Raspberry Pi 1 or Zero
+Run UBOS on Raspberry Pi Zero or 1
 ==================================
 
 You can run UBOS on your Raspberry Pi by downloading an image, writing it to an SD card,
@@ -20,10 +20,10 @@ Raspberry Pi with built-in networking, or a compatible networking adapter.
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.
 
-If you have a Raspberry Pi 2, go to :doc:`this page <raspberrypi2>`.
+If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberrypi2>`.
 
 #. Download a UBOS boot image from `depot.ubos.net`.
-   Beta images for the Raspberry Pi are at
+   Beta images for the Raspberry Pi Zero or 1 are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
    Look for a file named ``ubos_yellow-rpi_LATEST.img.xz``.
 
@@ -32,7 +32,7 @@ If you have a Raspberry Pi 2, go to :doc:`this page <raspberrypi2>`.
 
    .. code-block:: none
 
-      xz -d ubos_yellow-rpi_LATEST.img.xz
+      > xz -d ubos_yellow-rpi_LATEST.img.xz
 
    on the command line.
 
@@ -60,7 +60,7 @@ If you have a Raspberry Pi 2, go to :doc:`this page <raspberrypi2>`.
 
    .. code-block:: none
 
-      systemctl is-system-running
+      > systemctl is-system-running
 
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
    your computer should automatically acquire an IP address. You can check with:
@@ -78,6 +78,3 @@ If you have a Raspberry Pi 2, go to :doc:`this page <raspberrypi2>`.
       > ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
-
-
-

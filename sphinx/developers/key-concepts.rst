@@ -60,17 +60,17 @@ and the apps and AppConfigurations on each site. (It leaves out accessories.)
 
 .. table:: Device, sites and AppConfigurations
 
-   +-----------------------------------------------------+
-   | Apache (listening on either port 80 or 443)         |
-   +========================+============================+
-   | Site 1: example.com    | Site 2: example.net        |
-   +------------------------+----------------------------+
-   | AppConfiguration 1a:   | AppConfiguration 2a:       |
-   | Wordpress at ``/blog`` | Wordpress at ``/blog``     |
-   +------------------------+----------------------------+
-   | AppConfiguration 2a:   | AppConfiguration 2b:       |
-   | Mediawiki at ``/wiki`` | Wordpress at ``/news``     |
-   +------------------------+----------------------------+
+   +------------------------------------------------------+
+   | Apache (listening on either port 80 or 443, or both) |
+   +========================+=============================+
+   | Site 1: example.com    | Site 2: example.net         |
+   +------------------------+-----------------------------+
+   | AppConfiguration 1a:   | AppConfiguration 2a:        |
+   | Wordpress at ``/blog`` | Wordpress at ``/blog``      |
+   +------------------------+-----------------------------+
+   | AppConfiguration 2a:   | AppConfiguration 2b:        |
+   | Mediawiki at ``/wiki`` | Wordpress at ``/news``      |
+   +------------------------+-----------------------------+
 
 In this example, DNS has been configured to resolve several distinct DNS hostnames to the
 (same) IP address of the device, including ``example.com`` and ``example.net``. UBOS

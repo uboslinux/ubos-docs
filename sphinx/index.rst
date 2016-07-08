@@ -3,7 +3,6 @@ Contents:
 
 .. toctree::
    :maxdepth: 3
-   :numbered:
 
    users/index
    developers/index

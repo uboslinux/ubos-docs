@@ -114,6 +114,18 @@ div.sidebar {
     font-weight: bold;
   }
 }
+div.section {
+  li.toctree-l1 {
+    list-style: circle inside;
+    margin: 0;
+    padding: 0 0 0 1em;
+  }
+  li.toctree-l2 {
+    list-style: circle inside;
+    margin: 0;
+    padding: 0 0 0 1em;
+  }
+}
 dt {
     font-weight: bold;
 }

@@ -34,18 +34,27 @@ to edit :term:`Site JSON` manually, execute:
 
    > sudo ubos-admin createsite
 
-If you wish to use SSL/TLS encryption, execute:
+If you wish to use SSL/TLS encryption. you need to decide whether you would like to use
+a self-signed certificate (recommended for your home network but not for publicly
+accessible website), an official certificate that you have purchased, or a
+`letsencrypt.org <https://letsencrypt.org>`_ certificate (either work for publicly
+available websites). Depending on that:
 
 .. code-block:: none
 
    > sudo ubos-admin createsite --tls
 
-or
+will ask you to provide the purchased certificate files. Alternatively:
 
 .. code-block:: none
 
    > sudo ubos-admin createsite --tls --selfsigned
 
+   or
+
+   .. code-block:: none
+
+   > sudo ubos-admin createsite --tls --letsencrypt
 
 To generate the Site JSON without deploying the site, e.g. in order to then manually
 edit the Site JSON:

@@ -4,9 +4,9 @@ Prepare a PC to develop for UBOS using Arch Linux
 To set up an Arch Linux system for UBOS development, first prepare
 a suitable x86_64 PC:
 
-#. On a different computer, download a 64bit Arch Linux boot image from `here <https://www.archlinux.org/download/>`_
-   and save it in a convenient place. You only need it for the installation and you can
-   delete it later.
+#. On a different computer, download a 64bit Arch Linux boot image from
+   `here <https://www.archlinux.org/download/>`_ and save it in a convenient
+   place. You only need it for the installation and you can delete it later.
 
 #. Write the downloaded image to a medium (like a USB boot stick) from which you can boot
    your PC. Other than the filename being different, it works just the same as writing a

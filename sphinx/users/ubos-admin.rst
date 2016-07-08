@@ -49,6 +49,28 @@ To create a backup or a single app configuration at a site and save it to a file
 
 You can determine the ``<siteid>`` or ``<appconfigid>`` with ``ubos-admin listsites``.
 
+``ubos-admin backup-to-amazon-s3``
+----------------------------------
+
+Make sure package ``amazons3`` is installed:
+
+.. code-block:: none
+
+   > pacman -S amazons3
+
+To create a backup and automatically upload it to Amazon S3, use the same
+options as for ``ubos-admin backup``. In addition, you can use:
+
+* ``--encryptid <keyid>``: encrypt the backup before uploading with a GPG
+  key with that id found in your GPG key store. Make sure you have access
+  to the private key even once your device has died, otherwise your backup
+  will be useless. WARNING: There are no recovery options other than you
+  protecting your private key.
+
+* ``--bucket <bucket>``: specify the name of the S3 bucket to store the
+  backup to.
+
+
 ``ubos-admin backupinfo``
 -------------------------
 
@@ -72,6 +94,15 @@ To create and deploy a new site, running one app and secured by a self-signed SS
 .. code-block:: none
 
    > ubos-admin createsite --tls --selfsigned
+
+and answer the questions at the terminal.
+
+To create and deploy a new site, running one app and secured by a
+`letsencrypt.org <https://letsencrypt.org/>`_ SSL/TLS certificate:
+
+.. code-block:: none
+
+   > ubos-admin createsite --tls --letsencrypt
 
 and answer the questions at the terminal.
 
@@ -169,13 +200,20 @@ of Glad-I-Was-Here at ``http://example.net/foobar``.
 ``ubos-admin restore``
 ----------------------
 
-To restore all sites and apps contained in a previously created backup, invoke:
+To restore all sites and apps contained in a previously created backup file that
+you have on your device, invoke:
 
 .. code-block:: none
 
    > sudo ubos-admin restore --in <backupfile>
 
-This command will not overwrite existing sites or apps; if you wish to replace them, you
+If your backup is available on-line at a URL instead, invoke:
+
+.. code-block:: none
+
+   > sudo ubos-admin restore --url <url-to-backupfile>
+
+Either command will not overwrite existing sites or apps; if you wish to replace them, you
 need to undeploy them first with ``ubos-admin undeploy``.
 
 To only restore a single site (of several) contained in the same backup file, specify
@@ -272,6 +310,17 @@ This site responds to ``example.com`` and runs two apps: the Glad-I-Was-Here gue
 Wordpress, at the URLs ``http://example.com/guestbook`` and ``http://example.com/blog``,
 respectively. Nothing is being said about other sites that may or may not run on the same
 device.
+
+``ubos-admin status``
+---------------------
+
+To print interesting information about the device, such as available disk and memory,
+invoke:
+
+.. code-block:: none
+
+   > sudo ubos-admin status --all
+
 
 ``ubos-admin undeploy``
 -----------------------

@@ -35,13 +35,16 @@ Generally, you do two things:
 Can I use UBOS without purchasing a domain name?
 ------------------------------------------------
 
-Yes, in two ways:
+Yes:
 
 * You can use the IP address of your UBOS device instead of a domain name, if you
   have specified ``*``, or the IP address directly as the domain name when executing
   ``ubos-admin createsite``.
 * If you are satisfied with accessing your UBOS device only on your local network,
   the UBOS device advertises itself via mDNS and you can use that name. See :doc:`networking`.
+* You can enter your site name in your ``/etc/host`` file(s) or in the local DNS
+  server of your home router. This makes most sense if your site is only on your
+  local network anyway.
 
 Is it safe to have my site accessible from the public web?
 ----------------------------------------------------------
@@ -69,6 +72,13 @@ Help! I have trouble!
 ---------------------
 
 What about visiting our :doc:`troubleshooting` section?
+
+Help! I want to help!
+---------------------
+
+Come find us `here <http://ubos.net/community/>`_ and raise your hand to
+volunteer!
+
 
 What should I do if I get an error, and I don't know how to solve it myself?
 ----------------------------------------------------------------------------

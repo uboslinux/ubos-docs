@@ -1,12 +1,14 @@
 Logging
 =======
 
-Things may go wrong. It's computers, after all. If a log exists, developers and/or users have a chance of figuring out what happened, and fix whatever the problem was. Without
-such logs, life can be very frustrating. So, let's log!
+Things may go wrong. It's computers, after all. If a log exists, developers and/or
+users have a chance of figuring out what happened, and fix whatever the problem was.
+Without such logs, life can be very frustrating. So, let's log!
 
-Analyzing what happened is easier if all code on a host uses single logging facility. If
-a problem occurs due to an unexpected interaction between two different components, for example, a single log has all events in chronological sequence and debugging is much
-easier.
+Analyzing what happened on a user's device is easier if all code on that device
+uses single logging facility. If a problem occurs due to an unexpected interaction
+between two different components, for example, a single log has all events in
+chronological sequence and debugging is much easier.
 
 UBOS uses the logging facilities provided by ``systemd``. All packages, apps and
 accessories are encouraged to use them.

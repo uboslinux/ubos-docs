@@ -121,5 +121,3 @@ and then specify the image file instead of the device:
 .. code-block:: none
 
    > ubos-install ubos-image.img
-
-If your screen goes blank during the

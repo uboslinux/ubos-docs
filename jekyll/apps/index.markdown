@@ -3,19 +3,24 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 5</p>
+<p>Status: beta 7</p>
 
 Here's the current list of apps available on UBOS (alphabetically)::
 
 <img src="/images/jenkins-72x72.png" alt="[Jenkins]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
-   **Jenkins**, the continuous integration app we use to build UBOS itself on UBOS.<br>
+   **Jenkins**, a continuous integration app.<br>
    Install with `ubos-admin createsite`, specify app `jenkins`.
 
 <img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Known**: Publishing Platform for Everyone<br>
    Install with `ubos-admin createsite`, specify app `known`
+
+<img src="/images/mattermost-72x72.png" alt="[Mattermost]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Mattermost**: Open source, self-hosted Slack-alternative<br>
+   Install with `ubos-admin createsite`, specify app `mattermost`
 
 <img src="/images/mediagoblin-72x72.png" alt="[Mediagoblin]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -27,10 +32,15 @@ Here's the current list of apps available on UBOS (alphabetically)::
    **Mediawiki**: The wiki that Wikipedia runs on<br>
    Install with `ubos-admin createsite`, specify app `mediawiki`
 
+<img src="/images/nextcloud-72x72.png" alt="[Nextcloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Nextcloud**: A safe home for all your data<br>
+   Install with `ubos-admin createsite`, specify app `nextcloud9`
+
 <img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Owncloud**: Your Cloud, Your Data, Your Way!<br>
-   Install with `ubos-admin createsite`, specify app `owncloud`
+  Install with `ubos-admin createsite`, specify app `owncloud`
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 

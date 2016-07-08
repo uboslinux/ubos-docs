@@ -17,7 +17,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 all: jekyll sphinx static
 
 clean:
-	rm -rf $(STAGEDIR)/*
+	rm -rf $(STAGEDIR)/* $(CACHEDIR)/*
 
 sphinx:
 	sphinx-build -b html -d $(DOCTREEDIR) $(PHINXOPTS) sphinx $(STAGEDIR)/docs

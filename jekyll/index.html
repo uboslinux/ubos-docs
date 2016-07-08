@@ -14,17 +14,16 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2015/12/13/ubos-beta6-available.html">
-   Beta 6 now available<br>
-   for PCs, <img src="{{ "/images/rpi-29x35.png" | prepend: site.baseurl }}" alt="[Raspberry Pi]" title="Raspberry Pi"> 1 &amp; 2 &amp; Zero,
-   <img src="{{ "/images/beagle-30x30.png" | prepend: site.baseurl }}" alt="[Beagle Bone Black]" title="BeagleBone Black">,<br>
-   VirtualBox, Linux container &amp; Docker
+  <a href="/blog/2016/07/07/ubos-beta7-available.html">
+   Beta 7 now available<br>
+   for PCs, Raspberry Pi's<br>
+   and cloud
   </a>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
   <h1>Let's keep control over our data.</h1>
   <p>UBOS is a new Linux distro that aims to make it 10x easier to run server-side apps
-     for yourself, or for your family, on hardware you own.</p>
+     for yourself, or for your family, on hardware or cloud servers you own.</p>
   <p>Why give your valuable data to Google or some other data overlord, if you can keep it
      under your own control? All you need is a spare (physical, virtual, or cloud) computer
      that can run Linux. UBOS automates much of the administration, so you can get on with life.</p>
@@ -135,7 +134,7 @@ p.feeds {
 <style>
 div.apps img {
     float: left;
-    margin: 10px 10px 0 35px;
+    margin: 10px 10px 0 15px;
 }
 div.apps p {
     float: right;
@@ -146,6 +145,15 @@ div.apps p {
 
 <div class="section apps">
  <div class="section-header"><span><a href="/apps/" style="color: inherit">APPS</a></span></div>
+ <a href="http://nextcloud.org/" title="Nextcloud: A safe home for all your data">
+  <img src="{{ "/images/nextcloud-72x72.png"  | prepend: site.baseurl }}" alt="[Nextcloud]">
+ </a>
+ <a href="http://mattermost.org/" title="Mattermost: Slack-alternative">
+  <img src="{{ "/images/mattermost-72x72.png"  | prepend: site.baseurl }}" alt="[Mattermost]">
+ </a>
+ <a href="http://withknown.com/" title="Known: publishing platform for everyone">
+  <img src="{{ "/images/known-72x72.png"      | prepend: site.baseurl }}" alt="[Known]">
+ </a>
  <a href="http://owncloud.org/" title="Owncloud: your cloud, your data, your way!">
   <img src="{{ "/images/owncloud-72x72.png"  | prepend: site.baseurl }}" alt="[ownCloud]">
  </a>
@@ -163,9 +171,6 @@ div.apps p {
  </a>
  <a href="http://sebsauvage.net/wiki/doku.php?id=php:shaarli" title="Shaarli: your own URL shortener">
   <img src="{{ "/images/shaarli-72x72.png"   | prepend: site.baseurl }}" alt="[Shaarli]">
- </a>
- <a href="http://withknown.com/" title="Known: publishing platform for everyone">
-  <img src="{{ "/images/known-72x72.png"      | prepend: site.baseurl }}" alt="[Known]">
  </a>
  <a href="http://webtrees.net/" title="Webtrees: collaborative genealogy application">
   <img src="{{ "/images/webtrees-72x72.png"  | prepend: site.baseurl }}" alt="[Webtrees]">
@@ -201,13 +206,14 @@ div.howto pre {
        (<a href="/docs/users/installation/x86_bootstick.html">bootstick</a>,
        <a href="/docs/users/installation/x86_disk.html">hard drive</a>,
        <a href="/docs/users/installation/x86_container.html">container</a>,
-       <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>, or
-       <a href="/docs/users/installation/x86_docker.html">Docker</a>)</li>
-   <li>a Raspberry Pi&nbsp;1 or Zero (<a href="/docs/users/installation/raspberrypi.html">SDCard</a> or
+       <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>,
+       <a href="/docs/users/installation/x86_docker.html">Docker</a>)
+       or cloud (<a href="/docs/users/installation/ec2.html">EC2</a>).</li>
+   <li>on a Raspberry Pi&nbsp;0, 1 (<a href="/docs/users/installation/raspberrypi.html">SDCard</a> or
        <a href="/docs/users/installation/armv6h_container.html">container</a>) or
-       Pi&nbsp;2 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a> or
+       Pi&nbsp;2, 3 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a> or
        <a href="/docs/users/installation/armv7h_container.html">container</a>)</li>
-   <li>Beagle Bone Black (<a href="/docs/users/installation/beagleboneblack.html">SDCard</a> or
+   <li>on a Beagle Bone Black (<a href="/docs/users/installation/beagleboneblack.html">SDCard</a> or
        <a href="/docs/users/installation/armv7h_container.html">container</a>).</li>
   </ul>
  </div>
