@@ -93,7 +93,8 @@ App Config Item types are currently supported:
 * ``systemd-timer``: A systemd timer to be active while the AppConfiguration is deployed.
 
 The field ``name`` is the name of the file, directory, database, systemd service or timer to
-be created or operated on.
+be created or operated on. ``names`` can be used as a shortcut for several App Config Items
+to which the same other settings apply.
 
 The field ``template`` identifies a file or directory that is to be used as a template for
 creating the new item. The corresponding field ``templatelang`` states how the template
@@ -101,7 +102,14 @@ should be used to create the item. In the example above, the ``varsubst`` ("vari
 substitution") algorithm is to be applied. (See :doc:`variables` and :doc:`perlscript`.)
 
 The field ``source`` refers to a file that is the source code for the script to be run,
-or the destination of the symbolic link.
+or the destination of the symbolic link. (Think of the original file that is either being
+copied, run, or pointed to with the symbolic link.)
+
+The ``source`` field in case of ``directorytree``, ``file`` and ``symlink`` may contain:
+
+* ``$1``: it will be replaced with the value of the ``name`` or current ``names`` entry.
+* ``$2``: it will be replaced with the file name (without directories) of the ``name`` or
+  current ``names`` entry.
 
 The following table shows all attributes of AppConfigurationItems:
 
