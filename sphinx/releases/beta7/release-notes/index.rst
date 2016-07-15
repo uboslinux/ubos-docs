@@ -190,5 +190,12 @@ Known problems
   We are currently reconsidering support for this device, as there have been far
   fewer downloads for it than for other devices.
 
+* On the Raspberry Pi, ``systemctl`` will report a system status of ``degraded``.
+  That's because UBOS is attempting load a kernel module that cannot be found.
+  The system is otherwise okay, however. To fix this cosmetic error, as root,
+  edit ``/etc/modules-load.d/devicemodules.conf`` and remove the line that reads
+  ``bcm2708-rng``. Then, execute ``systemctl restart systemd-modules-load``
+  (`issue report <https://github.com/uboslinux/ubos-admin/issues>`_).
+
 Other than that, nothing should get in your way. If you encounter something that does,
 file a bug `on GitHub <https://github.com/uboslinux/>`_.
