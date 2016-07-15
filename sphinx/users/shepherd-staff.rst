@@ -4,18 +4,21 @@ The UBOS Staff
 Overview
 --------
 
-Any standard USB flash drive can be used to securely initialize devices running UBOS
-during boot. We call such a device the "UBOS Staff".
+When running UBOS on a local physical hardware, like a PC or Raspberry Pi,
+any standard USB flash drive can be used during boot to securely provision a local account
+called the :term:`Shepherd` account, into which the user can ``ssh`` over the
+network. We call such a device the "UBOS Staff".
 
-Today, this allows the user (the :term:`Shepherd`) to automatically provision an ``ssh``
-account for key-based administrator login on the device. In the future, additional
-configuration information may be supported.
+This also allows the secure installation and configuration of UBOS devices without
+ever having to attach a keyboard or monitor to the device.
+
+A similar mechanism is available in the cloud.
 
 See also `blog post <http://upon2020.com/blog/2015/03/ubos-shepherd-rules-their-iot-device-flock-with-a-staff/>`_
 with a longer discussion.
 
-UBOS Staff device configuration
--------------------------------
+UBOS Staff device configuration (physical hardware)
+---------------------------------------------------
 
 Device format and name
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -26,6 +29,9 @@ USB flash drive only be used as UBOS staff, and not for other purposes at the sa
 The drive must have a "VFAT" ("Windows") partition called ``UBOS-STAFF``; otherwise
 UBOS will ignore the drive during boot. This can often be accomplished simply by inserting
 a new USB flash drive in a computer, and renaming the device to ``UBOS-STAFF``.
+
+The USB flash drive can have any size; the amount of storage or speed required for
+use as UBOS staff is minimal.
 
 Adding an existing ssh key to the device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,19 +61,37 @@ shepherd account on the device.
 Note: it is recommended you move the private key from the UBOS Staff to a secure
 place on your computer and delete it from the UBOS Staff.
 
+UBOS Staff device configuration (cloud)
+---------------------------------------
+
+When booting an official UBOS image on Amazon EC2, UBOS instead will take
+the key pair specified by the user in the instance creation wizard on the
+Amazon website, and configure the Shepherd account with it. No actual
+Staff device is required.
+
+UBOS Staff device configuration (container)
+-------------------------------------------
+
+When booting UBOS in a Linux container, UBOS will treat the directory
+``/UBOS-STAFF`` as the UBOS Staff, assuming it is present.
+
+It may be advantageous to bind a suitable directory into the container with
+the ``--bind`` flag to ``systemd-nspawn``.
+
 To log into a remote UBOS device as the shepherd
 ------------------------------------------------
 
 On the computer that has the private ``id_rsa`` file, execute the following command::
 
-   > ssh -i id_rsa shepherd@ip
+   > ssh -i <id_rsa> shepherd@1.2.3.4
 
-where ``id_rsa`` is the private file from above, and ``ip`` is the IP address or
+where ``<id_rsa>`` is the name of the file containing the private key from above,
+and ``1.2.3.4`` is replaced with the IP address or
 hostname of your device, such as ``ubos-pc.local`` (see :doc:`networking`)
 
 You must have copied the ``id_rsa`` file to your computer. You cannot use ``id_rsa``
-directly from the UBOS Staff, as the DOS filesystem on the UBOS Staff cannot
-limit access to the file, and ssh will refuse to use the file if it is world-readable.
+directly from the UBOS Staff, as ssh will refuse to use the file directly from
+the UBOS Staff.
 
 UBOS boot behavior with Staff present
 -------------------------------------
@@ -86,4 +110,3 @@ If UBOS finds such a file, UBOS:
 
 3. UBOS gives the ``shepherd`` account certain administration rights, such as the
    ability to invoke ``sudo ubos-admin``, ``systemctl``, ``reboot`` and the like.
-
