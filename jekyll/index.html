@@ -104,7 +104,7 @@ span.news-meta {
 {% assign counter = '0' %}
 {% for post in site.posts %}
 {% for cat in post.categories %}
-{% if cat == "hot" and counter < '3' %}
+{% if cat == "front" and counter < '3' %}
     {% capture counter %}{{ counter | plus:'1' }}{% endcapture %}
   <li style="margin: 0">
    <span class="news-title">
