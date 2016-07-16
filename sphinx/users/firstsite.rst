@@ -53,7 +53,8 @@ Follow these steps:
 
       > sudo ubos-admin createsite
       App to run: wordpress
-      Hostname for app: *
+      Downloading packages...
+      Hostname (or * for any): *
       App wordpress suggests context path /blog
       Enter context path: /blog
       Any accessories for wordpress? Enter list:
