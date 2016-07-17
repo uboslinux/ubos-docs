@@ -197,5 +197,9 @@ Known problems
   ``bcm2708-rng``. Then, execute ``systemctl restart systemd-modules-load``
   (`issue report <https://github.com/uboslinux/ubos-admin/issues>`_).
 
+* Rasptimer currently fails; we missed the update to PHP7. It has been updated upstream,
+  however. If you need it, clone its `Github repo <https://github.com/jernst/rasptimer>`_,
+  ``makepkg`` and ``ubos-admin update --pkg rasptimer*.pkg*``.
+
 Other than that, nothing should get in your way. If you encounter something that does,
 file a bug `on GitHub <https://github.com/uboslinux/>`_.
