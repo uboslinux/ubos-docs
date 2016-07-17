@@ -73,7 +73,7 @@ UBOS Staff device configuration (container)
 -------------------------------------------
 
 When booting UBOS in a Linux container, UBOS will treat the directory
-``/UBOS-STAFF`` as the UBOS Staff, assuming it is present.
+``/UBOS-STAFF`` as the UBOS Staff, assuming it is present in the container (not the host).
 
 It may be advantageous to bind a suitable directory into the container with
 the ``--bind`` flag to ``systemd-nspawn``.
@@ -87,7 +87,7 @@ On the computer that has the private ``id_rsa`` file, execute the following comm
 
 where ``<id_rsa>`` is the name of the file containing the private key from above,
 and ``1.2.3.4`` is replaced with the IP address or
-hostname of your device, such as ``ubos-pc.local`` (see :doc:`networking`)
+hostname of your device, such as ``ubos-pc.local`` (see :doc:`networking`).
 
 You must have copied the ``id_rsa`` file to your computer. You cannot use ``id_rsa``
 directly from the UBOS Staff, as ssh will refuse to use the file directly from
@@ -110,3 +110,8 @@ If UBOS finds such a file, UBOS:
 
 3. UBOS gives the ``shepherd`` account certain administration rights, such as the
    ability to invoke ``sudo ubos-admin``, ``systemctl``, ``reboot`` and the like.
+
+4. If the device is booted a second time with the Staff present, the ssh key will be
+   updated. (We work under the assumption that if an attacker has the ability to
+   physically insert a USB device into the USB port and reboot the device, the device
+   should be considered compromised in any case.)
