@@ -54,9 +54,10 @@ Have UBOS auto-generate a new key pair:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To have UBOS auto-generate a new key pair, insert a USB flash drive named ``UBOS-STAFF``
-during boot that does not have the ``shepherd`` directory yet. UBOS
-will automatically generate the key pair, save it to the UBOS Staff, and create a
-shepherd account on the device.
+during boot that does not have the ``shepherd`` directory yet. UBOS will automatically
+generate the key pair, save it to the UBOS Staff, and create a shepherd account on the
+device. This behavior only occurs with a physical Staff device; not with a virtual Staff
+device in case of running UBOS in the cloud cloud or in a container.
 
 Note: it is recommended you move the private key from the UBOS Staff to a secure
 place on your computer and delete it from the UBOS Staff.
@@ -69,6 +70,8 @@ the key pair specified by the user in the instance creation wizard on the
 Amazon website, and configure the Shepherd account with it. No actual
 Staff device is required.
 
+UBOS will never auto-generate a new key pair in the cloud.
+
 UBOS Staff device configuration (container)
 -------------------------------------------
 
@@ -77,6 +80,8 @@ When booting UBOS in a Linux container, UBOS will treat the directory
 
 It may be advantageous to bind a suitable directory into the container with
 the ``--bind`` flag to ``systemd-nspawn``.
+
+UBOS will never auto-generate a new key pair when running UBOS in a container;
 
 To log into a remote UBOS device as the shepherd
 ------------------------------------------------
