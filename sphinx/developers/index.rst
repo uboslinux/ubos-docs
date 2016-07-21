@@ -15,6 +15,7 @@ How to develop for UBOS
    logging
    buildrelease
    ubos-backup
+   networking
    rebuilding
    principles
    tips-and-tricks
