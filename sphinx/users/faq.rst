@@ -46,6 +46,25 @@ Yes:
   server of your home router. This makes most sense if your site is only on your
   local network anyway.
 
+How can I install more than one web app on the same device?
+-----------------------------------------------------------
+
+Yes. In two ways:
+ * You can invoke ``ubos-admin createsite`` as many times as you wish and specify as
+   many apps as you wish. You can even specify the same app more than once (for example,
+   if several members of your family like to run Wordpress) as long as you use different
+   path names. However, every time you invoke ``ubos-admin createsite`` again, you need
+   to use a different hostname: ``createsite`` means that you are creating a separate
+   site every time; the command cannot modify an existing site.
+ * You can augment an existing site by adding another app to the same site, accessible
+   at the same hostname. To do that today, you need to obtain the existing site's
+   site JSON file with ``ubos-admin showsite --json --hostname <hostname>``, save
+   the file, edit the file by adding another entry into the ``appconfigs`` array
+   that describes the additional app you wish to run, and deploy the new configuration with
+   ``ubos-admin deploy -f <edited-site-json-file>``. There is currently no command
+   that allows you to do that interactively (but you could help us out and create one,
+   see `this issue <https://github.com/uboslinux/ubos-admin/issues/8>`_).
+
 Is it safe to have my site accessible from the public web?
 ----------------------------------------------------------
 
