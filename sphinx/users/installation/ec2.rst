@@ -11,8 +11,7 @@ However, UBOS is not very picky, so many different values should work as well.
 * Choose an instance type based on your budget and requirements. To try out UBOS
   and for personal sites, a "Free Tier" server should be sufficient.
 
-* Choose a root disk that is large enough for your needs. We recommend at least
-  16GB. Magnetic is cheapest and fine for most personal sites.
+* Keep the root disk at 16GB. Magnetic is cheapest and fine for most personal sites.
 
 * Name it whatever you like.
 
