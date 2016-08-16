@@ -47,26 +47,34 @@ Follow these steps:
       > ubos-admin createsite
 
    This command will ask a number of questions. Once you have answered them, it will
-   appear to think for a while and then set up your new app. Here is an example transcript:
+   appear to think for a while and then set up your new app. Here is an example transcript
+   for beta8 (earlier betas asked questions in a different sequence):
 
    .. code-block:: none
 
       > sudo ubos-admin createsite
-      App to run: wordpress
-      Downloading packages...
+      ** First a few questions about the website that you are about to create:
       Hostname (or * for any): *
+      Site admin user id (e.g. admin): admin
+      Site admin user name (e.g. John Doe): admin
+      Site admin user password (e.g. s3cr3t):
+      Site admin user e-mail (e.g. foo@bar.com): root@localhost
+      ** Now a few questions about the app(s) you are going to deploy to this site:
+      First app to run (or leave empty when no more apps): wordpress
+      Downloading packages...
       App wordpress suggests context path /blog
       Enter context path: /blog
       Any accessories for wordpress? Enter list:
-      Site admin user id (e.g. admin): admin
-      Site admin user name (e.g. John Doe): admin
-      Site admin user password (e.g. s3cr3t): .
-      Site admin user e-mail (e.g. foo@bar.com): root@localhost
+      Next app to run (or leave empty when no more apps):
+      Downloading packages...
+      Deploying...
+      Installed site sebbab46f26af24d677c955aabed8ae4e0186d4fc at http://*/
 
 #. Access your new app. You can reach it directly by visiting the correct URL as described above.
    If you leave out the trailing ``/blog/``, you will see the list of apps installed at this
-   site. Currently that is only Wordpress at path ``/blog/``, but you might want to add
-   more apps later.
+   site. Currently that is only Wordpress at path ``/blog/``. If you had continued entering
+   additional apps in response to the question "Next app to run", UBOS would have installed
+   more apps.
 
 If you are curious what UBOS just did under the hood, please refer to
 :doc:`/developers/understanding/createsite`.

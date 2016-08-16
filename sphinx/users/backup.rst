@@ -144,10 +144,15 @@ Alternatively you can use the site id of the site to which the app shall be adde
 
    > ubos-admin restore --appconfigid <appconfigid> --tositeid <tositeid> --in <backupfile>
 
-Finally, to copy a site or app configuration and use new identifiers and a new hostname,
+To copy a site or app configuration and use new identifiers and a new hostname,
 use one of the following::
 
    > ubos-admin restore --siteid <fromsiteid> --createnew --newhostname <newhostname> --in <backupfile>
+
+Finally, to replace one or more apps or accessories with something else during restore, use
+the ``--migratefrom <package>`` and ``--migrateto <poackage>`` options, such as::
+
+   > ubos-admin restore --migratefrom owncloud --migrateto nextcloud --in <backupfile>
 
 To see the full set of options, invoke::
 

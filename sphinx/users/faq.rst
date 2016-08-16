@@ -94,6 +94,13 @@ specific to that filesystem type to expand the filesystem, such as
 ``btrfs filesystem resize`` (for "btrfs) or ``resize2fs`` (for "ext4"). Alternatively,
 you can add a second device to the btrfs filesystem pool.
 
+I'm trying to run UBOS in a container, and the container comes up degraded
+--------------------------------------------------------------------------
+
+Make sure you have IPv6 enabled on your host. If you run the container on
+a UBOS host itself, it may be as easy as ``ubos-admin setnetconfig client``
+(or whatever netconfig you are running on the host).
+
 I found a bug.
 --------------
 

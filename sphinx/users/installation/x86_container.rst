@@ -32,6 +32,20 @@ To do so:
    unpack into that subvolume instead, as ``systemd-nspawn`` is btrfs-aware and that can speed
    up things and save some disk space. However, btrfs is optional.
 
+#. Run both IPv4 and IPv6 based ``iptables`` on your host, otherwise UBOS cannot set up its
+   own firewall and the UBOS container will boot into a ``degraded`` state. If you aren't
+   already doing this, on the host:
+
+   .. code-block:: none
+
+      > sudo [[ -e /etc/iptables/iptables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+      > sudo [[ -e /etc/iptables/ip6tables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
+      > sudo systemctl enable iptables ip6tables
+      > sudo systemctl start iptables ip6tables
+
+   This will not actually perform any firewall functionality (the ruleset is empty), but
+   it will allow the UBOS container to set up its own firewall.
+
 #. Boot the container. ``systemd-nspawn`` has a wide variety of options, in particular
    for how to set up networking. A private network, as we do it here, is one simple
    option, but you may want to choose a different option, depending on your needs:
