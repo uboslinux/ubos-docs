@@ -9,8 +9,9 @@ their data can be reliably backed up, restored, and migrated when your app moves
 to a new version. We do not ever want to ask a user to "fix the app installation" manually
 if we can help it.
 
-To aid in testing this, we use a test tool called ``webapptest`` (source is
-`here <https://github.com/uboslinux/ubos-tools/tree/master/webapptest>`_), which has been
+To aid in testing this, we use a test tool called ``webapptest``
+(`webapptest source is here <https://github.com/uboslinux/ubos-tools/tree/master/webapptest>`_),
+which has been
 written specifically for this purpose. ``webapptest`` is not a regular application testing tool;
 it is not intended to find out whether, say, your app runs nicely in Internet Explorer.
 Instead, it focuses on testing installation, uninstallation, backup and restore; something
@@ -99,7 +100,7 @@ those are:
 Obviously, depending on the application, many more states can be defined.
 
 For each of these states, a script is run that tests that the application is indeed
-in this state. 
+in this state.
 
 Transitions capture instructions for how ``webapptest`` can move the application from one
 state to another. Here, we have only one, called ``post-comment``, which contains the

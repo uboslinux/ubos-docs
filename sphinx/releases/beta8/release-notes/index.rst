@@ -38,11 +38,11 @@ For users
 
 * Documentation
 
-  * The netconfig JSON file is now documented, see
-    `here <http://ubos.net/docs/developers/networking.html#syntax-of-the-netconfig-files-structure>`_.
+  * The netconfig JSON file is now documented
+    (:doc:`/developers/networking`)
 
-  * How to be the UBOS shepherd on Amazon EC2 or in a Linux container is now documented, see
-    `here <http://ubos.net/docs/users/shepherd-staff.html>`_.
+  * How to be the UBOS shepherd on Amazon EC2 or in a Linux container is now documented
+    (:doc:`/users/shepherd-staff`)
 
   * Removed / added / improved a number of annoying / missing / wrong messages to the console.
 

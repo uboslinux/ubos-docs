@@ -30,12 +30,12 @@ New features
 * Automatic system reboot if an upgrade advises that. The single-command full-stack upgrade
   ``ubos-admin update`` now uses a heuristic whether a reboot is necessary (e.g. if the
   Linux kernel was updated). Options exist to override this heuristic
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/83>`_,
-  `issue <https://github.com/uboslinux/ubos-admin/issues/43>`_)
+  (`ubos-admin issue 83 <https://github.com/uboslinux/ubos-admin/issues/83>`_,
+  `ubos-admin issue 43 <https://github.com/uboslinux/ubos-admin/issues/43>`_)
 
 * Better progress messages during long operations, e.g. generating the TLS keys for
   https websites
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/61>`_)
+  (`ubos-admin issue 61 <https://github.com/uboslinux/ubos-admin/issues/61>`_)
 
 * New command ``ubos-admin status`` is beginning to report on the device status.
   Currently it only reports on manually modified configuration files, but over time, it
@@ -67,52 +67,52 @@ Bug fixes
 ---------
 
 * The Selfoss RSS Aggregator app can now be run at a self-signed TLS site
-  (`issue <https://github.com/uboslinux/ubos-selfoss/issues/2>`_)
+  (`ubos-selfoss issue 2 <https://github.com/uboslinux/ubos-selfoss/issues/2>`_)
 
 * Mediawiki can now be run correctly at a self-signed TLS site
-  (`issue <https://github.com/uboslinux/ubos-mediawiki/issues/6>`_)
+  (`ubos-mediawiki issue 6 <https://github.com/uboslinux/ubos-mediawiki/issues/6>`_)
 
 * Mediawiki image upload fixed
-  (`issue <https://github.com/uboslinux/ubos-mediawiki/issues/5>`_)
+  (`ubos-mediawiki issue 5 <https://github.com/uboslinux/ubos-mediawiki/issues/5>`_)
 
 * Mediawiki warnings removed
-  (`issue <https://github.com/uboslinux/ubos-mediawiki/issues/3>`_)
+  (`ubos-mediawiki issue 3 <https://github.com/uboslinux/ubos-mediawiki/issues/3>`_)
 
 * Java apps can now be run at wildcard sites
-  (`issue <https://github.com/uboslinux/ubos-toyapps/issues/4>`_)
+  (`ubos-toyapps issue 4 <https://github.com/uboslinux/ubos-toyapps/issues/4>`_)
 
 * BeagleBone Black now uses btrfs, like the other UBOS platforms
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/71>`_)
+  (`ubos-admin issue 71 <https://github.com/uboslinux/ubos-admin/issues/71>`_)
 
 * Undeploy also removes TLS certs
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/70>`_)
+  (`ubos-admin issue 70 <https://github.com/uboslinux/ubos-admin/issues/70>`_)
 
 * Shepherd can now issue shutdown and reboot commands
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/66>`_)
+  (`ubos-admin issue 66 <https://github.com/uboslinux/ubos-admin/issues/66>`_)
 
 * Non-TLS site accessed via https redirects back to http
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/65>`_)
+  (`ubos-admin issue 65 <https://github.com/uboslinux/ubos-admin/issues/65>`_)
 
 * Better error detection for invalid Site JSON files
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/64>`_,
-  `issue <https://github.com/uboslinux/ubos-admin/issues/63>`_)
+  (`ubos-admin issue 64 <https://github.com/uboslinux/ubos-admin/issues/64>`_,
+  `ubos-admin issue 63 <https://github.com/uboslinux/ubos-admin/issues/63>`_)
 
 * Console banner shows UBOS device class
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/59>`_)
+  (`ubos-admin issue 59 <https://github.com/uboslinux/ubos-admin/issues/59>`_)
 
 * Can create site JSON files with ``ubos-admin createsite`` even if
   they would conflict with an existing site, as long as they are not
   deployed
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/56>`_)
+  (`ubos-admin issue 56 <https://github.com/uboslinux/ubos-admin/issues/56>`_)
 
 * Keeping site JSON clean
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/53>`_)
+  (`ubos-admin issue 53 <https://github.com/uboslinux/ubos-admin/issues/53>`_)
 
 * Removed unnecessary console output
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/54>`_)
+  (`ubos-admin issue 54 <https://github.com/uboslinux/ubos-admin/issues/54>`_)
 
 * Shrank size of UBOS images by not shipping pacman files in ``/var/cache``
-  (`issue <https://github.com/uboslinux/ubos-admin/issues/52>`_)
+  (`ubos-admin issue 52 <https://github.com/uboslinux/ubos-admin/issues/52>`_)
 
 New packages
 ------------
@@ -126,17 +126,17 @@ Quality assurance and testing
 * UBOS automated testing now tests a larger state machine of redeploys of an application:
   deploy app to named host, redeploy, to the same named host, redeploy to a wildcard host and
   back to the named host
-  (`issue <https://github.com/uboslinux/ubos-tools/issues/7>`_)
+  (`ubos-tools issue 7 <https://github.com/uboslinux/ubos-tools/issues/7>`_)
 
 * UBOS automated testing now tests the generation of "well-known" files such as ``robots.txt``.
 
 * Test harness now knows how to wait until a Tomcat application running behind an Apache reverse
   proxy is available
-  (`issue <https://github.com/uboslinux/ubos-toyapps/issues/2>`_)
+  (`ubos-toyapps issue 2 <https://github.com/uboslinux/ubos-toyapps/issues/2>`_)
 
 Known issues
 ------------
 
 Currently none.
 
-`Last updated: 2015-04-13 11:30 PST`
+`Last updated: 2015-04-13 11:30 PST` with small formatting edits `2016-08-15 17:30 PST`.

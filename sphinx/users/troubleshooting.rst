@@ -7,7 +7,7 @@ Installation or boot problems
 On a PC: cannot boot UBOS from boot stick
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Q**: I have created a boot stick for x86_64 per instructions :doc:`here <installation/x86_bootstick>`.
+**Q**: I have created a boot stick for x86_64 per instructions in :doc:`installation/x86_bootstick`.
 But the PC still boots from the previously installed operating system, not UBOS.
 
 **A**: You probably need to allow booting from USB in your BIOS. Many PCs are shipped with
@@ -111,8 +111,7 @@ My non-English keyboard layout is all screwed up
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To reconfigure your keyboard for your language, follow the
-`instructions <https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console>`_
-from Arch Linux.
+`instructions from Arch Linux <https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console>`_.
 
 App installation and management problems
 ----------------------------------------
@@ -143,7 +142,7 @@ In VirtualBox: I'm running out of space on my disk image. What now?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can resize your VirtualBox disk image. Instructions can be found on the
-web, such as `here <http://www.midwesternmac.com/blogs/jeff-geerling/resizing-virtualbox-disk-image>`_.
+web, such as at http://www.midwesternmac.com/blogs/jeff-geerling/resizing-virtualbox-disk-image .
 
 Container problems
 ------------------
