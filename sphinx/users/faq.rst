@@ -124,7 +124,7 @@ What should I do if I get an error, and I don't know how to solve it myself?
 
 Here are some things you can do:
 
-* Consult the `UBOS user documentation <http://ubos.net/docs/user/>`_, in particular
+* Consult the `UBOS user documentation <http://ubos.net/docs/users/>`_, in particular
   the section about :doc:`troubleshooting`.
 * Ask a friendly Linux geek you might know.
 * Come find us `here <http://ubos.net/community/>`_ and ask.

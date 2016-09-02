@@ -119,7 +119,7 @@ Known issues
 ------------
 * There is still no command that can show which apps and accessories are available
   for install. For now, refer to the
-  `UBOS Beta 2 is here blog post </blog/2015/02/09/ubos-beta2-is-here/>`_.
+  `UBOS Beta 2 is here blog post </blog/2015/02/09/ubos-beta2-is-here.html>`_.
 
 * Some sections in the documentation are still placeholders.
 
