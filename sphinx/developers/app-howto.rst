@@ -4,7 +4,7 @@ How to make an app available on UBOS
 If you have an app that you'd like to make available to UBOS users, you need to
 take the following steps:
 
-#. Say "Hi" on the `mailing list or on IRC </contact/>`_. We don't bite, and might even be
+#. Say "Hi" on the `mailing list or on IRC </community/>`_. We don't bite, and might even be
    helpful :-)
 
 #. Set up a :doc:`development machine <setting-up-development-machine>`.
