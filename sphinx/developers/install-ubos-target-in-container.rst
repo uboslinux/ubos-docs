@@ -69,9 +69,7 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
       > ip addr
 
-   Make sure you are connected to the internet before attempting to proceed. If you
-   have difficulties reaching the internet from your container, consult the
-   :doc:`troubleshooting page<../../troubleshooting>`.
+   Make sure you are connected to the internet before attempting to proceed.
 
 #. Pick a hostname that you will use to run your apps at in the container, for example
    ``testhost``. Add this and the container's IP address to the Arch development machine's
