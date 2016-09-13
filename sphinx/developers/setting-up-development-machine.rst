@@ -14,6 +14,7 @@ of the above platforms, you need to:
 1. Prepare the hardware, or virtual machine
 2. Install Arch Linux
 3. Add the UBOS tools
+4. Optionally, run UBOS in a Linux container on that Arch host
 
 Depending on your hardware choice, continue with the corresponding section below:
 
@@ -24,3 +25,4 @@ Depending on your hardware choice, continue with the corresponding section below
    prepare-arch-virtualbox
    install-arch
    install-ubos-tools
+   install-ubos-target-in-container

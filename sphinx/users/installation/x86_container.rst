@@ -12,7 +12,7 @@ We tested against ``systemd`` versions 219 and later:
 
 Chances are it also works on other ``systemd``-based distros.
 
-To do so:
+To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
 #. Download a UBOS container image from ``depot.ubos.net``.
    Beta images for x86_64 containers are at
