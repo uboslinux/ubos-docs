@@ -97,15 +97,10 @@ Logging on problems
 I can't log on via SSH
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To log into your UBOS device over the network with SSH, you need to have set up a
-root password, or an SSH key. By default, you can log into your UBOS device as root
-without password on the console, but not over the network.
-
-To set up a root password, log in as root at the console and execute::
-
-   passwd
-
-To set up SSH keys, you might want to consider using the :doc:`UBOS staff <shepherd-staff>`.
+To log into your UBOS device over the network with SSH, you need to have set up the
+:doc:`UBOS shepherd account <shepherd-staff>` (or some other account). While you can log
+into your UBOS device as root from the console, you cannot log on as root over the network
+at all. This is generally considered good security practice on Lilnux.
 
 My non-English keyboard layout is all screwed up
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
