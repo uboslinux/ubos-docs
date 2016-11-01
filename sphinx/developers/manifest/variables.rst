@@ -10,7 +10,7 @@ Commonly-used variables
 -----------------------
 
 The following symbolic names are currently defined and commonly used by developers when
-packaging their apps or accessories for UBOS:
+packaging their apps or accessories for UBOS. They are listed alphabetically.
 
 ``${apache2.gname}``
    Name of the Linux group used for running the Apache web server.
@@ -165,6 +165,27 @@ packaging their apps or accessories for UBOS:
    for a site.
 
    Example: ``host-1-2-3-4.example.org``
+
+``${installable.accessoryinfo.appid}``
+   Only exists for accessories, not for apps. The value of the ``accessoryinfo`` / ``appid``
+   provided in the accessory's manifest to identify the app for which this is an accessory.
+
+   Example: ``wordpress``
+
+``${installable.accessoryinfo.accessoryid}``
+   Only exists for accessories, not for apps. The value of the ``accessoryinfo`` / ``accessoryid``
+   provided in the accessory's manifest to identify the name of the accessory from the
+   perspective of the app, which may or may not be the same as the package name of the
+   accessory in UBOS.
+
+   Example: ``p2``
+
+``${installable.accessoryinfo.accessorytype}``
+   Only exists for accessories, not for apps. The value of the ``accessoryinfo`` / ``accessorytype``
+   provided in the accessory's manifest to identify the type of accessory from the
+   perspective of the app.
+
+   Example: ``theme``
 
 ``${installable.customizationpoints.foo.filename}``
    Name of a file that contains the value of customization point ``foo``
