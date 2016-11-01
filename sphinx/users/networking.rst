@@ -247,6 +247,3 @@ interfaces and is used in the ``client`` network configuration, but editing
 ``/etc/ubos/netconfig-client.json`` and executing ``ubos-admin setnetconfig client`` again,
 the user could, for example, keep one of those interfaces off, or have different ports open.
 
-
-
-
