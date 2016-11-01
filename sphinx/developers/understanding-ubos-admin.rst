@@ -16,6 +16,7 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/read-configuration-from-staff
    understanding/restore
    understanding/setnetconfig
+   understanding/setup-shepherd
    understanding/showappconfig
    understanding/showsite
    understanding/status

@@ -267,6 +267,25 @@ gateway/router:
    > sudo ubos-admin setnetconfig gateway
 
 
+``ubos-admin setup-shepherd``
+-----------------------------
+
+This command is mostly only useful if you run UBOS in a Linux container.
+
+.. code-block:: none
+
+   > sudo ubos-admin setup-shepherd '<public-ssh-key>"
+
+will create the :doc:`UBOS shepherd <shepherd-staff>`, and allow ssh login with the provided public ssh key.
+The ssh key, although long, needs to be provided on the command-line, and in quotes.
+
+.. code-block:: none
+
+   > sudo ubos-admin setup-shepherd --add '<public-ssh-key>"
+
+will add a public ssh key and not overwrite any public ssh key already on the shepherd's
+account.
+
 ``ubos-admin showappconfig``
 ----------------------------
 
