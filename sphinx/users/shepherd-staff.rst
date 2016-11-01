@@ -26,12 +26,15 @@ Device format and name
 Any standard USB flash drive can be used as the UBOS staff. It is recommended that such a
 USB flash drive only be used as UBOS staff, and not for other purposes at the same time.
 
-The drive must have a "VFAT" ("Windows") partition called ``UBOS-STAFF``; otherwise
+The drive must have a "VFAT" ("Windows") partition called ``UBOS-STAFF`` -- otherwise
 UBOS will ignore the drive during boot. This can often be accomplished simply by inserting
 a new USB flash drive in a computer, and renaming the device to ``UBOS-STAFF``.
 
 The USB flash drive can have any size; the amount of storage or speed required for
 use as UBOS staff is minimal.
+
+You have two choices: use an existing ssh key on the ``shepherd`` account, or have UBOS
+generate you a new one:
 
 Adding an existing ssh key to the device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,12 +58,22 @@ Have UBOS auto-generate a new key pair:
 
 To have UBOS auto-generate a new key pair, insert a USB flash drive named ``UBOS-STAFF``
 during boot that does not have the ``shepherd`` directory yet. UBOS will automatically
-generate the key pair, save it to the UBOS Staff, and create a shepherd account on the
+generate the key pair, save it to the UBOS Staff, and create the ``shepherd`` account on the
 device. This behavior only occurs with a physical Staff device; not with a virtual Staff
-device in case of running UBOS in the cloud cloud or in a container.
+device in case of running UBOS in the cloud or in a container.
 
-Note: it is recommended you move the private key from the UBOS Staff to a secure
-place on your computer and delete it from the UBOS Staff.
+Once UBOS has booted and generated the ssh keys (check with ``systemctl is-system-running``),
+you can unplug the Staff device and insert it into the computer from which you want to
+log into your UBOS device. Copy the file ``shepherd/ssh/id_rsa`` from the Staff device
+into a secure place on your computer, as anybody who has access to this file can use it to
+log into your UBOS device. Also, delete the ``id_rsa`` file from the UBOS Staff for the same
+reason. (The file ``id_rsa.pub`` is the public key to which is harmless.)
+
+Assuming you have saved the private key to file ``~/private/my-ubos-shepherd-key`` and
+the hostname of your UBOS device is ``ubos-device.local``, you can now ssh into your
+UBOS device with the command::
+
+   ssh -i ~/private/my-ubos-shepherd-key shepherd@ubos-device.local
 
 UBOS Staff device configuration (cloud)
 ---------------------------------------
