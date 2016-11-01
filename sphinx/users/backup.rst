@@ -86,6 +86,16 @@ If you have a GPG key pair with key id ``<keyid>``, you can
 optionally specify ``--encryptid <keyid>``. This will encrypt the backup
 first before uploading to S3.
 
+Creating a backup to a remote location other than Amazon S3
+-----------------------------------------------------------
+
+To store your backups somewhere other than Amazon S3 or the local device:
+
+#. Create a local backup as described above.
+#. `scp`, `sftp`, `ftp` or otherwise transfer the backup file to where you
+   would like it to end up.
+#. Delete the local backup file.
+
 Determining what a backup file contains
 ---------------------------------------
 
