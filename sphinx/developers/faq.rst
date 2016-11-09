@@ -98,7 +98,7 @@ The Raspberry Pi is fine to run UBOS on. But we recommend you use a PC or virtua
 to develop for UBOS, for these two reasons:
 
 * Development is not much fun on a slow device, and ARM-based devices like a Raspberry Pi
-  are substantially slower than a modern PC
+  are substantially slower than a modern PC.
 
 * The Raspberry Pi and other ARM devices use an SD Card as its hard drive. SD Cards,
   unfortunately, do not lend themselves to repeated compile cycles, and have a habit of

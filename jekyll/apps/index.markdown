@@ -3,7 +3,7 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 8</p>
+<p>Status: beta 9</p>
 
 Here's the current list of apps available on UBOS (alphabetically)::
 
@@ -35,7 +35,8 @@ Here's the current list of apps available on UBOS (alphabetically)::
 <img src="/images/nextcloud-72x72.png" alt="[Nextcloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Nextcloud**: A safe home for all your data<br>
-   Install with `ubos-admin createsite`, specify app `nextcloud9`
+   Install with `ubos-admin createsite`, specify app `nextcloud10`. Previous major version ``nextcloud9`` is
+   also available.
 
 <img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -67,7 +68,9 @@ Here's the current list of apps available on UBOS (alphabetically)::
 Some apps already have some accessories, which you may or may not want to install:
 
  * **Wordpress plugins**: `wordpress-plugin-semantic-linkbacks`, `wordpress-plugin-social` and
-  `wordpress-plugin-webmention` for [Indie Web](http://indiewebcamp.com/) support;
+  `wordpress-plugin-webmention` for [Indie Web](http://indiewebcamp.com/) support; themes
+  ``wordpress-theme-p2``, ``wordpress-theme-pinboard`` and ``wordpress-theme-responsive``
+  and plugin ``wordpress-plugin-google-analytics-for-wordpress``.
 
  * **Mediawiki extension**: `mediawiki-ext-confirmaccount` to cut down on wiki spam;
 

@@ -16,6 +16,7 @@ How to develop for UBOS
    buildrelease
    ubos-backup
    networking
+   creating-appliance
    rebuilding
    principles
    tips-and-tricks

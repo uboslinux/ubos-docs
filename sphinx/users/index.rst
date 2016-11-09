@@ -11,6 +11,7 @@ How to use UBOS
    managing
    backup
    upgrading
+   migrating-to-a-new-app
    ubos-admin
    shepherd-staff
    writing-image

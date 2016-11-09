@@ -100,7 +100,7 @@ I can't log on via SSH
 To log into your UBOS device over the network with SSH, you need to have set up the
 :doc:`UBOS shepherd account <shepherd-staff>` (or some other account). While you can log
 into your UBOS device as root from the console, you cannot log on as root over the network
-at all. This is generally considered good security practice on Lilnux.
+at all. This is generally considered good security practice on Linux.
 
 My non-English keyboard layout is all screwed up
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

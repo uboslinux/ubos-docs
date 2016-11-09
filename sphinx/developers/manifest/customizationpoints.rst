@@ -56,6 +56,14 @@ this:
      "encoding" : "base64"
    }
 
+Alternatively to an explicit value, an expression may be provided, such as:
+
+.. code-block:: json
+
+   "default" : {
+     "expression" : "${randompassword(8)}"
+   }
+
 Customization points may be declared as private:
 
 .. code-block:: json

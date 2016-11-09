@@ -59,3 +59,8 @@ deployed, redeployed or undeployed. This makes it easy to move a site from one h
 another (the Site JSON is the same with the same ``siteid`` and ``appconfigid``, but a
 changed ``hostname``), or to move an app from one context path to another (the
 ``appconfigid`` is the same, just the ``context`` is different).
+
+This command also accepts the ``--template`` flag. In this case, ``ubos-admin deploy``
+allows the provided Site JSON file to leave out Site IDs and App Configuration IDs,
+and automatically generate new IDs before deploying the Site JSON.
+

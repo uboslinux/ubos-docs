@@ -133,3 +133,13 @@ If UBOS finds such a file, UBOS:
    updated. (We work under the assumption that if an attacker has the ability to
    physically insert a USB device into the USB port and reboot the device, the device
    should be considered compromised in any case.)
+
+UBOS also looks for two further directories:
+
+* one directory called ``site-templates`` below the ``shepherd`` directory
+* one directory called ``site-templates`` below the host directory below the ``flock``
+  directory, where the host directory is named after the host identifier of the current
+  device.
+
+UBOS looks for site template files in both of those directories. If those exist, UBOS
+will deploy the specified sites when booting has completed.
