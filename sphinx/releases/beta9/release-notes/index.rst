@@ -51,6 +51,8 @@ For users
 
 * Hundreds of upgraded packages.
 
+* All images for all platforms have been updated.
+
 * Major bug fixes:
 
   * Known: image upload now works.
