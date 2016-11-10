@@ -69,7 +69,7 @@ For developers
 
 * Default values of customization points can now refer to parameters such as
   ``${site.hostname}``. This is particularly useful for instance-specific secrets
-    such as password salts.
+  such as password salts.
 
 * UBOS images can now be created so that one or more sites and apps are automatically
   deployed upon first boot of the image. This makes the creation of UBOS-based
