@@ -1,6 +1,18 @@
 Managing sites and apps
 =======================
 
+Determine the list of available apps and accessories:
+-----------------------------------------------------
+
+To see the list of currently available apps and accessories, execute:
+
+.. code-block:: none
+
+   > pacman -Sl hl
+
+``hl`` stands for "headless", i.e. apps and accessories that do not require a display
+or keyboard attached to the device running UBOS.
+
 Display the currently installed sites and apps
 ----------------------------------------------
 
