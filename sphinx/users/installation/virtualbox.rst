@@ -46,7 +46,9 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    To avoid this, either:
 
    * Set your networking mode to "bridged": Click on "Network". In the pop-up,
-     select tab "Adapter 1", and choose "Bridged Adapter". Click "Ok". (This should work
+     select tab "Adapter 1", and choose "Bridged Adapter", and in the "Name" field choose the
+     host system's network adapter that connects to your Ethernet or Wifi network.
+     Click "Ok". (This should work
      unless your Ethernet or Wifi network isn't willing to hand out more than one DHCP address
      to the same machine; it happens on some tightly managed networks). Or:
 
