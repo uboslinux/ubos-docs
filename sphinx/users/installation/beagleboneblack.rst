@@ -45,6 +45,9 @@ This is :doc:`described here <armv7h_container>`.)
 
       > systemctl is-system-running
 
+   Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
+
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
    your computer should automatically acquire an IP address. You can check with:
 

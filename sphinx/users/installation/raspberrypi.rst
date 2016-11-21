@@ -62,6 +62,9 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 
       > systemctl is-system-running
 
+   Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
+
 #. If you have Ethernet plugged in, and your network has a DHCP server (most networks do),
    your computer should automatically acquire an IP address. You can check with:
 

@@ -63,7 +63,9 @@ depending on your computer hardware and configuration. More options can be found
 **A**: No. When you have booted your PC from a UBOS boot stick, and you install UBOS on a
 hard drive permanently on this PC, add an extra argument to the ``ubos-install``
 command that holds your magic incantation. For example, if you install UBOS on your
-first hard drive, say::
+first hard drive, say:
+
+.. code-block:: none
 
    ubos-install /dev/sda --addkernelparameter video=LVDS-1:d
 
@@ -73,11 +75,15 @@ This will put the incantation into the grub setting permanently.
 
 **A**: No. Open ``/etc/default/grub`` with a text editor of your choice, and look for the
 line that starts with ``GRUB_CMDLINE_LINUX_DEFAULT``. Append the parameter you wanted, and save
-the file. For example, you may want this line to read::
+the file. For example, you may want this line to read:
+
+.. code-block:: none
 
    GRUB_CMDLINE_LINUX_DEFAULT="quiet video=LVDS-1:d"
 
-Then, update your boot loader by invoking::
+Then, update your boot loader by invoking:
+
+.. code-block:: none
 
    grub-install --recheck /dev/sda
 
@@ -90,6 +96,40 @@ Chances are, your boot stick or SD card (depending on the device you are using)
 is bad, or writing the UBOS disk image to the card wasn't successful. This unfortunately
 happens. We recommend you write the image on the disk or stick again, and try again.
 If that fails, try a different boot stick or SD card.
+
+Systemd problems
+----------------
+
+To check the status of the services running on your device, invoke:
+
+.. code-block:: none
+
+   systemctl is-system-running
+
+This should say ``running``, except when the system is not fully booted yet, which it
+should say ``starting``. If it says ``degraded``, something went wrong and one or more
+services could not be started. To find out which, invoke:
+
+.. code-block:: none
+
+   systemctl
+
+(without arguments). This shows you the list of services that are supposed to be running,
+and their status. Those that have problems are shown as ``failed``. Assume service ``foo``
+has failed, you can attempt to restart the service:
+
+.. code-block:: none
+
+   systemctl restart foo
+
+and see whether that helps. To find out what might have gone wrong, consult the system
+journal about this service:
+
+.. code-block:: none
+
+   journalctl -u foo
+
+If you cannot determine what went wrong, see "I need help" below.
 
 Logging on problems
 -------------------
@@ -115,7 +155,9 @@ There's an error message about pacman and gpg when attempting to install an app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most likely, UBOS isn't finished generating its cryptographic keys on the first boot.
-Execute::
+Execute:
+
+.. code-block:: none
 
    > sudo systemctl is-system-running
 
@@ -148,7 +190,9 @@ Cannot reach the public internet from a container running UBOS
 In this case, chances are that your host operating system is not correctly configured for
 networking containers. Here is a list of things to check:
 
-1. On your host, a new network interface is generated just for the UBOS container. Using::
+1. On your host, a new network interface is generated just for the UBOS container. Using:
+
+   .. code-block:: none
 
       ip addr
 
@@ -156,7 +200,9 @@ networking containers. Here is a list of things to check:
    has a suitable IP address such as ``10.0.0.1``. If not, check that you are running
    ``systemd-networkd`` on the host with a suitable configuration file.
 
-2. In your UBOS container, using::
+2. In your UBOS container, using:
+
+   .. code-block:: none
 
       ip addr
 
@@ -165,7 +211,9 @@ networking containers. Here is a list of things to check:
    ``systemd-networkd`` on the host with a suitable configuration file.
 
 3. Test that you can ping the container from the host, and the host from the container with
-   a command such as::
+   a command such as:
+
+   .. code-block:: none
 
       ping 10.0.0.1
 
@@ -177,7 +225,9 @@ networking containers. Here is a list of things to check:
    but the container cannot communicate with the public internet, chances are that
    some of the involved network interfaces aren't forwarding packets. This is common because
    most Linux distros deactivate packet forwarding by default. The simplest way to
-   globally switch on packet forwarding on the host is to execute::
+   globally switch on packet forwarding on the host is to execute:
+
+   .. code-block:: none
 
       sudo sysctl net.ipv4.ip_forward=1
 

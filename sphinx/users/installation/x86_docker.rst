@@ -42,6 +42,15 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    on your host (not Docker container).
 
+   Wait until the output of
+
+   .. code-block:: none
+
+      > systemctl is-system-running
+
+   has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
+
 #. Your Docker container should automatically acquire an IP address. You can check with:
 
    .. code-block:: none
@@ -49,8 +58,8 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
       > ip addr
 
    Make sure you are connected to the internet before attempting to proceed. If you
-   have difficulties reaching the internet from your container, consult the
-   :doc:`troubleshooting page<../troubleshooting>`.
+   have difficulties reaching the internet from your container, consult
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. Update UBOS to the latest and greatest:
 

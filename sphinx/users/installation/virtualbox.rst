@@ -75,7 +75,8 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    far too long until the keys are generated. The downside is that the generated random numbers
    may be a bit less random; that should only matter to you if you are truly paranoid, however.
 
-   Once the system is running, continue.
+   Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. If you have not changed the VirtualBox default network configuration, and your host computer
    has internet connectivity, your virtual UBOS computer should automatically acquire an IP

@@ -71,7 +71,14 @@ log on as root. Then:
 
       > systemctl start haveged
 
-   Once the system is running, continue.
+   Wait until the output of
+
+   .. code-block:: none
+
+      > systemctl is-system-running
+
+   has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. If you have Ethernet plugged in, and your network runs DHCP (most networks do), your
    computer should automatically acquire an IP address. You can check with:

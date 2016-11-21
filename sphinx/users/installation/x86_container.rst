@@ -76,6 +76,15 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
    on your host (not container).
 
+   Wait until the output of
+
+   .. code-block:: none
+
+      > systemctl is-system-running
+
+   has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
+
 #. Your container should automatically acquire an IP address. You can check with:
 
    .. code-block:: none

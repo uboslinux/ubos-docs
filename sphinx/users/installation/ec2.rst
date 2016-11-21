@@ -45,6 +45,9 @@ Once your server has booted:
 
       > systemctl is-system-running
 
+   Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
+   :doc:`troubleshooting<../troubleshooting>`.
+
 #. Update UBOS to the latest and greatest:
 
    .. code-block:: none
