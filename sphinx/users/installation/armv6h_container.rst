@@ -100,7 +100,7 @@ To do so:
 
    Make sure you are connected to the internet before attempting to proceed. If you
    have difficulties reaching the internet from your container, consult
-   :doc:`troubleshooting page<../troubleshooting>`.
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. Update UBOS to the latest and greatest:
 
