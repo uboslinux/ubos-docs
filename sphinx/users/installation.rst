@@ -17,3 +17,4 @@ Here are your current options:
    installation/ec2
    installation/armv6h_container
    installation/armv7h_container
+   installation/verifying
