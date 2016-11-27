@@ -96,8 +96,9 @@ table#platforms img {
 <p>Once booted, log in from the console as root, or via ssh using the
    <a href="/docs/users/shepherd-staff.html">UBOS staff</a>. To install any app:</p>
 <pre># ubos-admin createsite</pre>
-<p>and answer the questions. <a href="/apps/">Here</a> is the list of
-   currently available apps.</p>
+<p>and answer the questions. To obtain the list of currently available headless apps,
+   execute:</p>
+<pre>$ pacman -Sl hl</pre>
 
 <p>To show installed apps and at which virtual hosts they run:</p>
 <pre># ubos-admin listsites</pre>
