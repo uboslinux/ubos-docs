@@ -18,6 +18,8 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    This file **should contain** the letters ``vbox-x86_64``, indicating that it contains
    VirtualBox-supporting code.
 
+#. Optionally, you may now verify that your image downloaded correctly by following the instructions at :doc:`verifying` 
+
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
    double-clicking it, or executing
 

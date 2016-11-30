@@ -1,9 +1,12 @@
 Verify your downloaded UBOS image
 =================================
 
-You can verify that your UBOS image downloaded correctly.
+You can verify that your UBOS image downloaded correctly by verifying its digital signature.
 
-#. Download the sig file corresponding to your image ``ubos_whatever.img.gz.sig``.
+#. Download the sig file corresponding to your image.  For example, If you downloaded your image from
+     ``http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_vbox-x86_64_20161109-220216.vmdk.xz``,
+     then you can download the signature file from
+     ``http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_vbox-x86_64_20161109-220216.vmdk.xz.sig``.
 
 #. Import the UBOS GnuPG public key.
 
@@ -16,3 +19,18 @@ You can verify that your UBOS image downloaded correctly.
    .. code-block:: none
 
       > gpg --no-default-keyring --keyring vendor.gpg --verify ubos_whatever.img.xz.sig ubos_whatever.img.xz
+
+   If everything checks out, this will print
+
+   .. code-block:: none
+
+      gpg: Signature made ...
+      gpg: Good signature from "UBOS buildmaster <buildmaster@ubos.net>"
+      gpg: ...
+
+   If there was a problem, it will print
+
+   .. code-block:: none
+
+      gpg: Signature made ...
+      gpg: BAD signature from "UBOS buildmaster <buildmaster@ubos.net>"
