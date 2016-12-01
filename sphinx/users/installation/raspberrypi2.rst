@@ -18,6 +18,8 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
    Look for a file named ``ubos_yellow-rpi2_LATEST.img.xz``.
 
+#. Optionally, you may now verify that your image downloaded correctly by following the instructions at :doc:`verifying` 
+
 #. Uncompress the downloaded file. This depends on your operating system, but might be as easy as
    double-clicking it, or executing
 

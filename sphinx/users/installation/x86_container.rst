@@ -19,6 +19,8 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
    Look for a file named ``ubos_yellow_container-x86_64_LATEST.tar.xz``.
 
+#. Optionally, you may now verify that your image downloaded correctly by following the instructions at :doc:`verifying` 
+
 #. Uncompress and unpack the downloaded file into a suitable directory by executing:
 
    .. code-block:: none
