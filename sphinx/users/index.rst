@@ -8,6 +8,7 @@ How to use UBOS
    networking
    firstsite
    create-ssl-site
+   create-tor-hidden-site
    managing
    backup
    upgrading

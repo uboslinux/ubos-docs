@@ -2,7 +2,7 @@ Run UBOS on an Amazon Web Services EC2 virtual server
 =====================================================
 
 To run UBOS on EC2, click on
-`this link <https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-a97b56be>`_
+`this link <https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-eff438f9>`_
 and follow the Amazon wizard.
 
 Here are some recommended values for the parameters that Amazon wants you to specify.

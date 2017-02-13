@@ -22,7 +22,8 @@ To do so:
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
    Look for a file named ``ubos_yellow_container-armv7h_LATEST.tar.xz``.
 
-#. Optionally, you may now verify that your image downloaded correctly by following the instructions at :doc:`verifying` 
+#. Optionally, you may now verify that your image downloaded correctly by following the instructions
+   at :doc:`verifying`.
 
 #. Uncompress and unpack the downloaded file into a suitable directory by executing:
 

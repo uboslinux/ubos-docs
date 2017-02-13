@@ -121,6 +121,21 @@ the package for your hardware platform (x86 from the `Arch Linux project <https:
 and ARM from the `Arch Linux ARM <https://www.archlinuxarm.org/>`_ project), and
 use ``pacman -U`` to install.
 
+I need root
+-----------
+
+You should be able to do all typical systems administration with the ``shepherd`` account.
+It is permitted to perform ``sudo <cmd>`` for those commands that require root privileges,
+but no more, in order to cut down on inadvertent changes that will get in the way of UBOS'
+way of doing things. So: "This is not the account you are looking for."
+
+However, if you insist, there are two easy ways of getting root:
+
+* On a system where you have access to the console, you can simply log into the console
+  as ``root``. By default, there is no password. (The assumption is that if somebody has
+  physical access to your Raspberry Pi, game is over anyway, security-wise).
+* As user ``shepherd``, invoke ``sudo bash``. This will give you a root shell.
+
 I found a bug.
 --------------
 

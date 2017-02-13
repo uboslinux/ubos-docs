@@ -3,14 +3,9 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 9</p>
+<p>Status: beta 10</p>
 
 Here's the current list of apps available on UBOS (alphabetically)::
-
-<img src="/images/jenkins-72x72.png" alt="[Jenkins]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
-
-   **Jenkins**, a continuous integration app.<br>
-   Install with `ubos-admin createsite`, specify app `jenkins`.
 
 <img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -22,11 +17,6 @@ Here's the current list of apps available on UBOS (alphabetically)::
    **Mattermost**: Open source, self-hosted Slack-alternative<br>
    Install with `ubos-admin createsite`, specify app `mattermost`
 
-<img src="/images/mediagoblin-72x72.png" alt="[Mediagoblin]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
-
-   **Mediagoblin**: The GNU project's photo and media sharing app<br>
-   Install with `ubos-admin createsite`, specify app `mediagoblin`
-
 <img src="/images/mediawiki-72x72.png" alt="[Mediawiki]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Mediawiki**: The wiki that Wikipedia runs on<br>
@@ -37,11 +27,6 @@ Here's the current list of apps available on UBOS (alphabetically)::
    **Nextcloud**: A safe home for all your data<br>
    Install with `ubos-admin createsite`, specify app `nextcloud10`. Previous major version ``nextcloud9`` is
    also available.
-
-<img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
-
-   **Owncloud**: Your Cloud, Your Data, Your Way!<br>
-  Install with `ubos-admin createsite`, specify app `owncloud`
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -74,8 +59,27 @@ Some apps already have some accessories, which you may or may not want to instal
 
  * **Mediawiki extension**: `mediawiki-ext-confirmaccount` to cut down on wiki spam;
 
+<br>
+
+Apps redeclared as experimental and not as well maintained:
+
+<img src="/images/jenkins-72x72.png" alt="[Jenkins]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Jenkins**, a continuous integration app.<br>
+   Install with `ubos-admin createsite`, specify app `jenkins`.
+
  * **Jenkins plugins**: `jenkins-plugin-git`, `jenkins-plugin-git-client`, and `jenkins-plugin-scm-api`
    for Git integration.
+
+<img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Owncloud**: Your Cloud, Your Data, Your Way!<br>
+  Install with `ubos-admin createsite`, specify app `owncloud`
+
+<img src="/images/mediagoblin-72x72.png" alt="[Mediagoblin]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Mediagoblin**: The GNU project's photo and media sharing app<br>
+   Install with `ubos-admin createsite`, specify app `mediagoblin`
 
 <br>
 
