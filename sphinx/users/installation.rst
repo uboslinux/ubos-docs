@@ -8,6 +8,7 @@ Here are your current options:
 
    installation/raspberrypi
    installation/raspberrypi2
+   installation/espressobin
    installation/beagleboneblack
    installation/x86_bootstick
    installation/x86_disk
@@ -17,4 +18,5 @@ Here are your current options:
    installation/ec2
    installation/armv6h_container
    installation/armv7h_container
+   installation/aarch64_container
    installation/verifying

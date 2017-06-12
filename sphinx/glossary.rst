@@ -85,7 +85,7 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
    Device
       Any physical or virtualized computer running UBOS. This could be
       a Raspberry Pi, an x86 server, an instance on Amazon EC2 or a virtual machine
-      on your desktop with virtualization software such as VirtualBox.
+      on your desktop with virtualization software such as VirtualBox or VMWare.
 
    Flock
       See :term:`Shepherd`.

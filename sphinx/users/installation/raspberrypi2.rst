@@ -13,7 +13,7 @@ If you are not sure which model you have, consult
 
 If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this page <raspberrypi>`.
 
-#. Download a UBOS boot image from `depot.ubos.net`.
+#. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the Raspberry Pi 2 and 3 are at
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
    Look for a file named ``ubos_yellow-rpi2_LATEST.img.xz``.

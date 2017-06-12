@@ -1,5 +1,5 @@
-Continuing the Arch Linux installation on a PC or VirtualBox virtual machine
-============================================================================
+Continuing the Arch Linux installation on a PC or virtual machine
+=================================================================
 
 This section assumes that you have prepared your PC or virtual machine as
 described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
@@ -66,7 +66,7 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
       * If you are on VirtualBox, also install the VirtualBox client tools::
 
-         >   pacman -S virtualbox-guest-utils
+         >   pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils
 
       * Create a Ramdisk::
 

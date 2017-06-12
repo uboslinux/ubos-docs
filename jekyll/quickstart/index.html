@@ -10,44 +10,63 @@ table#platforms {
   margin-top: 10px;
 }
 table#platforms td {
-  width: 33%;
+  width: 25%;
+  text-align: center;
   vertical-align: top;
   padding: 5px 10px;
   border: 1px solid #808080;
   border-radius: 10px;
 }
+table#platforms p,
+table#platforms pre {
+  text-align: left;
+}
+table#platforms span.middleimg {
+  height: 150px;
+  vertical-align: middle;
+  display: inline-block;
+}
 table#platforms img {
-  display: block;
-  margin: 15px auto 20px auto;
+  vertical-align: middle;
 }
 </style>
-<h2>On a server</h2>
+<h2>On a device or server</h2>
 <p>This page is for experienced Linux administrators. A detailed step-by-step guide can be found
    in the <a href="/docs/users/">user documentation</a>.</p>
 <table id="platforms">
  <tr>
   <td>
+   <span class="middleimg"></span>
    <img src="/images/rpi-83x100.png" alt="[Raspberry Pi]">
    <p><b>To run UBOS on the Raspberry Pi:</b></p>
    <p>Download <a href="http://depot.ubos.net/yellow/armv6h/images/ubos_yellow-rpi_LATEST.img.xz">this
-      image for Raspberry Pi&nbsp;Zero or the original Raspberry Pi 1</a> (approx. 470MB), or
+      image for Raspberry Pi&nbsp;Zero or the original Raspberry Pi 1</a> (approx. 410MB), or
       <a href="http://depot.ubos.net/yellow/armv7h/images/ubos_yellow-rpi2_LATEST.img.xz">this
-      image for Raspberry Pi&nbsp;2 or Raspberry Pi&nbsp;3</a> (approx. 470MB),
+      image for Raspberry Pi&nbsp;2 or Raspberry Pi&nbsp;3</a> (approx. 410MB),
       uncompress, and write to a USB stick in "raw" format.</p>
   </td>
   <td>
+   <span class="middleimg"></span>
+   <img src="/images/espressobin-175x22.png" alt="[EspressoBIN]">
+   <p><b>To run UBOS on the Marvell EspressoBIN:</b></p>
+   <p>Download <a href="http://depot.ubos.net/yellow/aarch64/images/ubos_yellow-espressobin_LATEST.img.xz">this
+      image</a> (approx. 404MB), uncompress, and write to a USB stick in "raw" format.</p>
+  </td>
+  <td>
+   <span class="middleimg"></span>
    <img src="/images/beagle-100x100.png" alt="[Beagle Bone Black]">
    <p><b>To run UBOS on Beagle Bone Black:</b></p>
    <p>Download <a href="http://depot.ubos.net/yellow/armv7h/images/ubos_yellow-bbb_LATEST.img.xz">this
       image</a> (approx. 411MB), uncompress, and write to a USB stick in "raw" format.</p>
   </td>
   <td>
+   <span class="middleimg"></span>
    <img src="/images/pc-79x100.png" alt="[PC]">
    <p><b>To run UBOS on an x86 PC:</b></p>
    <p>Download <a href="http://depot.ubos.net/yellow/x86_64/images/ubos_yellow-pc_LATEST.img.xz">this
       image for a physical PC</a> (approx. 530MB), uncompress, and write to a USB stick in "raw" format. Or
       <a href="http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_vbox-pc_LATEST.vmdk.xz">this
-      image for VirtualBox</a> (approx. 670MB), uncompress, and use as the main virtual hard drive.</p>
+      image for VirtualBox or VMWare</a> (approx. 670MB), uncompress, and use as the main virtual hard drive.</p>
   </td>
  </tr>
 </table>
@@ -56,8 +75,10 @@ table#platforms img {
 <table id="platforms">
  <tr>
   <td>
+   <span class="middleimg"></span>
+   <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-eff438f9"><img src="../images/aws_logo_179x109.gif" alt="[EC2 image]"/></a>
    <p><b>To run UBOS on Amazon EC2:</b></p>
-   <p><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-eff438f9"><img src="../images/aws_logo_179x109.gif" alt="[EC2 image]"/></a>Click on the logo and follow the Amazon wizard.</p>
+   <p>Click on the logo and follow the Amazon wizard.</p>
   </td>
  </tr>
 </table>
@@ -71,18 +92,6 @@ table#platforms img {
   --cap-add NET_BROADCAST --cap-add NET_RAW --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro
   -e container=docker ubos/ubos-yellow /bin/init'
 &gt; ubos-docker-yellow</pre>
-  </td>
- </tr>
-</table>
-
-<h2>In a Linux container</h2>
-<table id="platforms">
- <tr>
-  <td>
-   <p><b>To run UBOS in a Linux container on a host that runs systemd:</b></p>
-   <p>Download <a href="http://depot.ubos.net/yellow/x86_64/images/ubos_yellow_container-x86_64_LATEST.tar.xz">this
-      image for a Linux container</a> (approx. 130MB), untar, and boot your container with:</p>
-   <pre>sudo systemd-nspawn -b -n -D &lt;directory&gt;</pre>
   </td>
  </tr>
 </table>

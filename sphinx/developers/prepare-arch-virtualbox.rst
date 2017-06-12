@@ -2,7 +2,8 @@ Prepare a VirtualBox virtual machine to develop for UBOS using Arch Linux
 =========================================================================
 
 To set up an Arch Linux system for UBOS development in VirtualBox, first prepare
-a suitable virtual machine:
+a suitable virtual machine. Installation for VMWare is quite similar although not
+documented in detail here (we are sure you can figure it out).
 
 #. `Download VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ and install it
    if you haven't already.

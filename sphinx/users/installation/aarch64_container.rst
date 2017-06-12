@@ -1,12 +1,12 @@
-Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2/3, BeagleBone Black)
-==============================================================================
+Run UBOS in an AArch64 Linux container (e.g. Marvell EspressoBIN)
+=================================================================
 
-These instructions are the same for all ARMv7-based devices.
+These instructions are the same for all ARM 64bit-based devices.
 
-If you already run Linux on an ARMv7-based device such as a Raspberry Pi 2,
-Raspberry Pi 3, or BeagleBone Black, you can run UBOS in a Linux container with
-``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
-The only requirement is that your Linux device runs ``systemd`` in a recent version.
+If you already run Linux on an AArch64-based device such as a Marvell EspressoBIN,
+you can run UBOS in a Linux container with ``systemd-nspawn``. This allows you to try
+out UBOS without having to do a bare metal installation. The only requirement is that
+your Linux device runs ``systemd`` in a recent version.
 
 We tested against ``systemd`` versions 219 and later:
 
@@ -18,9 +18,9 @@ Chances are it also works on other ``systemd``-based distros.
 To do so:
 
 #. Download a UBOS container image from ``depot.ubos.net``.
-   Beta images for ARMv7 containers are at
-   `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
-   Look for a file named ``ubos_yellow_container-armv7h_LATEST.tar.xz``.
+   Beta images for AArch64 containers are at
+   `http://depot.ubos.net/yellow/aarch64/images <http://depot.ubos.net/yellow/aarch64/images>`_.
+   Look for a file named ``ubos_yellow_container-aarch64_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -30,7 +30,7 @@ To do so:
    .. code-block:: none
 
       > mkdir ubos
-      > tar -x -J -C ubos -f ubos_yellow_container-armv7h_LATEST.tar.xz
+      > tar -x -J -C ubos -f ubos_yellow_container-aarch64_LATEST.tar.xz
 
    on the command line.
 

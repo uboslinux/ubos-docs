@@ -13,6 +13,7 @@ The following Raspberry Pi models are supported out of the box:
 * Raspberry Pi "Model B"
 * Raspberry Pi "Model B Plus"
 * Raspberry Pi "Zero"
+* Raspberry Pi "Zero W"
 
 UBOS does require networking for most use cases, so it is recommended you use a
 Raspberry Pi with built-in networking, or a compatible networking adapter.
@@ -22,7 +23,7 @@ If you are not sure which model you have, consult
 
 If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberrypi2>`.
 
-#. Download a UBOS boot image from `depot.ubos.net`.
+#. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the Raspberry Pi Zero or 1 are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
    Look for a file named ``ubos_yellow-rpi_LATEST.img.xz``.

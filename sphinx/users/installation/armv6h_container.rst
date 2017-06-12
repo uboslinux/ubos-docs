@@ -6,7 +6,7 @@ These instructions are the same for all ARMv6-based devices.
 If you already run Linux on an ARMv6-based device such as the original Raspberry Pi
 or the Raspberry Pi Zero, you can run UBOS in a Linux container with
 ``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
-The only requirement is that your Linux machine runs ``systemd`` in a recent version.
+The only requirement is that your Linux device runs ``systemd`` in a recent version.
 
 We tested against ``systemd`` versions 219 and later:
 

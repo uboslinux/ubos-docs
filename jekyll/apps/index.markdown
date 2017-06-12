@@ -3,9 +3,9 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 10</p>
+<p>Status: beta 11</p>
 
-Here's the current list of apps available on UBOS (alphabetically)::
+Here's the current list of apps available on UBOS (alphabetically):
 
 <img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -25,8 +25,7 @@ Here's the current list of apps available on UBOS (alphabetically)::
 <img src="/images/nextcloud-72x72.png" alt="[Nextcloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Nextcloud**: A safe home for all your data<br>
-   Install with `ubos-admin createsite`, specify app `nextcloud10`. Previous major version ``nextcloud9`` is
-   also available.
+   Install with `ubos-admin createsite`, specify app `nextcloud`
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -68,7 +67,9 @@ Apps redeclared as experimental and not as well maintained:
    **Jenkins**, a continuous integration app.<br>
    Install with `ubos-admin createsite`, specify app `jenkins`.
 
- * **Jenkins plugins**: `jenkins-plugin-git`, `jenkins-plugin-git-client`, and `jenkins-plugin-scm-api`
+<img src="/images/jenkins-72x72.png" alt="[Jenkins]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **Jenkins plugins**: `jenkins-plugin-git`, `jenkins-plugin-git-client`, and `jenkins-plugin-scm-api`
    for Git integration.
 
 <img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">

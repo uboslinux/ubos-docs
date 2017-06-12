@@ -4,7 +4,7 @@ Setting up a UBOS development machine
 For UBOS development, you can use:
 
 * a spare x86_64 PC
-* a virtual machine using VirtualBox on a Mac, PC or other Linux box
+* a virtual machine using VirtualBox or VMware on a Mac, PC or other Linux box
 * a spare ARM-based device, like a Raspberry Pi. (Not recommended: see :doc:`FAQ <faq>`)
 
 We recommend you use Arch Linux for UBOS development. Arch is very similar to UBOS, and

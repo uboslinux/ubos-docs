@@ -14,10 +14,10 @@ div.banner {
 <div class="banner">
  <div style="float: left; width: 320px; display: inline; text-align: center">
   <img src="{{ "/images/ubos-logo-256x81.png" | prepend: site.baseurl }}" alt="[UBOS]" style="margin: 92px 0 30px 0;"><br>
-  <a href="/blog/2017/02/12/beta10-with-tor-hidden-services.html">
-   Beta 10 now available<br>
-   for PCs, Raspberry Pi's<br>
-   and cloud
+  <a href="/blog/2017/06/11/beta11-available.html">
+   Beta 11 now available<br>
+   for PCs, Raspberry Pi,<br>
+   EspressoBIN and cloud
   </a>
  </div>
  <div style="float: left; width: 638px; display: inline; padding: 25px 10px 10px 10px">
@@ -207,12 +207,15 @@ div.howto pre {
        <a href="/docs/users/installation/x86_disk.html">hard drive</a>,
        <a href="/docs/users/installation/x86_container.html">container</a>,
        <a href="/docs/users/installation/virtualbox.html">VirtualBox</a>,
+       <a href="/docs/users/installation/vmware.html">VMWare</a>,
        <a href="/docs/users/installation/x86_docker.html">Docker</a>)
        or cloud (<a href="/docs/users/installation/ec2.html">EC2</a>).</li>
    <li>on a Raspberry Pi&nbsp;0, 1 (<a href="/docs/users/installation/raspberrypi.html">SDCard</a>,
        <a href="/docs/users/installation/armv6h_container.html">container</a>) or
        Pi&nbsp;2, 3 (<a href="/docs/users/installation/raspberrypi2.html">SDCard</a>,
        <a href="/docs/users/installation/armv7h_container.html">container</a>)</li>
+   <li>on a Marvell EspressoBin (<a href="/docs/users/installation/espressobin.html">SDCard</a>,
+       <a href="/docs/users/installation/aarch64_container.html">container</a>).</li>
    <li>on a Beagle Bone Black (<a href="/docs/users/installation/beagleboneblack.html">SDCard</a>,
        <a href="/docs/users/installation/armv7h_container.html">container</a>).</li>
   </ul>
@@ -220,7 +223,7 @@ div.howto pre {
  <div class="howtoitem">
   <h2>Install an app</h2>
   <pre># ubos-admin createsite
-App: <i>owncloud</i>
+App: <i>nextcloud1</i>
 Host: <i>ubos-pc.local</i></pre>
   <p>Code installed, database provisioned, virtual host configured...</p>
  </div>

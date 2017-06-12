@@ -1,8 +1,10 @@
-Run UBOS in a VirtualBox virtual machine (64bit)
-================================================
+Run UBOS in a virtual machine (64bit)
+=====================================
 
 To run UBOS in a VirtualBox virtual machine, follow these instructions. Not counting
 download times, this should take no more than 10 minutes to set up.
+
+While we don't have separate instructions for VMware, the process should be quite similar.
 
 Note: UBOS is a 64bit operating system, for which VirtualBox requires hardware virtualization
 support. This is generally available on all reasonably modern processors, but may have to
@@ -80,6 +82,9 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
+
+   If you are on VMWare, the VirtualBox kernel extension is going to fail. This is no cause
+   for concern, simply disable them by removing file ``/etc/modules-load.d/virtualbox.conf``.
 
 #. If you have not changed the VirtualBox default network configuration, and your host computer
    has internet connectivity, your virtual UBOS computer should automatically acquire an IP
