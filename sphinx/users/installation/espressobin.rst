@@ -39,7 +39,7 @@ This is :doc:`described here <aarch64_container>`.)
 
 #. From your computer, attach a serial terminal. How to do that depends on your operating
    system. The EspressoBIN site has a
-   `description <http://wiki.espressobin.net/tiki-index.php?page=Serial+connection>` how to
+   `description <http://wiki.espressobin.net/tiki-index.php?page=Serial+connection>`_ how to
    do this for Windows and Linux. The baudrate is 115200.
 
 #. Connect the 12V power supply to your EspressoBIN.
@@ -63,6 +63,8 @@ This is :doc:`described here <aarch64_container>`.)
 
    If you do not want to make permanent changes to your bootloader setup, leave out the
    ``saveenv`` command.
+
+#. Should booting fail, :doc:`espressobin/uboot-factory-setup` might help.
 
 #. When the boot process is finished, log in as user ``root`` from the attached keyboard
    and monitor. By default, there is no password on the console. If you used a UBOS staff,
