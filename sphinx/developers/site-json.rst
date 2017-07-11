@@ -69,7 +69,7 @@ The Site JSON file is a JSON hash with the following entries:
    accessible via HTTPS. UBOS will also automatically redirect incoming HTTP requests
    to their HTTPS equivalent.
 
-   ``letsencrypt`` (mutually exclusive with ``key``, ``crt``, ``crtchain`` and ``cacrt``)
+   ``letsencrypt`` (mutually exclusive with ``key`` and ``crt``)
       If ``true``, obtain a certificate from letsencrypt.org, and set up the site
       with it. Also start an automatic renewal process.
 
@@ -77,15 +77,11 @@ The Site JSON file is a JSON hash with the following entries:
       The key for the tls site. Only shown to the root user.
 
    ``crt`` (required unless ``letsencrypt`` is provided)
-      The certificate for the tls site as issued by your certificate authority.
-      Only shown to the root user.
+      The certificate for the tls site as issued by your certificate authority,
+      plus the certificate chain of your certificate authority, concatenated into
+      one file.  Only shown to the root user.
 
-   ``crtchain`` (required unless ``letsencrypt`` is provided)
-      The certificate chain of your certificate authority, which provides
-      credibility not to you, but to your certificate authority, which signed
-      your certificate. Only shown to the root user.
-
-   ``cacrt`` (optional, but must not be given if ``letsencrypt`` is provided)
+   ``cacrt`` (optional)
       If you use TLS client authentication (not common), the certificate chain
       of the certificate authorities that your TLS clients are using.
       Only shown to the root user.
