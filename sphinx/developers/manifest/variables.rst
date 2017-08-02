@@ -117,7 +117,7 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
    Example: ``localhost``
 
 ``${appconfig.postgresql.dbname.maindb}``
-   Actual name of the Postgresql database whose symbolic name in the manifest JSON
+   Actual name of the Postgresql database whose symbolic name in the Manifest JSON
    is ``maindb``. Replace ``maindb`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``database477``
@@ -140,6 +140,12 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
    Example: ``n0ts0s3cr3t``
 
+``${appconfig.tcpport.someport}``
+   The port number allocated for the TCP port whose symbolic port name in the Manifest JSON
+   is ``someport`. Replace ``someport` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``5432``
+
 ``${appconfig.tomcat8.contextfile}``
    The name of the Tomcat8 context configuration file which may be written
    by this app configuration.
@@ -151,6 +157,12 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
    files. No trailing slash.
 
    Example: ``/var/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
+
+``${appconfig.udpport.someport}``
+   The port number allocated for the UDP port whose symbolic port name in the Manifest JSON
+   is ``someport`. Replace ``someport` with the symbolic name you used in the Manifest JSON.
+
+   Example: ``5432``
 
 ``${host.tmpdir}``
    Name of a directory in which to create temporary files. By using this symbolic
