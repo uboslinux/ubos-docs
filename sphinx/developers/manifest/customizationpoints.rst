@@ -78,6 +78,22 @@ Customization points may be declared as private:
 
 If declared as private, only ``root`` is allowed to see the provided values.
 
+If a customization point is of type string, an optional regular expression may
+be given. UBOS will enforce that any value given for the customization point conforms
+to this regular expression. For example:
+
+.. code-block:: json
+
+   "customizationpoints" : {
+     "nospaces" : {
+       "type"     : "string",
+       "required" : yes,
+       "regex"    : "^[A-Za-z0-9]+$"
+     }
+   }
+
+allows the value ``HiMom`` but not the value ``Hi Mom``.
+
 By default, ``ubos-admin createsite`` will ask the user for values of customization points
 in an undefined sequence. To order the sequence in which the questions are asked, add
 an ``index`` field whose value is an integer, and which is used for sorting.
