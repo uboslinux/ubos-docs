@@ -24,6 +24,11 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
    Example: ``http``
 
+``${appconfig.accessoryids}``
+   The identifiers of all accessories at this app configuration, separated by commas.
+
+   Example: ``wordpress-plugin-webmention,wordpress-theme-p2``
+
 ``${appconfig.apache2.appconfigfragmentfile}``
    The name of the Apache2 configuration fragment which may be written
    by this app configuration.
@@ -36,6 +41,11 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
    Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/blog`` (if the app configuration
    is at relative path ``/blog`` on a site with siteid ``s753ca4a344f56c38aad05172dee6a53f6647af62``)
+
+``${appconfig.appid}``
+   The identifier of the app at this app configuration.
+
+    Example: ``wordpress``
 
 ``${appconfig.appconfigid}``
    The identifier of the app configuration as specified in the site JSON file.
@@ -142,7 +152,7 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
 ``${appconfig.tcpport.someport}``
    The port number allocated for the TCP port whose symbolic port name in the Manifest JSON
-   is ``someport`. Replace ``someport` with the symbolic name you used in the Manifest JSON.
+   is ``someport``. Replace ``someport`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``5432``
 
@@ -160,7 +170,7 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
 ``${appconfig.udpport.someport}``
    The port number allocated for the UDP port whose symbolic port name in the Manifest JSON
-   is ``someport`. Replace ``someport` with the symbolic name you used in the Manifest JSON.
+   is ``someport``. Replace ``someport`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``5432``
 
@@ -278,6 +288,12 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
    ``http`` and ``https``.
 
    Example: ``http``
+
+``${site.protocolport}``
+   The port that goes with the protocol by which this site is accessed. Valid values are
+   ``80`` and ``443``.
+
+   Example: ``80``
 
 ``${site.siteid}``
    The site identifier of this site per the Site JSON file.
