@@ -34,7 +34,7 @@ Package lifecycle and app deployment
 ------------------------------------
 
 This app can, obviously, be built and deployed with a similar set of commands as
-:doc:`helloworld` above:
+:doc:`helloworld` and all other apps on UBOS:
 
 .. code-block:: none
 
@@ -178,7 +178,7 @@ Tomcat context file
 Tomcat also needs to be told which app to run, and which parameters to pass to it.
 This is accomplished with the following template:
 
-.. code-block:: none
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
    <Context path="${appconfig.context}"
@@ -204,7 +204,7 @@ This is accomplished with the following template:
 Upon deployment, UBOS will have replaced the variables, and provided it to Tomcat, for
 example:
 
-.. code-block:: none
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
    <Context path="/guestbook"

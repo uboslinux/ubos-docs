@@ -9,11 +9,12 @@ real web apps on UBOS:
   package a real web application for UBOS.
 * "Glad-I-Was-Here" is a slightly more complex "guestbook" web application that uses a
   relational database to store the guestbook entries. We use it to illustrate how to package
-  web apps that use a database. It comes in three versions:
+  web apps that use a database. It now comes in four versions:
 
-  * one implemented in PHP with a MySQL backend, called ``gladiwashere``;
-  * one implemented in PHP with a Postgresql backend, called ``gladiwashere-postgresql``; and
-  * one in Java with a MySQL backend, called ``gladiwashere-java``.
+  * implemented in PHP with a MySQL backend, called ``gladiwashere``;
+  * implemented in PHP with a Postgresql backend, called ``gladiwashere-postgresql``;
+  * implemented in Java with a MySQL backend, called ``gladiwashere-java``; and
+  * implemented in Python/WSGI with a MySQL backend, called ``gladiwashere-python``.
 
 You may want to read through the documentation for these apps in this sequence:
 
@@ -24,6 +25,7 @@ You may want to read through the documentation for these apps in this sequence:
    toyapps/gladiwashere
    toyapps/gladiwashere-postgresql
    toyapps/gladiwashere-java
+   toyapps/gladiwashere-python
 
 
 
