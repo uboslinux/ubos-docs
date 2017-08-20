@@ -8,7 +8,9 @@ for UBOS. Here is a complete :-) screen shot:
 
 .. image:: /images/helloworld-screenshot.png
 
-To obtain the source code::
+To obtain the source code:
+
+.. code-block:: none
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
@@ -33,7 +35,9 @@ and undeploys the app contained in the package:
    * ``index.php``: minimalistic PHP file printing "Hello World"
    * ``ubos-manifest.json``: UBOS meta-data file (see below)
 
-#. The developer creates the package. In its root directory::
+#. The developer creates the package. In its root directory:
+
+   .. code-block:: none
 
       > makepkg -f
 
@@ -48,14 +52,18 @@ and undeploys the app contained in the package:
    has somehow arrived on the user's UBOS device.
 
 #. The user installs the package. This only dumps the files in the package on the
-   hard drive, it does not install the app at any virtual host::
+   hard drive, it does not install the app at any virtual host:
+
+   .. code-block:: none
 
       > sudo pacman -U helloworld-*-any.pkg.tar.xz
 
    This command will install a locally built package locally, but it is equivalent to
    what happens when a user obtains the same app via the UBOS :term:`Depot`.
 
-#. The user installs this web app at a particular virtual host::
+#. The user installs this web app at a particular virtual host:
+
+   .. code-block:: none
 
       > sudo ubos-admin createsite
 
@@ -67,7 +75,9 @@ and undeploys the app contained in the package:
    the app is ready for use.
 
 #. Now assume that a new version of the package is available. If the new package is available
-   locally, the user can perform a software upgrade of the ``helloworld`` package (only)::
+   locally, the user can perform a software upgrade of the ``helloworld`` package (only):
+
+   .. code-block:: none
 
       > sudo ubos-admin update --pkgfile <pkgfile>
 
@@ -76,20 +86,26 @@ and undeploys the app contained in the package:
    omitted, and UBOS will upgrade all software on the host to the most recent version.
 
 #. Undeploy the app by undeployed the entire virtual host. This will keeps the
-   package installed::
+   package installed:
+
+   .. code-block:: none
 
       > sudo ubos-admin undeploy --siteid <siteid>
 
    where ``<siteid>`` is the identifier of the installed site.
 
-#. If the user wishes to remove the package entirely::
+#. If the user wishes to remove the package entirely:
+
+   .. code-block:: none
 
       > sudo pacman -R helloworld
 
 Anatomy of the package
 ----------------------
 
-The ``PKGBUILD`` script's ``package`` method puts the package together::
+The ``PKGBUILD`` script's ``package`` method puts the package together:
+
+.. code-block:: none
 
    package() {
    # Manifest
@@ -110,7 +126,9 @@ The Arch Linux wiki
 `describes PKGBUILD <https://wiki.archlinux.org/index.php/Creating_packages>`_;
 there is nothing UBOS-specific about this.
 
-This corresponds to what the package file contains after ``makepkg`` has completed::
+This corresponds to what the package file contains after ``makepkg`` has completed:
+
+.. code-block:: none
 
    > tar tfJ helloworld-*-any.pkg.tar.xz
    .PKGINFO

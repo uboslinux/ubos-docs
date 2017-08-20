@@ -10,7 +10,9 @@ Here is a screen shot of the app:
 
 .. image:: /images/gladiwashere-screenshot.png
 
-To obtain the source code::
+To obtain the source code:
+
+.. code-block:: none
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
@@ -20,7 +22,9 @@ Package lifecycle and app deployment
 ------------------------------------
 
 This app can, obviously, be built and deployed with a similar set of commands as
-:doc:`helloworld` above::
+:doc:`helloworld` above and all other apps on UBOS:
+
+.. code-block:: none
 
    > makepkg -f
    > sudo pacman -U gladiwashere-*-any.pkg.tar.xz
@@ -102,7 +106,9 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
 
   In this case, this will replace symbolic database information with the actually
   provisioned database information. For example, ``ubos-admin deploy`` might
-  transform this template file text::
+  transform this template file text:
+
+  .. code-block:: php
 
      <?php
      $dbName   = '${appconfig.mysql.dbname.maindb}';
@@ -110,7 +116,9 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
      $dbPass   = '${escapeSquote( appconfig.mysql.dbusercredential.maindb )}';
      $dbServer = '${appconfig.mysql.dbhost.maindb}';
 
-  to::
+  to:
+
+  .. code-block:: php
 
      <?php
      $dbName   = 'somedbname';

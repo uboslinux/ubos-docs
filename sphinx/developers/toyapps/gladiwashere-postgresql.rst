@@ -9,7 +9,9 @@ We use this version of Glad-I-Was-Here to illustrate how to package web apps for
 a Postgresql database. Its functionality and appearance is identical to the
 :doc:`PHP/MySQL version <gladiwashere>`.
 
-To obtain the source code::
+To obtain the source code:
+
+.. code-block:: none
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
@@ -18,7 +20,9 @@ Go to subdirectory ``gladiwashere-postgresql``.
 Package lifecycle and app deployment
 ------------------------------------
 
-To build the app::
+To build the app:
+
+.. code-block:: none
 
    > makepkg -f
    > sudo pacman -U gladiwashere-postgresql-*-any.pkg.tar.xz
@@ -106,7 +110,9 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
   the manifest file, UBOS knows that the database to be provisioned (and backed up,
   restored etc.) is supposed to be a Postgresql database.
 
-* Correspondingly, in the ``config.php.tmpl`` the variables refer to Postgresql::
+* Correspondingly, in the ``config.php.tmpl`` the variables refer to Postgresql:
+
+   .. code-block:: php
 
      <?php
      $dbName   = '${appconfig.postgresql.dbname.maindb}';
