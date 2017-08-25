@@ -1,10 +1,14 @@
-Glad-I-Was-Here (Java)
-======================
+Glad-I-Was-Here (Java, MySQL)
+=============================
 
 The Java version of Glad-I-Was-Here is functionally equivalent to the
-:doc:`PHP version <gladiwashere>`. However, it is implemented as Java servlets and
-runs under Tomcat. If you have not already read through the :doc:`PHP version <gladiwashere>`
-of Glad-I-Was-Here, we recommend you do so first.
+:doc:`PHP/MySQL version <gladiwashere-php-mysql>`. However, it is implemented using Java
+servlets and runs under Tomcat. It also uses `diet4j <http://diet4j.org`_ for
+module management.
+
+If you have not already read through the :doc:`PHP/MySQL version <gladiwashere-php-mysql>`
+of Glad-I-Was-Here, we recommend you do so first as we'll only discuss things in this
+section that were not covered before.
 
 This app runs using Tomcat. If you like to try it, it is recommended to try it
 on a PC, and not an ARM device, as Tomcat requires substantial computing resources.
@@ -15,14 +19,14 @@ To obtain the source code:
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
-Go to subdirectory ``gladiwashere-java``.
+Go to subdirectory ``gladiwashere-java-mysql``.
 
 Reverse proxy
 -------------
 
-From a user perspective, the technology used to implement a particular application that runs
-on UBOS is totally irrelevant. We cannot require the user to access, say, Java apps at
-a different port number than other apps installed on the same device, because this
+From a user perspective, the technology used to implement a particular application that
+runs on UBOS is totally irrelevant. We cannot require the user to access, say, Java apps
+at a different port number than other apps installed on the same device, because this
 makes no sense to the user.
 
 Because of that, Java apps on UBOS are usually configured with Apache as a reverse
@@ -33,22 +37,22 @@ well.
 Package lifecycle and app deployment
 ------------------------------------
 
-This app can, obviously, be built and deployed with a similar set of commands as
-:doc:`helloworld` and all other apps on UBOS:
+Like all other apps on UBOS including :doc:`helloworld`, ``gladiwashere-java-mysql`` is built
+with ``makepkg``, installed with ``pacman`` and deployed with ``ubos-admin``.
 
 .. code-block:: none
 
    > makepkg -f
-   > sudo pacman -U gladiwashere-java-*-any.pkg.tar.xz
+   > sudo pacman -U gladiwashere-java-mysql-*-any.pkg.tar.xz
    > sudo ubos-admin createsite
 
-Specify ``gladiwashere-java`` as the name of the app.
+Specify ``gladiwashere-java-mysql`` as the name of the app.
 
 Manifest JSON
 -------------
 
 Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
-``gladiwashere``'s, but has an additional entry for Tomcat:
+``gladiwashere-php-mysql``'s, but has an additional role entry for Tomcat:
 
 .. code-block:: json
 
@@ -176,10 +180,10 @@ This is accomplished with the following template:
    <Context path="${appconfig.context}"
             antiResourceLocking="true"
             cookies="false"
-            docBase="${package.codedir}/lib/gladiwashere-java.war">
+            docBase="${package.codedir}/lib/gladiwashere-java-mysql.war">
 
      <Loader className="org.diet4j.tomcat.TomcatModuleLoader"
-                        rootmodule="gladiwashere-java"/>
+                        rootmodule="gladiwashere-java-mysql"/>
 
      <Resource auth="Container"
                type="javax.sql.DataSource"
@@ -202,10 +206,10 @@ example:
    <Context path="/guestbook"
             antiResourceLocking="true"
             cookies="false"
-            docBase="/usr/share/gladiwashere-java/lib/gladiwashere-java.war">
+            docBase="/usr/share/gladiwashere-java-mysql/lib/gladiwashere-java-mysql.war">
 
     <Loader className="org.diet4j.tomcat.TomcatModuleLoader"
-                       rootmodule="gladiwashere-java"/>
+                       rootmodule="gladiwashere-java-mysql"/>
 
      <Resource auth="Container"
                type="javax.sql.DataSource"
@@ -238,4 +242,4 @@ dependent modules at run-time. See this line in the ``PKGBUILD`` file:
                       ${pkgdir}/usr/lib/java/${_groupId//.//}/${pkgname}/${pkgver}/${pkgname}-${pkgver}.war
 
 which basically says: take the generated (thin) ``.war`` file, and put it into
-``/usr/lib/java/net/ubos/ubos-toyapps/gladiwashere-java/<version>/gladiwashere-java-<version>.war``.
+``/usr/lib/java/net/ubos/ubos-toyapps/gladiwashere-java-mysql/<version>/gladiwashere-java-mysql-<version>.war``.
