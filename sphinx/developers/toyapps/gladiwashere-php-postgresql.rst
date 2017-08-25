@@ -1,13 +1,12 @@
 Glad-I-Was-Here (PHP, Postgresql)
 =================================
 
-This version of the Glad-I-Was-Here guestbook app uses Postgresql instead of MySQL as its
-database. If you have not already read through the
-:doc:`PHP/MySQL version <gladiwashere>` of Glad-I-Was-Here, we recommend you do so first.
+This version of the Glad-I-Was-Here guestbook app also uses PHP, but chooses Postgresql
+instead of MySQL as its database.
 
-We use this version of Glad-I-Was-Here to illustrate how to package web apps for UBOS that use
-a Postgresql database. Its functionality and appearance is identical to the
-:doc:`PHP/MySQL version <gladiwashere>`.
+If you have not already read through the :doc:`PHP/MySQL version <gladiwashere-php-mysql>`
+of Glad-I-Was-Here, we recommend you do so first as we'll only discuss things in this
+section that were not covered before.
 
 To obtain the source code:
 
@@ -15,26 +14,27 @@ To obtain the source code:
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
-Go to subdirectory ``gladiwashere-postgresql``.
+Go to subdirectory ``gladiwashere-php-postgresql``.
 
 Package lifecycle and app deployment
 ------------------------------------
 
-To build the app:
+Like all other apps on UBOS including :doc:`helloworld`, ``gladiwashere-php-postgresql`` is built
+with ``makepkg``, installed with ``pacman`` and deployed with ``ubos-admin``.
 
 .. code-block:: none
 
    > makepkg -f
-   > sudo pacman -U gladiwashere-postgresql-*-any.pkg.tar.xz
+   > sudo pacman -U gladiwashere-php-postgresql-*-any.pkg.tar.xz
    > sudo ubos-admin createsite
 
-Specify ``gladiwashere-postgresql`` as the name of the app.
+Specify ``gladiwashere-php-postgresql`` as the name of the app.
 
 Manifest JSON
 -------------
 
 Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
-``gladiwashere``'s, with the following differences:
+``gladiwashere-php-mysql``'s, with the following differences:
 
 * It declares a different ``defaultcontext`` so you can run both the MySQL and the
   Postgresql version of this app at the same time on the same device with the defaults.

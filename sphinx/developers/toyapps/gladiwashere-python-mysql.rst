@@ -1,11 +1,13 @@
-Glad-I-Was-Here (Python)
-========================
+Glad-I-Was-Here (Python, MySQL)
+===============================
 
 The Python version of Glad-I-Was-Here is functionally equivalent to the
-:doc:`PHP version <gladiwashere>`. However, it is implemented in Python and interacts
-with the web server through WSGI, as many Python web applications do. If you have not
-already read through the :doc:`PHP version <gladiwashere>` of Glad-I-Was-Here, we
-recommend you do so first.
+:doc:`PHP version <gladiwashere-php-mysql>`. However, it is implemented in Python and
+interacts with the web server through WSGI, as many Python web applications do.
+
+If you have not already read through the :doc:`PHP/MySQL version <gladiwashere-php-mysql>`
+of Glad-I-Was-Here, we recommend you do so first as we'll only discuss things in this
+section that were not covered before.
 
 To obtain the source code:
 
@@ -13,27 +15,27 @@ To obtain the source code:
 
    > git clone https://github.com/uboslinux/ubos-toyapps
 
-Go to subdirectory ``gladiwashere-python``.
+Go to subdirectory ``gladiwashere-python-mysql``.
 
 Package lifecycle and app deployment
 ------------------------------------
 
-This app can, obviously, be built and deployed with a similar set of commands as
-:doc:`helloworld` and all other apps on UBOS:
+Like all other apps on UBOS including :doc:`helloworld`, ``gladiwashere-python-mysql`` is built
+with ``makepkg``, installed with ``pacman`` and deployed with ``ubos-admin``.
 
 .. code-block:: none
 
    > makepkg -f
-   > sudo pacman -U gladiwashere-python-*-any.pkg.tar.xz
+   > sudo pacman -U gladiwashere-python-mysql-*-any.pkg.tar.xz
    > sudo ubos-admin createsite
 
-Specify ``gladiwashere-python`` as the name of the app.
+Specify ``gladiwashere-python-mysql`` as the name of the app.
 
 Manifest JSON
 -------------
 
 Let's examine this app's :term:`UBOS Manifest JSON` file. It is similar to
-``gladiwashere``'s, but specifies dependencies on Python instead of PHP modules,
+``gladiwashere-php-mysql``'s, but specifies dependencies on Python instead of PHP modules,
 and also keeps application files out of the Apache document root. This is good
 security practice, and somewhat easier with WSGI than with PHP:
 
@@ -143,12 +145,12 @@ resulting file as ``.htaccess`` in the web server directory, such as:
 
 .. code-block:: none
 
-   WSGIScriptAlias /guestbook /usr/share/gladiwashere-python/web/index.py
+   WSGIScriptAlias /guestbook /usr/share/gladiwashere-python-mysql/web/index.py
 
-   WSGIDaemonProcess gladiwashere-python-a1234567890123456789012345678901234567890 processes=2 threads=10 \
+   WSGIDaemonProcess gladiwashere-python-mysql-a1234567890123456789012345678901234567890 processes=2 threads=10 \
           umask=0007 inactivity-timeout=900 maximum-requests=1000 \
-          python-path=/usr/share/gladiwashere-python/web:/var/lib/gladiwashere-python/a1234567890123456789012345678901234567890:/usr/lib/python3.6/site-packages/
-   WSGIProcessGroup gladiwashere-python-a1234567890123456789012345678901234567890
+          python-path=/usr/share/gladiwashere-python-mysql/web:/var/lib/gladiwashere-python-mysql/a1234567890123456789012345678901234567890:/usr/lib/python3.6/site-packages/
+   WSGIProcessGroup gladiwashere-python-mysql-a1234567890123456789012345678901234567890
 
    # Can't do this because there may be more than one WSGI app:
    # WSGIApplicationGroup %{GLOBAL}
@@ -167,9 +169,9 @@ Let's go through these lines step by step:
 * ``WSGIDaemonProcess`` specifies parameters to the WSGI setup, such as how many processes
   to spawn for our application. The ``python-path`` argument must list all locations
   for Python files that are being included by the application. Here, we specify a location
-  in the application package (``/usr/share/gladiwashere-python/web``), a location in the
+  in the application package (``/usr/share/gladiwashere-python-mysql/web``), a location in the
   AppConfiguration's data directory
-  (``/var/lib/gladiwashere-python/a1234567890123456789012345678901234567890``) where we
+  (``/var/lib/gladiwashere-python-mysql/a1234567890123456789012345678901234567890``) where we
   save the generated/parameterized code, and the default location for Python packages on
   the system (``/usr/lib/python3.6/site-packages/``)
 * ``WSGIProcessGroup`` puts all processes for this AppConfiguration into the same Linux
