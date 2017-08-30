@@ -14,11 +14,15 @@ real web apps on UBOS:
   * implemented in PHP with a MySQL backend, called ``gladiwashere-php-mysql``;
   * implemented in PHP with a Postgresql backend, called ``gladiwashere-php-postgresql``;
   * implemented in Java with a MySQL backend, called ``gladiwashere-java-mysql``; and
-  * implemented in Python/WSGI with a MySQL backend, called ``gladiwashere-python-mysql``.
+  * implemented in Python/WSGI with a MySQL backend, called ``gladiwashere-python-mysql``
 
 The PHP versions of Glad-I-Was-Here can also be configured with an accessory called
 ``gladiwashere-php-footer``. This accessory adds additional content (a footer) to the main
 web page. This demonstrates the basic functioning of accessories.
+
+To understand how to package a Ruby-on-Rails application, we have used the "blog"
+example application used to teach RoR on the ``rubyonrails.org`` website, and packaged it
+for UBOS.
 
 You may want to read through the documentation for these apps in this sequence:
 
@@ -27,10 +31,11 @@ You may want to read through the documentation for these apps in this sequence:
 
    toyapps/helloworld
    toyapps/gladiwashere-php-mysql
-   toyapps/gladiwashere-php-mysql-accessory
+   toyapps/gladiwashere-php-mysql-footer
    toyapps/gladiwashere-php-postgresql
    toyapps/gladiwashere-java-mysql
    toyapps/gladiwashere-python-mysql
+   toyapps/ruby-rails-blog
 
 
 
