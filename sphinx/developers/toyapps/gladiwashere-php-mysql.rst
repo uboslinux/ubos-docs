@@ -12,7 +12,7 @@ and MySQL.
 
 If you have not already read through the :doc:`helloworld` app documentation, we
 recommend you do so first as we'll only discuss things in this section that were not
-covered there.
+covered before.
 
 Here is a screen shot of the app in action:
 

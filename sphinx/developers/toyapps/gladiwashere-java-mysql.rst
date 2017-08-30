@@ -3,7 +3,7 @@ Glad-I-Was-Here (Java, MySQL)
 
 The Java version of Glad-I-Was-Here is functionally equivalent to the
 :doc:`PHP/MySQL version <gladiwashere-php-mysql>`. However, it is implemented using Java
-servlets and runs under Tomcat. It also uses `diet4j <http://diet4j.org`_ for
+servlets and runs under Tomcat. It also uses `diet4j <http://diet4j.org/>`_ for
 module management.
 
 If you have not already read through the :doc:`PHP/MySQL version <gladiwashere-php-mysql>`
