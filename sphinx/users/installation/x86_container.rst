@@ -17,7 +17,7 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 #. Download a UBOS container image from ``depot.ubos.net``.
    Beta images for x86_64 containers are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_container-x86_64_LATEST.tar.xz``.
+   Look for a file named ``ubos_yellow_container-pc_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -41,8 +41,8 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
    .. code-block:: none
 
-      > sudo [[ -e /etc/iptables/iptables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
-      > sudo [[ -e /etc/iptables/ip6tables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
+      > [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+      > [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
       > sudo systemctl enable iptables ip6tables
       > sudo systemctl start iptables ip6tables
 

@@ -48,8 +48,8 @@ To do so:
 
    .. code-block:: none
 
-      > sudo [[ -e /etc/iptables/iptables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
-      > sudo [[ -e /etc/iptables/ip6tables.rules ]] || cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
+      > [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+      > [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
       > sudo systemctl enable iptables ip6tables
       > sudo systemctl start iptables ip6tables
 
