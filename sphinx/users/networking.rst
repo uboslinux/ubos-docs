@@ -145,12 +145,12 @@ This network configuration is identical to ``gateway``, except that applications
 the UBOS device are accessible btoh from the local network ("downstream") and from the public
 internet ("upstream").
 
-Network configuration: ``nspawn-container``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Network configuration: ``container``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This network configuration is used by UBOS when run in a Linux container started by
-``systemd-nspawn`` or by Docker. It is very similar to ``client`` but there are no mDNS
-advertisements.
+``systemd-nspawn``, by Docker or the like. It is very similar to ``client`` but there are
+no mDNS advertisements.
 
 Network configuration: ``off``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
