@@ -125,10 +125,10 @@ this example it is this:
 
    WSGIScriptAlias ${appconfig.contextorslash} ${package.codedir}/web/index.py
 
-   WSGIDaemonProcess gladiwashere-python-${appconfig.appconfigid} processes=2 threads=10 \
+   WSGIDaemonProcess gladiwashere-python-mysql-${appconfig.appconfigid} processes=2 threads=10 \
           umask=0007 inactivity-timeout=900 maximum-requests=1000 \
           python-path=${package.codedir}/web:${appconfig.datadir}:/usr/lib/python3.6/site-packages/
-   WSGIProcessGroup gladiwashere-python-${appconfig.appconfigid}
+   WSGIProcessGroup gladiwashere-python-mysql-${appconfig.appconfigid}
 
    # Can't do this because there may be more than one WSGI app:
    # WSGIApplicationGroup %{GLOBAL}
@@ -155,10 +155,10 @@ resulting file as ``.htaccess`` in the web server directory, such as:
    # Can't do this because there may be more than one WSGI app:
    # WSGIApplicationGroup %{GLOBAL}
 
-   <Directory "/usr/share/gladiwashere-python">
+   <Directory "/usr/share/gladiwashere-python-mysql">
        Require all granted
    </Directory>
-   <Directory "/var/lib/gladiwashere-python/a1234567890123456789012345678901234567890">
+   <Directory "/var/lib/gladiwashere-python-mysql/a1234567890123456789012345678901234567890">
        Require all granted
    </Directory>
 
