@@ -281,6 +281,9 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
    belongs. This is often different from ``${hostname}``, which is
    the current host as returned by the OS.
 
+   This variable will have value ``*`` for sites whose hostname was given
+   as the wildcard.
+
    Example: ``indiebox.example.org``
 
 ``${site.protocol}``

@@ -144,6 +144,8 @@ The Apache reverse proxy configuration is quite straightforward:
    ProxyPass /favicon.ico !
    ProxyPass /sitemap.xml !
    ProxyPass /.well-known !
+   ProxyPass /_common !
+   ProxyPass /_errors !
 
    ProxyPass ${appconfig.contextorslash} ajp://127.0.0.1:8009${appconfig.contextorslash}
    ProxyPassReverse ${appconfig.contextorslash} ajp://127.0.0.1:8009${appconfig.contextorslash}
@@ -157,6 +159,8 @@ resulting file as ``.htaccess`` in the web server directory, such as:
    ProxyPass /favicon.ico !
    ProxyPass /sitemap.xml !
    ProxyPass /.well-known !
+   ProxyPass /_common !
+   ProxyPass /_errors !
 
    ProxyPass /guestbook ajp://127.0.0.1:8009/guestbook
    ProxyPassReverse /guestbook ajp://127.0.0.1:8009/guestbook
@@ -167,6 +171,10 @@ Apache requires both of those statements, see the
 The four lines at the beginning declare that ``robots.txt``, ``favicon.ico``, ``sitemap.xml``
 and ``.well-known`` shall not be mapped to the application if the application runs at the root of
 the site. This allows the Site JSON entries for the content of those files to continue to be used.
+
+Similarly, line 5 and 6 keep UBOS' HTTP error pages instead of delegating them to the
+application. For example, if I user were to access a URL that does not exist, the UBOS
+404 error page will be shown.
 
 Tomcat context file
 -------------------
