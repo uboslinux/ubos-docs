@@ -16,7 +16,7 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the Raspberry Pi 2 and 3 are at
    `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
-   Look for a file named ``ubos_yellow-rpi2_LATEST.img.xz``.
+   Look for a file named ``ubos_yellow_armv7h-rpi2_LATEST.img.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -26,7 +26,7 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 
    .. code-block:: none
 
-      > xz -d ubos_yellow-rpi2_LATEST.img.xz
+      > xz -d ubos_yellow_armv7h-rpi2_LATEST.img.xz
 
    on the command line.
 

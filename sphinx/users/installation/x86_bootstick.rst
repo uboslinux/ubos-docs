@@ -12,7 +12,7 @@ Follow these steps:
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for x86_64 are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow-pc_LATEST.img.xz``.
+   Look for a file named ``ubos_yellow_x64_64-pc_LATEST.img.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -22,7 +22,7 @@ Follow these steps:
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_pc_LATEST.img.xz
+      > xz -d ubos_yellow_x86_64-pc_LATEST.img.xz
 
    on the command line.
 

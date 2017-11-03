@@ -17,7 +17,7 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 #. Download a UBOS container image from ``depot.ubos.net``.
    Beta images for x86_64 containers are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_container-pc_LATEST.tar.xz``.
+   Look for a file named ``ubos_yellow_x86_64-container_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -27,7 +27,7 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
    .. code-block:: none
 
       > mkdir ubos
-      > tar -x -J -C ubos -f ubos_yellow_container-pc_LATEST.tar.xz
+      > tar -x -J -C ubos -f ubos_yellow_x86_64-container_LATEST.tar.xz
 
    on the command line.
 

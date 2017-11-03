@@ -16,8 +16,8 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 #. Download the UBOS boot image for VirtualBox from `depot.ubos.net`.
    Beta images for Virtualbox (64bit) are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_vbox-pc_LATEST.vmdk.xz``.
-   This file **should contain** the letters ``vbox-pc``, indicating that it contains
+   Look for a file named ``ubos_yellow_x86_64-vbox_LATEST.vmdk.xz``.
+   This file **should contain** the letters ``vbox``, indicating that it contains
    VirtualBox-supporting code.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
@@ -28,7 +28,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_vbox-pc_LATEST.vmdk.xz
+      > xz -d ubos_yellow_x86_64-vbox_LATEST.vmdk.xz
 
    on the command line.
 

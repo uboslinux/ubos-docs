@@ -20,7 +20,7 @@ To do so:
 #. Download a UBOS container image from ``depot.ubos.net``.
    Beta images for ARMv6 containers are at
    `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
-   Look for a file named ``ubos_yellow_container-armv6h_LATEST.tar.xz``.
+   Look for a file named ``ubos_yellow_armv6h-container_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -30,7 +30,7 @@ To do so:
    .. code-block:: none
 
       > mkdir ubos
-      > tar -x -J -C ubos -f ubos_yellow_container-armv6h_LATEST.tar.xz
+      > tar -x -J -C ubos -f ubos_yellow_armv6h-container_LATEST.tar.xz
 
    on the command line.
 
