@@ -12,9 +12,12 @@ How to use UBOS
    managing
    backup
    upgrading
-   migrating-to-a-new-app
-   ubos-admin
    shepherd-staff
+   ubos-specific-apps
+   device-specific-notes
+   advanced-management
+   ubos-admin
    writing-image
+   howto-ssh
    troubleshooting
    faq

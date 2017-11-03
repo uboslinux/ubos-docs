@@ -62,7 +62,8 @@ This is :doc:`described here <aarch64_container>`.)
       boot
 
    If you do not want to make permanent changes to your bootloader setup, leave out the
-   ``saveenv`` command.
+   ``saveenv`` command. If you do not execute ``saveenv``, you will have to type the
+   commands above every time you boot your EspressoBIN into UBOS.
 
 #. Should booting fail, see below for the uBoot factory configuration.
 
@@ -106,7 +107,7 @@ Optional: boot from a SATA disk, instead of an SD card
 In the previous section, you installed UBOS on an SD card and booted from it. If you would
 like to use a SATA disk instead, do this:
 
-#. Acquire a suitable SATA power adapter. The EspressoBIN has a male power connector on
+#. Acquire a suitable SATA power connector. The EspressoBIN has a male power connector on
    the board, which is very unusual. It may be difficult to find a suitable power
    connector.
 
@@ -127,11 +128,11 @@ like to use a SATA disk instead, do this:
 
    .. code-block:: none
 
-      > ubos-install --deviceclass espressobin /dev/sda
+      > ubos-install /dev/sda
 
 #. Shut down the EspressoBIN and turn off power.
 
-#. Remove the SD card and insert it into your EspressoBIN. If you created a UBOS staff,
+#. Remove the SD card from your EspressoBIN. If you created a UBOS staff,
    insert the staff into the USB port. Then, connect the EspressoBIN's USB power port to
    your computer.
 
@@ -153,19 +154,18 @@ like to use a SATA disk instead, do this:
 
    .. code-block:: none
 
-      mmc dev 0
-      ext4load mmc 0 $loadaddr /uEnv-sata.txt
+      scsi scan
+      scsi dev 0
+      ext4load scsi 0 $loadaddr /uEnv-sata.txt
       env import -t $loadaddr $filesize
       saveenv
       boot
 
-   Note that this is the same set of commands as for booting from the SD card, except
-   for the name of one file.
-
    If you do not want to make permanent changes to your bootloader setup, leave out the
    ``saveenv`` command.
 
-#. The EspressoBIN will now boot from the SATA disk.
+#. The EspressoBIN will now boot from the SATA disk. If you have executed the ``saveenv``
+   command, you can remove the SD Card; it will not be needed for future boots.
 
 UBoot bootloader factory configuration
 --------------------------------------

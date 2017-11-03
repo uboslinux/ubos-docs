@@ -100,6 +100,9 @@ If that fails, try a different boot stick or SD card.
 Systemd problems
 ----------------
 
+Determining status
+^^^^^^^^^^^^^^^^^^
+
 To check the status of the services running on your device, invoke:
 
 .. code-block:: none
@@ -112,11 +115,14 @@ services could not be started. To find out which, invoke:
 
 .. code-block:: none
 
-   systemctl
+   systemctl --failed
 
-(without arguments). This shows you the list of services that are supposed to be running,
-and their status. Those that have problems are shown as ``failed``. Assume service ``foo``
-has failed, you can attempt to restart the service:
+This shows you the list of services that are supposed to be running, but failed to do so.
+
+Restarting a service
+^^^^^^^^^^^^^^^^^^^^
+
+Assume service ``foo`` has failed, you can attempt to restart the service:
 
 .. code-block:: none
 
@@ -130,6 +136,29 @@ journal about this service:
    journalctl -u foo
 
 If you cannot determine what went wrong, see "I need help" below.
+
+In a container: problems with "IPv6 Packet Filtering Framework"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you run UBOS in a container, and during boot, you get a message that says "Failed to
+start IPv6 Packet Filtering Framework", or if one of the failed services is
+``ip6tables``, chances are that your host operating system does not have IPv6 enabled.
+
+Usually, that requires you to manually load the respective kernel extension. If your
+host operating system is Arch Linux, simply execute, in the host:
+
+.. code-block:: none
+
+   modprobe ip6_tables
+
+and reboot your container.
+
+To make this permanent, create file `/etc/modules-load.d/ip6_tables.conf` with the following
+single line of content: `ip_tables` and have systemd pick it up with:
+
+.. code-block:: none
+
+   systemctl restart systemd-modules-load
 
 Logging on problems
 -------------------

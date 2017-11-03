@@ -24,6 +24,9 @@ To understand how to package a Ruby-on-Rails application, we have used the "blog
 example application used to teach RoR on the ``rubyonrails.org`` website, and packaged it
 for UBOS.
 
+Note: These toy apps are published in the ``toyapps`` repository, which is not enabled
+by default. For how to enable, see :doc:`/users/enabling-nonstandard-repos`.
+
 You may want to read through the documentation for these apps in this sequence:
 
 .. toctree::

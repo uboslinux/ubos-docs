@@ -123,6 +123,8 @@ or not, and a handful of ``systemctl enable ...`` calls, so if you already have 
 for x86_64, it should be straightforward to use it for physical machine, VirtualBox
 or containers without needing to download another image.
 
-The same is true for ARM platforms. However, there are larger differences between the
-images for, say, Raspberry Pi 2 and BeagleBone Black, although they use the same ARM
-processor architecture. For example, their boot methods are different.
+On ARM platforms, that's a bit different: while the core code of the image is the same
+for each major ARM revision, the various boards vary quite dramatically in terms of how
+they boot, or which peripherals they need to know about. So it would be unlikely that you
+would get an image for one ARM board to boot on another. The exception is the Raspberry Pi,
+where versions Zero and 1 share the same image, as do 2 and 3.

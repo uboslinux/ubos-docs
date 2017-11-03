@@ -9,7 +9,6 @@ Here are your current options:
    installation/raspberrypi
    installation/raspberrypi2
    installation/espressobin
-   installation/beagleboneblack
    installation/x86_bootstick
    installation/x86_disk
    installation/virtualbox

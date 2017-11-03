@@ -94,7 +94,7 @@ When booting UBOS in a Linux container, UBOS will treat the directory
 It may be advantageous to bind a suitable directory into the container with
 the ``--bind`` flag to ``systemd-nspawn``.
 
-UBOS will never auto-generate a new key pair when running UBOS in a container;
+UBOS will never auto-generate a new key pair when running UBOS in a container.
 
 To log into a remote UBOS device as the shepherd
 ------------------------------------------------

@@ -3,7 +3,7 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 11</p>
+<p>Status: beta 12</p>
 
 Here's the current list of apps available on UBOS (alphabetically):
 

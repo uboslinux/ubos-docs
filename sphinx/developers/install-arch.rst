@@ -26,9 +26,6 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
          > mkfs.btrfs /dev/sda1
 
-      Ignore the warning about btrfs being experimental. (Still wondering when they will finally
-      remove it.)
-
    #. Mount your future root partition in a place where you can install software::
 
          > mount /dev/sda1 /mnt

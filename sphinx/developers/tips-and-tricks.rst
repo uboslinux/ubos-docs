@@ -204,7 +204,7 @@ To set this up, follow these steps:
    ``shepherd`` account correctly. (The private key doesn't need to be there.)
 
 #. Boot a UBOS container that will become the local depot. This requires that you have
-   a UBOS tarball available, e.g. from downloading or :doc:`rebuilding`. Let's assume we use
+   a UBOS tarball available that you have downloaded. Let's assume we use
    ``ubos_dev_container-pc_LATEST.tar``:
 
    .. code-block:: none

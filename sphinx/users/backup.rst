@@ -1,4 +1,4 @@
-Backup and Restore
+Backup and restore
 ==================
 
 UBOS backup files
