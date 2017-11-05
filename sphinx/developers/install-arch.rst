@@ -86,6 +86,10 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
          >   locale-gen
 
+        Set this locale as the system locale::
+
+         > localectl set-locale LANG=en_US.UTF-8
+
       * Exit from the chroot shell with ctrl-d.
 
    #. Set up networking. There are many options. We recommend using ``systemd-networkd``
