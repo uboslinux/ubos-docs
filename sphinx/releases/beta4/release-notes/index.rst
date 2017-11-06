@@ -22,7 +22,7 @@ New features
 * UBOS now automatically generates an SSH key pair on a suitable flash drive (the
   "UBOS staff") during boot that enables password-less, secure SSH login to the UBOS device
   over the network, with minimal hassle for the user (the "UBOS shepherd"). Read
-  `more about the UBOS staff <http://ubos.net/docs/users/shepherd-staff.html>`_
+  `more about the UBOS staff </docs/users/shepherd-staff.html>`_
 
 * Eliminate long initial boot times by activating pre-installed ``haveged``. Simply run
   ``systemctl enable haveged``.

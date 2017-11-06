@@ -103,7 +103,7 @@ For developers
 * Documentation:
 
   * Documentation for the ``names`` field in the UBOS manifest has been added
-    `here <http://ubos.net/docs/developers/manifest/roles.html>`_.
+    `here </docs/developers/manifest/roles.html>`_.
 
 Want to help?
 -------------

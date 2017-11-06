@@ -30,10 +30,10 @@ For users
 
   * Databases can now be "pinned" to particular names. If, for whatever reason, it is
     important to you that your blog's database is always called ``blog``, you can do so now.
-    More on `pinning resources <http://ubos.net/docs/users/pinning-resources.html>`_.
+    More on `pinning resources </docs/users/pinning-resources.html>`_.
 
   * UBOS now contains the packages needed to use the official camera on the Raspberry PI.
-    Here's a `description how to <http://ubos.net/docs/users/devices/raspberrypi.html>`_.
+    Here's a `description how to </docs/users/devices/raspberrypi.html>`_.
 
   * By popular demand, the ``shepherd`` user can now become root by executing ``sudo su``.
     (As always: be careful, it's easy to disrupt UBOS -- and anything else -- if you
@@ -66,7 +66,7 @@ For developers
 
 * There is now a Python version of the "Glad-I-Was-Here" guestbook example application. It
   joins its colleagues in PHP and Java. See the `Glad-I-Was-Here Python developer
-  documentation <http://ubos.net/docs/developers/toyapps/gladiwashere-python-mysql.html>`_.
+  documentation </docs/developers/toyapps/gladiwashere-python-mysql.html>`_.
 
 * The gladiwashere family of example applications has been refactored.
   The various apps now use consistent naming (``gladiwashere-php-mysql``,
@@ -81,32 +81,32 @@ For developers
   (non-standard) port, and UBOS will allocate one such port for each installation of
   the app. UBOS will make sure there are no port conflicts between different apps, or
   multiple installations of the same app on the same device. See the
-  `roles section <http://ubos.net/docs/developers/manifest/roles.html>`_ in the
+  `roles section </docs/developers/manifest/roles.html>`_ in the
   developer documentation.
 
 * Apps and accessories can now require that values for customization points match a
   regular expression, enabling developers to be more confident that user-entered values
   will actually make sense for a given customization point. See the
-  `customization points section <http://ubos.net/docs/developers/manifest/customizationpoints.html>`_
+  `customization points section </docs/developers/manifest/customizationpoints.html>`_
   in the developer documentation.
 
 * Accessories can now specify that they depend on another accessory being present at the
   same AppConfiguration. Example: some Wordpress plugins can only function if some other
   plugin is installed and active at the same time. UBOS can now manage these dependencies
   automatically as well. See the
-  `accessory info section <http://ubos.net/docs/developers/manifest/accessoryinfo.html>`_
+  `accessory info section </docs/developers/manifest/accessoryinfo.html>`_
   in the developer documentation.
 
 * More information about the AppConfiguration and the Site is now available to deploy and
   undeploy scripts. See the updated
-  `list of variables <http://ubos.net/docs/developers/manifest/variables.html>`_.
+  `list of variables </docs/developers/manifest/variables.html>`_.
 
 * The new ``ubos-rsync-server`` package makes it easy for developers to support secure
   file upload and download via ``rsync`` over ``ssh``. It supports AppConfiguration-specific
   SSH keys, which means that if a UBOS device runs two copies of the same app (e.g. at
   different virtual hostnames), these two copies of the app do not (need to) share the
   same SSH credentials, and one cannot be used to access data from the other.
-  See `documentation <http://ubos.net/docs/developers/ubos-rsync-server.html>`_.
+  See `documentation </docs/developers/ubos-rsync-server.html>`_.
 
 * Experimental packages have been moved to separate repositories ``os-experimental``,
   ``hl-experimental`` and so forth.

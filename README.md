@@ -1,7 +1,7 @@
 UBOS website and documentation
 ==============================
 
-On-line at [ubos.net](http://ubos.net/)
+On-line at [ubos.net](https://ubos.net/)
 
 * The main site is created with [Jekyll](http://jekyllrb.com/). Sources are in directory `jekyll`.
 * The /docs subdirectory is created with [Sphinx](http://sphinx-doc.org/). Sources are in directory `sphinx`.

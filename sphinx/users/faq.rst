@@ -69,7 +69,7 @@ Yes. In two ways:
 How do I set up WiFi?
 ---------------------
 
-There's a `blog post <http://ubos.net/blog/2016/08/18/wifi.html>`_ on the subject.
+There's a `blog post </blog/2016/08/18/wifi.html>`_ on the subject.
 
 Is it safe to have my site accessible from the public web?
 ----------------------------------------------------------
@@ -150,7 +150,7 @@ What about visiting our :doc:`troubleshooting` section?
 Help! I want to help!
 ---------------------
 
-Come find us `here <http://ubos.net/community/>`_ and raise your hand to
+Come find us `here </community/>`_ and raise your hand to
 volunteer!
 
 What should I do if I get an error, and I don't know how to solve it myself?
@@ -158,7 +158,7 @@ What should I do if I get an error, and I don't know how to solve it myself?
 
 Here are some things you can do:
 
-* Consult the `UBOS user documentation <http://ubos.net/docs/users/>`_, in particular
+* Consult the `UBOS user documentation </docs/users/>`_, in particular
   the section about :doc:`troubleshooting`.
 * Ask a friendly Linux geek you might know.
-* Come find us `here <http://ubos.net/community/>`_ and ask.
+* Come find us `here </community/>`_ and ask.

@@ -27,9 +27,9 @@ My configuration:
 * My host for VirtualBox is Windows 8.1
 
 After setting up UBOS with the guide
-<a href="http://ubos.net/docs/users/installation/virtualbox.html">here</a>,
+<a href="/docs/users/installation/virtualbox.html">here</a>,
 I installed ownCloud with the video tutorial
-<a href="http://ubos.net/blog/2015/02/10/owncloud8-on-ubos/">Installing ownCloud 8
+<a href="/blog/2015/02/10/owncloud8-on-ubos.html">Installing ownCloud 8
 on UBOS with TLS</a>.
 
 When asked for hostname, I chose ``*``. We will need that for connecting from the

@@ -73,7 +73,7 @@ to be installed in terms of directory layout, webserver configuration etc. We fi
 <h2>Step 2: Create the basic UBOS package structure</h2>
 
 Armed with this information, we grab an Arch Linux development machine that has the
-[UBOS tools installed](http://ubos.net/docs/developers/setting-up-development-machine.html)
+[UBOS tools installed](/docs/developers/setting-up-development-machine.html)
 (in our case, its runs on a Mac using VirtualBox), and start creating a UBOS package in a
 directory called `mattermost`. You can see the end result
 [on Github](https://github.com/uboslinux/ubos-mattermost/tree/master/mattermost)).
@@ -231,7 +231,7 @@ Now we need to run UBOS and see what happens if we actually attempt to deploy Ma
 on UBOS. For development purposes, it's easiest to run UBOS in a Linux container with
 an ephemeral virtual file system, so that every time we restart the container, it looks
 like we got a brand-new copy of UBOS. Instructions are
-[here](http://ubos.net/docs/users/installation/x86_container.html). For now, we assume
+[here](/docs/users/installation/x86_container.html). For now, we assume
 the tar file has been unpackaged in `~/ubos`.
 
 So far, the only place where the `mattermost` package exists is on our development machine.
@@ -263,7 +263,7 @@ We now successfully install and check that it looks right:
     ls -al /etc/mattermost
     ls -al /var/lib/mattermost
 
-Now we create a test [Site JSON](http://ubos.net/docs/developers/site-json.html) that
+Now we create a test [Site JSON](/docs/developers/site-json.html) that
 describes the virtual host etc. we'll be using for testing that Mattermost installs
 correctly:
 
@@ -326,7 +326,7 @@ and Mattermost should be back at the same URL holding the restored data.
 
 And finally, we should create a test script that allows us to easily test we haven't
 broken anything next time UBOS, or Mattermost, gets updated. For that, in UBOS, we have
-`webapptest` (see [documentation](http://ubos.net/docs/developers/app-test.html)).
+`webapptest` (see [documentation](/docs/developers/app-test.html)).
 
 For now, we are just going to test that Mattermost comes up correctly after install, so
 we create a file called `MattermostTest1.pm` in subdirectory `tests` (it could have been
@@ -352,4 +352,4 @@ the `PKGBUILD` file so they get added to the package.
 What's left is to add the new app into the official UBOS build. This means we add the
 package to the build configuration [here](https://github.com/uboslinux/ubos-buildconfig),
 and, voila, Mattermost is now part of UBOS. Which is what it has been since
-[UBOS beta 7](http://ubos.net/blog/2016/07/07/ubos-beta7-available.html).
+[UBOS beta 7](/blog/2016/07/07/ubos-beta7-available.html).

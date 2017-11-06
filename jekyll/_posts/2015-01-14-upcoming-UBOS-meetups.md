@@ -18,4 +18,4 @@ The following UBOS / Indie Box meetups are coming up, generally on the second Mo
 <a href="http://www.meetup.com/uboslinux/">Register here.</a>
 
 Have questions, subjects you'd like to discuss, questions you'd like to have answered?
-<a href="http://ubos.net/community/">Tell us!</a>
+<a href="/community/">Tell us!</a>

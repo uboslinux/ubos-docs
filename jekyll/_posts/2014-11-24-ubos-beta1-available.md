@@ -94,7 +94,7 @@ The following features should work on all platforms:
 
  * **Single-command backup and restore**.
 
-and a few other things, see the [documentation](http://ubos.net/docs/) section of this
+and a few other things, see the [documentation](https://ubos.net/docs/) section of this
 site.
 
 <br>
@@ -102,5 +102,5 @@ site.
 This is a beta, so expect bugs (<a href="/docs/releases/beta1/release-notes/">release notes</a>).
 We run several production sites on it already, but we don't recommend (yet) that you do.
 
-To try out UBOS, go to [Getting started](http://ubos.net/quickstart/). We'd love to
-[hear from you](http://ubos.net/community/) how it works for you.
+To try out UBOS, go to [Getting started](https://ubos.net/quickstart/). We'd love to
+[hear from you](https://ubos.net/community/) how it works for you.

@@ -263,6 +263,6 @@ networking containers. Here is a list of things to check:
 "I need help"
 -------------
 
-Come find us `here <http://ubos.net/community/>`_ and ask. We don't bite. At least not
+Come find us `here </community/>`_ and ask. We don't bite. At least not
 if we had breakfast.
 

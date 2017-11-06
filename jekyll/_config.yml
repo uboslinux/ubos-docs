@@ -3,7 +3,7 @@ title: UBOS - The Linux Distro for Personal Servers and Indie IoT Devices
 description: >
   Indie, Indie Web, Linux, distro, FLOSS, open-source, Personal, Personal Server, Raspberry Pi, EspressoBIN, EC2, Atom, Web app, decentralized, private, privacy, IoT, Internet of Things
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://ubos.net" # the base hostname & protocol for your site
+url: "https://ubos.net" # the base hostname & protocol for your site
 twitter_username: uboslinux
 github_username:  uboslinux
 

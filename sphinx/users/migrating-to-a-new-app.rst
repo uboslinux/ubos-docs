@@ -42,7 +42,7 @@ This will restore your site into the same location (hostname, context path), res
 migrate all your data, but run ``nextcloud10`` going forward instead of ``nextcloud9``.
 
 And if it didn't work? (It should!) Then simply undeploy the new site, and restore from
-the backup without replacing the app. Also, `tell us <http://ubos.net/community/>`_ about it
+the backup without replacing the app. Also, `tell us </community/>`_ about it
 so we can fix what needs fixing.
 
 Currently supported migrations

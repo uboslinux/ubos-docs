@@ -31,7 +31,7 @@ layers of the networking stack including:
 * open ports for applications.
 
 .. warning:: Connecting to a wireless network is not yet automated. See
-   `WiFi on UBOS <http://ubos.net/blog/2016/08/18/wifi.html>`_.
+   `WiFi on UBOS </blog/2016/08/18/wifi.html>`_.
 
 Currently available network configurations
 ------------------------------------------
