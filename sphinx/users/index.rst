@@ -14,6 +14,7 @@ How to use UBOS
    upgrading
    shepherd-staff
    ubos-specific-apps
+   app-specific-notes
    device-specific-notes
    advanced-management
    ubos-admin
