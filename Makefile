@@ -1,5 +1,7 @@
 # Makefile for ubos.net
 
+UBOS_AWS_IMAGE_URL = https://console.aws.amazon.com/ec2/v2/home?region=us-east-1\#LaunchInstanceWizard:ami=ami-a4b005de
+
 # ubos.net variables
 STAGEDIR = stage
 CACHEDIR = cache
@@ -30,6 +32,8 @@ static:
 	[ -d "$(STAGEDIR)/files" ] || mkdir "$(STAGEDIR)/files"
 	install -m644 files/* $(STAGEDIR)/files/
 	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
+	mkdir -p $(STAGEDIR)/include
+	sed -e "s!UBOS_AWS_IMAGE_URL!$(UBOS_AWS_IMAGE_URL)!g" include/amazon-ec2-image-latest.js > $(STAGEDIR)/include/amazon-ec2-image-latest.js
 
 open:
 	open -a Firefox http://localhost/

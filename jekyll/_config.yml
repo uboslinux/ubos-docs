@@ -19,3 +19,4 @@ category_dir:  tags
 category_title_prefix: 'Tag: '
 
 gems: [jekyll-paginate]
+
