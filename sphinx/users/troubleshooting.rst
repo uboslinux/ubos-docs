@@ -154,7 +154,7 @@ host operating system is Arch Linux, simply execute, in the host:
 and reboot your container.
 
 To make this permanent, create file `/etc/modules-load.d/ip6_tables.conf` with the following
-single line of content: `ip_tables` and have systemd pick it up with:
+single line of content: `ip6_tables` and have systemd pick it up with:
 
 .. code-block:: none
 
