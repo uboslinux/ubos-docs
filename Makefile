@@ -28,7 +28,7 @@ jekyll:
 	jekyll build -s jekyll -d $(STAGEDIR)
 
 static:
-	install -m644 images/ubos.ico $(STAGEDIR)/favicon.ico
+	install -m644 images/logo2/ubos-16x16.ico $(STAGEDIR)/favicon.ico
 	[ -d "$(STAGEDIR)/files" ] || mkdir "$(STAGEDIR)/files"
 	install -m644 files/* $(STAGEDIR)/files/
 	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
