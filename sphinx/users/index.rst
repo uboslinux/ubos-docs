@@ -20,5 +20,6 @@ How to use UBOS
    ubos-admin
    writing-image
    howto-ssh
+   report-bug
    troubleshooting
    faq
