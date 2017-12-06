@@ -171,7 +171,7 @@ PC                          ``ubos-pc.local``
 Virtual PC in VirtualBox    ``ubos-vbox-pc.local``
 Raspberry Pi Zero or 1      ``ubos-raspberry-pi.local``
 Raspberry Pi 2 or 3         ``ubos-raspberry-pi2.local``
-EspressoBIN                 ``ubos-espressobin.local``
+ESPRESSObin                 ``ubos-espressobin.local``
 =========================== ===============================
 
 So for example, if you run UBOS on a Raspberry Pi, after the Raspberry Pi has booted,

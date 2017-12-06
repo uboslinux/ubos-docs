@@ -1,13 +1,13 @@
-Run UBOS on EspressoBIN
+Run UBOS on ESPRESSObin
 =======================
 
-You can run UBOS on your EspressoBIN by downloading an image, writing it to an SD card,
-and booting your EspressoBIN with that card. (Alternatively you can keep running your
-existing Linux distro on your EspressoBIN, and run UBOS in a Linux container.
+You can run UBOS on your ESPRESSObin by downloading an image, writing it to an SD card,
+and booting your ESPRESSObin with that card. (Alternatively you can keep running your
+existing Linux distro on your ESPRESSObin, and run UBOS in a Linux container.
 This is :doc:`described here <aarch64_container>`.)
 
 #. Download a UBOS boot image from ``depot.ubos.net``.
-   Beta images for the EspressoBIN are at
+   Beta images for the ESPRESSObin are at
    `http://depot.ubos.net/yellow/aarch64/images <http://depot.ubos.net/yellow/aarch64/images>`_.
    Look for a file named ``ubos_yellow-aarch64-espressobin_LATEST.img.xz``.
 
@@ -23,26 +23,26 @@ This is :doc:`described here <aarch64_container>`.)
 
    on the command line.
 
-#. Write this image file "raw" to an SD card appropriate for your EspressoBIN. This
+#. Write this image file "raw" to an SD card appropriate for your ESPRESSObin. This
    operation depends on your operating system:
 
    * :doc:`/users/writing-image/windows`
    * :doc:`/users/writing-image/macosx`
    * :doc:`/users/writing-image/linux`
 
-#. On first boot, you need to have a serial terminal connected to your EspressoBIN. This is
+#. On first boot, you need to have a serial terminal connected to your ESPRESSObin. This is
    because you likely have to change your boot loader options.
 
-#. Remove the SD card and insert it into your EspressoBIN. If you created a UBOS staff,
-   insert the staff into the USB port. Then, connect the EspressoBIN's USB power port to
+#. Remove the SD card and insert it into your ESPRESSObin. If you created a UBOS staff,
+   insert the staff into the USB port. Then, connect the ESPRESSObin's USB power port to
    your computer.
 
 #. From your computer, attach a serial terminal. How to do that depends on your operating
-   system. The EspressoBIN site has a
+   system. The ESPRESSObin site has a
    `description <http://wiki.espressobin.net/tiki-index.php?page=Serial+connection>`_ how to
    do this for Windows and Linux. The baudrate is 115200.
 
-#. Connect the 12V power supply to your EspressoBIN.
+#. Connect the 12V power supply to your ESPRESSObin.
 
 #. When prompted on the serial terminal, interrupt the boot process by pressing a key. You
    get a promot that looks like:
@@ -63,7 +63,7 @@ This is :doc:`described here <aarch64_container>`.)
 
    If you do not want to make permanent changes to your bootloader setup, leave out the
    ``saveenv`` command. If you do not execute ``saveenv``, you will have to type the
-   commands above every time you boot your EspressoBIN into UBOS.
+   commands above every time you boot your ESPRESSObin into UBOS.
 
 #. Should booting fail, see below for the uBoot factory configuration.
 
@@ -90,8 +90,9 @@ This is :doc:`described here <aarch64_container>`.)
       > ip addr
 
    Make sure you are connected to the internet before attempting to proceed. In the default setup,
-   all Ethernet ports on the EspressoBIN are equivalent and connected by the EspressoBIN's
-   built-in switch, so you can connect using either of them.
+   the Ethernet port closest to the ESPRESSObin's USB 3 port (the one that is blue) is set up as
+   "upstream" interface, and the other two can manage local area networks, just like a home
+   router.
 
 #. Update UBOS to the latest and greatest:
 
@@ -107,11 +108,11 @@ Optional: boot from a SATA disk, instead of an SD card
 In the previous section, you installed UBOS on an SD card and booted from it. If you would
 like to use a SATA disk instead, do this:
 
-#. Acquire a suitable SATA power connector. The EspressoBIN has a male power connector on
+#. Acquire a suitable SATA power connector. The ESPRESSObin has a male power connector on
    the board, which is very unusual. It may be difficult to find a suitable power
    connector.
 
-#. Assuming you have the disk connected and powered up, boot the EspressoBIN from a
+#. Assuming you have the disk connected and powered up, boot the ESPRESSObin from a
    UBOS SD card.
 
 #. Once booted, execute:
@@ -130,18 +131,18 @@ like to use a SATA disk instead, do this:
 
       > ubos-install /dev/sda
 
-#. Shut down the EspressoBIN and turn off power.
+#. Shut down the ESPRESSObin and turn off power.
 
-#. Remove the SD card from your EspressoBIN. If you created a UBOS staff,
-   insert the staff into the USB port. Then, connect the EspressoBIN's USB power port to
+#. Remove the SD card from your ESPRESSObin. If you created a UBOS staff,
+   insert the staff into the USB port. Then, connect the ESPRESSObin's USB power port to
    your computer.
 
 #. From your computer, attach a serial terminal. How to do that depends on your operating
-   system. The EspressoBIN site has a
+   system. The ESPRESSObin site has a
    `description <http://wiki.espressobin.net/tiki-index.php?page=Serial+connection>`_ how to
    do this for Windows and Linux. The baudrate is 115200.
 
-#. Connect the 12V power supply to your EspressoBIN.
+#. Connect the 12V power supply to your ESPRESSObin.
 
 #. When prompted on the serial terminal, interrupt the boot process by pressing a key. You
    get a promot that looks like:
@@ -164,15 +165,15 @@ like to use a SATA disk instead, do this:
    If you do not want to make permanent changes to your bootloader setup, leave out the
    ``saveenv`` command.
 
-#. The EspressoBIN will now boot from the SATA disk. If you have executed the ``saveenv``
+#. The ESPRESSObin will now boot from the SATA disk. If you have executed the ``saveenv``
    command, you can remove the SD Card; it will not be needed for future boots.
 
 UBoot bootloader factory configuration
 --------------------------------------
 
-If you have difficulty booting the EspressoBIN with the provided instructions, it may
-be because you previously change the EspressoBIN's boot loader configuration from
-the factory default. For reference, here is the EspressoBIN's factory configuration
+If you have difficulty booting the ESPRESSObin with the provided instructions, it may
+be because you previously change the ESPRESSObin's boot loader configuration from
+the factory default. For reference, here is the ESPRESSObin's factory configuration
 as determined by executing
 
 .. code-block:: none

@@ -32,6 +32,7 @@ static:
 	[ -d "$(STAGEDIR)/files" ] || mkdir "$(STAGEDIR)/files"
 	install -m644 files/* $(STAGEDIR)/files/
 	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
+	echo 'RedirectMatch /staff(.*)$$ https://ubos.net/docs/users/shepherd-staff.html' >> $(STAGEDIR)/.htaccess
 	mkdir -p $(STAGEDIR)/include
 	sed -e "s!UBOS_AWS_IMAGE_URL!$(UBOS_AWS_IMAGE_URL)!g" include/amazon-ec2-image-latest.js > $(STAGEDIR)/include/amazon-ec2-image-latest.js
 

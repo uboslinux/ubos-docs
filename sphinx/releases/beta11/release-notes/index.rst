@@ -6,7 +6,7 @@ For users
 
 * New features:
 
-  * The Marvell EspressoBIN is now a supported UBOS device. It features three Ethernet
+  * The Marvell ESPRESSObin is now a supported UBOS device. It features three Ethernet
     ports and a SATA connector.
 
   * `smartctld` is now running by default. It continues checking the health of your

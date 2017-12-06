@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "UBOS Beta 11 released with support for Marvell EspressoBIN"
+title:  "UBOS Beta 11 released with support for Marvell ESPRESSObin"
 date:   2017-06-11 23:00:00
 author: Johannes Ernst
 categories: front release beta
@@ -11,10 +11,10 @@ categories: front release beta
 </div>
 
 UBOS Beta 11 is here, and we are proud to add the <b>Marvell
-<a href="http://espressobin.net/">EspressoBIN</a></b> to the list of supported devices.
+<a href="http://espressobin.net/">ESPRESSObin</a></b> to the list of supported devices.
 
 Launched <a href="https://www.kickstarter.com/projects/874883570/marvell-espressobin-board">on Kickstarter</a>
-earlier this year, the EspressoBIN is an interesting board: it doesn't have any graphics (which is
+earlier this year, the ESPRESSObin is an interesting board: it doesn't have any graphics (which is
 fine with us because most UBOS devices are used as headless servers) but instead it has three
 Ethernet ports and a SATA connector. The currently available 1GB version costs
 only <a href="https://www.amazon.com/Globalscale-Technologies-Inc-SBUD102-ESPRESSObin/dp/B06Y3V2FBK/ref=sr_1_1">$49 on Amazon</a>. So it's

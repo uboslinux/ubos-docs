@@ -1,9 +1,9 @@
-Run UBOS in an AArch64 Linux container (e.g. Marvell EspressoBIN)
+Run UBOS in an AArch64 Linux container (e.g. Marvell ESPRESSObin)
 =================================================================
 
 These instructions are the same for all ARM 64bit-based devices.
 
-If you already run Linux on an AArch64-based device such as a Marvell EspressoBIN,
+If you already run Linux on an AArch64-based device such as a Marvell ESPRESSObin,
 you can run UBOS in a Linux container with ``systemd-nspawn``. This allows you to try
 out UBOS without having to do a bare metal installation. The only requirement is that
 your Linux device runs ``systemd`` in a recent version.

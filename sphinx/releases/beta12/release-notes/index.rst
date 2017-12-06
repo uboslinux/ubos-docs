@@ -20,10 +20,10 @@ For users
 
 * New features:
 
-  * The EspressoBIN can now be used as a router with firewall, and is in fact pre-configured
+  * The ESPRESSObin can now be used as a router with firewall, and is in fact pre-configured
     that way. It runs a firewall, IP address translation, a DHCP and a local DNS server.
 
-  * The EspressoBIN can now boot from disk without needing an SD card at all.
+  * The ESPRESSObin can now boot from disk without needing an SD card at all.
 
   * UBOS now uses its own HTTP error pages, such as for a 404 Not Found page. This makes
     UBOS look more consistent.
