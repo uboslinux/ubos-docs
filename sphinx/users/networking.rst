@@ -250,3 +250,19 @@ interfaces and is used in the ``client`` network configuration, but editing
 ``/etc/ubos/netconfig-client.json`` and executing ``ubos-admin setnetconfig client`` again,
 the user could, for example, keep one of those interfaces off, or have different ports open.
 
+Extra DHCP and DNS configuration settings
+-----------------------------------------
+
+UBOS uses ``dnsmasq`` (`home page <http://www.thekelleys.org.uk/dnsmasq/doc.html>`_)
+to issue DHCP leases and manage DNS on the local network. UBOS makes it
+straightforward for you to add your own settings to the ones managed by UBOS:
+
+* Settings generated and managed by UBOS are in directory ``/etc/dnsmasq.ubos.d``.
+* Add your settings to directory ``/etc/dnsmasq.d``. You can use any file name,
+  as long as it ends in ``.conf``.
+
+For details, please refer to the ``dnsmasq`` documentation.
+
+For example: some people use this setup to implement a DHCP "white list" so only devices
+that are know are allowed to obtain an IP address, which in turn will be the same every
+time the same device connects to the network.
