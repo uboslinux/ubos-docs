@@ -40,13 +40,6 @@ Structure
 
 The Site JSON file is a JSON hash with the following entries:
 
-``siteid`` (required)
-   A unique identifier for the site. This is generally an ``s`` followed by
-   40 hex characters. E.g. ``s054257e710d12d7d06957d8c91ab2dc1b22d7b4c``.
-
-``hostname`` (required)
-   The hostname for the site, or ``*``. E.g. ``family.example.org``.
-
 ``admin`` (required)
    The admin section defines the administrator for the site. It has the following
    entries:
@@ -63,6 +56,20 @@ The Site JSON file is a JSON hash with the following entries:
 
    ``email`` (required)
       Contact e-mail for the administrator. Example: ``admin@family.example.org``.
+
+``appconfigs``:
+   A JSON array of the AppConfigurations at this site. There is no significance to
+   the order of the elements in the array. An AppConfiguration is
+   the installation of an app at a particular context path at a particular site,
+   together with any accessories and/or customization parameters that are
+   specific to this installation of the app.
+
+``hostname`` (required)
+   The hostname for the site, or ``*``. E.g. ``family.example.org``.
+
+``siteid`` (required)
+   A unique identifier for the site. This is generally an ``s`` followed by
+   40 hex characters. E.g. ``s054257e710d12d7d06957d8c91ab2dc1b22d7b4c``.
 
 ``tls`` (optional)
    This section is optional. If provided, UBOS will set up the site to be only
@@ -86,6 +93,13 @@ The Site JSON file is a JSON hash with the following entries:
       of the certificate authorities that your TLS clients are using.
       Only shown to the root user.
 
+``tor`` (optional)
+  This section is optional. If it is given, this site is intended to be run as a Tor hidden
+  service.
+
+  ``privatekey`` (optional)
+     Contains the Tor private key, if it has been allocated already.
+
 ``wellknown`` (optional)
    This section is optional. It contains the data for well-known files that your
    site may be using.
@@ -102,13 +116,6 @@ The Site JSON file is a JSON hash with the following entries:
       This contains the base64-encoded favicon for your site. UBOS will decode
       the base64, and serve the result as ``favicon.ico`` at the root of your
       site.
-
-``appconfigs``:
-   A JSON array of the AppConfigurations at this site. There is no significance to
-   the order of the elements in the array. An AppConfiguration is
-   the installation of an app at a particular context path at a particular site,
-   together with any accessories and/or customization parameters that are
-   specific to this installation of the app.
 
 AppConfigs
 ----------
