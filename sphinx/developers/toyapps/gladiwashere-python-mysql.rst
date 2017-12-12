@@ -48,7 +48,7 @@ security practice, and somewhat easier with WSGI than with PHP:
            "apache2" : {
                "defaultcontext" : "/guestbook",
                "depends" : [
-                   "mod_wsgi2",
+                   "mod_wsgi",
                    "python-mysql-connector"
                ],
                "apache2modules" : [
