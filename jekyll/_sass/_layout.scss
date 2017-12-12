@@ -132,6 +132,10 @@ dt {
 dd {
     margin-left: 3em;
 }
+dl dl,
+dl p {
+    margin: 0;
+}
 h5 {
     margin: 0 0 5px 0;
     padding: 0;
