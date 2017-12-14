@@ -151,7 +151,7 @@ But if you'd like to run the ssh daemon on a non-standard port anyway, do this:
   (This configures the ssh daemon to listen to a different port.)
 * Create new file ``/etc/ubos/open-ports.d/ssh`` and enter a single line with content
   ``<PPP>/tcp`` where ``<PPP>`` is the port number you picked. Save. (This tells UBOS
-  to open up the port in the firewall.)
+  which extra port to open in the firewall.)
 * Execute ``sudo ubos-admin setnetconfig client``. Substitute the name of your net config
   for ``client`` if you are not using ``client``. (This will reconfigure the firewall.)
 * Execute ``sudo systemctl restart sshd.service``. (This will restart the ssh daemon.)
