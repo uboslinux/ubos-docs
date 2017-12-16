@@ -52,6 +52,12 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 
    Example: ``a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
+``${appconfig.cachedir}``
+   Name of a directory in which this app configuration should cache any data it needs to
+   cache.
+
+   Example: ``/var/cache/a9f52884fef255d617981fb0a94916bf67bcf64b5``
+
 ``${appconfig.context}``
    Context path for this app configuration as specified in the site JSON file
    (or, if not given, the default from the manifest JSON).
@@ -173,6 +179,11 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
    is ``someport``. Replace ``someport`` with the symbolic name you used in the Manifest JSON.
 
    Example: ``5432``
+
+``${host.cachedir}``
+   Name of a directory in which to cache data on this device.
+
+   Example: ``/var/cache``
 
 ``${host.tmpdir}``
    Name of a directory in which to create temporary files. By using this symbolic
