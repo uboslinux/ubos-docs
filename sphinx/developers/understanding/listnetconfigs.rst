@@ -7,9 +7,8 @@ In UBOS, a :term:`network configuration <Network Configuration>` is a set of act
 network interfaces, their configuration, and the configuration of associated services
 such as DNS, firewall, and the like.
 
-Some of the network configurations come with UBOS package ``ubos-networking``, which is
-generally installed on all UBOS devices. Others come in other packages which need to
-be installed first.
+Some of the network configurations are pre-installed on all UBOS devices.
+Others come in other packages which need to be installed first.
 
 UBOS knows about a set of possible netconfigs, but in the general case, only some of
 them can be applied to the current device. For example, netconfig that implements a
