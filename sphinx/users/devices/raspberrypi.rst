@@ -1,6 +1,43 @@
 Raspberry Pi (any model)
 ========================
 
+How to use a USB disk as the primary disk
+-----------------------------------------
+
+There's a `rumor <https://forum.ubos.net/viewtopic.php?f=2&t=4#p6>`_ that the Raspberry Pi 3
+can boot directly from USB without needing an SD Card at all. We have not tried this, and
+it apparently only works for model 3.
+
+The following works for all Raspberry Pi models: boot from the SD card, but switch over
+to the USB disk as soon as possible and ignore it from that point. To do that:
+
+#. Boot your Raspberry Pi from an SD card that has UBOS installed as described
+   in :doc:`installation/raspberrypi` or :doc:`installation/raspberrypi2`.
+
+#. Connect your external USB disk to your Raspberry Pi and turn it on.
+
+#. Verify that UBOS has recognized the external disk by executing `lsblk`. It should show your
+   drive with a name such as `/dev/sda`. It might be helpful to compare the output of the
+   command with the drive turned off and turned on.
+
+#. Install UBOS on the USB disk with a command such as `ubos-install /dev/sda`.
+
+     .. warning:: Make sure you get the device name right, otherwise you might accidentally
+        destroy the data on some other hard drive! Also, this will delete all data on your
+        USB disk, so make sure you want to do this.
+
+#. After the command completes, edit file `/boot/cmdline.txt`. Look for where it currently
+   says something like `/dev/mmcblk0p2` (identifying the root partition on the SD Card) and
+   change it to `/dev/sda2` (the root partition on the USB disk).
+
+#. Execute `reboot`.
+
+#. Once the system has rebooted, log in as `root` and check that your root disk is now
+   `/dev/sda2` by executing `lsblk`.
+
+Bonus: edit `/etc/fstab` to mount the SD Card's first partition as `/boot`. That way UBOS
+updates can update the boot parameters on your SD Card in the future.
+
 How to use the Raspberry Pi's camera
 ------------------------------------
 
