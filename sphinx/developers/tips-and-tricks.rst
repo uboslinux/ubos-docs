@@ -89,7 +89,7 @@ execute:
 
 .. code-block:: none
 
-   > ubos-admin setup-shepherd -a "$(cat /home/joe/.ssh/id_rsa.pub)"
+   > ubos-admin setup-shepherd --add-key "$(cat /home/joe/.ssh/id_rsa.pub)"
 
 Debugging a Java/Tomcat app
 ---------------------------

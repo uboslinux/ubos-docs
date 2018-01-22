@@ -281,7 +281,7 @@ The ssh key, although long, needs to be provided on the command-line, and in quo
 
 .. code-block:: none
 
-   > sudo ubos-admin setup-shepherd --add '<public-ssh-key>"
+   > sudo ubos-admin setup-shepherd --add-key '<public-ssh-key>"
 
 will add a public ssh key and not overwrite any public ssh key already on the shepherd's
 account.
