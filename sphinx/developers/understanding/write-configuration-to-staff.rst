@@ -11,8 +11,8 @@ attempt to automatically determine which attached device is a suitable UBOS staf
 
 The following information is currently written to the UBOS staff:
 
-* in directory ``flock/<fingerprint>/ssh``, file ``ssh_host_key.pub`` will contain the
-  device's SSH host key, where ``<fingerprint>`` is the fingerprint of the device's
-  public GPG key.
+* in directory ``flock/<hostid>/ssh``, file ``ssh_host_key.pub`` will contain the
+  device's SSH host key, where ``<hostid>`` is the device's host id (i.e. the fingerprint
+  of the device's public GPG key)
 
 Additional information may be written to the UBOS staff in the future.

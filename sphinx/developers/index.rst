@@ -17,7 +17,6 @@ How to develop for UBOS
    ubos-backup
    networking
    useful-infrastructure
-   creating-appliance
    ubos-state
    principles
    tips-and-tricks

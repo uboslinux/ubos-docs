@@ -52,4 +52,27 @@ Generally, UBOS performs the following actions:
 This command internally uses a plug-in architecture, which allows the support of
 alternate backup formats without changing the invocation by the user.
 
+Restoring to different versions of the app or accessory
+-------------------------------------------------------
+
+When a backup is restored, it is possible (likely?) that the version of the app or
+accessory currently available is different (newer) than the version of the app or
+accessory that ran at the time the backup was created; after all, likely some time has
+passed between when a backup was created and when it needs to be restored.
+
+UBOS itself does not (and in fact cannot) migrate data from old versions of apps or
+accessories to new ones. This is the responsibility of the app or accessory developer.
+This is what the ``upgraders`` field in the :doc:`/developers/ubos-manifest` is for: run
+code that will upgrade the data.
+
+Particular care needs to be take when an app or accessory changes the numbers or names
+of its retention buckets. UBOS matches the content of a bucket by name, and does NOT
+restore the content of buckets whose name is not specified in the UBOS manifest any more.
+Conversely, the app or accessory, when adding an additional bucket from one version to
+another, the app or accessory must be tolerant of the situation that during upgrades
+or restores, that bucket will be empty as UBOS cannot restore any data into it.
+
+A good strategy for a developer is to never rename retention buckets.
+
+
 See also: :doc:`backup`.
