@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  End-to-end tutorials: how to set up an Indie Website with UBOS
+title:  "End-to-end tutorials: how to set up an Indie Website with UBOS"
 date:   2017-12-30 22:00:00
 author: Johannes Ernst
 categories: front news

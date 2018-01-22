@@ -34,7 +34,7 @@ to the USB disk as soon as possible and ignore it from that point. To do that:
    exactly you installed UBOS on the SD card and the USB disk, the device names might be
    different; this page reflects the default.
 
-#. Execute ``reboot``.
+#. Execute ``systemctl reboot``.
 
 #. Once the system has rebooted, log in as ``root`` and check that your root disk is now
    ``/dev/sda2`` by executing ``lsblk``.
