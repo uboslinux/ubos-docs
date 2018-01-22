@@ -18,6 +18,7 @@ How to develop for UBOS
    networking
    useful-infrastructure
    creating-appliance
+   ubos-state
    principles
    tips-and-tricks
    faq

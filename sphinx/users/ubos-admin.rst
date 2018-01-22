@@ -151,6 +151,20 @@ what changed, and make appropriate adjustments.
    the data of the removed app at this site will be deleted. There will be no warning.
    So save the data with ``ubos-admin backup`` first.
 
+``ubos-admin hostid``
+---------------------
+
+Displays a unique identifier for the device. It is is the fingerprint of the device's
+own GPG key pair. (Note: this is not the same as the shepherd's/)
+
+``ubos-admin init-staff``
+-------------------------
+
+Turns a USB disk device into a UBOS Staff. This may erase all existing content on the
+Staff device, so do not use a UBOS Staff device for any other purpose.
+
+
+
 ``ubos-admin listnetconfigs``
 -----------------------------
 

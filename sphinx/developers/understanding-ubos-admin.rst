@@ -9,8 +9,11 @@ the various subcommands do and how they do that, consult the following sections:
 
    understanding/backup
    understanding/backup-to-amazon-s3
+   understanding/backupinfo
    understanding/createsite
    understanding/deploy
+   understanding/hostid
+   understanding/init-staff
    understanding/listnetconfigs
    understanding/listsites
    understanding/read-configuration-from-staff
