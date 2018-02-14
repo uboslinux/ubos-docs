@@ -98,15 +98,14 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
    Indie IoT
       The part of the `Internet of Things <https://en.wikipedia.org/wiki/Internet_of_Things>`_
       that is independently owned and operated. Contrast with "Overlord IoT".
-      For example, the
-      `NEST thermostat <http://nest.com/>`_ is not part of the Indie IoT (Google hermetically
-      seals the device, and siphons
-      all the data before the "owner" of the device sees it), while a similar
+      For example, the `NEST thermostat <http://nest.com/>`_ is not part of the
+      Indie IoT (Google hermetically seals the device, and siphons
+      the data before the "owner" of the device sees it), while a similar
       product that kept data local and allowed the owner to modify it at will would
       be part of the Indie IoT.
 
    Letsencrypt
-      A new certificate authority that provides free SSL/TLS certificates
+      A certificate authority that provides free SSL/TLS certificates
       accepted by most browsers. See `<https://letsencrypt.org/>`_.
 
    Multicast DNS (mDNS)
@@ -205,6 +204,6 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
    Staff
       See :term:`Shepherd`.
 
-   UBOS manifest json
+   UBOS manifest JSON
       A JSON file that contains meta-data about an app or accessory beyond the
       meta-data provided by :term:`PKGBUILD`.

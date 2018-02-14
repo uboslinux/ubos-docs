@@ -45,7 +45,7 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 ``${appconfig.appid}``
    The identifier of the app at this app configuration.
 
-    Example: ``wordpress``
+   Example: ``wordpress``
 
 ``${appconfig.appconfigid}``
    The identifier of the app configuration as specified in the site JSON file.

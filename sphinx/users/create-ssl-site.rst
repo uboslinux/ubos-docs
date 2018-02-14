@@ -2,11 +2,11 @@ How to create a website secured by SSL/TLS
 ==========================================
 
 Creating an https website secured by SSL or TLS is notoriously difficult. UBOS makes it
-easy. You have two options:
+easy. On UBOS, you now have three options:
 
 #. Self-sign your keys. This is easiest, and costs no money, but you need to set a
    security exception in your browser. (That isn't hard either, but off-putting for
-   any visitor to your site that isn't you.)
+   any visitor to your site who isn't you.)
 
 #. Use an automatically generated `letsencrypt.org <https://letsencrypt.org/>`_
    certificate. This is free, and UBOS sets is up in a way that your device will

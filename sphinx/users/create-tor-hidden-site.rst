@@ -4,7 +4,7 @@ How to set up a website as a Tor hidden service
 Introduction
 ------------
 
-Many are familiar with `Tor <https://www.torproject.org/>`_ as a way to
+`Tor <https://www.torproject.org/>`_ is generally known as a way to
 browse the web anonymously. That requires a special browser, but the user's web
 traffic is heavily encrypted and bounced between several countries, so it
 becomes rather difficult even for well-resourced adversaries (oppressive governments,
@@ -69,5 +69,4 @@ Note that:
 * You may need to wait for a few minutes from the time UBOS completes its work,
   until your Tor browser is able to find the site on the Tor network: securely
   advertising your site on the Tor network takes a little bit.
-
 

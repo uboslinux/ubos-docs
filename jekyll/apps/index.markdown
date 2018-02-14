@@ -3,7 +3,7 @@ layout: page
 title: Apps on UBOS
 ---
 
-<p>Status: beta 12</p>
+<p>Status: beta 13</p>
 
 Here's the current list of apps available on UBOS (alphabetically):
 
@@ -26,6 +26,16 @@ Here's the current list of apps available on UBOS (alphabetically):
 
    **Nextcloud**: A safe home for all your data<br>
    Install with `ubos-admin createsite`, specify app `nextcloud`
+
+<img src="/images/phpbb-72x72.png" alt="[phpBB]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **phpBB**: Bulletin-board<br>
+   Install with `ubos-admin createsite`, specify app `phpbb`
+
+<img src="/images/river-72x72.png" alt="[River5]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+
+   **River5**: A river-of-news RSS aggregator<br>
+   Install with `ubos-admin createsite`, specify app `river`
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
@@ -60,7 +70,20 @@ Some apps already have some accessories, which you may or may not want to instal
 
 <br>
 
-Apps redeclared as experimental and not as well maintained:
+The following blockchain-related servers are also available (no user interface, connect with API):
+
+* **Bitcoin daemon**: Run your own Bitcoin blockchain<br>
+  Install with `pacman -S bitcoin` and start with `systemctl start bitcoind`
+
+* **Ethereum daemon**: Run your own Ethereum blockchain<br>
+  Install with `pacman -S geth` and start with `systemctl start geth`
+
+* **Monero daemon**: Run your own Monero blockchain<br>
+  Install with `pacman -S monero` and start with `systemctl start monerod`
+
+<br>
+
+Apps redeclared as experimental and currently unmaintained:
 
 <img src="/images/jenkins-72x72.png" alt="[Jenkins]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 

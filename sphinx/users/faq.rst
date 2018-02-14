@@ -30,7 +30,8 @@ Generally, you do two things:
 * You instruct your domain name registrar or name server to resolve your domain to your
   UBOS device. The exact details of this process depend on your registrar or name server,
   so we cannot describe this here. But in general, you set up an "A" record that points
-  to the IP address of your UBOS device.
+  to the IP address of your UBOS device. This requires that your device's network interface
+  can be reached over the public internet.
 
 Can I use UBOS without purchasing a domain name?
 ------------------------------------------------
@@ -69,7 +70,11 @@ Yes. In two ways:
 How do I set up WiFi?
 ---------------------
 
-There's a `blog post </blog/2016/08/18/wifi.html>`_ on the subject.
+The UBOS Staff (see :doc:`shepherd-staff`) has recently learned how to do that. That
+would be the easiest approach.
+
+If you want to do it manually, there's a `blog post </blog/2016/08/18/wifi.html>`_ on
+the subject.
 
 Is it safe to have my site accessible from the public web?
 ----------------------------------------------------------
@@ -82,23 +87,32 @@ But here are some thoughts:
 * As long as UBOS is in beta, assume there are bugs.
 * Once UBOS is out of beta, still assume that there are bugs.
 * To see which bugs have been filed, go to `Github <https://github.com/uboslinux/>`_.
-* As an open-source project, UBOS is "as-is" and we make no warranties of any kind.
+* As an free project, UBOS is "as-is" and we make no warranties of any kind.
 * So far, we are not aware of any break-in or compromise of any UBOS system by
   anybody.
 * We run UBOS ourselves, and we definitely don't want to be compromised.
 
-I'd have more space on my device and would like UBOS to use it
---------------------------------------------------------------
+My SD card is much larger than the UBOS image. How do I use the rest of the space?
+----------------------------------------------------------------------------------
 
-This is an expert-level operation; you can very easily screw your existing UBOS
-installation and all data on it. So be very careful. In principle, it should work,
-however.
+It would be best if you don't burn the UBOS image to your large SD Card, but instead
+to a temporary SD card. Then you boot from the temporary card, and use ``ubos-install``
+to create a clean new installation on your large SD Card. ``ubos-install`` will use
+all available space. Then you can discard your temporary SD card.
 
-Generally, first determine what filesystem your UBOS root partition runs on. On most
-devices, UBOS runs on "btrfs" but it might be "ext4". Then, use a command
-specific to that filesystem type to expand the filesystem, such as
+You can also expand the file system, but note that this is an expert-level operation;
+you can very easily screw your existing UBOS installation and all data on it. So be
+very careful. In principle, it should work like this: first determine what filesystem
+your UBOS root partition runs on. On most devices, UBOS runs on "btrfs" but it might be
+"ext4". Then, use a command specific to that filesystem type to expand the filesystem, such as
 ``btrfs filesystem resize`` (for "btrfs) or ``resize2fs`` (for "ext4"). Alternatively,
 you can add a second device to the btrfs filesystem pool.
+
+UBOS comes up degraded
+----------------------
+
+To find out what's wrong, run ``systemctl --failed``. That should give you a good
+idea. If you cannot solve the problem, reach out!
 
 I'm trying to run UBOS in a container, and the container comes up degraded
 --------------------------------------------------------------------------
@@ -125,24 +139,24 @@ I need root
 -----------
 
 You should be able to do all typical systems administration with the ``shepherd`` account.
-It is permitted to perform ``sudo <cmd>`` for those commands that require root privileges,
+This account is permitted to perform ``sudo <cmd>`` for those commands that require root privileges,
 but no more, in order to cut down on inadvertent changes that will get in the way of UBOS'
-way of doing things. So: "This is not the account you are looking for."
+way of doing things. So: "Root is not the account you are looking for."
 
 However, if you insist, there are two easy ways of getting root:
 
 * On a system where you have access to the console, you can simply log into the console
   as ``root``. By default, there is no password. (The assumption is that if somebody has
   physical access to your Raspberry Pi, game is over anyway, security-wise).
-* As user ``shepherd``, invoke ``sudo bash``. This will give you a root shell.
+* As user ``shepherd``, invoke ``su`` or ``sudo bash``. This will give you a root shell.
 
 I want to run ssh on a non-standard port
 ----------------------------------------
 
 Some people like to run the ssh daemon on a non-standard port, in the hope that fewer
 attackers on the open internet probe it. Note that by default, UBOS only accepts public-key
-based authentication, not password-based authentication, so it's far less likely that
-anybody can guess your credentials.
+based authentication, not password-based authentication, so it's not very likely that anybody
+can guess your credentials even if they try many times.
 
 But if you'd like to run the ssh daemon on a non-standard port anyway, do this:
 

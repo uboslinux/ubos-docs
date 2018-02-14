@@ -70,7 +70,6 @@ options as for ``ubos-admin backup``. In addition, you can use:
 * ``--bucket <bucket>``: specify the name of the S3 bucket to store the
   backup to.
 
-
 ``ubos-admin backupinfo``
 -------------------------
 
@@ -155,15 +154,17 @@ what changed, and make appropriate adjustments.
 ---------------------
 
 Displays a unique identifier for the device. It is is the fingerprint of the device's
-own GPG key pair. (Note: this is not the same as the shepherd's/)
+GPG public key. This hostid is used to identify the device in the `flock` directory
+on the :doc:`UBOS staff <shepherd-staff>`.
+
+Note: this is a different key than the one used by the shepherd to log into the device.
 
 ``ubos-admin init-staff``
 -------------------------
 
-Turns a USB disk device into a UBOS Staff. This may erase all existing content on the
-Staff device, so do not use a UBOS Staff device for any other purpose.
-
-
+Turns a USB disk device into a :doc:`UBOS Staff <shepherd-staff>`. This erases all
+existing content on the USB disk, so do not use a UBOS Staff device for any other
+purpose.
 
 ``ubos-admin listnetconfigs``
 -----------------------------
@@ -210,6 +211,13 @@ to ``example.com``, runs two apps: the Glad-I-Was-Here guestbook, and Wordpress,
 URLs ``http://example.com/guestbook`` and ``http://example.com/blog``,
 respectively. The second site at ``example.net``, runs a second, independent instance
 of Glad-I-Was-Here at ``http://example.net/foobar``.
+
+``ubos-admin read-configuration-from-staff``
+--------------------------------------------
+
+Performs the same operations without rebooting that the UBOS device would perform during
+boot when a :doc:`UBOS staff <shepherd-staff>` is present, such as setting up a shepherd
+account.
 
 ``ubos-admin restore``
 ----------------------
@@ -284,7 +292,7 @@ gateway/router:
 ``ubos-admin setup-shepherd``
 -----------------------------
 
-This command is mostly only useful if you run UBOS in a Linux container.
+This command is particularly useful if you run UBOS in a Linux container.
 
 .. code-block:: none
 
@@ -382,3 +390,13 @@ To upgrade all code on your device to the latest version, invoke:
 .. code-block:: none
 
    > ubos-admin update
+
+``ubos-admin write-configuration-to-staff``
+-------------------------------------------
+
+Saves information about the current device to the :doc:`UBOS Staff <shepherd-staff>` in
+directory ``flock/<HOSTID>`` where ``<HOSTID>`` is a unique identifier for the current device
+(the same as printed by ``ubos-admin hostid``).
+
+The saved information includes current IP address, device class, SSH server-side keys
+and others.

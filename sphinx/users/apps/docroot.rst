@@ -51,12 +51,17 @@ this command:
 
    > rsync -rtlvH --delete-after --delay-updates --safe-links -e ssh <FROM> docroot@<HOST>:<APPCONFIGID>/
 
+where ``<FROM>>`` is the local file or directory to upload, ``<HOST>`` is the name of the
+UBOS device to upload to, and ``<APPCONFIGID>`` the AppConfigId you just determined.
+
 If you want to use a non-default SSH keypair, you need to add which to the command, so the
 command becomes:
 
 .. code-block:: none
 
    > rsync -rtlvH --delete-after --delay-updates --safe-links -e 'ssh -i <PRIVKEY>' <FROM> docroot@<HOST>:<APPCONFIGID>/
+
+where ``<PRIVKEY>`` is the name of the file that contains the private key.
 
 Admittedly, this command is a handful, so let's unpack this:
 
@@ -78,11 +83,7 @@ Admittedly, this command is a handful, so let's unpack this:
   access to your SSH private key. This uses your default SSH private key.
 * ``-e 'ssh -i <PRIVKEY>``: instead of using the default SSH private key, use the private
   key contained in file ``<PRIVKEY>``.
-* ``<FROM>``: the local file or directory you want to upload. Replace this with the actual
-  name of the file or directory.
-* ``docroot@<HOST>:<APPCONFIGID>/``: replace ``<HOST>`` with the hostname or IP address
-  of the UBOS device that runs your site, and replace ``<APPCONFIGID>`` with the AppConfigId
-  you determined above.
+
 
 If you execute this command regularly, you may want to create an alias or script for it
 on your local computer.

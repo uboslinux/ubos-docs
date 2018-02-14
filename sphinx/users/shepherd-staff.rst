@@ -44,7 +44,7 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 | Directory                          | File                    | Description                                                                     |
 +====================================+=========================+=================================================================================+
 | ``shepherd/ssh/``                  | ``id_rsa.pub``          | SSH public key for the ``shepherd`` account                                     |
-+                                    +-------------------------+---------------------------------------------------------------------------------+
+|                                    +-------------------------+---------------------------------------------------------------------------------+
 |                                    | ``id_rsa``              | SSH private key for the ``shepherd`` account. Delete as soon as possible.       |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``wifi/``                          | ``<ssid>.conf``         | This directory may contain several files, one for each to-be-configured WiFi    |
@@ -52,7 +52,7 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``site-templates/``                | ``<name>.json``         | This directory may contain several Site JSON template files. Each of them will  |
 |                                    |                         | be instantiated and deployed to any device that reads this Staff unless a site  |
-|                                    |                         | with the same hostname exists already on the device.                                         |
+|                                    |                         | with the same hostname exists already on the device.                            |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``flock/<HOSTID>/device-info/``    | ``device.json``         | A JSON file containing information about the device.                            |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
