@@ -1,5 +1,5 @@
-Static website hosting with ``rsync``-based upload: ``docroot``
-===============================================================
+Static website hosting with ``rsync``-based upload (app ``docroot``)
+====================================================================
 
 ``docroot`` is a simple but quite useful web application for static file hosting.
 It is useful if:

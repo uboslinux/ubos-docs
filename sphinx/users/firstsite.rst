@@ -4,7 +4,6 @@ Setting up your first web app
 Follow these steps:
 
 #. Decide which web app to install. You can find the current set of available apps
-   `here <http:/apps/>`_, or find it by executing ``pacman -Sl hl``. In this example,
    we'll use Wordpress.
 
 #. Decide at which URL you'd like to run the app.  In this example, we'll

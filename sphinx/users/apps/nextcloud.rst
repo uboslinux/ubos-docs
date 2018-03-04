@@ -1,5 +1,5 @@
-Notes on Nextcloud
-==================
+Notes on Nextcloud (app ``nextcloud``)
+======================================
 
 How to install Nextcloud "apps"
 -------------------------------

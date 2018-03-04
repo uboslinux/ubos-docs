@@ -1,5 +1,5 @@
-Notes on Wordpress
-==================
+Notes on Wordpress (app ``wordpress``)
+======================================
 
 How to install plugins and themes
 ---------------------------------

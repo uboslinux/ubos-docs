@@ -1,5 +1,5 @@
-Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2/3, BeagleBone Black)
-==============================================================================
+Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2/3)
+============================================================
 
 These instructions are the same for all ARMv7-based devices.
 

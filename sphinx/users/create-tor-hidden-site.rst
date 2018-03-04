@@ -70,3 +70,17 @@ Note that:
   until your Tor browser is able to find the site on the Tor network: securely
   advertising your site on the Tor network takes a little bit.
 
+Privacy note
+------------
+
+Tor "onion" hostnames usually do not have DNS entries and cannot be resolved outside
+of the Tor network. However, if somebody were to manually create such an entry that points
+to your device's IP address (e.g. by adding it to your home router, to ``/etc/hosts``,
+executing ``curl --resolve`` etc.), your device running the Tor site will serve the site
+directly as well, without going through Tor.
+
+This is not usually a problem if you run your Tor site from behind a firewall, like on
+a typical home network. However, anybody who can send HTTP requests directly to your
+device, such as anybody who can connect to your (typically configured) home WiFi network
+can use this to test whether or not your device runs a specific Onion hidden service
+by performing a direct HTTP request on your device with its dot-onion hostname.

@@ -226,9 +226,9 @@ example:
                url="jdbc:mysql://127.0.0.1/somedb"
                username="someuser"
                password="somepass"
-               maxActive="20"
+               maxTotal="20"
                maxIdle="10"
-               maxWait="-1"/>
+               maxWaitMillis="-1"/>
    </Context>
 
 For details on how to configure Tomcat, see the

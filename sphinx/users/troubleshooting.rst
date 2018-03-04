@@ -97,6 +97,11 @@ is bad, or writing the UBOS disk image to the card wasn't successful. This unfor
 happens. We recommend you write the image on the disk or stick again, and try again.
 If that fails, try a different boot stick or SD card.
 
+Message: Failed to create file /sys/devices/system/cpu/microcode/reload when running ubos-install
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is harmless. You can ignore it.
+
 Systemd problems
 ----------------
 

@@ -8,6 +8,7 @@ Collects notes that are specific to particular apps.
 
    apps/amazonses
    apps/docroot
+   apps/mastodon
    apps/nextcloud
    apps/wordpress
 

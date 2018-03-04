@@ -1,6 +1,6 @@
 # Makefile for ubos.net
 
-UBOS_AWS_IMAGE_URL = https://console.aws.amazon.com/ec2/v2/home?region=us-east-1\#LaunchInstanceWizard:ami=ami-a4b005de
+UBOS_AWS_IMAGE_URL = https://console.aws.amazon.com/ec2/v2/home?region=us-east-1\#LaunchInstanceWizard:ami=ami-8a14e4f7
 
 # ubos.net variables
 STAGEDIR = stage

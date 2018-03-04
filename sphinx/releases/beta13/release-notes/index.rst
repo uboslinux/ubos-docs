@@ -1,7 +1,45 @@
 Beta 13 Release Notes
 =====================
 
-There are lots of new features and improvements in this release.
+IMPORTANT: To upgrade
+---------------------
+
+This time only, upgrading an existing UBOS installation is a little more complicated
+than it should be. Sorry about that. Please execute:
+
+* ``sudo pacman -Sy``
+* ``yes y | sudo pacman -S ubos-admin``
+* ``sudo ubos-admin update``
+* ``sudo ubos-admin setnetconfig <your-config-name>``
+
+where ``<your-config-name>`` is the name of the network configuration that you have set
+on your device: typically ``espressobin`` for ESPRESSObin, ``cloud`` on EC2, and
+``client`` for the rest. See also :doc:`../../../users/networking`.
+
+On the ESPRESSObin, you also need to update your boot loader arguments. First, execute
+the commands in the previous paragraph. Then, reboot and enter the bootloader as you
+did the first time you installed UBOS. In the boot loader, execute:
+
+* for booting from an SD card:
+
+  .. code-block:: none
+
+     mmc dev 0
+     ext4load mmc 0 $loadaddr /uEnv-sdcard.txt
+     env import -t $loadaddr $filesize
+     saveenv
+     boot
+
+* for booting from a SATA disk:
+
+  .. code-block:: none
+
+     scsi scan
+     scsi dev 0
+     ext4load scsi 0 $loadaddr /uEnv-sata.txt
+     env import -t $loadaddr $filesize
+     saveenv
+     boot
 
 For users
 ---------
@@ -40,6 +78,9 @@ For users
   * ``ubos-admin backup`` and other commands that write files will now warn you if you
     are about to overwrite a file.
 
+  * ``ubos-admin createsite`` now asks you to repeat your site administrator password.
+    Added by popular request from people who mistyped their password.
+
   * The default UBOS "404 Page Not Found" page has gained a link to the top of the site.
     This is useful when a site has been rearranged and previously valid URLs 404.
 
@@ -48,7 +89,7 @@ For users
 * Other important changes:
 
   * The obsolete commands ``shutdown``, ``reboot`` and the like have been removed. Use the
-    coresponding ``systemd`` commands, such as ``systemctl reboot`` or ``systemctl halt``.
+    corresponding ``systemd`` commands, such as ``systemctl reboot`` or ``systemctl halt``.
 
   * When you upgrade from an existing UBOS installation, you may see the following message:
     ``Cannot update firewall; do not know current netconfig. Run "ubos-admin setnetconfig" once``
@@ -59,7 +100,33 @@ For users
     ports in the UBOS firewall when an app is installed that needs to open a non-standard port,
     something that was not possible before.
 
-* Apps:
+  * The license has been changed for the ``ubos-admin`` and related packages. See
+    separate <a href="blog post
+
+  * The ``ubos-admin`` packages are now licensed using what we call the
+    "Personal Public License". See `separate blog post </blog/2018/03/02/ubos-license.html>`_
+    explaining how it better fits the UBOS values.
+
+* New Apps:
+
+  * `Mastodon <https://joinmastodon.org/>`_ lets your run your own version of
+    Twitter, with up to 500 characters per Tweet, ahem, Toot. It also lets you federate
+    with other Mastodon instances run by other people, and various other kinds of
+    decentralized microblogging services. As usual for apps on UBOS, it takes just one
+    command.  To install, invoke ``ubos-admin createsite --tls`` and enter ``mastodon``
+    as the name of the app.
+
+    NOTE:  Mastodon requires TLS, so you need to specify ``--tls`` when
+    creating your site.
+
+  * `phpBB <https://www.phpbb.com/>`_ lets you run your own discussion boards
+    on a site you control. No more need for Google Groups or the like. To install,
+    invoke ``ubos-admin createsite`` and enter ``phpbb`` as the name of the app.
+
+  * `River5 <http://scripting.com/river.html>`_ is the latest river-of-news RSS
+    reader from RSS godfather `Dave Winer <http://scripting.com/>`_`. To install,
+    invoke ``ubos-admin createsite`` and enter ``river`` (not ``river5``) as the name
+    of the app.
 
   * The Bitcoin, Ethereum and Monero cryptocurrency daemons are now available in the
     UBOS repositories and can be run simply by executing ``pacman -S`` (for installation)
@@ -67,14 +134,7 @@ For users
     does not currently ship wallets or other user-facing functionality (which you
     would likely want to run on a different device, like your phone or PC, anyway).
 
-  * Dave Winer's River5 RSS "river-of-news" aggregator is now available. To install,
-    invoke ``ubos-admin createsite`` and enter ``river`` (not ``river5``) as the name
-    of the app.
-
   * Added the Wordpress plugin ``indieweb-press-this``.
-
-  * Wordpress should not nag about available upgrades any more. This functionality does
-    not make any sense on UBOS.
 
 * Important bug fixes:
 
@@ -111,6 +171,14 @@ For developers
 UBOS build and release process
 ------------------------------
 
-* We have further increased the number of tests we do before releasing UBOS. This should
-  make it even less likely that UBOS upgrades fail.
+* We now perform automated upgrade tests for many of the apps available on UBOS:
+  we boot an "old" UBOS container image, install an app, and then upgrade it to the
+  latest as you would when you type ``ubos-admin update``. This should make it even
+  less likely that UBOS upgrades fail.
 
+Known issues
+------------
+
+* ``ubos-install`` with a swap partition may put the root file system on
+  a device that is inconsistent with the device in the bootloader configuration. To fix,
+  edit the bootloader configuration (e.g. change ``/dev/sda2`` to ``/dev/sda3``).
