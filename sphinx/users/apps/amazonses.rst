@@ -32,6 +32,18 @@ well, simply add ``amazonses`` as an additional app to that site as well.
 Note that you need to have a control of the DNS settings of the domain from which you
 want to send your e-mails, otherwise Amazon will not permit you to do so.
 
+How to run ``amazonses`` as a second app if ``ubos-admin createsite`` does not ask
+----------------------------------------------------------------------------------
+
+Some apps, such as Mastodon, can only run at the root of the site. When you create
+a new site with such an app, ``ubos-admin createsite`` will not ask for a second app,
+because other web apps cannot run at the same site. However, ``amazonses`` is not a web
+app (it has no web interface), so it can run! So how can you enter it?
+
+Simple: always specify ``amazonses`` as the first app when running ``ubos-admin createsite``.
+And then enter ``mastodon``, or whatever other app you want to run at the root of the site
+as the second app.
+
 How to sign up for Amazon Web Services' Simple E-mail Service and get credentials
 ---------------------------------------------------------------------------------
 
