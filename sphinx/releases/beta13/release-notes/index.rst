@@ -182,3 +182,9 @@ Known issues
 * ``ubos-install`` with a swap partition may put the root file system on
   a device that is inconsistent with the device in the bootloader configuration. To fix,
   edit the bootloader configuration (e.g. change ``/dev/sda2`` to ``/dev/sda3``).
+
+* If you run ``ubos-admin update``, and UBOS reboots the system as part of this process,
+  your deployed site(s) may not automatically reappear. Don't panic! (It turns out we
+  `missed some quotes <https://github.com/uboslinux/ubos-admin/issues/409>`_.) To fix
+  this situation and restore your sites, apps and data, log into your device, and execute
+  ``ubos-admin update-stage2``.
