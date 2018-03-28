@@ -14,7 +14,7 @@ Here's the current list of apps available on UBOS (alphabetically):
 
 <img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
-   **Known**: Publishing platform for everyone<br>
+   **Known**: Indieweb publishing platform for everyone<br>
    Install with `ubos-admin createsite`, specify app `known`
 
 <img src="/images/mastodon-72x72.png" alt="[Mastodon]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
@@ -54,12 +54,12 @@ Here's the current list of apps available on UBOS (alphabetically):
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
-   **Selfoss**: The new multipurpose rss reader, live stream, mashup, aggregation web application<br>
+   **Selfoss**: Multipurpose rss reader, live stream, mashup, aggregation web application<br>
    Install with `ubos-admin createsite`, specify app `selfoss`
 
 <img src="/images/shaarli-72x72.png" alt="[Shaarli]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
-   **Shaarli**: Your Own URL Shortener<br>
+   **Shaarli**: Personal, minimalist, super-fast, bookmarking service<br>
    Install with `ubos-admin createsite`, specify app `shaarli`
 
 <img src="/images/webtrees-72x72.png" alt="[Webtrees]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
