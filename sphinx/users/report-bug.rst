@@ -7,6 +7,15 @@ be doing? You might have encountered a genuine bug. Sorry about that.
 But unless you tell us about it, we can't fix it! So we encourage you to file bugs and
 issues.
 
+If you are not sure it is a bug or issue
+----------------------------------------
+
+Go to the `UBOS Forum <https://forum.ubos.net/>`_, select the forum that corresponds to
+the platform that you are running UBOS on, and post your observations there. Even if
+you aren't sure you have run into a bug, or just have a question, please continue reading
+"What to put into a good bug report" on this page. If you follow these guidelines, it
+makes our life easier and you are more likely going to get useful help.
+
 Where to report a bug or issue
 ------------------------------
 
@@ -35,10 +44,11 @@ the user did, or what calculation went wrong. There is nothing the developer can
 than to close the bug as invalid.
 
 Here's an example for a better bug report for the same hypothetical calculator app:
-"Running your calculator app on a MacBook Pro 15in 2015, OSX 10.2.3, 8G RAM, I enter AC, 1, +, 1,
-and =. The calculator prints 3. I was expecting 2." See the difference? Here, developers
-know exactly what they need to the reproduce the problem, and if they can reproduce the
-problem, they can starting fixing it immediately.
+"Running your calculator app in version 2.3.4a9 on a MacBook Pro 15in 2015, OSX 10.2.3,
+8G RAM, with no other apps running at the time, I enter AC, 1, +, 1, and =. The calculator
+prints 3. I was expecting 2." See the difference? Here, developers know exactly what they
+need to the reproduce the problem, and if they can reproduce the problem, they can starting
+fixing it immediately.
 
 Suggested reporting template for UBOS issues
 --------------------------------------------
@@ -85,3 +95,7 @@ possible of the information shown below:
   attach that data (assuming you are willing to publicly share that data, as all UBOS
   issues filed on Github are public).
 
+* For almost all issues, it is useful to attach the output of the following command to
+  the report. Note: do not invoke this as root, so it will not print passwords:
+
+  ``ubos-admin listsites --json``
