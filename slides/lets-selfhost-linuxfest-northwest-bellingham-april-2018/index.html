@@ -203,19 +203,23 @@ Synopsis:
 ubos_yellow_x86_64-container_XXX.tar.xz
 % <span class="you">mkdir ubos</span>
 % <span class="you">cd ubos</span>
-% <span class="you">sudo tar xfJ ../ubos_yellow_x86_64-container_XXX.tar.xz</span></pre>
+% <span class="you">sudo tar xJf ../ubos_yellow_x86_64-container_XXX.tar.xz</span></pre>
     </section>
 
 
     <section>
      <h2>Step 3: Boot UBOS</h2>
+     <pre class="shell">% <span class="you">sudo systemctl start systemd-networkd</span></pre>
+
      <pre class="shell">% <span class="you">sudo systemd-nspawn -b -n -D . -M ubos</span>
 
 (boot log skipped)
 
 Login: <span class="you">root</span></pre>
-     <pre class="shell fragment"># <span class="you">systemctl is-system-running</span></pre>
+     <pre class="shell fragment"># <span class="you">systemctl is-system-running</span>
+# <span class="you">systemctl --failed</span></pre>
      <pre class="shell fragment"># <span class="you">ip addr</span></pre>
+     <pre class="shell fragment"># <span class="you">ubos-admin update</span></pre>
     </section>
 
 
@@ -231,9 +235,11 @@ Repeat site admin user password: <span class="you">...</span>
 Site admin user e-mail (e.g. foo@bar.com): <span class="you">demo@ubos.net</span>
 ** Now a few questions about the app(s) you are going to deploy to this site:
 First app to run (or leave empty when no more apps): <span class="you">nextcloud</span>
+Downloading packages...
 App nextcloud suggests context path /nextcloud
 Enter context path: <span class="you">/nextcloud</span>
 Any accessories for nextcloud? Enter list: <span class="you">nextcloud-calendar nextcloud-contacts</span>
+Downloading packages...
 Next app to run (or leave empty when no more apps):
 Deploying...
 Installed site s65313ed42bc66ee1cc926a3edffef9e2b2f04eb9 at http://*/</pre>
