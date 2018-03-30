@@ -32,13 +32,7 @@ static:
 	install -m644 images/logo2/ubos-16x16.ico $(STAGEDIR)/favicon.ico
 	[ -d "$(STAGEDIR)/files" ]  || mkdir "$(STAGEDIR)/files"
 	[ -d "$(STAGEDIR)/slides" ] || mkdir "$(STAGEDIR)/slides"
-	[ -d "$(STAGEDIR)/assets" ] || mkdir "$(STAGEDIR)/assets"
-	[ -d "$(STAGEDIR)/assets/reveal" ] || mkdir "$(STAGEDIR)/assets/reveal"
 	install -m644 files/* $(STAGEDIR)/files/
-	cp -r slides/* $(STAGEDIR)/slides/
-	cp -r assets/fonts $(STAGEDIR)/assets/
-	cp -r assets/reveal/{css,js,lib,plugin} $(STAGEDIR)/assets/reveal/
-	install -m644 images/logo2/ubos-50x50.png $(STAGEDIR)/images/
 	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
 	echo 'RedirectMatch /staff(.*)$$ https://ubos.net/docs/users/shepherd-staff.html' >> $(STAGEDIR)/.htaccess
 	mkdir -p $(STAGEDIR)/include
