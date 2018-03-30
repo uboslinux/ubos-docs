@@ -249,7 +249,7 @@ packaging their apps or accessories for UBOS. They are listed alphabetically.
 ``${package.codedir}``
   Directory in which the package's code should be installed. No trailing slash.
 
-  Example: ``/usr/share/wordpress``
+  Example: ``/ubos/share/wordpress``
 
 ``${package.name}``
    Name of the package currently being installed.
