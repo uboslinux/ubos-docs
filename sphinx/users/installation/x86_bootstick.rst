@@ -22,7 +22,7 @@ Follow these steps:
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_x86_64-pc_LATEST.img.xz
+      % sudo xz -d ubos_yellow_x86_64-pc_LATEST.img.xz
 
    on the command line.
 
@@ -49,7 +49,7 @@ Follow these steps:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    To speed up the process, generate lots of random activity, such as looking through the
    file system, and typing lots on the keyboard. You only need to do that once, on the
@@ -60,13 +60,13 @@ Follow these steps:
 
    .. code-block:: none
 
-      > systemctl start haveged
+      % sudo systemctl start haveged
 
    Wait until the output of
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -76,7 +76,7 @@ Follow these steps:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
@@ -84,6 +84,6 @@ Follow these steps:
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

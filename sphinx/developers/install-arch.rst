@@ -13,26 +13,34 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
    `Arch Linux installation guide <https://wiki.archlinux.org/index.php/Installation_Guide>`_:
 
    #. Partition your root disk ``/dev/sda`` in a way that makes sense to you, e.g.
-      using a single partition::
+      using a single partition:
 
-         > fdisk /dev/sda
+      .. code-block:: none
+
+         # fdisk /dev/sda
 
       Select ``n`` and the defaults. Then select ``w`` to write changes to disk.
 
    #. Create a filesystem for your partition. While you can use any filesystem, we recommend
       ``btrfs`` as it is tightly integrated with ``systemd-nspawn``, the ``systemd``
       container tool. This may save you a substantial amount of disk space if you might
-      run several UBOS instances in containers later on, e.g. for testing::
+      run several UBOS instances in containers later on, e.g. for testing:
 
-         > mkfs.btrfs /dev/sda1
+      .. code-block:: none
 
-   #. Mount your future root partition in a place where you can install software::
+         # mkfs.btrfs /dev/sda1
 
-         > mount /dev/sda1 /mnt
+   #. Mount your future root partition in a place where you can install software:
 
-   #. Make sure you have a network connection::
+      .. code-block:: none
 
-         > ip addr
+         # mount /dev/sda1 /mnt
+
+   #. Make sure you have a network connection:
+
+      .. code-block:: none
+
+         # ip addr
 
       will show whether you have an IP address, and which networking devices
       are available. If you are in VirtualBox and have trouble, here is `more information on
@@ -41,67 +49,95 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
       IP address from on all available network interfaces.
 
    #. Perform the actual install. This will download and install a lot of packages and
-      thus may take a while, depending on your network speed::
+      thus may take a while, depending on your network speed:
 
-         > pacstrap /mnt base
+      .. code-block:: none
 
-   #. Create the right ``fstab`` by executing::
+         # pacstrap /mnt base
 
-         > genfstab -p /mnt >> /mnt/etc/fstab
+   #. Create the right ``fstab`` by executing:
 
-   #. Chroot into your future root disk and finish the installation::
+      .. code-block:: none
 
-         > arch-chroot /mnt
+         # genfstab -p /mnt >> /mnt/etc/fstab
 
-      * If you chose btrfs, install the btrfs tools::
+   #. Chroot into your future root disk and finish the installation:
 
-         >   pacman -S btrfs-progs
+      .. code-block:: none
 
-      * You also need a boot loader and sudo::
+         # arch-chroot /mnt
 
-         >   pacman -S grub sudo
+      * If you chose btrfs, install the btrfs tools:
 
-      * If you are on VirtualBox, also install the VirtualBox client tools::
+        .. code-block:: none
 
-         >   pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils
+           #   pacman -S btrfs-progs
 
-      * Create a Ramdisk::
+      * You also need a boot loader and sudo:
 
-         >   mkinitcpio -p linux
+        .. code-block:: none
 
-      * Configure the boot loader::
+           #   pacman -S grub sudo
 
-         >   grub-install --recheck /dev/sda
-         >   grub-mkconfig -o /boot/grub/grub.cfg
+      * If you are on VirtualBox, also install the VirtualBox client tools:
 
-      * Install a Locale. Edit ``/etc/locale.gen``, and uncomment this line::
+        .. code-block:: none
 
-         #en_US.UTF-8 UTF-8
+           #   pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils
 
-        so it looks like this::
+      * Create a Ramdisk:
 
-         en_US.UTF-8 UTF-8
+        .. code-block:: none
 
-        You can also uncomment whatever other locales you might want. Then run::
+           #   mkinitcpio -p linux
 
-         >   locale-gen
+      * Configure the boot loader:
 
-        Set this locale as the system locale::
+        .. code-block:: none
 
-         > localectl set-locale LANG=en_US.UTF-8
+           #   grub-install --recheck /dev/sda
+           #   grub-mkconfig -o /boot/grub/grub.cfg
+
+      * Install a Locale. Edit ``/etc/locale.gen``, and uncomment this line:
+
+        .. code-block:: none
+
+           #en_US.UTF-8 UTF-8
+
+        so it looks like this:
+
+        .. code-block:: none
+
+           en_US.UTF-8 UTF-8
+
+        You can also uncomment whatever other locales you might want. Then run:
+
+        .. code-block:: none
+
+           #   locale-gen
+
+        Set this locale as the system locale:
+
+        .. code-block:: none
+
+           #   localectl set-locale LANG=en_US.UTF-8
 
       * Exit from the chroot shell with ctrl-d.
 
    #. Set up networking. There are many options. We recommend using ``systemd-networkd``
       and ``systemd-resolved`` in the way UBOS does it so UBOS containers and the Arch
-      Linux host play nicely::
+      Linux host play nicely:
 
-         > rm /mnt/etc/resolv.conf
-         > ln -s /run/systemd/resolve/resolv.conf /mnt/etc/resolv.conf
-         > arch-chroot /mnt systemctl enable systemd-networkd systemd-resolved
+      .. code-block:: none
+
+         # rm /mnt/etc/resolv.conf
+         # ln -s /run/systemd/resolve/resolv.conf /mnt/etc/resolv.conf
+         # arch-chroot /mnt systemctl enable systemd-networkd systemd-resolved
 
       Also create file ``/mnt/etc/systemd/network/wired.network`` with the following
-      content::
+      content:
+
+      .. code-block:: none
 
          [Match]
          Name=en*
@@ -113,9 +149,11 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
       The ``IPForward`` setting is necessary if you plan to run or test UBOS in a
       Linux container, so it can reach the internet.
 
-   #. Shut down the machine::
+   #. Shut down the machine:
 
-         > shutdown -h now
+      .. code-block:: none
+
+         # systemctl poweroff
 
    #. While the machine is shut down, remove the installation medium from the drive. If
       you are on VirtualBox, remove the ISO file from the virtual CD/DVD drive. To do that:
@@ -134,29 +172,37 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
       * Click OK.
 
    #. Then, start the machine again and log on as root. There is no password by
-      default. You might want to change that, by saying::
+      default. You might want to change that, by saying:
 
-         passwd
+      .. code-block:: none
+
+         # passwd
 
    #. Create a non-root user (example: ``joe``, change as needed). Use this user when
       developing instead of doing everything as ``root``. Also allow the user to become
-      ``root`` with ``sudo`` as needed, and set a password for it::
+      ``root`` with ``sudo`` as needed, and set a password for it:
 
-         useradd -m joe
-         passwd joe
-         cat > /etc/sudoers.d/joe
+      .. code-block:: none
+
+         # useradd -m joe
+         # passwd joe
+         # cat > /etc/sudoers.d/joe
          joe ALL = NOPASSWD: ALL
          ^D
-         chmod 600 /etc/sudoers.d/joe
+         # chmod 600 /etc/sudoers.d/joe
 
    #. Install the desktop environment you might want to use. For example, to use
-      KDE with the plasma desktop::
+      KDE with the plasma desktop:
 
-         pacman -S xorg-server sddm plasma-meta konsole
-         systemctl enable sddm
+      .. code-block:: none
 
-   #. If you are on VirtualBox, enable the VirtualBox client tools::
+         # pacman -S xorg-server sddm plasma-meta konsole
+         # systemctl enable sddm
 
-         systemctl enable vboxservice
+   #. If you are on VirtualBox, enable the VirtualBox client tools:
+
+      .. code-block:: none
+
+         # systemctl enable vboxservice
 
 Continue to :doc:`install-ubos-tools`.

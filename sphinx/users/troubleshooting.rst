@@ -28,10 +28,10 @@ that setting off:
 7. Select the device that seems to be your USB stick. It won't be SATA (that's a built-in
    disk) but might be called PMAP, as BIOS manufacturers like to be cryptic it seems.
 
-On a PC: UBOS boot starts out fine, but then the screen goes blank
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+On a PC: UBOS boot using grub starts out fine, but then the screen goes blank
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Q**: I am booting UBOS on a PC. The grub bootloader comes up and starts "UBOS Linux".
+**Q**: I am booting UBOS on a PC. The bootloader comes up and starts UBOS.
 On a new screen, there are a few more boot messages, and then, the screen goes blank.
 What happened?
 
@@ -154,16 +154,22 @@ host operating system is Arch Linux, simply execute, in the host:
 
 .. code-block:: none
 
-   modprobe ip6_tables
+   % sudo modprobe ip6_tables
 
 and reboot your container.
 
-To make this permanent, create file `/etc/modules-load.d/ip6_tables.conf` with the following
-single line of content: `ip6_tables` and have systemd pick it up with:
+To make this permanent, create file ``/etc/modules-load.d/ip6_tables.conf`` with the following
+single line of content:
 
 .. code-block:: none
 
-   systemctl restart systemd-modules-load
+   ip6_tables
+
+and have systemd pick it up with:
+
+.. code-block:: none
+
+   % sudo systemctl restart systemd-modules-load
 
 Logging on problems
 -------------------
@@ -185,7 +191,7 @@ To reconfigure your keyboard for your language, follow the
 App installation and management problems
 ----------------------------------------
 
-There's an error message about pacman and gpg when attempting to install an app
+There's an error message about pacman and gpg when attempting to install an App
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most likely, UBOS isn't finished generating its cryptographic keys on the first boot.
@@ -193,18 +199,18 @@ Execute:
 
 .. code-block:: none
 
-   > sudo systemctl is-system-running
+   % sudo systemctl is-system-running
 
 and only proceed once its reports "running".
 
-On any device: a package not found error when installing a new app
+On any device: a package not found error when installing a new App
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This can happen if you haven't updated your UBOS device for some time. ``ubos-admin``
 will attempt to install a package that has been upgraded since, and can't find the
 old version.
 
-Always execute ``ubos-admin update`` before installing a new app.
+Always execute ``ubos-admin update`` before installing a new :term:`App`.
 
 Image problems
 --------------
@@ -228,7 +234,7 @@ networking containers. Here is a list of things to check:
 
    .. code-block:: none
 
-      ip addr
+      % ip addr
 
    check that such an interface appears when you create the container, and it
    has a suitable IP address such as ``10.0.0.1``. If not, check that you are running
@@ -238,7 +244,7 @@ networking containers. Here is a list of things to check:
 
    .. code-block:: none
 
-      ip addr
+      % ip addr
 
    make sure your container has a corresponding
    IP address such as ``10.0.0.2``. If not, check that you are running
@@ -249,7 +255,7 @@ networking containers. Here is a list of things to check:
 
    .. code-block:: none
 
-      ping 10.0.0.1
+      % ping 10.0.0.1
 
    If you can't and both host and container have correct IP addresses,
    make sure your host does not run a firewall that prevents the communication from
@@ -263,7 +269,7 @@ networking containers. Here is a list of things to check:
 
    .. code-block:: none
 
-      sudo sysctl net.ipv4.ip_forward=1
+      % sudo sysctl net.ipv4.ip_forward=1
 
 "I need help"
 -------------

@@ -36,8 +36,8 @@ New features
   apps, and more test plans including tests for the correct generation of things such
   as ``robots.txt``.
 
-* Apps can now contribute fragments to a site-wide ``robots.txt`` file. This allows each
-  app at a site to exclude those URLs from search engine indexing that are within
+* Apps can now contribute fragments to a :term:`Site`-wide ``robots.txt`` file. This allows each
+  app at a :term:`Site` to exclude those URLs from search engine indexing that are within
   their domain.
 
 * Wildcard sites -- sites that respond to any incoming virtual host name -- have been
@@ -80,7 +80,7 @@ Bug fixes from beta 1
 
 * The grub bootloader now reports UBOS, not Arch.
 
-* Credentials for site administrators can now include special characters.
+* Credentials for :term:`Site` administrators can now include special characters.
 
 * Directories restored from backup now have correct permissions. Permissions for files
   and directories can be set separately right in the manifest.
@@ -117,7 +117,7 @@ For developers
 
 Known issues
 ------------
-* There is still no command that can show which apps and accessories are available
+* There is still no command that can show which :term:`Apps <App>` and :term:`Accessories <Accessory>` are available
   for install. For now, refer to the
   `UBOS Beta 2 is here blog post </blog/2015/02/09/ubos-beta2-is-here.html>`_.
 

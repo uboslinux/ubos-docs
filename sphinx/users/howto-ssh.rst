@@ -48,14 +48,14 @@ hostname or IP address of the UBOS device:
 
 .. code-block:: none
 
-   > ssh shepherd@<HOST>
+   % ssh shepherd@<HOST>
 
 To log on to the UBOS device with a non-default SSH key pair, assuming ``<KEYFILE>`` is
 the name of the SSH private key file (the one that does NOT end in ``.pub``:
 
 .. code-block:: none
 
-   > ssh -i <KEYFILE> shepherd@<HOST>
+   % ssh -i <KEYFILE> shepherd@<HOST>
 
 Once you are logged on, your can execute the various UBOS administration commands over
 the network, such as ``ubos-admin listsites``.
@@ -73,13 +73,13 @@ execute:
 
 .. code-block:: none
 
-   > chmod 600 id_rsa
+   % chmod 600 id_rsa
 
 To manually generate a new SSH key pair, on Linux or macOS, execute:
 
 .. code-block:: none
 
-   > ssh-keygen
+   % ssh-keygen
 
 and answer the questions that program asks. Make a note where you saved your new key
 pair, so you can enter the correct filename when you need it.

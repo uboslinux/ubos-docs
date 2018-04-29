@@ -22,7 +22,7 @@ In addition, the following repositories are not enabled by default:
 
 * ``hl-experimental``: similar, experimental "head-less" applications.
 
-* ``toyapps``: apps that are useful for development or for understanding UBOS, but not
+* ``toyapps``: :term:`Apps <App>` that are useful for development or for understanding UBOS, but not
   ever intended to be run in production.
 
 Each one of those repositories is defined in a separate file in directory

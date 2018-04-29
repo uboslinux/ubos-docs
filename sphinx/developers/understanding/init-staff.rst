@@ -8,3 +8,5 @@ provided as arguments to the command on the Staff device.
 
 A heuristic is used to determine whether to reformat the USB device before writing to
 it, so all existing information on it should assume to be lost.
+
+This command must be run as root (``sudo ubos-admin init-staff``).

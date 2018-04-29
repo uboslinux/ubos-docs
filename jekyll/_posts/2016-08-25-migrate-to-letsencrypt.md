@@ -37,7 +37,7 @@ It's quite easy:
 Let's say your site's hostname is `example.com`. First, obtain its Site JSON and save it
 into a convenient place, like this:
 
-<pre>sudo ubos-admin showsite --json --host example.com > example.com.json</pre>
+<pre>% sudo ubos-admin showsite --json --host example.com > example.com.json</pre>
 
 Then, edit it to say "get and use a letsencrypt certificate". You do that by opening
 up the newly saved `example.com.json` file in a text editor of your choice. Then, you
@@ -55,7 +55,7 @@ JSON syntax rules.
 
 Then, redeploy the site:
 
-<pre>sudo ubos-admin deploy -f example.com.json</pre>
+<pre>% sudo ubos-admin deploy -f example.com.json</pre>
 
 and voila, your new site will be protected by an automatically-provisioned SSL/TLS
 certificate from Letsencrypt.

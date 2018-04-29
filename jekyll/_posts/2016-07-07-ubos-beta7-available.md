@@ -29,7 +29,7 @@ Where do we start?
   all that valuable data on it? Backups stored outside of the house, that's what.
   But traditionally, that's complicated. With UBOS, it's not. Here's what you do:
 
-  <pre>ubos-admin backup-to-amazon-s3</pre>
+  <pre>% sudo ubos-admin backup-to-amazon-s3</pre>
 
   This single command will cleanly back up all the apps on your device, straight to
   Amazon's S3 file storage platform. With one more argument, UBOS will first encrypt

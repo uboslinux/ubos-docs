@@ -21,7 +21,7 @@ However, UBOS is not very picky, so many different values should work as well.
 * Name it whatever you like.
 
 * You need to open the SSH, HTTP and HTTPS ports, otherwise you won't be able
-  to log into your server or access web apps it runs. Create a security rule
+  to log into your server or access web :term:`Apps <App>` it runs. Create a security rule
   that reflects that.
 
 * Create a new key pair unless you have a suitable one already. Name it
@@ -30,17 +30,17 @@ However, UBOS is not very picky, so many different values should work as well.
 
   .. code-block:: none
 
-     chmod 400 <your-key-file>
+     % chmod 400 <your-key-file>
 
   is a good idea.
 
 Once your server has booted:
 
-#. Determine its public IP address. Then ssh into it as user ``shepherd``:
+#. Determine its public IP address from the AWS site. Then ssh into it as user ``shepherd``:
 
    .. code-block:: none
 
-      > ssh -i <your-key-file> -l shepherd <ip>
+      % ssh -i <your-key-file> -l shepherd <ip>
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready
    to use and initialize a few other things on the first boot. That might a little bit.
@@ -48,7 +48,7 @@ Once your server has booted:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -57,6 +57,6 @@ Once your server has booted:
 
    .. code-block:: none
 
-      > sudo ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

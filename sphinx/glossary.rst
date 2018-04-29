@@ -6,63 +6,70 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 .. glossary::
 
    App
-      On UBOS, an app is a software application that provides direct value to the user
+      On UBOS, an App is a software application that provides direct value to the user
       without any further additions, integrations or customizations. Apps generally
       have software dependencies only on packages provided as part of UBOS.
 
-      UBOS apps are typically web apps, i.e. apps whose primary user interface is
-      presented using a web browser. Some examples for UBOS apps are:
+      UBOS Apps are typically web Apps, i.e. Apps whose primary user interface is
+      presented using a web browser. Some examples for UBOS Apps are:
 
       * ​Wordpress (blogging and publishing)
       * A house monitoring application, accessible over http or https.
 
       Apps can generally be installed more than one on the same device, in
-      multiple :term:`app configurations <App configuration>`. Middleware components
-      (e.g. databases) are not considered apps because the user generally does not
+      multiple :term:`AppConfigurations <AppConfiguration>`. Middleware components
+      (e.g. databases) are not considered Apps because the user generally does not
       directly interact with them.
 
    Accessory
-      An accessory on UBOS is a software module that adds to or modifies the
+      An Accessory on UBOS is a software module that adds to or modifies the
       functionality of an :term:`app`. Accessories includes things such as plugins,
       themes, skins, extensions, add-ons and the like. UBOS uses the term
-      "accessory" as a consistent, common term for all of those.
+      "Accessory" as a consistent, common term for all of those.
 
-      Examples for what UBOS would call accessories are:
+      Examples for what UBOS would call Accessories are:
 
       * themes or skins that change the graphic layout of Wordpress;
       * a module that requires users to fill out a captcha before they can register
         for a wiki;
-      * a module that adds a Facebook Like button to an app.
+      * a module that adds a Facebook Like button to an :term:`App`.
 
-   App configuration
-      The installation of an app at a particular Site (aka virtual host) with a certain
+   AppConfigId
+      UBOS identifies each :term:`App` installed at a particular :term:`Site` with a unique identifier,
+      such as ``aa6b76deec72fc2e86c812372e5922b9533ca2d58``. UBOS commands that refer to a
+      particular installation of an :term:`App` generally require that the corresponding
+      AppConfigId is specified. This is particularly important if a device contains
+      several installations of the same :term:`App` at different virtual hostnames, for example.
+      (See also :term:`SiteId`.)
+
+      To determine an AppConfigId, execute:
+
+      .. code-block:: none
+
+         % sudo ubos-admin listsites
+
+      Because the AppConfigId is long and unwieldy, you can alternatively use
+      only its first few characters, as long as they are unique on your host and you
+      append three periods at the end.
+
+      For example, if there is no other :term:`App` installed on your device whose AppConfigId
+      starts with ``aa``, you can use ``aa...`` as a shorthand.
+
+   AppConfiguration
+      The installation of an :term:`App` at a particular :term:`Site` (aka virtual host) with a certain
       context path. For example, if a device runs two virtual hosts ``example.com``
       and ``example.net``, and Wordpress is installed at ``example.com/blog``, at
       ``example.com/notes`` and at the root of ``example.net/``, the host runs
       three Wordpress App Configurations. If can also run several other App Configurations
-      for other apps. Each of the App Configuration usually has its own database,
-      data storage, list of accessories and customization parameters.
+      for other :term:`Apps <App>`. Each of the AppConfigurations usually has its own database,
+      data storage, list of :term:`Accessories <Accessory>` and customization parameters.
 
-      App Configurations are identified through :term:`appconfigids <appconfigid>`.
+      App Configurations are identified through :term:`AppConfigIds <AppConfigId>`.
 
-   appconfigid
-      UBOS identifies each app installed at a particular site with a unique identifier,
-      such as ``aa6b76deec72fc2e86c812372e5922b9533ca2d58``. UBOS commands that refer to a
-      particular installation of an app generally require that the corresponding
-      appconfigid is specified. This is particularly important if a device contains
-      several installations of the same app at different virtual hostnames, for example.
-      (See also :term:`siteid`.)
-
-      To determine an appconfigid, execute::
-
-         > sudo ubos-admin listsites
-
-      Because the appconfigid is long and unwieldy, you can alternatively use
-      only its first few characters, as long as they are unique on your host and you
-      append three periods at the end.
-
-      For example, if there is no other app installed on your device whose appconfigid
-      starts with ``aa``, you can use ``aa...`` as a shorthand.
+   AppConfigurationItem
+      A file, directory, systemd service, database or other item that needs to be provisioned
+      to deploy an :term:`AppConfiguration`. AppConfigurationItems are defined in an
+      :term:`App` or :term:`Accessory`'s :term:`UBOS Manifest JSON`.
 
    Arch Linux
       A rolling-release GNU/Linux distribution developed at
@@ -71,10 +78,10 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
 
    Customization point
       A variable whose value can be customized by the user. For example, an
-      app might allow the user to configure the title of the app upon installation.
+      :term:`App` might allow the user to configure the title of the :term:`App` upon installation.
       In this case, it declares a customization point ``title`` in its manifest
       JSON. The user can specify a value for the customization point in their
-      Site JSON. That way, each installation of the app can have a different
+      Site JSON. That way, each installation of the :term:`App` can have a different
       title, for example.
 
    Depot
@@ -166,44 +173,50 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       reboots the device with the Staff present again.
 
    Site
-      Short for website; all the apps and functionality at the same hostname,
-      e.g. virtual host. Sites are referred to by :term:`siteids <siteid>`.
+      Short for website; all the :term:`Apps <App>` and functionality at the same hostname,
+      e.g. virtual host. :term:`Sites <Site>` are referred to by :term:`SiteIds <SiteId>`.
 
    Site JSON
       A JSON file that contains all meta-data about a :term:`Site`, including
-      hostname, which apps are installed at which relative URLs, and so forth.
-      To obtain the Site JSON for a particular installed site with
-      :term:`siteid` ``<siteid>``, execute::
+      hostname, which :term:`Apps <App>` are installed at which relative URLs, and so forth.
+      To obtain the Site JSON for a particular installed :term:`Site` with
+      :term:`SiteId` ``<siteid>``, execute:
 
-         > sudo ubos-admin showsite --json --siteid <siteid>
+      .. code-block:: none
 
-      To deploy or update a deployed site to the configuration contained in a
-      Site JSON file called ``<site-json-file>``, execute::
+         % sudo ubos-admin showsite --json --siteid <siteid>
 
-         > sudo ubos-admin deploy --file <site-json-file>
+      To deploy or update a deployed :term:`Site` to the configuration contained in a
+      Site JSON file called ``<site-json-file>``, execute:
 
-   siteid
+      .. code-block:: none
+
+         % sudo ubos-admin deploy --file <site-json-file>
+
+   SiteId
       UBOS identifies :term:`sites <Site>` with a unique identifier, such as
       ``s4100f3ed79b845dc04a974c0144f5c5b2f81face``. UBOS commands that refer to a
-      particular site generally require that the site's siteid is specified.
-      (See also :term:`appconfigid`.)
+      particular :term:`Site` generally require that the :term:`Site`'s siteid is specified.
+      (See also :term:`AppConfigId`.)
 
-      To determine a site's siteid, execute::
+      To determine a :term:`Site`'s SiteId, execute:
 
-         > sudo ubos-admin listsites
+      .. code-block:: none
 
-      Because the siteid is long and unwieldy, you can alternatively use
+         % sudo ubos-admin listsites
+
+      Because the SiteIds is long and unwieldy, you can alternatively use
       only its first few characters, as long as they are unique on your host and you
       append three periods at the end.
 
-      For example, if there is no other site installed on your host whose siteid starts
+      For example, if there is no other :term:`Site` installed on your host whose SiteId starts
       with ``s41``, you can use ``s41...`` as a shorthand.
 
-      Many commands also accept the current hostname of the site instead of the siteid.
+      Many commands also accept the current hostname of the :term:`Site` instead of the SiteId.
 
    Staff
       See :term:`Shepherd`.
 
    UBOS manifest JSON
-      A JSON file that contains meta-data about an app or accessory beyond the
+      A JSON file that contains meta-data about an :term:`App` or :term:`Accessory` beyond the
       meta-data provided by :term:`PKGBUILD`.

@@ -29,8 +29,8 @@ To do so:
 
    .. code-block:: none
 
-      > mkdir ubos
-      > tar -x -J -C ubos -f ubos_yellow_aarch64-container_LATEST.tar.xz
+      % mkdir ubos
+      % sudo tar -x -J -C ubos -f ubos_yellow_aarch64-container_LATEST.tar.xz
 
    on the command line.
 
@@ -48,10 +48,10 @@ To do so:
 
    .. code-block:: none
 
-      > [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
-      > [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
-      > sudo systemctl enable iptables ip6tables
-      > sudo systemctl start iptables ip6tables
+      % [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+      % [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
+      % sudo systemctl enable iptables ip6tables
+      % sudo systemctl start iptables ip6tables
 
    This will not actually perform any firewall functionality (the ruleset is empty), but
    it will allow the UBOS container to set up its own firewall.
@@ -62,7 +62,7 @@ To do so:
 
    .. code-block:: none
 
-      > sudo systemd-nspawn --boot --network-veth --machine ubos --directory ubos
+      % sudo systemd-nspawn --boot --network-veth --machine ubos --directory ubos
 
 #. When the boot process is finished, log in as user ``root``. By default, there is no
    password on the console.
@@ -73,7 +73,7 @@ To do so:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    The container takes entropy from the host computer, so make sure the host Linux system
    provides enough. Depending your Linux distro, you may be able to generate more by
@@ -82,7 +82,7 @@ To do so:
 
    .. code-block:: none
 
-      > sudo systemctl start haveged
+      % sudo systemctl start haveged
 
    on your host (not container).
 
@@ -90,7 +90,7 @@ To do so:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -99,21 +99,21 @@ To do so:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed. If you
-   have difficulties reaching the internet from your container, consult the
-   :doc:`troubleshooting page<../troubleshooting>`.
+   have difficulties reaching the internet from your container, consult
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. Update UBOS to the latest and greatest:
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`. Note
    that with the private networking setup described on this page, you will only be able
-   to access apps installed in your UBOS container from the host computer. If you like to
+   to access :term:`Apps <App>` installed in your UBOS container from the host computer. If you like to
    access them from anywhere else, you either need to give your container a non-private
    IP address, or port forward from the host to the container.
 

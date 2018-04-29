@@ -17,14 +17,14 @@ to which you downloaded the UBOS image.
 
    .. code-block:: none
 
-      > curl -L https://github.com/uboslinux/ubos-admin/raw/master/ubos-keyring/ubos.gpg | gpg --import
+      % curl -L https://github.com/uboslinux/ubos-admin/raw/master/ubos-keyring/ubos.gpg | gpg --import
 
 #. Verify the download by invoking ``gpg --verify`` with the downloaded signature file as
    the first argument, and the image file as the second:
 
    .. code-block:: none
 
-      > gpg --verify ubos_yellow_x86_64-vbox_XXX.vmdk.xz.sig ubos_yellow_x86_64-vbox_XXX.vmdk.xz
+      % gpg --verify ubos_yellow_x86_64-vbox_XXX.vmdk.xz.sig ubos_yellow_x86_64-vbox_XXX.vmdk.xz
 
    If everything checks out, it will print:
 

@@ -11,7 +11,7 @@ Why not? :-)
 Also, you can pronounce it in a way that makes a lot of sense for the kinds of things
 UBOS was created to do.
 
-Why does UBOS ask for a domain name when installing a new site?
+Why does UBOS ask for a domain name when installing a new Site?
 ---------------------------------------------------------------
 
 UBOS mostly cares about applications that are accessible over the web. To access an
@@ -24,9 +24,9 @@ I own a domain name, and I'd like to use it for my UBOS device. How do I do that
 
 Generally, you do two things:
 
-* When you set up your site with ``ubos-admin createsite``, you specify that domain name.
+* When you set up your :term:`Site` with ``ubos-admin createsite``, you specify that domain name.
   (You could also say ``*``, but if you specify the domain name you can later add another
-  site with a different domain name that runs on the same UBOS device.)
+  :term:`Site` with a different domain name that runs on the same UBOS device.)
 * You instruct your domain name registrar or name server to resolve your domain to your
   UBOS device. The exact details of this process depend on your registrar or name server,
   so we cannot describe this here. But in general, you set up an "A" record that points
@@ -43,26 +43,26 @@ Yes:
   ``ubos-admin createsite``.
 * If you are satisfied with accessing your UBOS device only on your local network,
   the UBOS device advertises itself via mDNS and you can use that name. See :doc:`networking`.
-* You can enter your site name in your ``/etc/host`` file(s) or in the local DNS
-  server of your home router. This makes most sense if your site is only on your
+* You can enter your :term:`Site` name in your ``/etc/host`` file(s) or in the local DNS
+  server of your home router. This makes most sense if your :term:`Site` is only on your
   local network anyway.
 
-How can I install more than one web app on the same device?
+How can I install more than one web App on the same device?
 -----------------------------------------------------------
 
 Yes. In two ways:
 
 * You can invoke ``ubos-admin createsite`` as many times as you wish and specify as
-  many apps as you wish. You can even specify the same app more than once (for example,
+  many :term:`Apps <App>` as you wish. You can even specify the same :term:`App` more than once (for example,
   if several members of your family like to run Wordpress) as long as you use different
   path names. However, every time you invoke ``ubos-admin createsite`` again, you need
   to use a different hostname: ``createsite`` means that you are creating a separate
-  site every time; the command cannot modify an existing site.
-* You can augment an existing site by adding another app to the same site, accessible
-  at the same hostname. To do that today, you need to obtain the existing site's
+  :term:`Site` every time; the command cannot modify an existing :term:`Site`.
+* You can augment an existing :term:`Site` by adding another :term:`App` to the same :term:`Site`, accessible
+  at the same hostname. To do that today, you need to obtain the existing :term:`Site`'s
   site JSON file with ``ubos-admin showsite --json --hostname <hostname>``, save
   the file, edit the file by adding another entry into the ``appconfigs`` array
-  that describes the additional app you wish to run, and deploy the new configuration with
+  that describes the additional :term:`App` you wish to run, and deploy the new configuration with
   ``ubos-admin deploy -f <edited-site-json-file>``. There is currently no command
   that allows you to do that interactively (but you could help us out and create one,
   see `this issue <https://github.com/uboslinux/ubos-admin/issues/8>`_).
@@ -76,7 +76,7 @@ would be the easiest approach.
 If you want to do it manually, there's a `blog post </blog/2016/08/18/wifi.html>`_ on
 the subject.
 
-Is it safe to have my site accessible from the public web?
+Is it safe to have my Site accessible from the public web?
 ----------------------------------------------------------
 
 This is one of these unanswerable questions. Like: is it safe to go on a two-week vacation

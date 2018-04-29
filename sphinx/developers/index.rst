@@ -5,7 +5,6 @@ How to develop for UBOS
    :maxdepth: 2
 
    app-howto
-   key-concepts
    setting-up-development-machine
    toyapps
    ubos-manifest

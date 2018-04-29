@@ -8,12 +8,12 @@ categories: front release beta
 
 IMPORTANT: The upgrade is more complicated this time (and this time only -- we hope!).
 Please follow the instructions in the
-<a href="/docs/releases/beta13/release-notes/">release notes</a>.
+<a href="/docs/releases/beta13/release-notes/">release notes</a>. The short version:
 
-* ``sudo pacman -Sy``
-* ``yes y | sudo pacman -S ubos-admin``
-* ``sudo ubos-admin update``
-* ``sudo ubos-admin setnetconfig <your-config-name>``
+<pre>% sudo pacman -Sy
+% yes y | sudo pacman -S ubos-admin
+% sudo ubos-admin update
+% sudo ubos-admin setnetconfig &lt;your-config-name&gt;</pre>
 
 UBOS beta 13 is out, and what a release it is! There are lots of new things. Here are
 some of the highlights:

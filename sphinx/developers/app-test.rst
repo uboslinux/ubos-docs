@@ -1,19 +1,19 @@
-Testing UBOS apps
+Testing UBOS Apps
 =================
 
 About ``webapptest``
 --------------------
 
-It's very important that apps on UBOS deploy correctly, undeploy cleanly, and that
-their data can be reliably backed up, restored, and migrated when your app moves
-to a new version. We do not ever want to ask a user to "fix the app installation" manually
+It's very important that :term:`Apps <App>` on UBOS deploy correctly, undeploy cleanly, and that
+their data can be reliably backed up, restored, and migrated when your :term:`App` moves
+to a new version. We do not ever want to ask a user to "fix the :term:`App` installation" manually
 if we can help it.
 
 To aid in testing this, we use a test tool called ``webapptest``
 (`webapptest source is here <https://github.com/uboslinux/ubos-tools/tree/master/webapptest>`_),
 which has been
 written specifically for this purpose. ``webapptest`` is not a regular application testing tool;
-it is not intended to find out whether, say, your app runs nicely in Internet Explorer.
+it is not intended to find out whether, say, your :term:`App` runs nicely in Internet Explorer.
 Instead, it focuses on testing installation, uninstallation, backup and restore; something
 typical testing tools don't focus on.
 
@@ -30,15 +30,15 @@ running UBOS, execute:
 (see `GladIWasHereTest1.pm here <https://github.com/uboslinux/ubos-toyapps/blob/master/gladiwashere/tests/GladIWasHere1Test.pm>`_)
 
 This will go through a series of steps deploying ``gladiwashere`` on your local device,
-interacting with the app by filling out a guestbook entry, backing up the app data,
-undeploying the app, re-deploying and restoring from backup.
+interacting with the :term:`App` by filling out a guestbook entry, backing up the :term:`App` data,
+undeploying the :term:`App`, re-deploying and restoring from backup.
 
 The exact steps depend on the test plan you are using. To see available test plans,
 execute:
 
 .. code-block:: none
 
-   > webapptest listtestplans
+   % webapptest listtestplans
    backup-all-states  - Creates a local backup file for each State.
    default            - Walks through all States and Transitions, and attempts to backup and restore each State.
    deploy-only        - Only tests whether the application can be installed.
@@ -58,30 +58,30 @@ Alternate scaffolds
 
 .. code-block:: none
 
-   > webapptest listscaffolds
+   % webapptest listscaffolds
    container - A scaffold that runs tests on the local machine in a Linux container.
    here      - A trivial scaffold that runs tests on the local machine without any insulation.
    ssh       - A scaffold that runs tests on the remote machine that is already set up, and accessible via ssh.
    v-box     - A scaffold that runs tests on the local machine in a VirtualBox virtual machine.
 
 If using ``webapptest`` with the ``here`` scaffold, ``webapptest`` deploys the to-be-tested
-app on the local device (which needs to run UBOS). This is also the default.
+:term:`App` on the local device (which needs to run UBOS). This is also the default.
 
-By using the ``ssh`` scaffold, the to-be-tested app can be tested on a remote UBOS device over ssh.
+By using the ``ssh`` scaffold, the to-be-tested :term:`App` can be tested on a remote UBOS device over ssh.
 This is particularly useful for cross-platform testing.
 
 The ``v-box`` scaffold sets up and tears down an entire UBOS virtual machine for
 the test. This is only available on x86_64.
 
 Finally, the ``container`` scaffold creates a Linux container into which UBOS and the
-to-be-tested app will be installed, using ``systemd-nspawn``.
+to-be-tested :term:`App` will be installed, using ``systemd-nspawn``.
 
 Some of these scaffolds need parameters (e.g. the hostname of the ssh host or the image to boot
 from), which are specified by appending them to the name of the scaffold like this:
 
 .. code-block:: none
 
-   > webapptest run --scaffold container:directory=/build/my-ubos-image-dir
+   % webapptest run --scaffold container:directory=/build/my-ubos-image-dir
 
 
 Test description
@@ -94,7 +94,7 @@ The essence of the test description is a series of states and transitions betwee
 states are states (with different data) that the application can be in. In ``GladIWasHereTest1``,
 those are:
 
-* ``virgin``: the app has just been deployed, and nobody has filled out a guestbook entry yet
+* ``virgin``: the :term:`App` has just been deployed, and nobody has filled out a guestbook entry yet
 * ``comment-posted``: a single comment has been posted
 
 Obviously, depending on the application, many more states can be defined.
@@ -108,7 +108,7 @@ code to post a guestbook entry.
 
 The essence of the test are the ``getMustContain`` and similar statements in the states.
 ``getMustContain`` will perform an HTTP GET operation on the provided URL (relative to
-the location at which the app was installed), and make sure that the received content
+the location at which the :term:`App` was installed), and make sure that the received content
 contains a certain pattern. If not, it will print the provided error message.
 
 The full API is `here <https://github.com/uboslinux/ubos-tools/blob/master/webapptest/vendor_perl/UBOS/WebAppTest/TestContext.pm>`_.

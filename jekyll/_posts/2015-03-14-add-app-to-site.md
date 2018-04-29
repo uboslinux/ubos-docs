@@ -12,27 +12,31 @@ to run a second app at the same site, say ``selfoss``?
 
 <h2>Short version:</h2>
 
-* ``ubos-admin showsite --siteid <siteid> --json > site.json``
-* ``vi site.json``
-* ``ubos-admin deploy -f site.json``
+
+<pre>
+% sudo ubos-admin showsite --siteid &lt;siteid&gt; --json &gt; site.json
+% vi site.json
+% sudo ubos-admin deploy -f site.json
+</pre>
+
 
 where in the second step, you add a second entry into the ``appconfigs`` array with
 the app you want, the context path where to run, and a unique <tt>appconfigid</tt>, like this:
 
-~~~~~
-   "appconfigs" : [
-      {
-         "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
-         "context" : "/owncloud",
-         "appid" : "owncloud"
-      },
-      {
-         "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d5",
-         "context" : "/selfoss",
-         "appid" : "selfoss"
-      }
-   ]
-~~~~~
+<pre>
+"appconfigs" : [
+   {
+      "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
+      "context" : "/owncloud",
+      "appid" : "owncloud"
+   },
+   {
+      "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d5",
+      "context" : "/selfoss",
+      "appid" : "selfoss"
+   }
+]
+</pre>
 
 <strong>Warning:</strong> Do not change the `appconfigid` of your existing app installation,
 otherwise UBOS will think you want to delete the old app installation and all its data, and
@@ -52,11 +56,11 @@ Instead, let's add a second app to the existing site. First, we look at what's i
 on our device already. (This is an example, depending on what you have installed, what you
 see may be different.)
 
-~~~~~
-> ubos-admin listsites
+<pre>
+% ubos-admin listsites
 Site: * (s1bdfd3ea4bba1b5615a74db7991d839a2eecfc2c)
     Context:           /owncloud (ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4): owncloud
-~~~~~
+</pre>
 
 We see that we currently have one site at the wildcard hostname, i.e. it responds
 whichever way it was reached from the browser, such as <tt>http://ubos-pc.local/</tt> or
@@ -80,9 +84,9 @@ UBOS doesn't currently have a nice command for doing this. (See
 <a href="/community/">help</a>?) But editing the Site JSON itself it isn't that hard
 either. Do this:
 
-~~~~~
-> sudo ubos-admin showsite --siteid s... --json > site.json
-~~~~~
+<pre>
+% sudo ubos-admin showsite --siteid s... --json > site.json
+</pre>
 
 This command "shows the site", in "--json" format, but instead of printing it to the
 terminal, saves it to a file in the current directory called <tt>site.json</tt>. This
@@ -107,31 +111,31 @@ the section starts with a ``[`` and ends some lines down with a ``]``. In betwee
 now, there is one entry that starts with ``{`` and ends with ``}``. It may look like
 this:
 
-~~~~~
-      {
-         "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
-         "context" : "/owncloud",
-         "appid" : "owncloud"
-      }
-~~~~~
+<pre>
+{
+   "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
+   "context" : "/owncloud",
+   "appid" : "owncloud"
+}
+</pre>
 
 It basically says "there is an app with an identifier ``owncloud``"and it runs at context
 ``/owncloud``. You will recognize these values from what you typed into ``ubos-admin createsite``.
 It also has a long, basically random number as identifier. Now we add another section, so the
 entire ``appconfigs`` section looks like this:
 
-~~~~~
-      {
-         "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
-         "context" : "/owncloud",
-         "appid" : "owncloud"
-      },
-      {
-         "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d5",
-         "context" : "/selfoss",
-         "appid" : "selfoss"
-      }
-~~~~~
+<pre>
+{
+   "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d4",
+   "context" : "/owncloud",
+   "appid" : "owncloud"
+},
+{
+   "appconfigid" : "ad0f6fd80220f609ebd1f4f7222ed804b5dea10d5",
+   "context" : "/selfoss",
+   "appid" : "selfoss"
+}
+</pre>
 
 Note there is a comma between the two sections, and note that the ``appconfigid``
 in the second section must be different from the first. You can make the second ``appconfigid``
@@ -144,9 +148,9 @@ create a new one from scratch.
 
 Now save the file back, and run:
 
-~~~~~
-> sudo ubos-admin deploy -f site.json
-~~~~~
+<pre>
+% sudo ubos-admin deploy -f site.json
+</pre>
 
 This takes a little bit for installation. Then, refresh your web browser. Voila, here we are:
 

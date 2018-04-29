@@ -26,12 +26,12 @@ You can run UBOS:
 
  * UBOS has an installer that makes it easy to install UBOS on a new
    computer. Download the the image for a bootstick, boot in the boot stick and
-   run ``ubos-install /dev/sda`` to install UBOS on your first hard drive. RAID1
-   is also no problem, simply say ``ubos-install /dev/sda /dev/sdb``. More options
+   run ``sudo ubos-install /dev/sda`` to install UBOS on your first hard drive. RAID1
+   is also no problem, simply say ``sudo ubos-install /dev/sda /dev/sdb``. More options
    are available.
 
  * UBOS now makes it just as easy to create TLS-secured websites as it is to create
-   non-secure ones. Just say ``ubos-admin createsite --tls --selfsigned``. You can
+   non-secure ones. Just say ``sudo ubos-admin createsite --tls --selfsigned``. You can
    also bring an official certificate.
 
  * Hosts running UBOS now advertise themselves on the local network using mDNS/zeroconf.
@@ -48,7 +48,7 @@ You can run UBOS:
    **Owncloud**: Your Cloud, Your Data, Your Way!<br>
    Upgraded from 7.0.x to 8.0.0.
 
-<img src="/images/idno-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+<img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Known**: Publishing Platform for Everyone<br>
    Upgraded from 0.6.4 to 0.7.1

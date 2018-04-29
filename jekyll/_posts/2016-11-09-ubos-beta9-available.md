@@ -27,6 +27,6 @@ These are just some of the highlights. The more detailed release notes are
 <a href="/docs/releases/beta9/release-notes/">here</a>.
 
 And as you probably know: to upgrade your device, all you need to say is
-``ubos-admin update``.
+``sudo ubos-admin update``.
 
 We'd love your <a href="/community/">feedback</a>.

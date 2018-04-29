@@ -62,9 +62,11 @@ Bug fixes and improvements
 To upgrade
 ----------
 
-All you need to do, as usual, is::
+All you need to do, as usual, is:
 
-   > sudo ubos-admin update
+.. code-block:: none
+
+   % sudo ubos-admin update
 
 
 Known problems

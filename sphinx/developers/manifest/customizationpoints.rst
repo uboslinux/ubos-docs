@@ -1,10 +1,10 @@
 Customization points section
 ============================
 
-Apps and accessories may defined "customization points", which enable the user to
-configure the app or accessory at deploy time.
+:term:`Apps <App>` and :term:`Accessories <Accessory>` may defined "customization points",
+which enable the user to configure the :term:`App` or :term:`Accessory` at deploy time.
 
-If you invoke ``ubos-admin createsite`` and specify an app that declares one or more
+If you invoke ``ubos-admin createsite`` and specify an :term:`App` that declares one or more
 required customization points, you will be asked for values for those customization points.
 (If you specify ``--askForAllCustomizationPoints`` as argument, you will be asked for
 values for all customization points, not just the required ones.)
@@ -23,13 +23,13 @@ Here is an example:
      }
    }
 
-This app, or accessory, declares a single customization point whose programmatic name is
+This :term:`App`, or :term:`Accessory`, declares a single customization point whose programmatic name is
 ``title``. It is of type string, meaning that a value provided for it must be a valid string.
 No value has to be provided by the user for this customization point, as it is not
 ``required``; if none is provided, the default value "My wiki" will be used instead.
 
 Customization points are useful to set information such as the title of the installed
-app, a logo, or settings such as whether comments should be allowed etc.
+:term:`App`, a logo, or settings such as whether comments should be allowed etc.
 
 The following types of customization points are currently recognized:
 

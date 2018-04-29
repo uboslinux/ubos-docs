@@ -3,11 +3,11 @@ The UBOS rsync server
 
 ``ubos-rsync-server`` is a package that makes it easy for developers to support secure
 file upload/download from UBOS-deployed applications via ``rsync`` over ``ssh``. Using
-this package is often very convenient for developers of apps whose data should be
+this package is often very convenient for developers of :term:`Apps <App>` whose data should be
 uploadable or downloadable from the command-line, not just via a web browser.
 
-To do discuss it, we will use the ``docroot`` app available on UBOS that makes use
-of ``ubos-rsync-server``. ``docroot`` is a simple web app for static web site hosting.
+To do discuss it, we will use the ``docroot`` :term:`App` available on UBOS that makes use
+of ``ubos-rsync-server``. ``docroot`` is a simple web :term:`App` for static web site hosting.
 You may want to review its :doc:`end user documentation </users/apps/docroot>` first.
 
 To examine ``docroot``, please refer to its source code
@@ -15,16 +15,16 @@ To examine ``docroot``, please refer to its source code
 
 You notice that ``docroot`` consists of only a handful of files:
 
-* ``tmpl/htaccess.tmpl`` is the (template for the) Apache configuration fragment for this app.
+* ``tmpl/htaccess.tmpl`` is the (template for the) Apache configuration fragment for this :term:`App`.
   Other than setting up permissions, PHP and some useful PHP environment variables, all this
   does is map the root of the installation URL (symbolically:
   ``${appconfig.context}/`` to a specific subdirectory called ``rsyncdir`` of the
-  AppConfigurations's data directory: ``/var/lib/docroot/${appconfig.appconfigid}/rsyncsubdir/``.)
+  AppConfigurations's data directory: ``/ubos/lib/docroot/${appconfig.appconfigid}/rsyncsubdir/``.)
   In other words, the files in this directory will be presented to the user by the web server.
 
 * ``install`` only makes sure that the UBOS device has a local user called ``docroot``.
 
-* ``ubos-manifest.json`` is more interesting. First, it makes sure that the AppConfiguration's
+* ``ubos-manifest.json`` is more interesting. First, it makes sure that the :term:`AppConfiguration`'s
   data directory and the ``rsyncdir`` subdirectory exist (the latter is marked as "to be
   backed up"). Then, it makes sure the ``htaccess`` file is instantiated in put in the right place.
   Finally, it runs a script, which, as you can see from its full path, has been provided by
@@ -49,18 +49,18 @@ but the essence of the ``authorized_keys`` edits is the following:
   the ``authorized_keys`` file. This means that if you have five installations of ``docroot``
   on the same device, the ``authorized_keys`` file will contain five upload keys.
 
-* incoming rsync-over-ssh connections will be examined by which AppConfigId they specify.
-  Only if the correct combination of SSH key and AppConfigId is presented does the
+* incoming rsync-over-ssh connections will be examined by which :term:`AppConfigId` they specify.
+  Only if the correct combination of SSH key and :term:`AppConfigId` is presented does the
   upload succeed. This prevents attackers who do not have the correct combination from
   accessing AppConfigurations they should not be able to access.
 
-* Also, AppConfigId gets translated into the correct directory for the AppConfig, which
-  happens to be the ``rsyncdir`` that goes with the AppConfiguration.
+* Also, :term:`AppConfigId` gets translated into the correct directory for the AppConfig, which
+  happens to be the ``rsyncdir`` that goes with the :term:`AppConfiguration`.
 
 The result: The user can securely upload via ``rsync`` over ``ssh`` to their own
-``docroot`` sites, but no others, even if others have ``docroot`` sites on the same
+``docroot`` :term:`Sites <Site>`, but no others, even if others have ``docroot`` :term:`Sites <Site>` on the same
 UBOS device.
 
-``ubos-rsync-server`` can be used by any other app the same way: setup a user that goes
-with the app, and have the app's ``ubos-manifest.json`` invoke ``provision-appconfig`` just
+``ubos-rsync-server`` can be used by any other :term:`App` the same way: setup a user that goes
+with the :term:`App`, and have the :term:`App`'s ``ubos-manifest.json`` invoke ``provision-appconfig`` just
 like ``docroot`` does.

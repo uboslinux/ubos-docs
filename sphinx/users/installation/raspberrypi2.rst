@@ -7,6 +7,7 @@ running your existing Linux distro on your Raspberry Pi, and run UBOS in a Linux
 This is :doc:`described here <armv7h_container>`.)
 
 Raspberry Pi 2 "Model B" and Raspberry Pi 3 "Model B" are supported out of the box.
+Raspberry Pi 3 "Model B+" should work as well.
 
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.
@@ -26,7 +27,7 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_armv7h-rpi2_LATEST.img.xz
+      % sudo xz -d ubos_yellow_armv7h-rpi2_LATEST.img.xz
 
    on the command line.
 
@@ -53,7 +54,7 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -63,7 +64,7 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
@@ -71,6 +72,6 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

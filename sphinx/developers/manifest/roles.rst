@@ -1,8 +1,8 @@
 Roles section
 =============
 
-The roles section in an UBOS Manifest defines how the app or accessory needs to be deployed
-and related information. For example, the roles section defines:
+The roles section in an UBOS Manifest defines how the :term:`App` or :term:`Accessory`
+needs to be deployed and related information. For example, the roles section defines:
 
 * which files or directories need to be created in the file system;
 * which databases need to be provisioned with which permissions;
@@ -13,19 +13,19 @@ and related information. For example, the roles section defines:
 The roles section is structured by roles. Currently supported roles are:
 
 * ``apache2``: information related to the web tier;
-* ``tomcat8``: information related to the Java apps running on Tomcat (if applicable);
+* ``tomcat8``: information related to the Java :term:`Apps <App>` running on Tomcat (if applicable);
 * ``mysql``: information related to MySQL databases (if applicable);
 * ``postgresql``: information related to Postgresql databases (if applicable);
 * ``generic``: information not related to any of the other tiers (this is rare).
 
-Generally, upon installation of an app or accessory, the roles are processed in this sequence:
+Generally, upon installation of an :term:`App` or :term:`Accessory`, the roles are processed in this sequence:
 
 #. ``mysql`` or ``postgresql``
 #. ``generic``
 #. ``tomcat8``
 #. ``apache2``
 
-Upon uninstallation of an app or accessory, the roles are processed in the opposite sequence.
+Upon uninstallation of an :term:`App` or :term:`Accessory`, the roles are processed in the opposite sequence.
 
 Here are common fields for all roles:
 
@@ -35,7 +35,7 @@ Common fields
 Depends
 ^^^^^^^
 
-When the app or accessory is deployed for this role, the field
+When the :term:`App` or :term:`Accessory` is deployed for this role, the field
 ``depends`` identifies required packages. Often, these dependencies could also be listed
 in the package's :term:`PKGBUILD` file, but this additional field allows the declaration of
 dependencies that are only required if this role is used.
@@ -48,14 +48,14 @@ Example:
      "depends" : [ "php-apache", "php-gd" ],
      ...
 
-App Config Items
-^^^^^^^^^^^^^^^^
+AppConfigurationItems
+^^^^^^^^^^^^^^^^^^^^^
 
 This section captures the items that need to be put in place before a deployment of
-an app or accessory is functional. These items can be things such as files, directories,
+an :term:`App` or :term:`Accessory` is functional. These items can be things such as files, directories,
 symbolic links, or databases; but also scripts that need to be run.
 
-For example, in the ``apache2`` role of an app the following ``appconfigitems`` section
+For example, in the ``apache2`` role of an :term:`App` the following ``appconfigitems`` section
 may be found:
 
 .. code-block:: json
@@ -80,7 +80,7 @@ may be found:
    ]
 
 Here, three items need to be put in place: two files, and a symbolic link. The following
-App Config Item types are currently supported:
+:term:`AppConfigurationItem` types are currently supported:
 
 * ``directory``: a directory to be created;
 * ``directorytree`` : a recursive directory tree, copied from somewhere else;
@@ -90,19 +90,19 @@ App Config Item types are currently supported:
 * ``perlscript``: a Perl script that needs to be run;
 * ``sqlscript``: a SQL script that needs to be run (only use this for the ``mysql`` role);
 * ``symlink``: a symbolic link;
-* ``systemd-service``: a systemd service to be running while the AppConfiguration is deployed;
-* ``systemd-timer``: a systemd timer to be active while the AppConfiguration is deployed;
-* ``tcpport``: a TCP port needs to be reserved for the exclusive use of this AppConfiguration;
-* ``udpport``: a UDP port needs to be reserved for the exclusive use of this AppConfiguration.
+* ``systemd-service``: a systemd service to be running while the :term:`AppConfiguration` is deployed;
+* ``systemd-timer``: a systemd timer to be active while the :term:`AppConfiguration` is deployed;
+* ``tcpport``: a TCP port needs to be reserved for the exclusive use of this :term:`AppConfiguration`;
+* ``udpport``: a UDP port needs to be reserved for the exclusive use of this :term:`AppConfiguration`.
 
 The field ``name`` is the name of the file, directory, database, systemd service or timer to
-be created or operated on. ``names`` can be used as a shortcut for several App Config Items
-to which the same other settings apply.
+be created or operated on. ``names`` can be used as a shortcut for several
+:term:`AppConfigurationItems <AppConfigurationItem>` to which the same other settings apply.
 
 The field ``template`` identifies a file or directory that is to be used as a template for
 creating the new item. The corresponding field ``templatelang`` states how the template
 should be used to create the item. In the example above, the ``varsubst`` ("variable
-substitution") algorithm is to be applied. (See :doc:`variables` and :doc:`perlscript`.)
+substitution") algorithm is to be applied. (See :doc:`variables` and :doc:`scripts`.)
 
 The field ``source`` refers to a file that is the source code for the script to be run,
 or the destination of the symbolic link. (Think of the original file that is either being
@@ -218,11 +218,10 @@ Installers, Uninstallers, Upgraders
 
 These fields identify scripts to be run when certain events occur:
 
-* field ``installers`` is processed when the app or accessory is deployed;
-* field ``uninstallers`` is processed when the app or accessory is undeployed;
-* field ``upgraders`` is processed after an app or accessory has been deployed and
+* field ``installers`` is processed when the :term:`App` or :term:`Accessory` is deployed;
+* field ``upgraders`` is processed after an :term:`App` or :term:`Accessory` has been deployed and
   data has been restored that potentially must be migrated to work with the current
-  version of the app or accessory.
+  version of the :term:`App` or :term:`Accessory`.
 
 Note that during software upgrades, deployment and undeployment may occur as well
 (see :doc:`../understanding/update`).
@@ -230,7 +229,7 @@ Note that during software upgrades, deployment and undeployment may occur as wel
 Each of these fields points to an array. Each of the elements in the array is a separate
 script that will be run in the sequence listed.
 
-Here is an example for ``installers`` in the ``mysql`` role of an app that uses MySQL:
+Here is an example for ``installers`` in the ``mysql`` role of an :term:`App` that uses MySQL:
 
 .. code-block:: json
 
@@ -250,7 +249,6 @@ Supported types are:
 * ``sqlscript``: a SQL script (but only for the ``mysql`` role)
 * ``perlscript``: a Perl script
 
-
 Apache2 role
 ------------
 
@@ -259,21 +257,21 @@ The ``apache2`` role knows additional fields.
 Context
 ^^^^^^^
 
-Web apps must specify one of the following two fields:
+Web :term:`Apps <App>` must specify one of the following two fields:
 
-* ``defaultcontext``: the relative URL path at which the app is installed by default.
+* ``defaultcontext``: the relative URL path at which the :term:`App` is installed by default.
   For example, Wordpress may have a defaultcontext of ``/blog``, i.e. if the user installs
   Wordpress at ``example.com``, by default Wordpress will be accessible at
-  ``http://example.com/blog``. This field is to be used if the app is able to be installed
+  ``http://example.com/blog``. This field is to be used if the :term:`App` is able to be installed
   at any relative URL, but this is the default.
-* ``fixedcontext``: some web apps can only be installed at a particular relative URL,
-  or only at the root of a site. Use ``fixedcontext`` to declare that relative URL.
+* ``fixedcontext``: some web :term:`Apps <App>` can only be installed at a particular relative URL,
+  or only at the root of a :term:`Site`. Use ``fixedcontext`` to declare that relative URL.
 
 Apache modules
 ^^^^^^^^^^^^^^
 
 ``apache2modules`` is a list of names of Apache2 modules that need to be activated before
-the app or accessory can be successfully run. Here is an example:
+the :term:`App` or :term:`Accessory` can be successfully run. Here is an example:
 
 .. code-block:: json
 
@@ -282,7 +280,7 @@ the app or accessory can be successfully run. Here is an example:
    ]
 
 This declaration will make sure that the ``php7`` module is active in Apache2; if not yet,
-UBOS will activate it and restart Apache2 without any further work by the app or accessory.
+UBOS will activate it and restart Apache2 without any further work by the :term:`App` or :term:`Accessory`.
 
 Note that the ``apache2`` role still needs to declare a dependency on ``php7``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
@@ -291,7 +289,7 @@ PHP modules
 ^^^^^^^^^^^
 
 ``phpmodules`` is a list of names of PHP modules that need to be activated before
-the app or accessory can be successfully run. Here is an example:
+the :term:`App` or :term:`Accessory` can be successfully run. Here is an example:
 
 .. code-block:: json
 
@@ -308,8 +306,8 @@ Note that the ``apache2`` role still needs to declare a dependency on ``php-gd``
 Robots.txt contribution
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The optional ``robotstxt`` section can be used by apps to insert allowed and disallowed
-paths into a site's ``robots.txt``. The site's ``robots.txt`` file is being generated
+The optional ``robotstxt`` section can be used by :term:`Apps <App>` to insert allowed and disallowed
+paths into a :term:`Site`'s ``robots.txt``. The :term:`Site`'s ``robots.txt`` file is being generated
 automatically by assembling such fragments, unless a complete ``robots.txt`` has been
 provided by the user in the Site JSON.
 
@@ -317,7 +315,7 @@ The ``robotstxt`` section in the manifest may contain fields ``allow`` and ``dis
 both JSON arrays, which hold the exact string values that will be inserted into the
 generated ``robots.txt`` file.
 
-For example, if an app had this fragment in the ``apache2`` role in its UBOS Manifest JSON:
+For example, if an :term:`App` had this fragment in the ``apache2`` role in its UBOS Manifest JSON:
 
 .. code-block:: json
 
@@ -329,8 +327,8 @@ For example, if an app had this fragment in the ``apache2`` role in its UBOS Man
      }
    }
 
-and if the app was installed at ``http://example.com/blog``, and no other apps at the
-same site had contributions to the generated ``robots.txt`` file, then the generated
+and if the :term:`App` was installed at ``http://example.com/blog``, and no other :term:`Apps <App>` at the
+same :term:`Site` had contributions to the generated ``robots.txt`` file, then the generated
 ``robots.txt`` file would look like this:
 
 .. code-block:: none

@@ -10,8 +10,8 @@ uses single logging facility. If a problem occurs due to an unexpected interacti
 between two different components, for example, a single log has all events in
 chronological sequence and debugging is much easier.
 
-UBOS uses the logging facilities provided by ``systemd``. All packages, apps and
-accessories are encouraged to use them.
+UBOS uses the logging facilities provided by ``systemd``. All packages,
+:term:`Apps <App>` and :term:`Accessories <Accessory>` are encouraged to use them.
 
 You can find a few excellent introductions to logging via systemd on-line, e.g.
 
@@ -22,6 +22,6 @@ For general information about systemd, see the
 `Systemd home page <http://freedesktop.org/wiki/Software/systemd/>`_.
 
 When logging, developers are encouraged to provide as much contextual information as
-needed to understanding the context of the message, in particular the :term:`appconfigid`
+needed to understanding the context of the message, in particular the :term:`AppConfigId`
 of the installation that the log message refers to. The syslog identifier should be
 set to the name of the reporting package.

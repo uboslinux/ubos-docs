@@ -30,7 +30,7 @@ The ``red`` channel is only used by developers, not end users, and can be compar
 to traditional "alpha"-quality software. Application developers use the ``red``
 channel to make sure their applications continue to work with upcoming UBOS upgrades.
 
-When the packages on the ``red`` channel is sufficiently stable and apps on the ``red``
+When the packages on the ``red`` channel is sufficiently stable and :term:`Apps <App>` on the ``red``
 channel pass their automated tests, the packages on the ``red`` channel are promoted to the
 ``yellow`` channel.
 
@@ -56,9 +56,11 @@ This table shows the approximate update schedule:
 Updates may be performed more frequently, for example for emergency bug fixes or
 security patches. Images may be generated less frequently, as repeated downloads are
 time-consuming and expensive, and installations can be easily brought to the current
-version with::
+version with:
 
-   > ubos-admin update
+.. code-block:: none
+
+   % ubos-admin update
 
 When may packages be held back?
 -------------------------------
@@ -70,7 +72,7 @@ enough yet, or that other packages will break as a consequence of the upgrade.
 
 For example, when the Apache web server became available in version 2.4,
 several keywords and configuration settings changed from 2.2. Most
-notably, the ``Allow from`` syntax became unavailable; if any apps used
+notably, the ``Allow from`` syntax became unavailable; if any :term:`Apps <App>` used
 that syntax, Apache would refuse to start. While this move from Apache 2.2
 to 2.4 predates the UBOS release process and thus UBOS was not affected, it is a
 great example for under which circumstances packages may be held back.

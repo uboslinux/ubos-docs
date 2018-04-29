@@ -12,7 +12,7 @@ For users
   * The Wordpress themes "Pinboard", "P2" and "Responsive" join the "Google
     analytics" plugin. When installing ``wordpress``, specify one or more of
     ``wordpress-theme-pinboard``, ``wordpress-theme-p2``, ``wordpress-theme-responsive``, or
-    ``wordpress-plugin-google-analytics-for-wordpress`` as the accessory.
+    ``wordpress-plugin-google-analytics-for-wordpress`` as the :term:`Accessory`.
 
 * Upgraded apps:
 
@@ -87,11 +87,12 @@ Known issues
   fewer downloads for it than for other devices.
 
 * On Amazon EC2, if you upgrade an existing virtual server to beta9, you may need to
-  first execute the following commands to update package signing keys::
+  first execute the following commands to update package signing keys:
 
-     sudo pacman -Sy
-     sudo pacman -S archlinux-keyring ec2-keyring
+  .. code-block:: none
 
+     % sudo pacman -Sy
+     % sudo pacman -S archlinux-keyring ec2-keyring
 
 Other than that, nothing should get in your way. If you encounter something that does,
 file a bug `on GitHub <https://github.com/uboslinux/>`_.

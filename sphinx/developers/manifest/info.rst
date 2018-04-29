@@ -2,7 +2,7 @@ Info section
 ------------
 
 The info section in a :doc:`../ubos-manifest` is optional but recommended. It contains user-friendly, localized
-information about the app or accessory. Here is an example:
+information about the :term:`App` or :term:`Accessory`. Here is an example:
 
 .. code-block:: json
 
@@ -28,7 +28,7 @@ Below the ``info`` tag, the ``name`` and ``tagline`` fields are grouped by local
 * or be the special value ``default``, which is used if no more appropriate locale
   can be found.
 
-``name`` is a user-friendly name for the app or accessory.
+``name`` is a user-friendly name for the :term:`App` or :term:`Accessory`.
 
-``tagline`` is a single-line, short summary for the app or accessory that reminds the
-user what this app or accessory is all about.
+``tagline`` is a single-line, short summary for the :term:`App` or :term:`Accessory` that reminds the
+user what this :term:`App` or :term:`Accessory` is all about.

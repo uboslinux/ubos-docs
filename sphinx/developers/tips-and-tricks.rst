@@ -1,7 +1,7 @@
 Tips and tricks for development
 ===============================
 
-This sections collects a few tips and tricks for development of apps on UBOS
+This sections collects a few tips and tricks for development of :term:`Apps <App>` on UBOS
 that we have found useful.
 
 Rapid create/test cycle for UBOS packages
@@ -24,7 +24,7 @@ the setup we use:
 
   .. code-block:: none
 
-     > ip addr
+     % ip addr
 
   On the host, add a line like this:
 
@@ -40,38 +40,38 @@ the setup we use:
 
   .. code-block:: none
 
-     > sudo pacman -U --noconfirm /home/joe/path/to/your/package.pkg.xz
+     % sudo pacman -U --noconfirm /home/joe/path/to/your/package.pkg.xz
 
-* Create a site with the hostname you picked, in the container that runs your app.
+* Create a :term:`Site` with the hostname you picked, in the container that runs your :term:`App`.
   In the container:
 
   .. code-block:: none
 
-     > sudo ubos-admin createsite
+     % sudo ubos-admin createsite
 
   Specify the test host you picked above, and the name of your package.
 
-* Use a browser on your host to access your app, e.g. at ``http://testhost/``.
+* Use a browser on your host to access your :term:`App`, e.g. at ``http://testhost/``.
 
-* When you make changes to your package on the host, update that installed app
+* When you make changes to your package on the host, update that installed :term:`App`
   in the container by repackaging, and deploying. On the host:
 
   .. code-block:: none
 
-     > makepkg -f
+     % makepkg -f
 
   In the container:
 
   .. code-block:: none
 
-     > sudo ubos-admin update --pkg /home/joe/path/to/your/package.pkg.xz
+     % sudo ubos-admin update --pkg /home/joe/path/to/your/package.pkg.xz
 
   Alternatively, you can use ``ubos-push`` if you set up ssh access for
   the ``shepherd`` account in the container. Then, on the host:
 
   .. code-block:: none
 
-     > ubos-push -h testhost package.pkg.xz
+     % ubos-push -h testhost package.pkg.xz
 
 Quickly setting up a shepherd account in a UBOS container
 ---------------------------------------------------------
@@ -89,12 +89,12 @@ execute:
 
 .. code-block:: none
 
-   > ubos-admin setup-shepherd --add-key "$(cat /home/joe/.ssh/id_rsa.pub)"
+   % sudo ubos-admin setup-shepherd --add-key "$(cat /home/joe/.ssh/id_rsa.pub)"
 
-Debugging a Java/Tomcat app
+Debugging a Java/Tomcat App
 ---------------------------
 
-If you test your Java/Tomcat web app by running it in a UBOS container, the
+If you test your Java/Tomcat web :term:`App` by running it in a UBOS container, the
 following setup has proven to be useful:
 
 1. In the container, have ``systemd`` start Tomcat with the debug flags on. To do
@@ -102,7 +102,7 @@ following setup has proven to be useful:
 
    .. code-block:: none
 
-      > systemctl edit tomcat8
+      % sudo systemctl edit tomcat8
 
    and enter the following content:
 
@@ -113,7 +113,7 @@ following setup has proven to be useful:
 
    Note the quotes.
 
-   Then invoke ``systemctl restart tomcat8``. This will restart Tomcat and your app,
+   Then invoke ``systemctl restart tomcat8``. This will restart Tomcat and your :term:`App`,
    but instead of running normally, it will wait for your IDE's debugger to connect on
    port 8888 before proceeding.
 
@@ -122,7 +122,7 @@ following setup has proven to be useful:
 
    .. code-block:: none
 
-      > vi /etc/iptables/iptables.rules
+      % sudo vi /etc/iptables/iptables.rules
 
    Add the following line where similar lines are:
 
@@ -157,8 +157,8 @@ To set this up, follow these steps:
 
    .. code-block:: none
 
-      mkdir local.ssh
-      ssh-keygen
+      % mkdir local.ssh
+      % ssh-keygen
 
    Enter a filename such as ``local.ssh/id_rsa`` and no passphrase.
 
@@ -213,8 +213,8 @@ To set this up, follow these steps:
 
    .. code-block:: none
 
-       mkdir -p /home/buildmaster/UBOS-STAFF-DEPOT/shepherd/ssh
-       ssh-keygen
+       % mkdir -p /home/buildmaster/UBOS-STAFF-DEPOT/shepherd/ssh
+       % ssh-keygen
 
    Specify ``/home/buildmaster/UBOS-STAFF-DEPOT/shepherd/ssh/id_rsa`` as the filename,
    and no password. You could reuse the above keypair, too, if you'd like to, but the
@@ -227,15 +227,15 @@ To set this up, follow these steps:
 
    .. code-block:: none
 
-      sudo machinectl import-tar ubos_dev_container-pc_LATEST.tar depot
-      sudo machinectl start depot
+      % sudo machinectl import-tar ubos_dev_container-pc_LATEST.tar depot
+      % sudo machinectl start depot
 
 #. Login as shepherd with the private key of the keypair whose public key ended up
    in the ``UBOS-STAFF`` directory:
 
    .. code-block:: none
 
-      ssh shepherd@depot -i /home/buildmaster/UBOS-STAFF-DEPOT/shepherd/ssh/id_rsa
+      % ssh shepherd@depot -i /home/buildmaster/UBOS-STAFF-DEPOT/shepherd/ssh/id_rsa
 
    and install a locally built ``ubos-depot`` package, unless you want the default from
    the default UBOS depot at ``http://depot.ubos.net/``. You may want a locally built version
@@ -247,15 +247,15 @@ To set this up, follow these steps:
 
    .. code-block:: none
 
-      sudo pacman -U --noconfirm ...path...to.../ubos-repo...pkg.tar.xz
+      % sudo pacman -U --noconfirm ...path...to.../ubos-repo...pkg.tar.xz
 
 #. Set up the depot website:
 
    .. code-block:: none
 
-      sudo ubos-admin createsite
+      % sudo ubos-admin createsite
 
-   Enter ``ubos-repo`` as the name of the app, ``depot`` as the hostname, and paste the
+   Enter ``ubos-repo`` as the name of the :term:`App`, ``depot`` as the hostname, and paste the
    content of the host's ``local.ssh/id_rsa.pub`` (that you created earlier) into the
    field where it asks for a public upload ssh key. Pick whatever admin account information,
    it does not matter in this case.
@@ -266,8 +266,8 @@ To set this up, follow these steps:
 
    .. code-block:: none
 
-      echo 0 > /proc/sys/net/ipv4/ip_forward
-      echo 1 > /proc/sys/net/ipv4/ip_forward
+      # echo 0 > /proc/sys/net/ipv4/ip_forward
+      # echo 1 > /proc/sys/net/ipv4/ip_forward
 
    and make sure ``/etc/nsswitch.conf`` contains ``mymachines`` in the ``hosts`` section.
 

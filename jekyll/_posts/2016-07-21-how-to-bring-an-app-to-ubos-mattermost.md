@@ -28,7 +28,9 @@ many people are familiar with.
 On UBOS, just like with any other app that has been packaged for UBOS, our goal is to make
 it as simple as:
 
-    ubos-admin createsite
+<pre>
+sudo ubos-admin createsite
+</pre>
 
 and enter `mattermost` as the name of the app. (Now of course Mattermost has been
 packaged, so you can try that out right now on a UBOS device, cloud server or container
@@ -85,12 +87,16 @@ name, author, license, version, download location etc.). For now, we comment out
 subroutines that actually put the package together, and just test that the package build
 will download Mattermost:
 
-    makepkg -f
+<pre>
+% makepkg -f
+</pre>
 
 The download works, but then we get a checksum error. Yes, of course, the Mattermost checksum
 is going to be different than the ownCloud one, and we haven't updated that. So we do:
 
-    makepkg -f -g
+<pre>
+% makepkg -f -g
+</pre>
 
 to get the correct checksum computed, which we copy-paste into the `PKGBUILD`.
 
@@ -99,9 +105,11 @@ target device in `/usr/share/mattermost`. We also see that the download has unpa
 the Mattermost files in `./src/mattermost`. So we add the following lines to the
 `package()` method:
 
-    # Code
-    mkdir -p ${pkgdir}/usr/share/${pkgname}/mattermost
-    cp -r -p ${srcdir}/mattermost/* ${pkgdir}/usr/share/${pkgname}/mattermost/
+<pre>
+# Code
+mkdir -p ${pkgdir}/usr/share/${pkgname}/mattermost
+cp -r -p ${srcdir}/mattermost/* ${pkgdir}/usr/share/${pkgname}/mattermost/
+</pre>
 
 The variables in this statement come from `makepkg`, the Arch Linux tool we use to
 create the package. They are documented on the
@@ -109,12 +117,12 @@ create the package. They are documented on the
 
 Now we do:
 
-    makepkg -f
+<pre>% makepkg -f</pre>
 
 again, and we see that a sizable file has been created:
 `mattermost-1.4.0-4-x86_64.pkg.tar.xz` with about 17MB. Looking inside:
 
-    tar tfJ mattermost-1.4.0-4-x86_64.pkg.tar.xz | more
+<pre>% tar tfJ mattermost-1.4.0-4-x86_64.pkg.tar.xz | more</pre>
 
 shows us that the files are in the place we wanted them. It seems we have the rudiments of a
 UBOS package for Mattermost.
@@ -123,7 +131,7 @@ UBOS package for Mattermost.
 
 If the user were to install the package we have created so far with something like:
 
-    pacman -U mattermost-1.4.0-4-x86_64.pkg.tar.xz
+<pre>% sudo pacman -U mattermost-1.4.0-4-x86_64.pkg.tar.xz</pre>
 
 all they would get is a big dump of code into their `/usr/share/mattermost`
 directory. But to run the application, we need to have a database provisioned, the
@@ -134,17 +142,19 @@ multiple instances of Mattermost on the same machine, we create `mattermost@.ser
 with the plan to instantiate it as `mattermost@<appconfigid>.service`, as we know that
 `appconfigid`s on UBOS are guaranteed to uniquely identify an app installation. Here's the file:
 
-    [Unit]
-    Description=Mattermost
+<pre>
+[Unit]
+Description=Mattermost
 
-    [Service]
-    WorkingDirectory=/usr/share/mattermost/mattermost
-    ExecStart=/usr/share/mattermost/mattermost/bin/platform -config=/etc/mattermost/%I.json
-    User=mattermost
-    Group=mattermost
+[Service]
+WorkingDirectory=/usr/share/mattermost/mattermost
+ExecStart=/usr/share/mattermost/mattermost/bin/platform -config=/etc/mattermost/%I.json
+User=mattermost
+Group=mattermost
 
-    [Install]
-    WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
+</pre>
 
 The daemon, as the Mattermost documentation shows, takes an argument `-config=<name>`
 to specify a non-default config file. As each instance of Mattermost on a given
@@ -221,7 +231,7 @@ the package, by adding them to the `package()` method in the `PKGBUILD`.
 
 Rebuild the package:
 
-    makepkg -f
+<pre>% makepkg -f</pre>
 
 Time to try it out.
 
@@ -240,12 +250,13 @@ find it. A simple way to solve this problem is to mount the development director
 we put the package together into the container. So we run `systemd-nspawn` with an
 extra argument:
 
-    sudo systemd-nspawn --boot --network-veth --ephemeral \
-    --machine ubos --directory ~/ubos --bind $(pwd):/mattermost
+<pre>% sudo systemd-nspawn --boot --network-veth --ephemeral \
+--machine ubos --directory ~/ubos --bind $(pwd):/mattermost
+</pre>
 
 Once we log into that container from its console, we execute:
 
-    ls -al /mattermost
+<pre>% ls -al /mattermost</pre>
 
 and it will show the current directory of the outside host, i.e. the directory that contains
 our just-built `mattermost` package.
@@ -254,20 +265,20 @@ In the container, let's install the package. To be able to do that we first need
 loosen UBOS' paranoid default security, as we haven't signed our package. Edit `/etc/pacman.conf`
 so the respective line reads like:
 
-    LocalFileSigLevel = Never
+<pre>LocalFileSigLevel = Never</pre>
 
 We now successfully install and check that it looks right:
 
-    pacman -U /mattermost/mattermost-*.xz
-    ls -al /usr/share/mattermost
-    ls -al /etc/mattermost
-    ls -al /var/lib/mattermost
+<pre>% sudo pacman -U /mattermost/mattermost-*.xz
+% ls -al /usr/share/mattermost
+% ls -al /etc/mattermost
+% ls -al /var/lib/mattermost</pre>
 
 Now we create a test [Site JSON](/docs/developers/site-json.html) that
 describes the virtual host etc. we'll be using for testing that Mattermost installs
 correctly:
 
-    ubos-admin createsite -n --out test-mattermost.json
+<pre>% sudo ubos-admin createsite -n --out test-mattermost.json</pre>
 
 specifying `ubos` as the name of the site (this should be the same as the name of
 the container we used earlier, so we don't have to setup DNS as systemd will do it for us
@@ -276,7 +287,7 @@ name of the app, and sensible other defaults.
 
 Now comes the hour of truth, and we run it double-verbose, so we can see what is going on:
 
-    ubos-admin deploy -f test-mattermost.json -v -v
+<pre>% sudo ubos-admin deploy -f test-mattermost.json -v -v</pre>
 
 This spits out a lot of progress messages. We worry about anything labeled
 WARNING, ERROR or FATAL. INFO and DEBUG are fine. And, it turns out, there have been
@@ -293,7 +304,7 @@ Let's assume it didn't work the first time around, and we need to make changes t
 package. The easiest is to make the change, run `makepkg -f` again on the host, and
 then in the container, say:
 
-    ubos-admin update --pkgfile /mattermost/mattermost-*.xz
+<pre>% sudo ubos-admin update --pkgfile /mattermost/mattermost-*.xz</pre>
 
 This will perform a system upgrade of the container, except that -- because we added the
 `pkgfile` flag -- UBOS pretends that only the `mattermost` package has a new version. (Even
@@ -301,8 +312,8 @@ if the version identifier has not changed.) Note that for this to work, the pack
 completely broken, as they sometimes are in the development process. Alternatively, we can
 undeploy and redeploy our test site:
 
-    ubos-admin undeploy -s s...
-    ubos-admin deploy -f test-mattermost.json
+<pre>% sudo ubos-admin undeploy -s s...
+% sudo ubos-admin deploy -f test-mattermost.json</pre>
 
 or, if our container got completely borked, simply shut down and restart the container and
 then deploying the Site JSON again. Because of the `--ephemeral` option to `systemd-nspawn`
@@ -313,12 +324,12 @@ systemd will automatically delete the working copy of the container's file syste
 Most importantly, backup and restore. With a running Mattermost instance that has some data
 in it, do this:
 
-    ubos-admin backup -s s... -o testing1.ubos-backup
-    ubos-admin undeploy -s s...
+<pre>% sudo ubos-admin backup -s s... -o testing1.ubos-backup
+% sudo ubos-admin undeploy -s s...</pre>
 
 Make sure that the instance is gone, e.g. by visiting its web page. Then, restore the backup:
 
-    ubos-admin restore --in testing1.ubos-backup
+<pre>% sudo ubos-admin restore --in testing1.ubos-backup</pre>
 
 and Mattermost should be back at the same URL holding the restored data.
 
@@ -334,14 +345,14 @@ anywhere). This is a Perl fragment that specifies the configuration to be set up
 test (e.g. which app to run), and some `curl` invocations against it. Once we have it,
 we can run it as:
 
-    webapptest run MattermostTest1.pm
+<pre>% webapptest run MattermostTest1.pm</pre>
 
 usually with various options, such as whether to test in a container, on a physical machine
 somewhere on the network, on VirtualBox, and which test strategy to use. E.g. to test it
 using the UBOS container we used above, with verbose output, and stopping after each step,
 we say:
 
-    webapptest run --scaffold container:directory=$HOME/ubos MattermostTest1.pm -i -v
+<pre>% webapptest run --scaffold container:directory=$HOME/ubos MattermostTest1.pm -i -v</pre>
 
 <h2>The end</h2>
 

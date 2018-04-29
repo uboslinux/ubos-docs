@@ -4,9 +4,11 @@ UBOS Networking
 Preserving the details of the netconfig
 ---------------------------------------
 
-When the user invokes::
+When the user invokes:
 
-   > ubos-admin setnetconfig <name>
+.. code-block:: none
+
+   % sudo ubos-admin setnetconfig <name>
 
 UBOS will set a networking configuration, such as ``client``, and save the details of
 that configuration at ``/etc/ubos/netconfig-<name>.json``.
@@ -44,7 +46,9 @@ A netconfig file is a JSON file that has a Hash as its top-level element. The
 keys of the hash are the names of network interfaces (such as Ethernet interface,
 WiFi adapter etc.) and the values are settings for this particular interface.
 
-For example::
+For example:
+
+.. code-block:: json
 
    {
      "eth0" : {
@@ -98,7 +102,7 @@ other, the results are undefined.
    interface.
 
 ``ports``:
-   If set to ``true``, the ports specified by apps installed on the device will be
+   If set to ``true``, the ports specified by :term:`Apps <App>` installed on the device will be
    opened. For example, UBOS itself specifies that ports 80 and 443 should be open.
    However, these ports are only accessible through interfaces that have their
    ``ports`` field set to ``true``. This enables running applications on a UBOS

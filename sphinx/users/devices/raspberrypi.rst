@@ -57,7 +57,7 @@ To make this change, become root and open the file with your favorite editor, su
 
 .. code-block:: none
 
-   > sudo su
+   % sudo su
    # vi /boot/config.txt
 
 Add the very end of the file, add the following content:
@@ -77,19 +77,19 @@ Then, shutdown your Pi:
 
 .. code-block:: none
 
-   > sudo shutdown -h now
+   % sudo systemctl poweroff
 
 and physically connect the camera to the Pi with the appropriate cable. Re-apply power,
 and once the Pi has booted, you can take a picture with:
 
 .. code-block:: none
 
-   `/opt/vc/bin/raspistill -o mypicture.jpg`
+   /opt/vc/bin/raspistill -o mypicture.jpg
 
 or take a video with:
 
 .. code-block:: none
 
-   `/opt/vc/bin/raspivid -o myvideo.mpg`.
+   /opt/vc/bin/raspivid -o myvideo.mpg
 
 Invoke those commands without arguments to see their many options.

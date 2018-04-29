@@ -21,3 +21,5 @@ they appear to applicable to the current device.
 
 See also :doc:`setnetconfig`. The set of currently available network configurations is
 documented :doc:`here <../../users/networking>`.
+
+See also: :doc:`setnetconfig`, :doc:`shownetconfig`.

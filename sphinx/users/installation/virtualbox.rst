@@ -1,5 +1,5 @@
-Run UBOS in a virtual machine (64bit)
-=====================================
+Run UBOS in a VirtualBox virtual machine (64bit)
+================================================
 
 To run UBOS in a VirtualBox virtual machine, follow these instructions. Not counting
 download times, this should take no more than 10 minutes to set up.
@@ -28,7 +28,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_x86_64-vbox_LATEST.vmdk.xz
+      % sudo xz -d ubos_yellow_x86_64-vbox_LATEST.vmdk.xz
 
    on the command line.
 
@@ -71,7 +71,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    On the first boot, this may take a while, because UBOS has to generate some cryptographic
    keys, and Linux is trying very hard to use good random numbers for that purpose. On VirtualBox,
@@ -92,7 +92,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
    For more information, refer to VirtualBox's
@@ -102,6 +102,6 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

@@ -12,7 +12,7 @@ General
 * Backups always contain key material. See
   https://github.com/uboslinux/ubos-admin/issues/13.
 
-* There is currently no command that can show which apps and accessories are available
+* There is currently no command that can show which :term:`Apps <App>` and :term:`Accessories <Accessory>` are available
   for install. See https://github.com/uboslinux/ubos-admin/issues/11.
   For now, refer to the
   `UBOS Beta 1 available blog post </blog/2014/11/24/ubos-beta1-available.html>`_.

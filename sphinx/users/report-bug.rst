@@ -40,8 +40,8 @@ unhappy. It also makes it more likely that your bug will closed as invalid with
 
 Here is an example for a really bad bug report for a hypothetical calculator app: "Your
 calculator app is broken, it sometimes miscalculates!". It's completely unclear what
-the user did, or what calculation went wrong. There is nothing the developer can do in response
-than to close the bug as invalid.
+the user did, or what calculation went wrong. There is nothing the developer can do in
+response other than to close the bug as invalid.
 
 Here's an example for a better bug report for the same hypothetical calculator app:
 "Running your calculator app in version 2.3.4a9 on a MacBook Pro 15in 2015, OSX 10.2.3,

@@ -13,7 +13,10 @@ layout: default
         • {{ page.meta }}
 {% endif %}
 {% if page.categories.size > 0 %}
-        • Tags: {{ page.categories | category_links }}.
+        • Tags:
+    {% for cat in page.categories %}
+        {{ cat | xml_escape }}
+    {% endfor %}
 {% endif %}
 </p>
   </header>

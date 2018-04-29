@@ -10,14 +10,14 @@ categories: meetup event
 
 <div style="border: 1px solid #808080; margin: 0 250px 20px 0; padding: 10px"><b><a href="http://www.meetup.com/uboslinux/events/219520673/">Register</a></b> for this event
 on Monday, January 12, 6:30pm, at the
-<a href="http://hackerdojo.com/">Hacker Dojo</a> in Mountain View, CA.</a></div>
+<a href="http://hackerdojo.com/">Hacker Dojo</a> in Mountain View, CA.</div>
 
 UBOS Beta 1 is here, and that means installing web apps on our Raspberry Pi's has become as simple as executing
 a single command:
 
-~~~~~
-    ubos-admin createsite
-~~~~~
+<pre>
+% sudo ubos-admin createsite
+</pre>
 
 For this hands-on meetup, bring your Raspberry Pi's, and we will get one or more web apps running on it. Your choices currently are:
 

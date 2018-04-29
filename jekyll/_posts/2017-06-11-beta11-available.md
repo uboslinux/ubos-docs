@@ -45,7 +45,7 @@ added. Here are the highlights:
 and more! More details are in the <a href="/docs/releases/beta11/release-notes/">release notes here</a>.
 
 This time, upgrading a device that is running a previous UBOS version is a teensy bit more complicated.
-Due to some changes in Arch Linux (our upstream distro), the command ``ubos-admin update`` may fail on
+Due to some changes in Arch Linux (our upstream distro), the command ``sudo ubos-admin update`` may fail on
 the first try. To proceed, execute ``sudo rm /etc/ssl/certs/ca-certificates.crt`` to delete
 that file, and then say ``ubos-admin update`` again. The upgrade should work then.
 

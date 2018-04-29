@@ -6,8 +6,8 @@ Overview
 
 The UBOS Staff allows the secure installation and configuration of UBOS devices without
 ever having to attach a keyboard or monitor to the device. This is particularly convenient
-for physical hardware that is "hidden away" somewhere from a desk where a monitor and
-keyboard can be easily connected.
+for physical hardware that is "hidden away" somewhere, and where attaching a monitor and
+keyboard would be cumbersome, like inside an IoT device.
 
 In particular, the UBOS Staff can be used:
 
@@ -17,7 +17,7 @@ In particular, the UBOS Staff can be used:
 
 * to connect to a WiFi access point with credentials provided by the user on the UBOS Staff;
 
-* to automatically install and configure a site upon boot.
+* to automatically install and configure a :term:`Site` upon boot.
 
 The UBOS Staff is simply a standard USB flash drive whose name and directory layout follows
 certain conventions. A similar mechanism is available for virtualized machines.
@@ -43,7 +43,7 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | Directory                          | File                    | Description                                                                     |
 +====================================+=========================+=================================================================================+
-| ``shepherd/ssh/``                  | ``id_rsa.pub``          | SSH public key for the ``shepherd`` account                                     |
+| ``shepherd/ssh/``                  | ``id_rsa.pub``          | SSH public key for the ``shepherd`` account.                                    |
 |                                    +-------------------------+---------------------------------------------------------------------------------+
 |                                    | ``id_rsa``              | SSH private key for the ``shepherd`` account. Delete as soon as possible.       |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
@@ -51,8 +51,8 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 |                                    |                         | SSID. Each file must be named based on the SSID it configures.                  |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``site-templates/``                | ``<name>.json``         | This directory may contain several Site JSON template files. Each of them will  |
-|                                    |                         | be instantiated and deployed to any device that reads this Staff unless a site  |
-|                                    |                         | with the same hostname exists already on the device.                            |
+|                                    |                         | be instantiated and deployed to any device that reads this Staff unless a       |
+|                                    |                         | :term:`Site` with the same hostname exists already on the device.               |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``flock/<HOSTID>/device-info/``    | ``device.json``         | A JSON file containing information about the device.                            |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
@@ -60,14 +60,17 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 |                                    |                         | Each of them will be instantiated (if a template) and deployed to the device    |
 |                                    |                         | with host id ``<HOSTID>``, but ignored on other devices.                        |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``flock/<HOSTID>/sites/``          | ``<name>.json``         | This directory may contain several Site JSON files, which represent the site(s) |
-|                                    |                         | as deployed on the device at the time the Staff was written last.               |
+| ``flock/<HOSTID>/sites/``          | ``<name>.json``         | This directory may contain several Site JSON files, which represent the         |
+|                                    |                         | :term:`Site(s) <Site>` as deployed on the device at the time the Staff was      |
+|                                    |                         | written last.                                                                   |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``flock/<HOSTID>/ssh/``            | ``ssh_host_<type>_key`` | This directory may contain one or more of the device's SSH host keys of         |
 |                                    |                         | different types, such as ``rsa`` or ``ecdsa``. This can be used, in addition to |
 |                                    |                         | ``shepherd`` SSH key pair, to authenticate the host (not just the client) over  |
 |                                    |                         | the network.                                                                    |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
+
+``<HOSTID>`` refers to the device's unique ``hostid``, which can be printed with ``ubos-admin hostid``.
 
 Note: all files and directories are optional and may not be present on a given UBOS Staff:
 an empty drive called ``UBOS-STAFF`` is entirely valid.
@@ -112,7 +115,9 @@ Provision a shepherd account with an existing ssh public key
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you would like to use an existing ssh public key to log into your UBOS device(s) over
-the network as user ``shepherd``, create the following file system layout::
+the network as user ``shepherd``, create the following file system layout:
+
+.. code-block:: none
 
    shepherd/
        ssh/
@@ -132,7 +137,7 @@ If you don't have an ssh key pair yet, and would like UBOS to generate one for y
 simply use a UBOS Staff device that is empty or at least does not have the ``shepherd``
 directory yet at the root of the device.
 
-During boot, will automatically generate the key pair, save it to the UBOS Staff, and
+During boot, UBOS will automatically generate the key pair, save it to the UBOS Staff, and
 create the ``shepherd`` account on the device. (This behavior only occurs with a physical
 Staff device; not with a virtual Staff device in case of running UBOS in the cloud or in a
 Linux container.)
@@ -150,7 +155,7 @@ UBOS device with the command:
 
 .. code-block:: none
 
-   ssh -i ~/private/my-ubos-shepherd-key shepherd@ubos-device.local
+   % ssh -i ~/private/my-ubos-shepherd-key shepherd@ubos-device.local
 
 To log into a remote UBOS device as the shepherd
 ------------------------------------------------
@@ -159,15 +164,18 @@ On the computer that has the private ``id_rsa`` file, execute the following comm
 
 .. code-block:: none
 
-   > ssh -i <id_rsa> shepherd@1.2.3.4
+   % ssh -i <id_rsa> shepherd@1.2.3.4
 
 where ``<id_rsa>`` is the name of the file containing the private key from above,
 and ``1.2.3.4`` is replaced with the IP address or
 hostname of your device, such as ``ubos-pc.local`` (see :doc:`networking`).
 
-You must have copied the ``id_rsa`` file to your computer. You cannot use ``id_rsa``
-directly from the UBOS Staff, as ssh will refuse to use the file directly from
-the UBOS Staff.
+If you had UBOS generate the key pair, copy the private key file ``id_rsa`` to your
+computer first: ssh will not let you use the ``id_rsa`` directly from the UBOS Staff.
+
+If you use a Windows workstation and PuTTY as your ssh client, you need to first convert
+the ``id_rsa`` file into the "PuTTY Private Key Files (.ppk)" format by running ``puttygen.exe``.
+Then, use the converted file as the authentication parameter with the PuTTY-Client.
 
 To setup WiFi
 -------------
@@ -203,28 +211,28 @@ that, if you are based in the United States, looks like this:
 
 .. code-block:: none
 
-   WIRELESS_REGDOM="US"</pre>
+   WIRELESS_REGDOM="US"
 
 If you are based in another country, use your two-letter country code instead of ``US``.
 
-To auto-deploy sites upon boot
+To auto-deploy Sites upon boot
 ------------------------------
 
 If you place one or more Site JSON files, or Site JSON template files in the correct
-place on the UBOS Staff, UBOS will automatically deploy those sites. There are two
+place on the UBOS Staff, UBOS will automatically deploy those :term:`Sites <Site>`. There are two
 places where those Site JSON template files may be located:
 
 * If placed in top-level directory ``site-templates/``, any UBOS device booting with the
-  UBOS Staff will deploy the corresponding sites. It is highly recommended that the
-  files be Site JSON template files that do not contain site ids or app configuration ids
+  UBOS Staff will deploy the corresponding :term:`Sites <Site>`. It is highly recommended that the
+  files be Site JSON template files that do not contain :term:`SiteIds <SiteId>` or :term:`AppConfigIds <AppConfigId>`
   in order to generate unique identifiers on different devices.
 * If placed in directory ``flock/<HOSTID>/site-templates/``, where ``<HOSTID>`` is the
-  host identifier of a particular device, UBOS will only deploy the sites on that device.
+  host identifier of a particular device, UBOS will only deploy the :term:`Sites <Site>` on that device.
 
-Sites or site templates will not be deployed if the device already as a site with either
-the same hostname or the same site or app config id.
+:term:`Sites <Site>` or :term:`Site` templates will not be deployed if the device already as a :term:`Site` with either
+the same hostname or the same :term:`SiteId` or :term:`AppConfigId`.
 
-The Site JSON files of the Sites deployed through this mechanism will, once the site
+The Site JSON files of the :term:`Sites <Site>` deployed through this mechanism will, once the :term:`Site`
 has been deployed, stored in ``flock/<HOSTID>/sites/<SITEID>.json``. This gives the user
 a way of knowing automatically-generated credentials, for example.
 
@@ -251,8 +259,8 @@ UBOS also looks for two further directories:
   directory, where the host directory is named after the host identifier of the current
   device.
 
-UBOS looks for site template files in both of those directories. If those exist, UBOS
-will deploy the specified sites when booting has completed.
+UBOS looks for :term:`Site` template files in both of those directories. If those exist, UBOS
+will deploy the specified :term:`Sites <Site>` when booting has completed.
 
 Disabling Staff functionality
 -----------------------------

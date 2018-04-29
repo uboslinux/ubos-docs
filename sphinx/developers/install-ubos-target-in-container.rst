@@ -1,5 +1,5 @@
-Testing your app in a UBOS container running on Arch Linux
-==========================================================
+Testing your App in a UBOS container running on the Arch Linux development host
+===============================================================================
 
 In addition to your development host running Arch Linux, you need a device or virtual
 machine running UBOS on which you can test your developed code. Obviously, you can use
@@ -22,10 +22,10 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      > cd ~
-      > btrfs subvolume create ubos-development
-      > cd ubos-development
-      > tar xfJ <path-to-downloaded-UBOS-archive>
+      % cd ~
+      % sudo btrfs subvolume create ubos-development
+      % cd ubos-development
+      % sudo tar xfJ <path-to-downloaded-UBOS-archive>
 
 #. Run both IPv4 and IPv6 based ``iptables`` on your host, otherwise UBOS cannot set up its
    own firewall and the UBOS container will boot into a ``degraded`` state. If you aren't
@@ -33,10 +33,10 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      > [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
-      > [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
-      > sudo systemctl enable iptables ip6tables
-      > sudo systemctl start iptables ip6tables
+      % [[ -e /etc/iptables/iptables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+      % [[ -e /etc/iptables/ip6tables.rules ]] || sudo cp /etc/iptables/empty.rules /etc/iptables/ip6tables.rules
+      % sudo systemctl enable iptables ip6tables
+      % sudo systemctl start iptables ip6tables
 
    This will not actually perform any firewall functionality (the ruleset is empty), but
    it will allow the UBOS container to set up its own firewall.
@@ -46,8 +46,8 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      cd ~
-      sudo systemd-nspawn -b -n -D ubos-development -M ubos-development --bind /home
+      % cd ~
+      % sudo systemd-nspawn -b -n -D ubos-development -M ubos-development --bind /home
 
    This will set up a named container called ``ubos-development``, using the directory
    you uncompressed UBOS into as the root filesystem, and set up a private, DHCP-enabled and
@@ -67,11 +67,11 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
-#. Pick a hostname that you will use to run your apps at in the container, for example
+#. Pick a hostname that you will use to run your :term:`Apps <App>` at in the container, for example
    ``testhost``. Add this and the container's IP address to the Arch development machine's
    ``/etc/hosts``, so you can easily reach the container with a virtual hostname.
 
@@ -79,7 +79,7 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. Relax the rules usually requiring valid package signatures for all packages on UBOS.
    This allows you to install your own packages without having to sign them. In the
@@ -104,9 +104,9 @@ To run a UBOS container on a Arch development machine, follow these steps:
 
    .. code-block:: none
 
-      pacman -U example-0.1-any-pkg.tar.xz
+      % sudo pacman -U example-0.1-any-pkg.tar.xz
 
-   before you continue deploying your app, accessory or site using it with
+   before you continue deploying your :term:`App`, :term:`Accessory` or :term:`Site` using it with
    ``ubos-admin createsite`` or ``ubos-admin deploy``, so UBOS will be able to use it,
    as it obviously cannot be found in the UBOS software repository while you are
    developing it.

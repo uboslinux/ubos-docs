@@ -11,6 +11,11 @@ layout: default
  <p>{{ post.excerpt | strip_html }}</p>
 {% if post.categories.size > 0 %}
  <p class="post-meta">Tags: {{ post.categories | category_links }}.</p>
+ <ul>
+{% for c in post.categories %}
+  <li> {{c}} </li>
+{% endfor %}
+</ul>
 {% endif %}
 </div>
 {% endfor %}

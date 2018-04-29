@@ -35,7 +35,7 @@ Here are the highlights:
 * And of course the usual: some packages have been upgraded, bugs have been fixed etc.
 
 And as you probably know: to upgrade <b>everything</b> on your device, all you need to say is
-``ubos-admin update``.
+``sudo ubos-admin update``.
 
 The more detailed release notes are <a href="/docs/releases/beta6/release-notes/">here</a>.
 We'd love your <a href="/community/">feedback</a>.

@@ -27,35 +27,35 @@ The following apps are available and have been tested on all platforms:
 <img src="/images/owncloud-72x72.png" alt="[Owncloud]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Owncloud**: Your Cloud, Your Data, Your Way!<br>
-   Install with `ubos-admin createsite`, specify app `owncloud`
+   Install with `sudo ubos-admin createsite`, specify app `owncloud`
 
-<img src="/images/idno-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
+<img src="/images/known-72x72.png" alt="[Known]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Known**: Publishing Platform for Everyone<br>
-   Install with `ubos-admin createsite`, specify app `idno`
+   Install with `sudo ubos-admin createsite`, specify app `idno`
 
 <img src="/images/wordpress-72x72.png" alt="[Wordpress]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Wordpress**: Blog tools, publishing platform, and CMS<br>
-   Install with `ubos-admin createsite`, specify app `wordpress`
+   Install with `sudo ubos-admin createsite`, specify app `wordpress`
 
 <img src="/images/mediawiki-72x72.png" alt="[Mediawiki]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Mediawiki**: The wiki that Wikipedia runs on<br>
-   Install with `ubos-admin createsite`, specify app `mediawiki`
+   Install with `sudo ubos-admin createsite`, specify app `mediawiki`
 
 <img src="/images/selfoss-72x72.png" alt="[Selfoss]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Selfoss**: The new multipurpose rss reader, live stream, mashup, aggregation web application<br>
-   Install with `ubos-admin createsite`, specify app `selfoss`
+   Install with `sudo ubos-admin createsite`, specify app `selfoss`
 
 <img src="/images/shaarli-72x72.png" alt="[Shaarli]" style="float: left; width: 36px; margin: 5px 32px 0 5px">
 
    **Shaarli**: Your Own URL Shortener<br>
-   Install with `ubos-admin createsite`, specify app `shaarli`
+   Install with `sudo ubos-admin createsite`, specify app `shaarli`
 
    and also **Jenkins**, the continuous integration app we use to build UBOS itself on UBOS.<br>
-   Install with `ubos-admin createsite`, specify app `jenkins`.
+   Install with `sudo ubos-admin createsite`, specify app `jenkins`.
 
 <br>
 

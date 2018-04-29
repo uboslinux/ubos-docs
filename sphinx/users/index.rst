@@ -13,7 +13,7 @@ How to use UBOS
    backup
    upgrading
    shepherd-staff
-   ubos-specific-apps
+   running-out-of-disk-space
    app-specific-notes
    device-specific-notes
    advanced-management

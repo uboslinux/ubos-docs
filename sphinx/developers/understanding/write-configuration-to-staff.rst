@@ -16,3 +16,5 @@ The following information is currently written to the UBOS staff:
   of the device's public GPG key)
 
 Additional information may be written to the UBOS staff in the future.
+
+This command must be run as root (``sudo ubos-admin write-configuration-to-staff``).

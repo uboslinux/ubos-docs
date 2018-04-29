@@ -9,14 +9,14 @@ packaging other RoR apps for UBOS should be very similar.
 
 In this example, we have chosen MySQL as the production database, and Passenger as the
 application server that connects Apache to our application. We package all required
-gems into the package, so the app only depends on UBOS to provide `ruby` and `ruby-bundler`
+gems into the package, so the :term:`App` only depends on UBOS to provide `ruby` and `ruby-bundler`
 and no other gems.
 
 To obtain the source code:
 
 .. code-block:: none
 
-   > git clone https://github.com/uboslinux/ubos-toyapps
+   % git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``ruby-rails-blog``.
 
@@ -28,8 +28,8 @@ first installed the required tools from Arch:
 
 .. code-block:: none
 
-   > sudo pacman -S ruby ruby-bundler
-   > gem install rails
+   % sudo pacman -S ruby ruby-bundler
+   % gem install rails
 
 Then, we followed the
 `tutorial <http://guides.rubyonrails.org/getting_started.html>`_
@@ -99,12 +99,12 @@ UBOS needs the following additions:
 
 * ``PKGBUILD``: defines how the UBOS package is being put together;
 * ``ubos-manifest.json``: metadata that allows UBOS to provision databases, configure
-  web servers, directories and the like when the app is deployed to a device;
+  web servers, directories and the like when the :term:`App` is deployed to a device;
 * ``appicons/``: a directory with two image files that will be used when an icon for the
-  app needs to be shown to the user;
+  :term:`App` needs to be shown to the user;
 * ``tmpl/database.yml.tmpl``: the template for the ``database.yml`` file generated during
-  deployment of the app that will contain database information specifically for this
-  installation of the app;
+  deployment of the :term:`App` that will contain database information specifically for this
+  installation of the :term:`App`;
 * ``tmpl/htaccess.tmpl``: the template for the Apache config file fragment that configures
   Apache and Passenger for our application.
 
@@ -119,8 +119,8 @@ About ``PKGBUILD``
 
 ``PKGBUILD`` is a bash script, invoked by ``makepkg`` when building the UBOS package.
 
-It defines some variables to identify the developer of the app, the name and version of the
-package, the license of the app and the like. It also identifies package dependencies.
+It defines some variables to identify the developer of the :term:`App`, the name and version of the
+package, the license of the :term:`App` and the like. It also identifies package dependencies.
 The only dependency here is on UBOS package ``ubos-rails-support``, which bundles a few
 useful scripts for deploying RoR apps on UBOS.
 
@@ -139,16 +139,16 @@ hierarchy (starting at ``${pkgdir}``) which ``makepkg`` will tar up for us.
 
 * You can see that the UBOS manifest and the icons need to be in particular places, so
   UBOS can find them.
-* We will use a subdirectory of the UBOS "data" directory (``${pkgdir}/var/lib/${pkgname}``,
-  which will expand to ``/var/lib/ruby-rails-blog`` at installation time) to put together
+* We will use a subdirectory of the UBOS "data" directory (``${pkgdir}/ubos/lib/${pkgname}``,
+  which will expand to ``/ubos/lib/ruby-rails-blog`` at installation time) to put together
   the run-time directory structure that Passenger will work on. Here, we only need to
   create the directory; it will be populated not upon installation of the package, but
-  every time an app is deployed at a unique site and context path based on the information
+  every time an :term:`App` is deployed at a unique :term:`Site` and context path based on the information
   in the UBOS manifest.
 * Then we carefully pick and choose which of the files on our development machine we
   actually want to have in the package. There is no need to ship more files than needed.
   This is performed by the list of files and directories, which then is copied recursively
-  to below ``${pkgdir}/usr/share/${pkgname}/`` (expanded to ``/usr/share/ruby-rails-blog``
+  to below ``${pkgdir}/ubos/share/${pkgname}/`` (expanded to ``/ubos/share/ruby-rails-blog``
   on the target device).
 * Finally, we create a directory below ``/var/log/ruby-rails-blog`` that will be the
   parent directory for the Rails log files.
@@ -156,40 +156,40 @@ hierarchy (starting at ``${pkgdir}``) which ``makepkg`` will tar up for us.
 About ``ubos-manifest.json``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The UBOS manifest for this app captures the essence of the way the app is deployed
+The UBOS manifest for this :term:`App` captures the essence of the way the :term:`App` is deployed
 on UBOS. Let's go through it step by step:
 
 * The type of this package is ``app`` (not ``accessory``).
-* This app can only be deployed to the root of a site (``fixedcontext`` is empty).
+* This :term:`App` can only be deployed to the root of a :term:`Site` (``fixedcontext`` is empty).
   As it seems, most RoR apps make this assumption and so we go with it in order to
-  avoid having to make substantive changes to the app we package. Your apps, if at all
-  possible, should allow user-picked context paths, so the user can run your app in
-  addition to other apps on the same site.
+  avoid having to make substantive changes to the :term:`App` we package. Your :term:`Apps <App>`, if at all
+  possible, should allow user-picked context paths, so the user can run your :term:`App` in
+  addition to other :term:`Apps <App>` on the same :term:`Site`.
 * When run under Apache, the package ``passenger`` must be installed, and the
   Apache module ``passenger`` must have been activated. UBOS will make sure of both
-  before deploying the app.
+  before deploying the :term:`App`.
 
 There are a number of AppConfigItems, i.e. items that need to provisioned for each
-instance of this app deployed to a device:
+instance of this :term:`App` deployed to a device:
 
 * The file ``tmpl/htaccess.tmpl`` (discussed below) needs to be copied to the place
   where Apache expect it (refered to by symbolic name), after contained variables have
   been replaced with the values for this deployment.
-* This AppConfiguration's data directory must have been created. The symbolic name
-  ``${appconfig.datadir}`` will expand to ``/var/lib/ruby-rails-blog/aXXXX`` where
-  ``aXXXX`` is a unique identifier for this particular AppConfiguration. This enables
-  multiple deployments of the same app to coexist on the same device.
+* This :term:`AppConfiguration`'s data directory must have been created. The symbolic name
+  ``${appconfig.datadir}`` will expand to ``/ubos/lib/ruby-rails-blog/aXXXX`` where
+  ``aXXXX`` is a unique identifier for this particular :term:`AppConfiguration`. This enables
+  multiple deployments of the same :term:`App` to coexist on the same device.
 * Below that data directory, we create another directory called ``approot``, to which
   we will direct Passenger through the Apache config file (discussed below). This directory
   is strictly not necessary, but good practice, in case we have a need for other,
-  AppConfiguration-specific data in the future (say uploaded files).
+  :term:`AppConfiguration`-specific data in the future (say uploaded files).
 * Into this ``approot`` directory, we now recursively copy, preserving file and
   directory permissions, the files and directories that Passenger needs to run.
 * After that, we invoke utility script ``setup-logging`` from the ``ubos-ruby-support``
   package. This will simply make sure that directory ``/var/log/ruby-rails-blog/aXXXX``
   exists and contains a writable file ``production.log``. This is a script, rather
   than a file or directory AppConfigItem, because we don't want to delete the directory
-  once the app is undeployed.
+  once the :term:`App` is undeployed.
 * We create a symbolic link to that log directory from the ``approot`` directory, so
   RoR can find its log file.
 * Finally, we copy the ``database.yml`` file into its place after replacing contained
@@ -197,14 +197,14 @@ instance of this app deployed to a device:
 
 Now to SQL:
 
-* We need a database for this app, whose symbolic name is ``maindb`` (this is the name
+* We need a database for this :term:`App`, whose symbolic name is ``maindb`` (this is the name
   by which we refer to it in the template files below). This database contains valuable
-  data -- the app's blog posts and comments -- and thus we specify a ``retentionpolicy``
+  data -- the :term:`App`'s blog posts and comments -- and thus we specify a ``retentionpolicy``
   and a ``retentionbucket``. UBOS backup and restore will thus save and restore that
   data. Because Rails likes to make schema changes itself when ``db::migrate`` is run,
   the database user automatically provisioned for this database will have
   ``all privileges``.
-* When the app is first deployed, and every time it is updated after initial deployment,
+* When the :term:`App` is first deployed, and every time it is updated after initial deployment,
   we need to run the Rails ``db::migrate`` task. To make this easy, ``ubos-rails-support``
   provides a script called ``db-migrate`` that does this. It is specified in both
   the ``installers`` (when first deployed) and ``updaters`` (susequently) sections.
@@ -222,7 +222,7 @@ About ``appicons/``
 ^^^^^^^^^^^^^^^^^^^
 
 This directory contains two PNG files, at 72 and 144 pixels square, respectively,
-containing the icon of the app. We made one up for this purpose.
+containing the icon of the :term:`App`. We made one up for this purpose.
 
 About ``database.yml.tmpl``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,8 +232,8 @@ names, credentials and connection information, it contains variables that will b
 by UBOS at deployment time.
 
 For example, ``${appconfig.mysql.dbname.maindb}`` will be replaced by the name of the MySQL
-database that UBOS picked for a particular deployment of this app. This makes it easily
-possible to run multiple instances of the same web app on the same device, for example
+database that UBOS picked for a particular deployment of this :term:`App`. This makes it easily
+possible to run multiple instances of the same web :term:`App` on the same device, for example
 at different virtual hostnames.
 
 Here, we use variables for database name, database user, database user password and
@@ -247,13 +247,13 @@ Apache web server configuration fragment whose contained variables will be repla
 UBOS at deployment time.
 
 Variable ``${appconfig.apache2.dir}`` refers to the top-level Apache directory that
-maps to the hostname and context path picked by the user when deploying this app (think
+maps to the hostname and context path picked by the user when deploying this :term:`App` (think
 of it as the Apache Docroot for this virtual host, or a subdirectory if not installed
-at the root of the site).
+at the root of the :term:`Site`).
 
 However, we point Passenger to ``${appconfig.datadir}/approot`` as the place where it
-finds the Rails app, as discussed above. We run Passenger as user and group ``http``,
-like the Apache web server itself, to make it easier for sites that use a mix of
+finds the Rails :term:`App`, as discussed above. We run Passenger as user and group ``http``,
+like the Apache web server itself, to make it easier for :term:`Sites <Site>` that use a mix of
 RoR and other types of applications.
 
 Finally, we pass the values of the customizationpoints ``railsmasterkey`` and
@@ -262,7 +262,7 @@ variables can then be picked up by the application, and we don't need to change 
 Rails defaults (obviously this could be done differently).
 
 
-Building and running the app on UBOS
+Building and running the App on UBOS
 ------------------------------------
 
 On the development machine, change to the project's root directory (that contains the
@@ -270,7 +270,7 @@ On the development machine, change to the project's root directory (that contain
 
 .. code-block:: none
 
-  > makepkg
+  % makepkg
 
 This will create the package file ``ruby-rails-blog-0.1-1-any.pkg.tar.xz``.
 
@@ -279,16 +279,16 @@ the package there:
 
 .. code-block:: none
 
-   > sudo pacman -U ruby-rails-blog-0.1-1-any.pkg.tar.xz
+   % sudo pacman -U ruby-rails-blog-0.1-1-any.pkg.tar.xz
 
 Now you are ready to create a website that runs the application. Execute:
 
 .. code-block:: none
 
-   sudo ubos-admin createsite
+   % sudo ubos-admin createsite
 
 and answer the questions. When asked for the name of the application to install,
 enter ``ruby-rails-blog``. Make sure that your DNS setup is consistent with the name of
-the site (or use ``*`` as the name of the site). Once the command is finished, your
-site is accessible with a web browser at the hostname specified.
+the :term:`Site` (or use ``*`` as the name of the :term:`Site`). Once the command is finished, your
+:term:`Site` is accessible with a web browser at the hostname specified.
 

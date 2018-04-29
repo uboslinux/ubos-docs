@@ -1,7 +1,7 @@
 Glad-I-Was-Here (PHP, Postgresql)
 =================================
 
-This version of the Glad-I-Was-Here guestbook app also uses PHP, but chooses Postgresql
+This version of the Glad-I-Was-Here guestbook :term:`App` also uses PHP, but chooses Postgresql
 instead of MySQL as its database.
 
 If you have not already read through the :doc:`PHP/MySQL version <gladiwashere-php-mysql>`
@@ -12,32 +12,32 @@ To obtain the source code:
 
 .. code-block:: none
 
-   > git clone https://github.com/uboslinux/ubos-toyapps
+   % git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``gladiwashere-php-postgresql``.
 
-Package lifecycle and app deployment
+Package lifecycle and App deployment
 ------------------------------------
 
-Like all other apps on UBOS including :doc:`helloworld`, ``gladiwashere-php-postgresql`` is built
+Like all other :term:`Apps <App>` on UBOS including :doc:`helloworld`, ``gladiwashere-php-postgresql`` is built
 with ``makepkg``, installed with ``pacman`` and deployed with ``ubos-admin``.
 
 .. code-block:: none
 
-   > makepkg -f
-   > sudo pacman -U gladiwashere-php-postgresql-*-any.pkg.tar.xz
-   > sudo ubos-admin createsite
+   % makepkg -f
+   % sudo pacman -U gladiwashere-php-postgresql-*-any.pkg.tar.xz
+   % sudo ubos-admin createsite
 
-Specify ``gladiwashere-php-postgresql`` as the name of the app.
+Specify ``gladiwashere-php-postgresql`` as the name of the :term:`App`.
 
 Manifest JSON
 -------------
 
-Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
+Let's examine this :term:`App`'s :term:`UBOS Manifest JSON` file. It is identical to
 ``gladiwashere-php-mysql``'s, with the following differences:
 
 * It declares a different ``defaultcontext`` so you can run both the MySQL and the
-  Postgresql version of this app at the same time on the same device with the defaults.
+  Postgresql version of this :term:`App` at the same time on the same device with the defaults.
 
 * It specifies the ``postgresql`` role instead of the ``mysql`` role, to use
   Postgresql instead of MySQL.
@@ -103,7 +103,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is identical to
      }
    }
 
-* ``phpmodules`` lists the PHP modules that the app requires. In this case, it needs
+* ``phpmodules`` lists the PHP modules that the :term:`App` requires. In this case, it needs
   Postgresql drivers, and not MySQL drivers.
 
 * By specifying the role ``postgresql`` instead of ``mysql`` in the lower part of

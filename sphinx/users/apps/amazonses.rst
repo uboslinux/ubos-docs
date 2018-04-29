@@ -1,4 +1,4 @@
-Reliably send e-mail via Amazon Web Services' Simple E-mail Service (app ``amazonses``)
+Reliably send e-mail via Amazon Web Services' Simple E-mail Service (App ``amazonses``)
 =======================================================================================
 
 Reliably sending e-mail from a device or cloud server you control, unfortunately, is
@@ -9,13 +9,12 @@ an e-mail they received ever gets forwarded to the recipient's e-mail in-box. In
 experience, naively sending off e-mail via SMTP from a random cloud server results in
 about 50% delivered messages, with the rest being discarded or lost on the way.
 
-However, many apps on UBOS need to reliably send e-mail, such as for example
-to confirm account sign-ups.
+However, many :term:`Apps <App>` on UBOS need to reliably send e-mail, such as to confirm account sign-ups.
 
-Enter app ``amazonses``. If you use ``ubos-admin createsite`` to setup a site called
+Enter :term:`App` ``amazonses``. If you use ``ubos-admin createsite`` to setup a :term:`Site` called
 ``example.com`` which will run, say, Mediawiki, enter ``mediawiki`` as the name of the
-app to run at this site, but then continue and specify ``amazonses`` as the second app
-running on the same site.
+:term:`App` to run at this :term:`Site`, but then continue and specify ``amazonses`` as the second :term:`App`
+running on the same :term:`Site`.
 
 ``ubos-admin createsite`` will ask you for credentials (more about those below), but
 once you have entered them, UBOS will send all outgoing e-mail originating from
@@ -24,25 +23,25 @@ surprisingly, works hard to be on the good side of e-mail providers world-wide, 
 means that the e-mail you send via them has a high reputation, and will likely be
 delivered (unless you send spam, of course).
 
-If you run more than one site on the same device, outgoing e-mail originating from a
+If you run more than one :term:`Site` on the same device, outgoing e-mail originating from a
 different domain will not be affected and will continue to be sent directly, without
 going through Amazon SES. If you would like that outgoing e-mail to go through SES as
-well, simply add ``amazonses`` as an additional app to that site as well.
+well, simply add ``amazonses`` as an additional :term:`App` to that :term:`Site` as well.
 
 Note that you need to have a control of the DNS settings of the domain from which you
 want to send your e-mails, otherwise Amazon will not permit you to do so.
 
-How to run ``amazonses`` as a second app if ``ubos-admin createsite`` does not ask
+How to run ``amazonses`` as a second App if ``ubos-admin createsite`` does not ask
 ----------------------------------------------------------------------------------
 
-Some apps, such as Mastodon, can only run at the root of the site. When you create
-a new site with such an app, ``ubos-admin createsite`` will not ask for a second app,
-because other web apps cannot run at the same site. However, ``amazonses`` is not a web
-app (it has no web interface), so it can run! So how can you enter it?
+Some :term:`Apps <App>`, such as Mastodon, can only run at the root of the :term:`Site`. When you create
+a new :term:`Site` with such an :term:`App`, ``ubos-admin createsite`` will not ask for a second :term:`App`,
+because other web :term:`Apps <App>` cannot run at the same :term:`Site`. However, ``amazonses`` is not a web
+:term:`App` (it has no web interface), so it can run! So how can you enter it?
 
-Simple: always specify ``amazonses`` as the first app when running ``ubos-admin createsite``.
-And then enter ``mastodon``, or whatever other app you want to run at the root of the site
-as the second app.
+Simple: always specify ``amazonses`` as the first :term:`App` when running ``ubos-admin createsite``.
+And then enter ``mastodon``, or whatever other :term:`App` you want to run at the root of the :term:`Site`
+as the second :term:`App`.
 
 How to sign up for Amazon Web Services' Simple E-mail Service and get credentials
 ---------------------------------------------------------------------------------

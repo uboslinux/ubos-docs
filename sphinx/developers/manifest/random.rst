@@ -1,7 +1,7 @@
 Creating random values
 ======================
 
-Some apps require random, or secret values that need to be different for
+Some :term:`Apps <App>` require random, or secret values that need to be different for
 each installation. For example, such a value may be used to salt the
 cookies of a web application.
 
@@ -26,5 +26,9 @@ For example, ``${randomHex(8)}`` might generate ``4f218aab``.
 
    Example: ``GGs5PCMK``
 
+``randomBytes``
+   Generates a sequence of random bytes. This is often used in connection
+   with :doc:`function base64encode <functions>`.
+
 If you need to generate different kinds of random values, you can always
-do that in an :doc:`Perl script <perlscript>`.
+do that in a :doc:`script <scripts>`.

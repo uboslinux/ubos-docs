@@ -18,15 +18,15 @@ a single command**. This joins previously-available functionality to set up HTTP
 sites, including certificate provisioning, with a single command. Here are some
 examples:
 
-* `ubos-admin createsite` creates a regular HTTP website with the apps you specify.
+* `sudo ubos-admin createsite` creates a regular HTTP website with the apps you specify.
 
-* `ubos-admin createsite --tls --self-signed` creates the same website, but with a
+* `sudo ubos-admin createsite --tls --self-signed` creates the same website, but with a
   automatically generated and installed self-signed certificate.
 
-* `ubos-admin createsite --tls --letsencrypt` creates the same website, but with an
+* `sudo ubos-admin createsite --tls --letsencrypt` creates the same website, but with an
   official certificate from Letsencrypt that's recognized by all major browsers.
 
-* `ubos-admin createsite --tor` creates the same website, but as a Tor hidden service.
+* `sudo ubos-admin createsite --tor` creates the same website, but as a Tor hidden service.
   In addition to the privacy and anonymity features Tor provides to site users and
   site publishers, this lets you easily run a website from behind your firewall, or
   pack up your server, plug it in somewhere else and you are back up and running.
@@ -44,6 +44,6 @@ These are just some of the highlights. The more detailed release notes are
 <a href="/docs/releases/beta10/release-notes/">here</a>.
 
 And as you probably know: to upgrade your device, all you need to say is
-``ubos-admin update``.
+``sudo ubos-admin update``.
 
 We'd love your <a href="/community/">feedback</a>.

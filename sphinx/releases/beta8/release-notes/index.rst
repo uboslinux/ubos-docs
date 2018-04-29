@@ -117,9 +117,11 @@ This is a great idea inspired by `up-for-grabs.net <http://up-for-grabs.net/>`_.
 To upgrade
 ----------
 
-All you need to do, as usual, is::
+All you need to do, as usual, is:
 
-   > sudo ubos-admin update
+.. code-block:: none
+
+   % sudo ubos-admin update
 
 Known problems
 --------------

@@ -15,3 +15,4 @@ This command:
   the ``shepherd`` account so the user can log in over the
   network (``~shepherd/.ssh/authorized_keys``).
 
+This command must be run as root (``sudo ubos-admin setup-shepherd``).

@@ -58,7 +58,7 @@ Bug fixes
 * Remove installation bash history
   (`ubos-admin issue 46 <https://github.com/uboslinux/ubos-admin/issues/46>`_)
 
-* Fixed redeployment of wildcard site to named hostname
+* Fixed redeployment of wildcard :term:`Site` to named hostname
   (`ubos-admin issue 48 <https://github.com/uboslinux/ubos-admin/issues/48>`_)
 
 * Over-aggressive validity checking for accessories

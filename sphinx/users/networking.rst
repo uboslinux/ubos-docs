@@ -30,8 +30,8 @@ layers of the networking stack including:
 * Masquerading
 * open ports for applications.
 
-.. warning:: Connecting to a wireless network is not yet automated. See
-   `WiFi on UBOS </blog/2016/08/18/wifi.html>`_.
+This works for wired (Ethernet) and wireless (WiFi) connections. To specify which wireless
+network to use, and the corresponding credentials, use the :doc:`UBOS staff <shepherd-staff>`.
 
 Currently available network configurations
 ------------------------------------------
@@ -81,7 +81,7 @@ manager and manages the network by running a DHCP server, and a DNS server.
 
 Other devices connected to the UBOS device will be able to receive an IP address
 and use network services as if they were connected to a typical home network, but
-without upstream connection.
+without upstream connection to the public internet.
 
 If your UBOS device has more than one network interface, UBOS will create separate subnets
 for each network interface.
@@ -104,7 +104,7 @@ This network configuration was created to make it easy to use UBOS for home rout
 In this configuration, UBOS will connect to the public internet via broadband through
 one network interface, and obtain an IP address from the ISP via DHCP. All other network
 interfaces will have statically allocated, private IP addresses that connect to the
-public internet via Network Address Translation (NAT).
+public internet via Network Address Translation (NAT, also known as masquerading).
 
 This configuration requires the UBOS device to have at least two network interfaces:
 one for the upstream connection to the public internet via the ISP, and one for the
@@ -142,7 +142,7 @@ Network configuration: ``public-gateway``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This network configuration is identical to ``gateway``, except that applications running on
-the UBOS device are accessible btoh from the local network ("downstream") and from the public
+the UBOS device are accessible both from the local network ("downstream") and from the public
 internet ("upstream").
 
 Network configuration: ``container``
@@ -187,7 +187,7 @@ The advantage of using these mDNS hostnames is that no DNS setup is required, an
 not need to assign a static IP address to your device.
 
 The disadvantage of using these hostnames is that they only work on the local network,
-and that you cannot run more than one site on the same UBOS device. There may also be
+and that you cannot run more than one :term:`Site` on the same UBOS device. There may also be
 collisions if you run more than one UBOS device of the same type on the same network.
 
 If you wish to change your device's mDNS hostname, change its Linux hostname, and restart
@@ -196,14 +196,14 @@ by executing the following commands as ``root``:
 
 .. code-block:: none
 
-   > hostname mydevice
-   > hostname > /etc/hostname
-   > systemctl restart avahi-daemon
+   % hostname mydevice
+   % hostname > /etc/hostname
+   % sudo systemctl restart avahi-daemon
 
 Non-mDNS (regular) hostnames
 ----------------------------
 
-If you would like to use more than one site on the same device, or you would like to
+If you would like to use more than one :term:`Site` on the same device, or you would like to
 use a hostname of your choosing (say, ``family.example.com``) you need to set up
 DNS yourself. This can sometimes be performed in the administration interface of
 your home router.
@@ -214,26 +214,30 @@ For example, depending on the model of your home router, you may be able to do t
   that lists all currently connected devices on your network.
 * Look for your UBOS device, and note its MAC address.
 * In some part of the administrative interface of your home router, you may be
-  able to assign a consistent hostnamefor the device with this MAC address.
+  able to assign a consistent hostname for the device with this MAC address.
 
 Unfortunately, this entirely depends on the features of your home router, and is outside
-of UBOS's control.
+of the control of UBOS.
 
 Persistence of network configuration settings
 ---------------------------------------------
 
-When a network configuration is set with::
+When a network configuration is set with:
 
-   > ubos-admin setnetconfig <name>
+.. code-block:: none
 
-it will survive a reboot. Furthermore, when a network configuration is
-restored -- for example because temporarily another network configuration was activated
+   % sudo ubos-admin setnetconfig <name>
+
+Once a configuration is set, it will survive a reboot. Furthermore, when a network configuration
+s restored -- for example because temporarily another network configuration was activated
 -- the previous settings will be restored as much as possible. Consider this
-sequence::
+sequence:
 
-   > ubos-admin setnetconfig standalone
-   > ubos-admin setnetconfig off
-   > ubos-admin setnetconfig standalone
+.. code-block:: none
+
+   % sudo ubos-admin setnetconfig standalone
+   % sudo ubos-admin setnetconfig off
+   % sudo ubos-admin setnetconfig standalone
 
 In the ``standalone`` network configuration, UBOS assigns static IP addresses to all
 network interfaces found. Which IP address is assigned to which network interface is
@@ -250,6 +254,12 @@ interfaces and is used in the ``client`` network configuration, but editing
 ``/etc/ubos/netconfig-client.json`` and executing ``ubos-admin setnetconfig client`` again,
 the user could, for example, keep one of those interfaces off, or have different ports open.
 
+To display information about the most recently set network configuration:
+
+.. code-block:: none
+
+   % sudo ubos-admin shownetconfig
+
 Extra DHCP and DNS configuration settings
 -----------------------------------------
 
@@ -263,6 +273,6 @@ straightforward for you to add your own settings to the ones managed by UBOS:
 
 For details, please refer to the ``dnsmasq`` documentation.
 
-For example: some people use this setup to implement a DHCP "white list" so only devices
+For example: you could use this setup to implement a DHCP "white list" so only devices
 that are know are allowed to obtain an IP address, which in turn will be the same every
 time the same device connects to the network.

@@ -9,7 +9,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > docker run \
+      % docker run \
           -i -t \
           --cap-add NET_ADMIN --cap-add NET_BIND_SERVICE --cap-add NET_BROADCAST \
           --cap-add NET_RAW --cap-add SYS_ADMIN \
@@ -30,7 +30,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    The Docker container takes entropy from the host computer, so make sure the host Linux system
    provides enough. Depending your Linux distro, you may be able to generate more by
@@ -39,7 +39,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > sudo systemctl start haveged
+      % sudo systemctl start haveged
 
    on your host (not Docker container).
 
@@ -47,7 +47,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -56,7 +56,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed. If you
    have difficulties reaching the internet from your container, consult
@@ -66,11 +66,11 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`. Note
    that with the private networking setup described on this page, you will only be able
-   to access apps installed in your UBOS container from the host computer. If you like to
+   to access :term:`Apps <App>` installed in your UBOS container from the host computer. If you like to
    access them from anywhere else, you either need to give your container a non-private
    IP address, or port forward from the host to the container.
 
@@ -78,7 +78,7 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
 
    .. code-block:: none
 
-      > shutdown -h now
+      % systemctl poweroff
 
 About that run command
 -----------------------
@@ -86,7 +86,7 @@ About that run command
 If you are interested in the details of the complicated run command, let's unpack it:
 
 +------------------------------------------+----------------------------------------------------------------+
-| ``docker run``                           | Run a Docker image                                             |
+| ``docker run``                           | Run a Docker image.                                            |
 | ``-i -t``                                | Keep a terminal open on the command-line, so you can           |
 |                                          | log into UBOS.                                                 |
 +------------------------------------------+----------------------------------------------------------------+

@@ -1,10 +1,10 @@
 Run UBOS on ESPRESSObin
 =======================
 
-You can run UBOS on your ESPRESSObin by downloading an image, writing it to an SD card,
-and booting your ESPRESSObin with that card. (Alternatively you can keep running your
-existing Linux distro on your ESPRESSObin, and run UBOS in a Linux container.
-This is :doc:`described here <aarch64_container>`.)
+You can run UBOS on your `ESPRESSObin <https://espressobin.net/>`_ by downloading an image,
+writing it to an SD card, and booting your ESPRESSObin with that card. (Alternatively you
+can keep running your existing Linux distro on your ESPRESSObin, and run UBOS in a Linux
+container. This is :doc:`described here <aarch64_container>`.)
 
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the ESPRESSObin are at
@@ -19,7 +19,7 @@ This is :doc:`described here <aarch64_container>`.)
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_aarch64-espressobin_LATEST.img.xz
+      % sudo xz -d ubos_yellow_aarch64-espressobin_LATEST.img.xz
 
    on the command line.
 
@@ -77,7 +77,7 @@ This is :doc:`described here <aarch64_container>`.)
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -87,7 +87,7 @@ This is :doc:`described here <aarch64_container>`.)
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed. In the default setup,
    the Ethernet port closest to the ESPRESSObin's USB 3 port (the one that is blue) is set up as
@@ -98,7 +98,7 @@ This is :doc:`described here <aarch64_container>`.)
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
 
@@ -113,13 +113,13 @@ like to use a SATA disk instead, do this:
    connector.
 
 #. Assuming you have the disk connected and powered up, boot the ESPRESSObin from a
-   UBOS SD card.
+   UBOS SD card as described above.
 
 #. Once booted, execute:
 
    .. code-block:: none
 
-      > lsblk
+      % lsblk
 
    This will show all attached block devices, including the attached disk. Determine which
    of the shown devices is your disk. It might be ``/dev/sda``, which we'll assume from
@@ -129,7 +129,7 @@ like to use a SATA disk instead, do this:
 
    .. code-block:: none
 
-      > ubos-install /dev/sda
+      % sudo ubos-install /dev/sda
 
 #. Shut down the ESPRESSObin and turn off power.
 
@@ -172,13 +172,13 @@ UBoot bootloader factory configuration
 --------------------------------------
 
 If you have difficulty booting the ESPRESSObin with the provided instructions, it may
-be because you previously change the ESPRESSObin's boot loader configuration from
+be because you previously changed the ESPRESSObin's boot loader configuration from
 the factory default. For reference, here is the ESPRESSObin's factory configuration
 as determined by executing
 
 .. code-block:: none
 
-   printenv
+   > printenv
 
 in uBoot of a brand-new device:
 

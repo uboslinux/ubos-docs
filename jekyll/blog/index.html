@@ -9,7 +9,11 @@ title: Blog and Videos
  <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} • posted by {{ post.author }}</p>
  <p>{{ post.excerpt | strip_html }}</p>
 {% if post.categories.size > 0 %}
- <p class="post-meta">Tags: {{ post.categories | category_links }}.</p>
+ <p class="post-meta">Tags:
+    {% for cat in post.categories %}
+        {{ cat | xml_escape }}
+    {% endfor %}
+ </p>
 {% endif %}
 </div>
 {% endfor %}

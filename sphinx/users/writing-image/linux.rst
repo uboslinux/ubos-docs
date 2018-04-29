@@ -26,9 +26,11 @@ To write the image:
   ``~/Downloads/ubos_yellow_x86_64-pc_LATEST.img``. If you downloaded a compressed
   version, uncompress the file first.
 
-* Write the image using ``dd``, such as::
+* Write the image using ``dd``, such as:
 
-     > dd if=~/Downloads/ubos_yellow_x86_64-pc_LATEST.img of=/dev/sdx bs=1M
+  .. code-block:: none
+
+     % sudo dd if=~/Downloads/ubos_yellow_x86_64-pc_LATEST.img of=/dev/sdx bs=1M
 
   replacing ``/dev/sdx`` with the device name of your USB stick or SD card.
 
@@ -37,7 +39,9 @@ To write the image:
 
 * When done, for good measure::
 
-     > sync
+  .. code-block:: none
+
+     % sync
 
   and wait for a little bit. Rumor has it some flash drives keep writing for some
   time after the OS thinks they are done. If that is true for your device, and you

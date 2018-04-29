@@ -10,9 +10,11 @@ reader (if it has one), or use a USB adapter.
 To write the image:
 
 * Determine the device name of your USB stick or SD card. That is easiest if you
-  run::
+  run:
 
-      > diskutil list
+  .. code-block:: none
+
+      % diskutil list
 
   before you insert the USB stick or SD card, and then after. The
   device that has shown up is the device that you just inserted.
@@ -25,9 +27,11 @@ To write the image:
      will be mercilessly overwritten.
 
 * Depending on what's on your USB stick or SD card, OSX might have automatically
-  mounted it. To unmount::
+  mounted it. To unmount:
 
-     > diskutil unmountDisk /dev/diskN
+  .. code-block:: none
+
+     % diskutil unmountDisk /dev/diskN
 
   if the device name is ``/dev/diskN``.
 
@@ -37,7 +41,9 @@ To write the image:
 
 * Write the image using ``dd``, such as::
 
-      > sudo dd if=~/Downloads/ubos_yellow_x86_64-pc_LATEST.img of=/dev/rdiskN bs=1m
+  .. code-block:: none
+
+     % sudo dd if=~/Downloads/ubos_yellow_x86_64-pc_LATEST.img of=/dev/rdiskN bs=1m
 
   replacing ``/dev/rdiskN`` with the device name of your USB stick or SD card.
   You can use either ``/dev/diskN`` or ``/dev/rdiskN`` (replacing ``N`` with
@@ -51,7 +57,9 @@ To write the image:
 
 * When done, for good measure::
 
-     > sync
+  .. code-block:: none
+
+     % sync
 
   and wait for a little bit. Rumor has it some flash drives keep writing for some
   time after the OS thinks they are done. If that is true for your device, and you

@@ -7,7 +7,7 @@ In UBOS, a :term:`network configuration <Network Configuration>` is a set of act
 network interfaces, their configuration, and the configuration of associated services
 such as DNS, firewall, and the like.
 
-The purpose of this command is to make network configuration as simple as app installation
+The purpose of this command is to make network configuration as simple as :term:`App` installation
 is in UBOS. For example, to run UBOS on a home router, typically one network interface has
 to obtain an IP address from the ISP, network address translation and a firewall needs
 to be set up, a DHCP servers needs to be run, and so forth. With ``ubos-admin setnetconfig``
@@ -38,3 +38,5 @@ following actions:
 To show all available network configurations, execute
 :doc:`listnetconfigs`. The set of currently available network configurations is
 documented :doc:`here <../../users/networking>`.
+
+This command must be run as root (``sudo ubos-admin setnetconfig``).

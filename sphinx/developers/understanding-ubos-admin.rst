@@ -21,6 +21,7 @@ the various subcommands do and how they do that, consult the following sections:
    understanding/setnetconfig
    understanding/setup-shepherd
    understanding/showappconfig
+   understanding/shownetconfig
    understanding/showsite
    understanding/status
    understanding/undeploy

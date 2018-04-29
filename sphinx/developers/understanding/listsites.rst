@@ -3,7 +3,7 @@
 
 See also :doc:`../../users/ubos-admin`.
 
-This command iterates over all :doc:`../site-json` files for all sites currently
+This command iterates over all :doc:`../site-json` files for all :term:`Sites <Site>` currently
 deployed on the device, and prints them in various formats and levels of detail,
 as specified in the command-line options.
 

@@ -9,7 +9,7 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    This may take a little bit, in particular on the first boot.
 
@@ -22,13 +22,13 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > lsblk
+      % lsblk
 
 #. To install, execute:
 
    .. code-block:: none
 
-      > ubos-install /dev/sda
+      % sudo ubos-install /dev/sda
 
    and wait for a bit.
 
@@ -42,12 +42,12 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > shutdown -r now
+      % systemctl reboot
 
    and remove your boot stick. UBOS should now be booting.
 
 #. If your screen goes blank during the boot, please refer to
-   `../troubleshooting`.
+   :doc:`troubleshooting<../troubleshooting>`.
 
 #. When the boot process is finished, log in as user ``root``. By default, there is no
    password on the console.
@@ -56,7 +56,7 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    On the first boot, this may take a while, because UBOS has to generate some cryptographic
    keys, and Linux is trying very hard to use good random numbers for that purpose. To
@@ -69,13 +69,13 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > systemctl start haveged
+      % sudo systemctl start haveged
 
    Wait until the output of
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -85,7 +85,7 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
@@ -93,7 +93,7 @@ log on as root. Then:
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.
 
@@ -105,7 +105,7 @@ simply add the second device name to the ``ubos-install`` command:
 
 .. code-block:: none
 
-   > ubos-install /dev/sda /dev/sdb
+   % sudo ubos-install /dev/sda /dev/sdb
 
 If you do not want to erase your entire hard drive, but instead want to install UBOS
 on a partition, you can specify the partition device name instead of the drive device
@@ -113,7 +113,7 @@ name, such as:
 
 .. code-block:: none
 
-   > ubos-install --rootpartition /dev/sda3 --bootpartition /dev/sda1
+   % sudo ubos-install --rootpartition /dev/sda3 --bootpartition /dev/sda1
 
 In this case, you need to also specify a partition that is used as boot partition.
 
@@ -121,10 +121,10 @@ You can also install UBOS on a disk image. First, create an image of sufficient 
 
 .. code-block:: none
 
-   > dd if=/dev/zero of=ubos-image.img bs=1024 count=0 seek=2M
+   % sudo dd if=/dev/zero of=ubos-image.img bs=1024 count=0 seek=8M
 
 and then specify the image file instead of the device:
 
 .. code-block:: none
 
-   > ubos-install ubos-image.img
+   % sudo ubos-install ubos-image.img

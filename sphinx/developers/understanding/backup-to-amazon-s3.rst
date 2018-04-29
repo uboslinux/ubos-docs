@@ -21,3 +21,7 @@ command-line.
 
 Note that this command is not installed by default but contained in optional
 package ``amazons3``.
+
+This command must be run as root (``sudo ubos-admin backup-to-amazon-s3``).
+
+See also: :doc:`restore`.

@@ -90,19 +90,19 @@ For developers
   `customization points section </docs/developers/manifest/customizationpoints.html>`_
   in the developer documentation.
 
-* Accessories can now specify that they depend on another accessory being present at the
-  same AppConfiguration. Example: some Wordpress plugins can only function if some other
+* Accessories can now specify that they depend on another :term:`Accessory` being present at the
+  same :term:`AppConfiguration`. Example: some Wordpress plugins can only function if some other
   plugin is installed and active at the same time. UBOS can now manage these dependencies
   automatically as well. See the
   `accessory info section </docs/developers/manifest/accessoryinfo.html>`_
   in the developer documentation.
 
-* More information about the AppConfiguration and the Site is now available to deploy and
+* More information about the :term:`AppConfiguration` and the Site is now available to deploy and
   undeploy scripts. See the updated
   `list of variables </docs/developers/manifest/variables.html>`_.
 
 * The new ``ubos-rsync-server`` package makes it easy for developers to support secure
-  file upload and download via ``rsync`` over ``ssh``. It supports AppConfiguration-specific
+  file upload and download via ``rsync`` over ``ssh``. It supports :term:`AppConfiguration`-specific
   SSH keys, which means that if a UBOS device runs two copies of the same app (e.g. at
   different virtual hostnames), these two copies of the app do not (need to) share the
   same SSH credentials, and one cannot be used to access data from the other.

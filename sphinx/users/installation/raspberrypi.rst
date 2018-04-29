@@ -36,7 +36,7 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 
    .. code-block:: none
 
-      > xz -d ubos_yellow_armv6h-rpi_LATEST.img.xz
+      % sudo xz -d ubos_yellow_armv6h-rpi_LATEST.img.xz
 
    on the command line.
 
@@ -64,7 +64,7 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 
    .. code-block:: none
 
-      > systemctl is-system-running
+      % systemctl is-system-running
 
    Wait until the output has changed from ``starting`` to ``running``. If it is anything else, consult
    :doc:`troubleshooting<../troubleshooting>`.
@@ -74,7 +74,7 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 
    .. code-block:: none
 
-      > ip addr
+      % ip addr
 
    Make sure you are connected to the internet before attempting to proceed.
 
@@ -82,6 +82,6 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 
    .. code-block:: none
 
-      > ubos-admin update
+      % sudo ubos-admin update
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

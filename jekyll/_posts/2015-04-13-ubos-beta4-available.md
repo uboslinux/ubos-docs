@@ -37,13 +37,13 @@ For more details, refer to the <a href="/docs/releases/beta4/release-notes/">rel
 If you are an existing UBOS user and want to upgrade, log into your UBOS device.
 First, you might want to make a backup of all your apps installed on your device:
 <pre>
-> sudo ubos-admin backup --out ~/backup.ubos-backup
+% sudo ubos-admin backup --out ~/backup.ubos-backup
 </pre>
 
 Then, to upgrade UBOS and all apps on your device, all you need to do is:
 
 <pre>
-> sudo ubos-admin update
+% sudo ubos-admin update
 </pre>
 
 <h2>For new users</h2>

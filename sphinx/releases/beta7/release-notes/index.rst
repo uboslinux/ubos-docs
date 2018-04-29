@@ -46,19 +46,25 @@ For users
     over which e-mail gets routed how is possible.
 
   * Automatic setup of SSL/TLS-secured sites using Letsencrypt. Simply specify
-    an additional flag when creating a new site::
+    an additional flag when creating a new site:
 
-       > ubos-admin createsite --tls --letsencrypt
+    .. code-block:: none
+
+       % sudo ubos-admin createsite --tls --letsencrypt
 
   * A command for off-site backup to Amazon S3 in one step. Optionally the backup
-    may be encrypted using GPG public-key cryptography. Example::
+    may be encrypted using GPG public-key cryptography. Example:
 
-       > ubos-admin backup-to-amazon-s3
+    .. code-block:: none
+
+       % sudo ubos-admin backup-to-amazon-s3
 
   * Downloading a backup file, and restoring an entire site from backup can now
-    be done in a single command::
+    be done in a single command:
 
-       > ubos-admin restore --url http://example.com/example.ubos-backup
+    .. code-block:: none
+
+       % sudo ubos-admin restore --url http://example.com/example.ubos-backup
 
   * SSH rate limiting is enabled by default to make the job of attackers just
     a bit more frustrating.
@@ -66,9 +72,11 @@ For users
   * New command ``ubos-admin backupinfo`` enables users to easily determine what
     sites and apps a given UBOS backup file contains, and when it was made.
 
-  * Single-command undeploy of all sites on a device::
+  * Single-command undeploy of all sites on a device:
 
-      > ubos-admin undeploy -a
+    .. code-block:: none
+
+       % sudo ubos-admin undeploy -a
 
     This is a dangerous command, but very useful during development.
 
@@ -179,9 +187,11 @@ For developers
 To upgrade
 ----------
 
-All you need to do, as usual, is::
+All you need to do, as usual, is:
 
-   > sudo ubos-admin update
+.. code-block:: none
+
+   % sudo ubos-admin update
 
 Known problems
 --------------

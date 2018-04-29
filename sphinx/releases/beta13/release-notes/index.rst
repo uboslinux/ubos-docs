@@ -156,7 +156,7 @@ For developers
   * Java 9 packages are now available, although Java 8 remains the UBOS default for now.
 
   * Accessories can now specify more than one app that they can be used with. While this
-    is an unusual case, this allows an accessory to be used with several, perhaps
+    is an unusual case, this allows an :term:`Accessory` to be used with several, perhaps
     customized, alternatives of the same app.
 
   * There's now a pre-defined variable ``${appconfig.cachedir}`` identifying a directory
@@ -164,7 +164,7 @@ For developers
 
 * Important bug fixes:
 
-  * The app and accessory namespaces for variables are now cleanly separated, which
+  * The app and :term:`Accessory` namespaces for variables are now cleanly separated, which
     previously they were not. This means that accessories, during install, cannot
     access the variables of their app (they should not have to anyway).
 

@@ -4,17 +4,17 @@ Glad-I-Was-Here (PHP, MySQL)
 Compared to :doc:`helloworld`, Glad-I-Was-Here is a slightly more complex "guestbook" web
 application that uses a SQL database to store guestbook entries. This application has
 been implemented using several different programming languages and relational databases,
-so it can act as an example how to package UBOS apps built with various common web
+so it can act as an example how to package UBOS :term:`Apps <App>` built with various common web
 technologies.
 
 This section describes the possibly simplest-to-understand implementation using PHP
 and MySQL.
 
-If you have not already read through the :doc:`helloworld` app documentation, we
+If you have not already read through the :doc:`helloworld` :term:`App` documentation, we
 recommend you do so first as we'll only discuss things in this section that were not
 covered before.
 
-Here is a screen shot of the app in action:
+Here is a screen shot of the :term:`App` in action:
 
 .. image:: /images/gladiwashere-screenshot.png
 
@@ -22,29 +22,29 @@ To obtain the source code:
 
 .. code-block:: none
 
-   > git clone https://github.com/uboslinux/ubos-toyapps
+   % git clone https://github.com/uboslinux/ubos-toyapps
 
 Go to subdirectory ``gladiwashere-php-mysql``.
 
-Package lifecycle and app deployment
+Package lifecycle and App deployment
 ------------------------------------
 
-Like all other apps on UBOS including :doc:`helloworld`, ``gladiwashere-php-mysql`` is built
+Like all other :term:`Apps <App>` on UBOS including :doc:`helloworld`, ``gladiwashere-php-mysql`` is built
 with ``makepkg``, installed with ``pacman`` and deployed with ``ubos-admin``.
 
 .. code-block:: none
 
-   > makepkg -f
-   > sudo pacman -U gladiwashere-php-mysql-*-any.pkg.tar.xz
-   > sudo ubos-admin createsite
+   % makepkg -f
+   % sudo pacman -U gladiwashere-php-mysql-*-any.pkg.tar.xz
+   % sudo ubos-admin createsite
 
-Specify ``gladiwashere-php-mysql`` as the name of the app. This will set up a website
+Specify ``gladiwashere-php-mysql`` as the name of the :term:`App`. This will set up a website
 on your UBOS device that runs ``gladiwashere-php-mysql``.
 
 Manifest JSON
 -------------
 
-Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
+Let's examine this :term:`App`'s :term:`UBOS Manifest JSON` file. It is very similar to
 ``helloworld``'s, but has several more entries:
 
 .. code-block:: json
@@ -106,21 +106,21 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
      }
    }
 
-* In addition to the ``apache2`` role, this app also has a ``mysql`` role. Like in the
-  ``apache2`` role, the contained ``appconfigitems`` tell UBOS what needs to be provisioned
-  so the app can be run successfully. In the ``mysql`` role, these are items all related to
-  MySQL.
+* In addition to the ``apache2`` role, this :term:`App` also has a ``mysql`` role. Like in the
+  ``apache2`` role, the contained AppConfigurationItems (entry ``appconfigitems``) tell UBOS
+  what needs to be provisioned so the :term:`App` can be run successfully. In the ``mysql`` role,
+  these are items all related to MySQL.
 
   Here, we tell UBOS to provision a new database for each deployment of Glad-I-Was-Here,
   together with a new database user and a unique database credential. This database
   user will have database privileges ``select`` and ``insert`` but no others, because
-  that's all the Glad-I-Was-Here app needs.
+  that's all the Glad-I-Was-Here :term:`App` needs.
 
   The database's symbolic name is ``maindb``. This will NOT be the actual database
   name at deployment time. Instead, UBOS will create a (random) database name. To
   understand why this is useful, consider which database name, and database username
-  and password should be used by this app. If it was hardcoded, it would create a big
-  security problem, and only a single installation of Hello World (or any other app
+  and password should be used by this :term:`App`. If it was hardcoded, it would create a big
+  security problem, and only a single installation of Hello World (or any other :term:`App`
   that hardcoded its information) could run on the same device. Neither is desirable.
 
   So UBOS automatically generates a unique name, and uses that. To be able for you
@@ -136,13 +136,13 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
 * The optional ``installers`` section allows the developer to specify actions to be
   taken after the database has been provisioned for the first time (but not
   after upgrades). Here, a script of type ``sqlscript`` needs to be run whose source can
-  be found at ``/usr/share/gladiwashere/sql/create.sql``. As you would have guessed,
+  be found at ``/ubos/share/gladiwashere/sql/create.sql``. As you would have guessed,
   this script initializes the tables of the database. UBOS runs this script with more
-  privileges (``create``) than the app's database user has, which explains why the
+  privileges (``create``) than the :term:`App`'s database user has, which explains why the
   database user can get away with ``select`` and ``insert`` privileges only.
 
 * Back above in the ``apache2`` section, ``phpmodules`` lists the PHP modules that
-  the app requires. In this case, it needs MySQL drivers. These are names of PHP
+  the :term:`App` requires. In this case, it needs MySQL drivers. These are names of PHP
   modules as found in ``/etc/php.ini`` and the like.
 
 * The second ``appconfigitem`` in the ``apache2`` role specifies a template file,
@@ -166,7 +166,7 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
      <?php
      $dbName   = 'somedbname';
      $dbUser   = 'somedbuser';
-     $dbPass   = 'somedbpass';
+     $dbPass   = 'some\'dbpass';
      $dbServer = 'localhost';
 
   where ``somedbname`` etc are the values for the provisioned database. Above we said
@@ -178,6 +178,6 @@ Let's examine this app's :term:`UBOS Manifest JSON` file. It is very similar to
 
 * The third item creates a symbolic link.
 
-Visit :doc:`gladiwashere-php-postgresql` for a version of this app that uses PHP and
+Visit :doc:`gladiwashere-php-postgresql` for a version of this :term:`App` that uses PHP and
 Postgresql, :doc:`gladiwashere-java-mysql` for one that uses Java, and
 :doc:`gladiwashere-python-mysql` that uses Python.

@@ -108,19 +108,25 @@ New features and improvements
 To upgrade
 ----------
 
-All you need to do, as usual, is::
+All you need to do, as usual, is:
 
-   > sudo ubos-admin update
+.. code-block:: none
 
-Your network configuration should not change. To use the new functionality, invoke::
+   % sudo ubos-admin update
 
-   > sudo ubos-admin setnetconfig <name>
+Your network configuration should not change. To use the new functionality, invoke:
+
+.. code-block:: none
+
+   % sudo ubos-admin setnetconfig <name>
 
 where ``name`` is the name of the configuration you want, such as ``client``.
 
-If you have Java installed on your UBOS device, you must manually invoke::
+If you have Java installed on your UBOS device, you must manually invoke:
 
-   > sudo archlinux-java set java-8-openjdk
+.. code-block:: none
+
+   % sudo archlinux-java set java-8-openjdk
 
 Once we are out of beta, this kind of thing would be automated, of course, but for
 the time being this manual step is probably acceptable.
@@ -139,7 +145,6 @@ Known problems
   command. Workaround: ``pacman -S dosfstools`` and try again.
 
 * mDNS lookup is not automatically enabled. To enable, ``pacman -S nss-mdns``.
-
 
 
 Questions? Need help?

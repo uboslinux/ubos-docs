@@ -12,11 +12,11 @@ to me. I meant to call the hostname ‘selfoss-test’, but accidentally I calle
 
 This is what I did to correct the situation (all on one line):
 
-~~~~~
-ubos-admin showsite --host test-selfoss --json \
+<pre>
+% sudo ubos-admin showsite --host test-selfoss --json \
     | sed -e 's/test-selfoss/selfoss-test/' \
-    | ubos-admin deploy --stdin
-~~~~~
+    | sudo ubos-admin deploy --stdin
+</pre>
 
 In English: Take the Site JSON of the site currently at hostname ‘test-selfoss’,
 replace ‘test-selfoss’ with ‘selfoss-test’, and deploy. Note that because we did not
