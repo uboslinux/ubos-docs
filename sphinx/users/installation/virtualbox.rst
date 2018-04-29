@@ -13,7 +13,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 #. `Download VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ from virtualbox.org
    and install it if you haven't already.
 
-#. Download the UBOS boot image for VirtualBox from `depot.ubos.net`.
+#. Download the UBOS boot image for VirtualBox from ``depot.ubos.net``.
    Beta images for Virtualbox (64bit) are at
    `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
    Look for a file named ``ubos_yellow_x86_64-vbox_LATEST.vmdk.xz``.
