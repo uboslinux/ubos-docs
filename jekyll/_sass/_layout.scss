@@ -100,11 +100,9 @@ div.sidebar {
     padding: 0;
     list-style: none;
   }
-  li.toctree-l2 {
-    margin-left: 1em;
-  }
+  li.toctree-l2,
   li.toctree-l3 {
-    margin-left: 2em;
+    margin-left: 1em;
   }
   h3 > a,
   li > a {

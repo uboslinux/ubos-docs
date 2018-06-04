@@ -48,3 +48,12 @@ To upgrade:
 For more info, read the detailed release notes <a href="/docs/releases/beta14/release-notes/">here</a>.
 
 As always, we love your <a href="/community/">feedback</a>.
+
+== Known problems ==
+
+* A few Nextcloud accessories initially were not rebuilt with the new paths. We
+  have fixed this.
+
+* On the Raspberry Pi, the `gpio` executable is missing its required `suid root` bit.
+  We have submitted a pull request to the Arch Linux ARM project. In the meantime,
+  to fix, become root and execute `chmod 4755 /usr/bin/gpio`.

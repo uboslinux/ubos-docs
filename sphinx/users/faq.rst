@@ -148,7 +148,7 @@ However, if you insist, there are two easy ways of getting root:
 * On a system where you have access to the console, you can simply log into the console
   as ``root``. By default, there is no password. (The assumption is that if somebody has
   physical access to your Raspberry Pi, game is over anyway, security-wise).
-* As user ``shepherd``, invoke ``su`` or ``sudo bash``. This will give you a root shell.
+* As user ``shepherd``, invoke ``sudo su`` or ``sudo bash``. This will give you a root shell.
 
 I want to run ssh on a non-standard port
 ----------------------------------------

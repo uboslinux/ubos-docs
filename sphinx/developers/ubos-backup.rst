@@ -129,7 +129,7 @@ File and directory content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assume that a directory
-``/srv/http/sites/s1111111111222222222233333333334444444444/blog/uploads`` of some web
+``/ubos/http/sites/s1111111111222222222233333333334444444444/blog/uploads`` of some web
 application needs to be backed up. Let's assume that this directory belongs to an application
 that is installed at context path ``/blog`` of some :term:`Site`
 (application package ``myapp``, :term:`SiteId` ``s1111111111222222222233333333334444444444``,
@@ -149,7 +149,7 @@ item for the ``apache2`` role like this in its UBOS Manifest JSON file:
    }
 
 Then, the recursive directory tree starting with root directory
-``/srv/http/sites/s1111111111222222222233333333334444444444/blog/uploads`` will be backed up to
+``/ubos/http/sites/s1111111111222222222233333333334444444444/blog/uploads`` will be backed up to
 ``appconfigs/a4444444444333333333322222222221111111111/myapp/apache2/uploadsdir`` in the backup ZIP file.
 
 Note that the filename in the ZIP file comes from the ``retentionbucket`` field in the

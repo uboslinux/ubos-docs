@@ -39,8 +39,15 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
    The directory in which Apache requires this :term:`AppConfiguration`'s web server files.
    No trailing slash.
 
-   Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/blog`` (if the :term:`AppConfiguration`
+   Example: ``/ubos/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/blog`` (if the :term:`AppConfiguration`
    is at relative path ``/blog`` on a :term:`Site` with :term:`SiteId` ``s753ca4a344f56c38aad05172dee6a53f6647af62``)
+
+``${appconfig.appconfigparsdir}``
+   The directory in which this :term:`AppConfiguration`'s customization points are
+   stored. This directory contains a subdirectory each for each installable at the
+   :term:`AppConfiguration`, which in turn contains the files for the customization points.
+
+   Example: ``/ubos/lib/ubos/appconfigpars/a9f52884fef255d617981fb0a94916bf67bcf64b5/``
 
 ``${appconfig.appid}``
    The identifier of the :term:`App` at this :term:`AppConfiguration`.
@@ -94,7 +101,7 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
    the webserver's DocumentRoot). No trailing slash. While this variable is pre-defined,
    the :term:`App` is responsible for actually creating the directory in its Manifest JSON.
 
-   Example: ``/var/lib/wordpress/a9f52884fef255d617981fb0a94916bf67bcf64b5``
+   Example: ``/ubos/lib/wordpress/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
 ``${appconfig.mysql.dbhost.maindb}``
    Database host for the MySQL database whose symbolic name in the Manifest JSON is ``maindb``.
@@ -172,7 +179,7 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
    The directory in which Tomcat requires this :term:`AppConfiguration`'s application server
    files. No trailing slash.
 
-   Example: ``/var/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
+   Example: ``/ubos/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62/a9f52884fef255d617981fb0a94916bf67bcf64b5``
 
 ``${appconfig.udpport.someport}``
    The port number allocated for the UDP port whose symbolic port name in the Manifest JSON
@@ -225,7 +232,7 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
    for the :term:`App` or :term:`Accessory` in this
    :term:`AppConfiguration`, as determined from the Manifest JSON file and the Site JSON file.
 
-   Example: ``/var/lib/ubos/appconfigpars/a12345678901234567890/mypackage/foo``
+   Example: ``/ubos/lib/ubos/appconfigpars/a12345678901234567890/mypackage/foo``
 
 ``${installable.customizationpoints.foo.value}``
    The value of customization point ``foo``
@@ -356,7 +363,7 @@ and thus discouraged.
    the host. You may want to use ``${site.apache2.sitedocumentdir}`` or
    ``${appconfig.apache2.dir}`` instead.
 
-   Example: ``/srv/http/sites``
+   Example: ``/ubos/http/sites``
 
 ``${apache2.ssldir}``
    Directory that contains SSL information.
@@ -367,18 +374,18 @@ and thus discouraged.
    Directory in which the package can store data. No trailing slash.
    You may want to use ``${appconfig.datadir}`` instead.
 
-   Example: ``/var/lib/wordpress``
+   Example: ``/ubos/lib/wordpress``
 
 ``${package.manifestdir}``
    Directory in which packages write their manifests. No trailing slash. You should
    not need to use this.
 
-   Value: ``/var/lib/ubos/manifests``
+   Value: ``/ubos/lib/ubos/manifests``
 
 ``${site.apache2.sitedocumentdir}``
    The Apache DocumentRoot for this :term:`Site`. No trailing slash.
 
-   Example: ``/srv/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+   Example: ``/ubos/http/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
 
 ``${site.apache2.sitefragmentfile}``
    The Apache configuration file fragment for this :term:`Site`. No trailing slash.
@@ -389,10 +396,10 @@ and thus discouraged.
 ``${site.tomcat8.sitedocumentdir}``
    The Tomcat DocumentRoot for this :term:`Site`. No trailing slash.
 
-   Example: ``/var/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
+   Example: ``/ubos/lib/tomcat8/sites/s753ca4a344f56c38aad05172dee6a53f6647af62``
 
 ``${tomcat8.sitesdir}``
     Directory that contains the Tomcat DocumentRoots of the various :term:`Sites <Site>` installed on
     the host. You may want to use ``${site.tomcat8.sitedocumentdir}`` instead.
 
-    Example: ``/var/lib/tomcat8/sites``
+    Example: ``/ubos/lib/tomcat8/sites``

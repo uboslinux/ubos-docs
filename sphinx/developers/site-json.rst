@@ -61,7 +61,7 @@ The Site JSON file is a JSON hash with the following entries:
    ``email`` (required)
       Contact e-mail for the administrator. Example: ``admin@family.example.org``.
 
-``appconfigs``:
+``appconfigs`` (optional)
    A JSON array of the AppConfigurations at this :term:`Site`. There is no significance to
    the order of the elements in the array. An :term:`AppConfiguration` is
    the installation of an :term:`App` at a particular context path at a particular :term:`Site`,
@@ -70,6 +70,11 @@ The Site JSON file is a JSON hash with the following entries:
 
 ``hostname`` (required)
    The hostname for the :term:`Site`, or ``*``. E.g. ``family.example.org``.
+
+``lastupdated`` (optional)
+   A timestamp for when this Site JSON file was last deployed to the current device. This
+   data element gets inserted or updated by UBOS in the Site JSON held on the device,
+   when a site is deployed.
 
 ``siteid`` (required)
    A unique identifier for the :term:`Site`. This is generally an ``s`` followed by

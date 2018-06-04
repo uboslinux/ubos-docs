@@ -45,7 +45,9 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 +====================================+=========================+=================================================================================+
 | ``shepherd/ssh/``                  | ``id_rsa.pub``          | SSH public key for the ``shepherd`` account.                                    |
 |                                    +-------------------------+---------------------------------------------------------------------------------+
-|                                    | ``id_rsa``              | SSH private key for the ``shepherd`` account. Delete as soon as possible.       |
+|                                    | ``id_rsa``              | SSH private key for the ``shepherd`` account. You can delete it here once you   |
+|                                    |                         | have copied it to your workstation from where you will be logging into your     |
+|                                    |                         | UBOS device(s).                                                                 |
 +------------------------------------+-------------------------+---------------------------------------------------------------------------------+
 | ``wifi/``                          | ``<ssid>.conf``         | This directory may contain several files, one for each to-be-configured WiFi    |
 |                                    |                         | SSID. Each file must be named based on the SSID it configures.                  |

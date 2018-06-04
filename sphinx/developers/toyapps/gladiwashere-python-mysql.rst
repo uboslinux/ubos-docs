@@ -149,7 +149,7 @@ resulting file as ``.htaccess`` in the web server directory, such as:
 
    WSGIDaemonProcess gladiwashere-python-mysql-a1234567890123456789012345678901234567890 processes=2 threads=10 \
           umask=0007 inactivity-timeout=900 maximum-requests=1000 \
-          python-path=/ubos/share/gladiwashere-python-mysql/web:/var/lib/gladiwashere-python-mysql/a1234567890123456789012345678901234567890:/usr/lib/python3.6/site-packages/
+          python-path=/ubos/share/gladiwashere-python-mysql/web:/ubos/lib/gladiwashere-python-mysql/a1234567890123456789012345678901234567890:/usr/lib/python3.6/site-packages/
    WSGIProcessGroup gladiwashere-python-mysql-a1234567890123456789012345678901234567890
 
    # Can't do this because there may be more than one WSGI :term:`App`:
