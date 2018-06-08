@@ -116,6 +116,13 @@ If you are starting from scratch:
 
 #. Reboot and check that the data disk is property mounted.
 
+#. Generate a snapper configuration so UBOS can automatically create disk snapshots when
+   an update is executed:
+
+   .. code-block:: none
+
+      snapper -c ubos create-config -t ubos-default /ubos
+
 If you have Apps and data on your device already:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -193,3 +200,9 @@ In all other cases, it's a bit more involved:
 
 #. Delete ``/ubos.too-small``
 
+#. Generate a snapper configuration so UBOS can automatically create disk snapshots when
+   an update is executed:
+
+   .. code-block:: none
+
+      snapper -c ubos create-config -t ubos-default /ubos
