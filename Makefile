@@ -39,4 +39,4 @@ static:
 	sed -e "s!UBOS_AWS_IMAGE_URL!$(UBOS_AWS_IMAGE_URL)!g" include/amazon-ec2-image-latest.js > $(STAGEDIR)/include/amazon-ec2-image-latest.js
 
 open:
-	open -a Firefox http://localhost/
+	open -a Firefox http://ubos/
