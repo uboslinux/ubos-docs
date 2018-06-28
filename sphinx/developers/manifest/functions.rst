@@ -54,5 +54,16 @@ The following functions are currently available:
    ``abc"def`` becomes ``abc\"def``. This is useful in configuration files where
    values need to be specified as quoted strings, e.g. in PHP.
 
+``gid``
+   Lookup the numerical group id from the name of the Linux group. For example,
+   ``git( installable.customizationpoints.user.value )``, if customization point
+   ``user`` was ``root``, would result in the value ``0``.
+
 ``trim``
    Remove leading and trailing white space from a string.
+
+``uid``
+   Lookup the numerical user id from the name of a Linux user. For example,
+   ``git( installable.customizationpoints.user.value )``, if customization point
+   ``user`` was ``root``, would result in the value ``0``.
+
