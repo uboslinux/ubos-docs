@@ -37,7 +37,7 @@ To write the image:
   This may take 10min or longer, depending on the speed of your USB stick or
   SD card, so be patient.
 
-* When done, for good measure::
+* When done, for good measure:
 
   .. code-block:: none
 

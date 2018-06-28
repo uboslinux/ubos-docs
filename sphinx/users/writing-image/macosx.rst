@@ -39,7 +39,7 @@ To write the image:
   ``~/Downloads/ubos_yellow_x86_64-pc_LATEST.img``. If you downloaded a compressed
   version, uncompress the file first.
 
-* Write the image using ``dd``, such as::
+* Write the image using ``dd``, such as:
 
   .. code-block:: none
 
@@ -55,7 +55,7 @@ To write the image:
   This may take 10min or longer, depending on the speed of your USB stick or
   SD card, so be patient.
 
-* When done, for good measure::
+* When done, for good measure:
 
   .. code-block:: none
 
