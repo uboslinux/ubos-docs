@@ -9,6 +9,12 @@ div.footer-wrapper {
   border-top: 1px solid #D5D5D5;
 }
 
+@media print {
+    div.header-wrapper,
+    div.footer-wrapper {
+        display: none;
+    }
+}
 
 a.headerlink {
     visibility: hidden;
