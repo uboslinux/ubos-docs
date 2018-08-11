@@ -11,12 +11,29 @@ diagram shows these as a state chart:
     :align: center
     :alt: UBOS state chart
 
-A UBOS device can either be Powered Off, or Powered On. When Powered On, initially
-it is booting, until it is Booted, and in state Operational. When ``ubos-admin`` is
-executed and while it is running, the device is In Maintenance. Once ``ubos-admin``
-completes, the device goes back to being Operational. The device can further be
-Shutting Down, going back to Powered Off, or, if it is being rebooted, back to
-Booting.
+A UBOS device can either be in one of the following two major states:
+
+* "Powered Off", or
+* "Powered On".
+
+When "Powered On", initially it is:
+
+* "Booting", until the boot process is complete and it is in state
+* "Operational".
+* While ``ubos-admin`` is running, the device is in "In Maintenance".
+
+Once ``ubos-admin`` completes, the device goes back to being "Operational".
+The device can further be:
+
+* "Shutting Down", going back to "Powered Off", or
+* "Rebooting", going back to "Operational".
+
+While it hopefully never happens, the device can also be in state:
+
+* "Error".
+
+If the device enters one of the states shown with a gray background, a
+state transition callback is performed as described next.
 
 State transitions
 -----------------
@@ -35,31 +52,52 @@ When UBOS transitions from one state to another, it invokes callbacks defined in
   So in this example, the invocation may be
   ``Some::Where::Callback::stateChanged( 'Operational', 'a', 17 );``
 
-The values for the states are the same as the most-detailed states shown in the diagram,
-except that blanks are removed: ``BootingOrShuttingDown``, ``Operational``, ``InMaintenance``.
-For obvious reasons, there is no programmatic way of ever accessing state Powered Off.
+The values for the states are the same as the gray-shaded states shown in the
+diagram, except that blanks are removed: ``Operational``, ``InMaintenance``,
+``ShuttingDown``, ``Rebooting`` and ``Error``.
 
 Mapping to LED colors
 ---------------------
 
-For devices that support this, the UBOS state is indicated by the following colors:
+For devices that support this, the UBOS state is indicated by the following
+LED colors:
 
-+-----------------------+---------------------------------------+---------------------------+
-| Device                | State                                 | LED Color                 |
-+=======================+=======================================+=============+=============+
-| Intel NUC (x86_64 pc) | Powered Off                           | Power: red  | Ring: off   |
-|                       +------------+--------------------------+-------------+-------------+
-|                       | Powered On | Booting or Shutting Down | Power: blue | Ring: off   |
-|                       |            +--------------------------+             +-------------+
-|                       |            | Operational              |             | Ring: blue  |
-|                       |            +--------------------------+             +-------------+
-|                       |            | In Maintenance           |             | Ring: red   |
-+-----------------------+------------+--------------------------+-------------+-------------+
-| ESPRESSObin with      | Powered Off                           | Off                       |
-| custom RGB LED        +------------+--------------------------+---------------------------+
-| (aarch64 espressobin) | Powered On | Booting or Shutting Down | Green                     |
-|                       |            +--------------------------+---------------------------+
-|                       |            | Operational              | Blue                      |
-|                       |            +--------------------------+---------------------------+
-|                       |            | In Maintenance           | Red                       |
-+-----------------------+------------+--------------------------+---------------------------+
++-----------------------+---------------------------------------+----------------------------+
+| Device                | State                                 | LED                        |
++=======================+=======================================+=============+==============+
+| Intel NUC (x86_64 pc) | Powered Off                           | Power: red  | Ring: off    |
+|                       +------------+--------------------------+-------------+--------------+
+|                       | Powered On | Operational              | Power: blue | Ring: blue   |
+|                       |            +--------------------------+             +--------------+
+|                       |            | In Maintenance           |             | Ring: yellow |
+|                       |            +--------------------------+             +--------------+
+|                       |            | Booting, or              |             | Ring: off    |
+|                       |            | Shutting Down            |             |              |
+|                       |            +--------------------------+             +--------------+
+|                       |            | Rebooting                |             | Ring: green  |
+|                       |            +--------------------------+             +--------------+
+|                       |            | Error                    |             | Ring: red    |
++-----------------------+------------+--------------------------+-------------+--------------+
+| Raspberry Pi 2 or 3   | Powered Off                           | Off                        |
+| inside a Desktop Pi   +------------+--------------------------+----------------------------+
+| enclosure             | Powered On | Operational, or          | On                         |
+|                       |            | Error                    |                            |
+|                       |            +--------------------------+----------------------------+
+|                       |            | In Maintenance           | Blinking                   |
+|                       |            +--------------------------+----------------------------+
+|                       |            | Booting, or              | Brief blink, then On       |
+|                       |            | Shutting Down, or        |                            |
+|                       |            | Rebooting                |                            |
++-----------------------+------------+--------------------------+----------------------------+
+| ESPRESSObin with      | Powered Off                           | Off                        |
+| custom RGB LED        +------------+--------------------------+----------------------------+
+| (aarch64 espressobin) | Powered On | Operational              | Blue                       |
+|                       |            +--------------------------+----------------------------+
+|                       |            | In Maintenance           | Yellow                     |
+|                       |            +--------------------------+----------------------------+
+|                       |            | Booting, or              | Green                      |
+|                       |            | Shutting Down, or        |                            |
+|                       |            | Rebooting                |                            |
+|                       |            +--------------------------+----------------------------+
+|                       |            | Error                    | Red                        |
++-----------------------+------------+--------------------------+----------------------------+
