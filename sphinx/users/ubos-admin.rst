@@ -396,6 +396,20 @@ Wordpress, at the URLs ``http://example.com/guestbook`` and ``http://example.com
 respectively. Nothing is being said about other :term:`Sites <Site>` that may or may not run on the same
 device.
 
+``ubos-admin start-pagekite``
+-----------------------------
+
+To allow access from the public internet to one or more of the sites on your device using
+the pagekite.net service, install package ``pagekite`` and execute:
+
+.. code-block:: none
+
+   % sudo ubos-admin start-pagekite --kitesecret <SSS> <NNN>
+
+where ``<NNN>`` is the name of your primary kite (e.g. ``johndoe.pagekite.me``)
+and ``<SSS>`` is the secret for the name. You can find both of them on the
+pagekite.net website after you have logged into your account there.
+
 ``ubos-admin status``
 ---------------------
 
@@ -406,6 +420,18 @@ invoke:
 
    % sudo ubos-admin status --all
 
+
+``ubos-admin status-pagekite``
+------------------------------
+
+Shows you the status of pagekite on your device if you have installed it. See
+``ubos-admin start-pagekite`` above.
+
+``ubos-admin stop-pagekite``
+----------------------------
+
+Stops pagekite on your device if you have installed and activated it it. See
+``ubos-admin start-pagekite`` above.
 
 ``ubos-admin undeploy``
 -----------------------
@@ -431,6 +457,7 @@ If you want to create a backup of the :term:`Site` before it is undeployed:
 .. code-block:: none
 
    % sudo ubos-admin undeploy ... --backup <backupfile>
+
 
 ``ubos-admin update``
 ---------------------

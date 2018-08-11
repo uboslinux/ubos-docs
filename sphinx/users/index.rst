@@ -20,6 +20,7 @@ How to use UBOS
    ubos-admin
    writing-image
    howto-ssh
+   howto-pagekite
    report-bug
    troubleshooting
    faq
