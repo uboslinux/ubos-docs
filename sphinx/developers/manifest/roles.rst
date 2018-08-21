@@ -303,6 +303,45 @@ activated; if not, UBOS will activate it and restart Apache2.
 Note that the ``apache2`` role still needs to declare a dependency on ``php-gd``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
 
+Phases
+^^^^^^
+
+When an :term:`AppConfiguration` with an :term:`App` and one ore more :term:`Accessories <Accessory>`
+is deployed, generally the :term:`AppConfigurationItems <AppConfigurationItem>` of the :term:`App` are
+deployed first, followed by the :term:`AppConfigurationItems <AppConfigurationItem>` of one
+:term:`Accessory` at a time in the sequence the :term:`Accessories <Accessory>` were defined in the
+:term:`Site JSON` file.
+
+Then, any installer or upgrader scripts are run in the sequence they were defined in the
+:term:`UBOS Manifest JSON`, with those defined by the :term:`App` before those defined by the
+:term:`Accessories <Accessory>`.
+
+Undeploying the :term:`AppConfiguration` occurs in the opposite sequence.
+
+However, sometimes it is necessary to deviate from this default sequence, in particular if
+the :term:`App` runs a daemon that requires that all :term:`Accessories <Accessory>` have been
+deployed already at the time it starts.
+
+For example, if an :term:`App` runs a Java daemon with :term:`Accessories <Accessory>` that
+contribute optional JARs, and the daemon only scans the available JARs at the time it first starts up,
+clearly the daemon can only start all :term:`Accessories <Accessory>` have been deployed.
+
+In order to support this (fairly rare) situation, the relevant :term:`AppConfigurationItem` (in
+the example, of type ``systemd-service`` that starts the daemon) can be marked with an extra
+entry:
+
+.. code-block:: json
+
+   "phases" : [
+     "after-accessories"
+   ]
+
+This will cause the :term:`AppConfigurationItem` to be skipped on the first pass when installing
+:term:`AppConfigurationItems <AppConfigurationItem>`, and only process it on a second pass that occurs
+after the :term:`Accessories <Accessory>` have all been deployed.
+
+No other values for ``phases`` are currently defined.
+
 Robots.txt contribution
 ^^^^^^^^^^^^^^^^^^^^^^^
 

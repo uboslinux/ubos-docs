@@ -126,11 +126,7 @@ If you are starting from scratch:
 If you have Apps and data on your device already:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If *and only if* you are currently on beta13, and about to upgrade to beta14, you can
-follow the same procedure as in "If you are starting from scratch" in the previous section,
-and then upgrade your device as described in the :doc:`release notes </releases/beta14/release-notes/index>`.
-
-In all other cases, it's a bit more involved:
+This takes the following steps:
 
 #. Boot your device.
 #. Backup all data on your device with ``ubos-admin backup`` and store the backup file on a

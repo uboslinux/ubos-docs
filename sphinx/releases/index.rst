@@ -6,6 +6,7 @@ The most recent release is first in this list:
 .. toctree::
    :maxdepth: 1
 
+   beta15/release-notes/index
    beta14/release-notes/index
    beta13/release-notes/index
    beta12/release-notes/index
