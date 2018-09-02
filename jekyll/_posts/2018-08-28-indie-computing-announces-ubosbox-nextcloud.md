@@ -9,7 +9,7 @@ categories: front news
 At the <a href="https://nextcloud.com/conf/">Nextcloud conference</a> in Berlin,
 Germany, <a href="https://indiecomputing.com/">Indie Computing Corp.</a>, the
 company sponsoring UBOS Linux, announced new products and services that bring the
-benefits of UBOS to non-technical users:
+benefits of UBOS to non-technical users.
 
 <div style="float: right; margin: 0 0 10px 20px">
  <p>
@@ -52,3 +52,7 @@ benefits of UBOS to non-technical users:
 UBOSBox Nextcloud is available for immediate order at
 <a href="https://indiecomputing.com/">indiecomputing.com</a>, with delivery starting
 in September.
+
+Watch the announcement:
+
+<iframe width="980" height="550" src="https://www.youtube.com/embed/zKk2NwXiQu4?start=16433" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
