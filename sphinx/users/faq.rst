@@ -170,6 +170,28 @@ But if you'd like to run the ssh daemon on a non-standard port anyway, do this:
   for ``client`` if you are not using ``client``. (This will reconfigure the firewall.)
 * Execute ``sudo systemctl restart sshd.service``. (This will restart the ssh daemon.)
 
+I want the webserver logs to include the site referral
+------------------------------------------------------
+
+To do that, edit ``/etc/httpd/conf/logging.conf``, comment out this line so it looks
+like this:
+
+.. code-block:: none
+
+   #    CustomLog "/var/log/httpd/access_log" common
+
+and uncomment this line, so it looks like this:
+
+.. code-block:: none
+
+        CustomLog "/var/log/httpd/access_log" combined
+
+Then, restart the web server with:
+
+.. code-block:: none
+
+   # systemctl restart httpd.service
+
 I found a bug.
 --------------
 
