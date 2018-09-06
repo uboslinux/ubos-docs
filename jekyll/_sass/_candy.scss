@@ -60,3 +60,14 @@ a.get-started-button {
     border-radius: 5px;
     box-shadow: 0 0 4px #a0a0a0;
 }
+
+input[type="text"],
+input[type="email"] {
+    margin: 1px;
+    padding: 3px;
+    border: 1px solid #808080;
+}
+input[type="submit"] {
+    padding: 3px;
+    font-size: 75%;
+}
