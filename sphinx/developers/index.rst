@@ -9,6 +9,7 @@ How to develop for UBOS
    toyapps
    ubos-manifest
    site-json
+   complex-deployment-example
    understanding-ubos-admin
    app-test
    logging

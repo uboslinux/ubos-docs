@@ -54,12 +54,12 @@ What's new: for developers
   data files into ``/ubos/lib/<package>/`` (previously: ``/var/lib/<package>/``). The
   pre-defined constants like ``${appconfig.apache2.dir}`` have been updated.
 
-* New AppConfigurationItem ``exec`` executes arbitrary programs, passing parameters as a JSON
-  file. This allows developers to avoid writing wrappers in Perl. AppConfigurationItem
+* New :term:`AppConfigItem` ``exec`` executes arbitrary programs, passing parameters as a JSON
+  file. This allows developers to avoid writing wrappers in Perl. :term:`AppConfigItem`
   ``perlscript`` continues to be available with the same invocation as before.
 
-* New AppConfigurationItem ``systemd-target`` joins ``systemd-service`` and ``systemd-timer``
+* New :term:`AppConfigItem` ``systemd-target`` joins ``systemd-service`` and ``systemd-timer``
   and works in the way you'd expect.
 
-* AppConfigurationItem ``symlink`` now is permitted to point to non-existing files.
+* :term:`AppConfigItem` ``symlink`` now is permitted to point to non-existing files.
 

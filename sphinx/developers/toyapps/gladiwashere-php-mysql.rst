@@ -107,9 +107,9 @@ Let's examine this :term:`App`'s :term:`UBOS Manifest JSON` file. It is very sim
    }
 
 * In addition to the ``apache2`` role, this :term:`App` also has a ``mysql`` role. Like in the
-  ``apache2`` role, the contained AppConfigurationItems (entry ``appconfigitems``) tell UBOS
-  what needs to be provisioned so the :term:`App` can be run successfully. In the ``mysql`` role,
-  these are items all related to MySQL.
+  ``apache2`` role, the contained :term:`AppConfigItems <AppConfigItem>` (entry
+  ``appconfigitems``) tell UBOS what needs to be provisioned so the :term:`App` can be run
+  successfully. In the ``mysql`` role, these are items all related to MySQL.
 
   Here, we tell UBOS to provision a new database for each deployment of Glad-I-Was-Here,
   together with a new database user and a unique database credential. This database

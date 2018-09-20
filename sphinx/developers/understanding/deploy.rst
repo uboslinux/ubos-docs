@@ -15,16 +15,18 @@ If the Site JSON file provided to this command is valid, UBOS will perform the f
      files;
    * packages listed in the ``depends`` section of the
      :doc:`manifest JSONs <../ubos-manifest>` of the
-     :term:`App` and :term:`Accessories <Accessory>`, for those roles that are being used on the device.
+     :term:`App` and :term:`Accessories <Accessory>`, for those roles that are being used
+     on the device.
    * the database engine(s) required for the :term:`App`, if not already installed.
 
-#. If the :term:`Site` has previously been deployed, the existing :term:`Site` will first be suspended, and
-   the data of all the :term:`Apps <App>` and :term:`Accessories <Accessory>` at the :term:`Site` will temporarily be backed up.
+#. If the :term:`Site` has previously been deployed, the existing :term:`Site` will first
+   be suspended, and the data of all the :term:`Apps <App>` and :term:`Accessories <Accessory>`
+   at the :term:`Site` will temporarily be backed up.
 
 #. The :term:`Site`'s frontpage will be replaced with a placeholder saying "upgrade in progress".
 
-#. If the :term:`Site` has previously been deployed, all :term:`Apps <App>` and :term:`Accessories <Accessory>` at the
-   deployed :term:`Site` will be undeployed.
+#. If the :term:`Site` has previously been deployed, all :term:`Apps <App>` and
+   :term:`Accessories <Accessory>` at the deployed :term:`Site` will be undeployed.
 
 #. If a backup was requested, the backup will be created.
 
@@ -40,9 +42,9 @@ If the Site JSON file provided to this command is valid, UBOS will perform the f
    address, per Letsencrypt requirements), the :term:`Site` will still be set up,
    but without SSL/TLS.
 
-#. All the :term:`Apps <App>` and the :term:`Accessories <Accessory>` in the new Site JSON will be deployed.
-   For each of them, the :doc:`manifest JSONs <../ubos-manifest>`
-   is processed for each of the roles, and each of the AppConfigurationItems
+#. All the :term:`Apps <App>` and the :term:`Accessories <Accessory>` in the new Site JSON
+   will be deployed. For each of them, the :doc:`manifest JSONs <../ubos-manifest>`
+   is processed for each of the roles, and each of the :term:`AppConfigItems <AppConfigItem>`
    is deployed: files are copied, directories created, databases provisioned
    and populated, and scripts run.
 
@@ -56,14 +58,15 @@ If the Site JSON file provided to this command is valid, UBOS will perform the f
 #. The frontpage of the :term:`Site` will be re-enabled.
 
 UBOS uses the ``siteid`` and the ``appconfigid`` fields in the
-:doc:`../site-json` to determine whether a :term:`Site` and/or an :term:`AppConfiguration` is being newly
-deployed, redeployed or undeployed. This makes it easy to move a :term:`Site` from one hostname to
-another (the Site JSON is the same with the same ``siteid`` and ``appconfigid``, but a
-changed ``hostname``), or to move an :term:`App` from one context path to another (the
-``appconfigid`` is the same, just the ``context`` is different).
+:doc:`../site-json` to determine whether a :term:`Site` and/or an :term:`AppConfiguration`
+is being newly deployed, redeployed or undeployed. This makes it easy to move a :term:`Site`
+from one hostname to another (the Site JSON is the same with the same ``siteid`` and
+``appconfigid``, but a changed ``hostname``), or to move an :term:`App` from one context
+path to another (the ``appconfigid`` is the same, just the ``context`` is different).
 
 This command also accepts the ``--template`` flag. In this case, ``ubos-admin deploy``
-allows the provided Site JSON file to leave out :term:`SiteIds <SiteId>` and :term:`AppConfigIds <AppConfigId>`,
-and automatically generate new IDs before deploying the Site JSON.
+allows the provided Site JSON file to leave out :term:`SiteIds <SiteId>` and
+:term:`AppConfigIds <AppConfigId>`, and automatically generate new IDs before deploying
+the Site JSON.
 
 This command must be run as root (``sudo ubos-admin deploy``).

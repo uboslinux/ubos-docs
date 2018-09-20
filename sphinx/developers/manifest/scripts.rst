@@ -59,25 +59,25 @@ The ``operation`` parameter
 
 The possible values of the ``operation`` parameter are the following:
 
-For ``exec`` or ``perlscript`` AppConfigurationItems:
+For ``exec`` or ``perlscript`` :term:`AppConfigItems <AppConfigItem>`:
 
-* ``deploy``: invoked when the AppConfigurationItem is deployed as part of the deployment
+* ``deploy``: invoked when the :term:`AppConfigItem` is deployed as part of the deployment
   or redeployment of an :term:`App` to a :term:`Site`.
-* ``undeploy``: the reverse operation of ``deploy``. Invoked when the AppConfigurationItem
+* ``undeploy``: the reverse operation of ``deploy``. Invoked when the :term:`AppConfigItem`
   is undeployed as part of the undeployment of an :term:`App` from a :term:`Site`.
 
 For ``exec`` or ``perlscript`` installers:
 
 * ``install``: invoked when an :term:`App` is deployed or redeployed to a :term:`Site`, after all the
-  AppConfigurationItems have been deployed, but only if no data is to be restored (i.e. it
-  is a virgin install).
+  :term:`AppConfigItems <AppConfigItem>` have been deployed, but only if no data is to be
+  restored (i.e. it is a virgin install).
 * ``uninstall``: the reverse operation of ``install``. Invoked when an :term:`App` is undeployed
-  from a :term:`Site`, before any the AppConfigurationItems have been undeployed.
+  from a :term:`Site`, before any the :term:`AppConfigItems <AppConfigItem>` have been undeployed.
 
 For ``exec`` or ``perlscript`` updaters:
 
 * ``upgrade``: invoked when an :term:`App` is deployed or redeployed to a :term:`Site`, after all the
-  AppConfigurationItems have been deployed, but only if backup data is to be restored (i.e.
+  :term:`AppConfigItems <AppConfigItem>` have been deployed, but only if backup data is to be restored (i.e.
   it is a restore or upgrade, rather than a virgin install).
 
 The same executable or script may be used to handle several of these operations, which is why

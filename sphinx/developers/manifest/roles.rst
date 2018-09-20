@@ -48,8 +48,8 @@ Example:
      "depends" : [ "php-apache", "php-gd" ],
      ...
 
-AppConfigurationItems
-^^^^^^^^^^^^^^^^^^^^^
+AppConfigItems
+^^^^^^^^^^^^^^
 
 This section captures the items that need to be put in place before a deployment of
 an :term:`App` or :term:`Accessory` is functional. These items can be things such as files, directories,
@@ -80,7 +80,7 @@ may be found:
    ]
 
 Here, three items need to be put in place: two files, and a symbolic link. The following
-:term:`AppConfigurationItem` types are currently supported:
+:term:`AppConfigItem` types are currently supported:
 
 * ``directory``: a directory to be created;
 * ``directorytree`` : a recursive directory tree, copied from somewhere else;
@@ -97,7 +97,7 @@ Here, three items need to be put in place: two files, and a symbolic link. The f
 
 The field ``name`` is the name of the file, directory, database, systemd service or timer to
 be created or operated on. ``names`` can be used as a shortcut for several
-:term:`AppConfigurationItems <AppConfigurationItem>` to which the same other settings apply.
+:term:`AppConfigItems <AppConfigItem>` to which the same other settings apply.
 
 The field ``template`` identifies a file or directory that is to be used as a template for
 creating the new item. The corresponding field ``templatelang`` states how the template
@@ -114,7 +114,8 @@ The ``source`` field in case of ``directorytree``, ``file`` and ``symlink`` may 
 * ``$2``: it will be replaced with the file name (without directories) of the ``name`` or
   current ``names`` entry.
 
-The following table shows all attributes for AppConfigurationItems that are defined:
+The following table shows all attributes for :term:`AppConfigItems <AppConfigItem>` that
+are defined:
 
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
 | JSON Entry          | Description                                  | Relative path context         | Mutually exclusive with |
@@ -177,7 +178,7 @@ The following table shows all attributes for AppConfigurationItems that are defi
 |                     | ``root``)                                    |                               |                         |
 +---------------------+----------------------------------------------+-------------------------------+-------------------------+
 
-This table shows which attributes apply to which types of AppConfigurationItem:
+This table shows which attributes apply to which types of :term:`AppConfigItems <AppConfigItem>`:
 
 +---------------------+---------------+---------------+-----------+--------------+------------+------------+-------------+--------------+--------------+-------------+-------------+
 | JSON Entry          | ``directory`` | ``directory`` | ``file``  | ``database`` | ``perl``   | ``sql``    | ``symlink`` | ``systemd-`` | ``systemd-`` | ``tcpport`` | ``udpport`` |
@@ -307,8 +308,8 @@ Phases
 ^^^^^^
 
 When an :term:`AppConfiguration` with an :term:`App` and one ore more :term:`Accessories <Accessory>`
-is deployed, generally the :term:`AppConfigurationItems <AppConfigurationItem>` of the :term:`App` are
-deployed first, followed by the :term:`AppConfigurationItems <AppConfigurationItem>` of one
+is deployed, generally the :term:`AppConfigItems <AppConfigItem>` of the :term:`App` are
+deployed first, followed by the :term:`AppConfigItems <AppConfigItem>` of one
 :term:`Accessory` at a time in the sequence the :term:`Accessories <Accessory>` were defined in the
 :term:`Site JSON` file.
 
@@ -326,7 +327,7 @@ For example, if an :term:`App` runs a Java daemon with :term:`Accessories <Acces
 contribute optional JARs, and the daemon only scans the available JARs at the time it first starts up,
 clearly the daemon can only start all :term:`Accessories <Accessory>` have been deployed.
 
-In order to support this (fairly rare) situation, the relevant :term:`AppConfigurationItem` (in
+In order to support this (fairly rare) situation, the relevant :term:`AppConfigItems <AppConfigItem>` (in
 the example, of type ``systemd-service`` that starts the daemon) can be marked with an extra
 entry:
 
@@ -336,8 +337,8 @@ entry:
      "after-accessories"
    ]
 
-This will cause the :term:`AppConfigurationItem` to be skipped on the first pass when installing
-:term:`AppConfigurationItems <AppConfigurationItem>`, and only process it on a second pass that occurs
+This will cause the :term:`AppConfigItem` to be skipped on the first pass when installing
+:term:`AppConfigItems <AppConfigItem>`, and only process it on a second pass that occurs
 after the :term:`Accessories <Accessory>` have all been deployed.
 
 No other values for ``phases`` are currently defined.
