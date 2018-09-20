@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Indie Computing announces UBOSbox Nextcloud and UBOS Live"
-date:   2018-08-23 16:00:00
+date:   2018-08-28 16:00:00
 author: Johannes Ernst
 categories: front news
 ---
@@ -55,4 +55,4 @@ in September.
 
 Watch the announcement:
 
-<iframe width="980" height="550" src="https://www.youtube.com/embed/zKk2NwXiQu4?start=16433" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="980" height="550" src="https://www.youtube.com/embed/7HOKwZ-IWqk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
