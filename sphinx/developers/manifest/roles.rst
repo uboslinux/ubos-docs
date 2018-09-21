@@ -324,24 +324,23 @@ the :term:`App` runs a daemon that requires that all :term:`Accessories <Accesso
 deployed already at the time it starts.
 
 For example, if an :term:`App` runs a Java daemon with :term:`Accessories <Accessory>` that
-contribute optional JARs, and the daemon only scans the available JARs at the time it first starts up,
-clearly the daemon can only start all :term:`Accessories <Accessory>` have been deployed.
+contribute optional JARs, and the daemon only scans the available JARs at the time it first
+starts up, clearly the daemon can only start all :term:`Accessories <Accessory>` have been
+deployed.
 
-In order to support this (fairly rare) situation, the relevant :term:`AppConfigItems <AppConfigItem>` (in
-the example, of type ``systemd-service`` that starts the daemon) can be marked with an extra
-entry:
+In order to support this (fairly rare) situation, the relevant
+:term:`AppConfigItems <AppConfigItem>` (in the example, of type ``systemd-service`` that
+starts the daemon) can be marked with an extra entry:
 
 .. code-block:: json
 
-   "phases" : [
-     "after-accessories"
-   ]
+   "phase" : "suspendresume"
 
 This will cause the :term:`AppConfigItem` to be skipped on the first pass when installing
 :term:`AppConfigItems <AppConfigItem>`, and only process it on a second pass that occurs
 after the :term:`Accessories <Accessory>` have all been deployed.
 
-No other values for ``phases`` are currently defined.
+No other values for ``phase`` are currently defined.
 
 Robots.txt contribution
 ^^^^^^^^^^^^^^^^^^^^^^^

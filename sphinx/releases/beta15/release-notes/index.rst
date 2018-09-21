@@ -71,11 +71,11 @@ What's new: for developers
 * ``php-systemd`` is now available to log to the system journal directly
   from PHP applications.
 
-* Multi-phase deployment: AppConfigItems in apps can now be declared
+* Multi-phase deployment: Systemd AppConfigItems in apps can now be declared
   as running after all accessories of the app have been deployed, as
   opposed to before. This makes it possible to run start daemons,
   for example, only once all accessories have been deployed. To do this,
-  mark an AppConfigItem with ``"phases" : [ "after-accessories" ]`` in
+  mark a Systemd AppConfigItem with ``"phase" : "suspendresume"`` in
   the UBOS manifest.
 
 * The new variable ``${appconfig.appconfigparsdir}`` resolves to the
