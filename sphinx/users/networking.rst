@@ -24,7 +24,7 @@ layers of the networking stack including:
 * individual network interfaces such as Ethernet interfaces
 * IP addresses
 * DHCP
-* DNS
+* DNS on the local network
 * zeroconf/mDNS
 * Firewall
 * Masquerading
@@ -276,3 +276,28 @@ For details, please refer to the ``dnsmasq`` documentation.
 For example: you could use this setup to implement a DHCP "white list" so only devices
 that are know are allowed to obtain an IP address, which in turn will be the same every
 time the same device connects to the network.
+
+External Dynamic DNS
+--------------------
+
+If a UBOS :term:`device` can be reached over the public internet, such as if it acts as a
+broadband router, it may be advantageous to run Dynamic DNS: this provides a consistent
+DNS hostname for the device, even if the internet service provider changes the device's
+IP address from time to time.
+
+For that purpose, UBOS includes the ``ddclient`` package, which supports a broad range of
+paid and free dynamic DNS providers. To set it up, first install the package:
+
+.. code-block:: none
+
+   % sudo pacman -S ddclient
+
+Then, as root, edit ``/etc/ddclient.conf`` with the settings for your dynamic DNS provider.
+Finally, run ``ddclient`` as a daemon:
+
+.. code-block:: none
+
+   % sudo systemctl enable --now ddclient.service
+
+This is described in more detail on the
+`Arch Linux Wiki <https://wiki.archlinux.org/index.php/Dynamic_DNS>`_.
