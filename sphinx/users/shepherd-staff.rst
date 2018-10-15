@@ -40,37 +40,44 @@ use as UBOS staff is minimal. Speed is also largely irrelevant.
 
 The UBOS Staff device uses the following directory layout. For details, see below:
 
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| Directory                          | File                    | Description                                                                     |
-+====================================+=========================+=================================================================================+
-| ``shepherd/ssh/``                  | ``id_rsa.pub``          | SSH public key for the ``shepherd`` account.                                    |
-|                                    +-------------------------+---------------------------------------------------------------------------------+
-|                                    | ``id_rsa``              | SSH private key for the ``shepherd`` account. You can delete it here once you   |
-|                                    |                         | have copied it to your workstation from where you will be logging into your     |
-|                                    |                         | UBOS device(s).                                                                 |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``wifi/``                          | ``<ssid>.conf``         | This directory may contain several files, one for each to-be-configured WiFi    |
-|                                    |                         | SSID. Each file must be named based on the SSID it configures.                  |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``site-templates/``                | ``<name>.json``         | This directory may contain several Site JSON template files. Each of them will  |
-|                                    |                         | be instantiated and deployed to any device that reads this Staff unless a       |
-|                                    |                         | :term:`Site` with the same hostname exists already on the device.               |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``flock/<HOSTID>/device-info/``    | ``device.json``         | A JSON file containing information about the device.                            |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``flock/<HOSTID>/site-templates/`` | ``<name>.json``         | This directory may contain several Site JSON files or Site JSON template files. |
-|                                    |                         | Each of them will be instantiated (if a template) and deployed to the device    |
-|                                    |                         | with host id ``<HOSTID>``, but ignored on other devices.                        |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``flock/<HOSTID>/sites/``          | ``<name>.json``         | This directory may contain several Site JSON files, which represent the         |
-|                                    |                         | :term:`Site(s) <Site>` as deployed on the device at the time the Staff was      |
-|                                    |                         | written last.                                                                   |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-| ``flock/<HOSTID>/ssh/``            | ``ssh_host_<type>_key`` | This directory may contain one or more of the device's SSH host keys of         |
-|                                    |                         | different types, such as ``rsa`` or ``ecdsa``. This can be used, in addition to |
-|                                    |                         | ``shepherd`` SSH key pair, to authenticate the host (not just the client) over  |
-|                                    |                         | the network.                                                                    |
-+------------------------------------+-------------------------+---------------------------------------------------------------------------------+
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| Directory                          | File                                   | Description                                                                     |
++====================================+========================================+=================================================================================+
+| ``shepherd/ssh/``                  | ``id_rsa.pub``                         | SSH public key for the ``shepherd`` account.                                    |
+|                                    +----------------------------------------+---------------------------------------------------------------------------------+
+|                                    | ``id_rsa``                             | SSH private key for the ``shepherd`` account. You can delete it here once you   |
+|                                    |                                        | have copied it to your workstation from where you will be logging into your     |
+|                                    |                                        | UBOS device(s).                                                                 |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``wifi/``                          | ``<ssid>.conf``                        | This directory may contain several files, one for each to-be-configured WiFi    |
+|                                    |                                        | SSID. Each file must be named based on the SSID it configures.                  |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``site-templates/``                | ``<name>.json``                        | This directory may contain several Site JSON template files. Each of them will  |
+|                                    |                                        | be instantiated and deployed to any device that reads this Staff unless a       |
+|                                    |                                        | :term:`Site` with the same hostname exists already on the device.               |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``flock/<HOSTID>/device-info/``    | ``device.json``                        | A JSON file containing information about the device.                            |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``flock/<HOSTID>/site-templates/`` | ``<name>.json``                        | This directory may contain several Site JSON files or Site JSON template files. |
+|                                    |                                        | Each of them will be instantiated (if a template) and deployed to the device    |
+|                                    |                                        | with host id ``<HOSTID>``, but ignored on other devices.                        |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``flock/<HOSTID>/sites/``          | ``<name>.json``                        | This directory may contain several Site JSON files, which represent the         |
+|                                    |                                        | :term:`Site(s) <Site>` as deployed on the device at the time the Staff was      |
+|                                    |                                        | written last.                                                                   |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``flock/<HOSTID>/ssh/``            | ``ssh_host_<type>_key``                | This directory may contain one or more of the device's SSH host keys of         |
+|                                    |                                        | different types, such as ``rsa`` or ``ecdsa``. This can be used, in addition to |
+|                                    |                                        | ``shepherd`` SSH key pair, to authenticate the host (not just the client) over  |
+|                                    |                                        | the network.                                                                    |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| root of Staff device               | ``I-ADMINISTER-MY-UBOSBOX-MYSELF.txt`` | If package ``ubos-live`` is installed, a Staff device is present at boot and a  |
+|                                    |                                        | file with this name is NOT present, the UBOS device will register itself with   |
+|                                    |                                        | Indie Computing's `UBOS Live <https://indiecomputing.com/products/ubos-live/>`_ |
+|                                    |                                        | device management service. To prevent this, do not install package              |
+|                                    |                                        | ``ubos-live`` or create a file (content is irrelevant) with this name on the    |
+|                                    |                                        | UBOS Staff device.                                                              |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
 
 ``<HOSTID>`` refers to the device's unique ``hostid``, which can be printed with ``ubos-admin hostid``.
 
