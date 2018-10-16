@@ -9,6 +9,7 @@ How to develop for UBOS
    toyapps
    ubos-manifest
    site-json
+   well-known-ports
    complex-deployment-example
    understanding-ubos-admin
    app-test
