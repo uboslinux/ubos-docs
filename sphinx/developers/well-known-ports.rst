@@ -30,10 +30,10 @@ To allocate a single port used by all AppConfigurations of an app
 Please get `in touch <https://ubos.net/community/>`_ to have your port placed on
 this list. The following port numbers are well-known so far:
 
-+--------+----------+--------------------------+-------------+
-| Port   | Protocol | Name of app or accessory | Description |
-+========+==========+==========================+=============+
-| None so far                                                |
-+------------------------------------------------------------+
++--------+----------+--------------------------+---------------------------------------------+
+| Port   | Protocol | Name of app or accessory | Description                                 |
++========+==========+==========================+=============================================+
+| 6001   | tcp      | ``decko``                | ``decko-memcached.service`` listens at this |
+|        |          |                          | port for all Decko instances on this device |
++--------+----------+--------------------------+---------------------------------------------+
 
-Next port to allocate: 6001.
