@@ -34,7 +34,7 @@ and save that data to file ``<backupfile>``, execute:
 
    % sudo ubos-admin backup --out <backupfile>
 
-For example::
+For example:
 
 .. code-block:: none
 
@@ -97,6 +97,24 @@ When you invoke this command for the first time, it will ask you for the
 necessary credential information so it can store the backup on your account
 at Amazon Web Services. This credential information will be stored on your
 device, so you do not need to enter it every time you run a backup.
+
+Specifically, you need to have the Amazon "Access Key ID" and the Amazon
+"Secret Access Key" for an AWS user that is permitted to create and
+write the S3 bucket that you specified. Creating this may involve the following
+steps:
+
+* Sign up for an Amazon Web Services (AWS) account.
+* In AWS, create an suitable Identity and Access Management (IAM) user,
+  e.g. ``mybackupuser``.
+* Create an "Access Key ID" and "Secret Access Key" for that user. Store both
+  of them securely, as Amazon will not show you the Secret Access Key again.
+* Add the needed permissions to this user by creating a policy, such as:
+
+  * ``HeadBucket``
+  * ``ListBucket``
+  * ``GetObject``
+  * ``CreateBucket``
+  * ``PutObject``.
 
 If you have a GPG key pair with key id ``<keyid>``, you can
 optionally specify ``--encryptid <keyid>``. This will encrypt the backup
