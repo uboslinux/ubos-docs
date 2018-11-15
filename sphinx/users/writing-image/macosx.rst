@@ -7,6 +7,15 @@ USB stick, or to an SD card.
 If you are writing to an SD card, you can use your computer's built-in SD card
 reader (if it has one), or use a USB adapter.
 
+.. note:: In more recent versions of Mac OSX, a feature called "System Integrity
+   Protection" (SIP) may prevent even the root user from directly writing to disk.
+   To be able to write your UBOS image to a USB stick or SD card, you may need
+   to either disable SIP (not recommended), or give the Terminal app extra rights
+   (better). To do the latter, in "System Preferences", select "Security & Privacy",
+   then "Full Disk Access" and add "Terminal" to the list of apps (usually empty)
+   that have full access. How to do that is described in more detail in
+   `this OSXdaily article <http://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/>`_.
+
 To write the image:
 
 * Determine the device name of your USB stick or SD card. That is easiest if you
