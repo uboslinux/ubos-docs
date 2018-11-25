@@ -9,7 +9,7 @@ easy. On UBOS, you now have three options:
    any visitor to your :term:`Site` who isn't you.)
 
 #. Use an automatically generated `letsencrypt.org <https://letsencrypt.org/>`_
-   certificate. This is free, and UBOS sets is up in a way that your device will
+   certificate. This is free, and UBOS sets it up in a way that your device will
    automatically renew your certificate before it expires. Note: given the way
    Letsencrypt operates, this requires your :term:`Site` to have an official domain name
    and to run on a device that has a publicly available IP address.
