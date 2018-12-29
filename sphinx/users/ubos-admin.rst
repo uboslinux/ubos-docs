@@ -76,6 +76,11 @@ options as for ``ubos-admin backup``. In addition, you can use:
 * ``--bucket <bucket>``: specify the name of the S3 bucket to store the
   backup to.
 
+If you do not specify those options, UBOS will use the ones you used the last time you
+ran this command on this device. If you have never run it before, UBOS will ask you.
+
+For more details, refer to :doc:`../users/backup`.
+
 ``ubos-admin backupinfo``
 -------------------------
 

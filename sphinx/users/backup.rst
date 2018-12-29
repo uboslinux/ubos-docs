@@ -104,17 +104,20 @@ write the S3 bucket that you specified. Creating this may involve the following
 steps:
 
 * Sign up for an Amazon Web Services (AWS) account.
+
 * In AWS, create an suitable Identity and Access Management (IAM) user,
-  e.g. ``mybackupuser``.
-* Create an "Access Key ID" and "Secret Access Key" for that user. Store both
-  of them securely, as Amazon will not show you the Secret Access Key again.
+  e.g. ``mybackupuser``. This is a user that will only use "programmatic"
+  access.
+
 * Add the needed permissions to this user by creating a policy, such as:
 
   * ``HeadBucket``
   * ``ListBucket``
-  * ``GetObject``
   * ``CreateBucket``
   * ``PutObject``.
+
+* Create an "Access Key ID" and "Secret Access Key" for that user. Store both
+  of them securely, as Amazon will not show you the Secret Access Key again.
 
 If you have a GPG key pair with key id ``<keyid>``, you can
 optionally specify ``--encryptid <keyid>``. This will encrypt the backup
