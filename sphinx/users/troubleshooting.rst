@@ -212,6 +212,26 @@ old version.
 
 Always execute ``ubos-admin update`` before installing a new :term:`App`.
 
+On any device: "key is disabled" or "invalid or corrupted package" when installing a package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This message is triggered when UBOS cannot verify that a package file has been created
+by a trusted developer (i.e. one whose public key is listed as "trusted" in pacman's
+trust database). Note that this error message is slightly misleading, as there are several
+conditions that cause this message, not just one:
+
+* the signature for the file is invalid (e.g. just made up)
+* the signature for the file is valid, but pacman's trust database does not have the needed
+  public key to verify it
+* the signature for the file is valid, pacman's trust database has the public key to
+  verify it, but the key is not marked as trusted in pacman's trust database.
+
+* the package indeed was created by a non-trusted developer. This is unlikely, unless
+  you created the package yourself. If you decide that you wish to trust the developer
+  (such as yourself) in spite of UBOS' policies, use ``pacman-key`` to add the key
+  to pacman's gpg database
+* your trust database is out of date.
+
 Image problems
 --------------
 
