@@ -375,3 +375,36 @@ same :term:`Site` had contributions to the generated ``robots.txt`` file, then t
    User-Agent: *
    Disallow: /blog/wp-admin/
 
+Status of the AppConfiguration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:term:`Apps <App>` may optionally declare an executable or script that, when invoked, reports
+status information of the :term:`AppConfiguration` on which it is applied. This status information
+is provided in JSON in a format defined in :doc:`../app-status`.
+
+To declare such an executable or script, add the following JSON fragment in the ``apache2``
+role in its :term:`App's <App>` UBOS Manifest JSON, assuming the Perl script ``status.pl``
+in directory ``${appconfig.apache2.dir}`` should be invoked:
+
+.. code-block:: json
+
+   "status" : {
+     "source" : "status.pl",
+     "type"   : "perlscript"
+   }
+
+Alternatively, the ``exec`` type can be used:
+
+.. code-block:: json
+
+   "status" : {
+     "source" : "status.sh",
+     "type"   : "exec"
+   }
+
+The script or executable will be invoked with the same arguments as other scripts or
+executables specified in the UBOS Manifest JSON, but the value for ``operation`` is
+``status``.
+
+This script or executable is only invoked while the :term:`App` has been deployed and
+is supposed to be operational. It is not invoked at any other time.
