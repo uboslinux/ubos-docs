@@ -16,6 +16,7 @@ This section describes the UBOS manifest and how to use it.
    manifest/info
    manifest/roles
    manifest/customizationpoints
+   manifest/appinfo
    manifest/accessoryinfo
    manifest/variables
    manifest/functions
