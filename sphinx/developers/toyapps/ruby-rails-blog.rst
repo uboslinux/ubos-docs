@@ -107,6 +107,8 @@ UBOS needs the following additions:
   installation of the :term:`App`;
 * ``tmpl/htaccess.tmpl``: the template for the Apache config file fragment that configures
   Apache and Passenger for our application.
+* ``tmpl/logrotate.tmpl``: the template for the :term:`App`'s ``logrotate`` file, so
+  logs are periodically rotated and purged.
 
 The organization in these files and directories is by UBOS convention; however, with suitable
 modifications to the ``PKGBUILD`` file, any other organization is possible.
@@ -122,7 +124,8 @@ About ``PKGBUILD``
 It defines some variables to identify the developer of the :term:`App`, the name and version of the
 package, the license of the :term:`App` and the like. It also identifies package dependencies.
 The only dependency here is on UBOS package ``ubos-rails-support``, which bundles a few
-useful scripts for deploying RoR apps on UBOS.
+useful scripts for deploying RoR apps on UBOS. You may or may not want to use
+/ depend on this package.
 
 The ``build()`` function is invoked by ``makepkg`` to build what needs building before
 the package is assembled. This invokes the familiar rails commands:
@@ -150,8 +153,6 @@ hierarchy (starting at ``${pkgdir}``) which ``makepkg`` will tar up for us.
   This is performed by the list of files and directories, which then is copied recursively
   to below ``${pkgdir}/ubos/share/${pkgname}/`` (expanded to ``/ubos/share/ruby-rails-blog``
   on the target device).
-* Finally, we create a directory below ``/var/log/ruby-rails-blog`` that will be the
-  parent directory for the Rails log files.
 
 About ``ubos-manifest.json``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,7 +174,7 @@ There are a number of AppConfigItems, i.e. items that need to provisioned for ea
 instance of this :term:`App` deployed to a device:
 
 * The file ``tmpl/htaccess.tmpl`` (discussed below) needs to be copied to the place
-  where Apache expect it (refered to by symbolic name), after contained variables have
+  where Apache expects it (refered to by symbolic name), after contained variables have
   been replaced with the values for this deployment.
 * This :term:`AppConfiguration`'s data directory must have been created. The symbolic name
   ``${appconfig.datadir}`` will expand to ``/ubos/lib/ruby-rails-blog/aXXXX`` where
@@ -186,7 +187,7 @@ instance of this :term:`App` deployed to a device:
 * Into this ``approot`` directory, we now recursively copy, preserving file and
   directory permissions, the files and directories that Passenger needs to run.
 * After that, we invoke utility script ``setup-logging`` from the ``ubos-ruby-support``
-  package. This will simply make sure that directory ``/var/log/ruby-rails-blog/aXXXX``
+  package. This will simply make sure that directory ``/var/log/ruby-rails-blog-aXXXX``
   exists and contains a writable file ``production.log``. This is a script, rather
   than a file or directory AppConfigItem, because we don't want to delete the directory
   once the :term:`App` is undeployed.
@@ -261,6 +262,14 @@ Finally, we pass the values of the customizationpoints ``railsmasterkey`` and
 variables can then be picked up by the application, and we don't need to change the
 Rails defaults (obviously this could be done differently).
 
+About ``logrotate.tmpl``
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+This template file is being instantiated at ``/etc/logrotate.d/ruby-rails-blog-${appconfig.appconfigid}``,
+with ``${appconfig.appconfigid}`` having been replaced with the :term:`AppConfigId`.
+It simply says that all files ending with ``log`` in directory
+``/ubos/log/ruby-rails-blog-${appconfig.appconfigid}`` should be periodically
+compressed and rotated.
 
 Building and running the App on UBOS
 ------------------------------------
@@ -291,4 +300,3 @@ and answer the questions. When asked for the name of the application to install,
 enter ``ruby-rails-blog``. Make sure that your DNS setup is consistent with the name of
 the :term:`Site` (or use ``*`` as the name of the :term:`Site`). Once the command is finished, your
 :term:`Site` is accessible with a web browser at the hostname specified.
-
