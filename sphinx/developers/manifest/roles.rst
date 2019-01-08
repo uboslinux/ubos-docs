@@ -268,6 +268,20 @@ Web :term:`Apps <App>` must specify one of the following two fields:
 * ``fixedcontext``: some web :term:`Apps <App>` can only be installed at a particular relative URL,
   or only at the root of a :term:`Site`. Use ``fixedcontext`` to declare that relative URL.
 
+Transport-level security (TLS) required
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some :term:`Apps <App>` require that they be accessed via HTTPS only, using SSL/TLS, and will
+refuse to work over HTTP. Such :term:`Apps <App>` need to declare this requirement, so
+UBOS can prevent that they are deployed to an HTTP-only site. To declare this requirement,
+use this JSON fragment:
+
+.. code-block:: json
+
+   "requirestls" : true
+
+If not given, the default for this field is assumed to be ``false``.
+
 Apache modules
 ^^^^^^^^^^^^^^
 
