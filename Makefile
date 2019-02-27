@@ -1,9 +1,15 @@
-# Makefile for ubos.net
+# Makefile for ubos.net/docs and ubos/docs/yellow (depending on branch)
 
-UBOS_AWS_IMAGE_URL = https://console.aws.amazon.com/ec2/v2/home?region=us-east-1\#LaunchInstanceWizard:ami=ami-053931a948e3ea97d
+BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
-# ubos.net variables
-STAGEDIR = stage
+ifeq "$(BRANCH)" 'master'
+    STAGEDIR = ../ubos-website/stage/docs
+else ifeq "$(BRANCH)" 'yellow'
+    STAGEDIR = ../ubos-website/stage/docs-yellow
+else
+    $(error 'Cannot determine branch')
+endif
+
 CACHEDIR = cache
 
 # You can set these variables from the command line.
@@ -14,29 +20,15 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) sou
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
-.PHONY: all clean jekyll sphinx open
+.PHONY: all clean sphinx open
 
-all: jekyll sphinx static
+all: sphinx
 
 clean:
 	rm -rf $(STAGEDIR)/* $(CACHEDIR)/*
 
 sphinx:
-	sphinx-build -b html -d $(DOCTREEDIR) $(PHINXOPTS) sphinx $(STAGEDIR)/docs
-
-jekyll:
-	jekyll build -s jekyll -d $(STAGEDIR)
-
-static:
-	[ -d "reveal/git" ] || echo "WARNING: revealjs github repo not present at ./reveal"
-	install -m644 images/logo2/ubos-16x16.ico $(STAGEDIR)/favicon.ico
-	[ -d "$(STAGEDIR)/files" ]  || mkdir "$(STAGEDIR)/files"
-	[ -d "$(STAGEDIR)/slides" ] || mkdir "$(STAGEDIR)/slides"
-	install -m644 files/* $(STAGEDIR)/files/
-	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
-	echo 'RedirectMatch /staff(.*)$$ https://ubos.net/docs/users/shepherd-staff.html' >> $(STAGEDIR)/.htaccess
-	mkdir -p $(STAGEDIR)/include
-	sed -e "s!UBOS_AWS_IMAGE_URL!$(UBOS_AWS_IMAGE_URL)!g" include/amazon-ec2-image-latest.js > $(STAGEDIR)/include/amazon-ec2-image-latest.js
+	sphinx-build -b html -d $(DOCTREEDIR) $(PHINXOPTS) sphinx $(STAGEDIR)
 
 open:
-	open -a Firefox http://ubos/
+	open -a Firefox http://ubos/docs/
