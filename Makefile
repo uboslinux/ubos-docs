@@ -3,32 +3,40 @@
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 ifeq "$(BRANCH)" 'master'
-    STAGEDIR = ../ubos-website/stage/docs
+    STAGEDIR              = ../ubos-website/stage/docs
+    THIS_RELEASE_CHANNEL  = green
+    THIS_CONTEXT          = /docs
+    OTHER_RELEASE_CHANNEL = yellow
+    OTHER_CONTEXT         = /docs-yellow
 else ifeq "$(BRANCH)" 'yellow'
-    STAGEDIR = ../ubos-website/stage/docs-yellow
+    STAGEDIR              = ../ubos-website/stage/docs-yellow
+    THIS_RELEASE_CHANNEL  = yellow
+    THIS_CONTEXT          = /docs-yellow
+    OTHER_RELEASE_CHANNEL = green
+    OTHER_CONTEXT         = /docs
 else
     $(error 'Cannot determine branch')
 endif
 
 CACHEDIR = cache
 
-# You can set these variables from the command line.
-SPHINXOPTS    = -v
-DOCTREEDIR    = $(CACHEDIR)/doctrees
-
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
-# the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
+# I can't figure out how to use sphinx-native ways of inserting the release channel
+# here, so we do it my way
+SPHINXOPTS = -v
+DOCTREEDIR = $(CACHEDIR)/doctrees
 
 .PHONY: all clean sphinx open
 
 all: sphinx
 
 clean:
-	rm -rf $(STAGEDIR)/* $(CACHEDIR)/*
+	rm -rf $(STAGEDIR)/* $(CACHEDIR)/* sphinx/_templates.processed sphinx/themes.processed
 
 sphinx:
-	sphinx-build -b html -d $(DOCTREEDIR) $(PHINXOPTS) sphinx $(STAGEDIR)
+	cp -rf sphinx/_templates sphinx/_templates.processed
+	cp -rf sphinx/themes     sphinx/themes.processed
+	perl -pi -e 's!THIS_RELEASE_CHANNEL!'$(THIS_RELEASE_CHANNEL)'!g ; s!THIS_CONTEXT!'$(THIS_CONTEXT)'!g ; s!OTHER_RELEASE_CHANNEL!'$(OTHER_RELEASE_CHANNEL)'!g ; s!OTHER_CONTEXT!'$(OTHER_CONTEXT)'!g' sphinx/_templates.processed/* sphinx/themes.processed/ubos/*
+	sphinx-build -b html -d $(DOCTREEDIR) $(SPHINXOPTS) sphinx $(STAGEDIR)
 
 open:
-	open -a Firefox http://ubos/docs/
+	open -a Firefox http://ubos$(THIS_CONTEXT)/

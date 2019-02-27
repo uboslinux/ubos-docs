@@ -2,7 +2,8 @@ Command reference
 =================
 
 ``ubos-admin`` is the central administration command for UBOS.  When invoked without arguments,
-it lists available sub-commands.
+it lists the currently available sub-commands. Note that the list of available sub-commands
+may become longer if you install certain extra packages.
 
 To invoke an ``ubos-admin`` sub-command, execute:
 
