@@ -195,9 +195,9 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
 ``${host.tmpdir}``
    Name of a directory in which to create temporary files. By using this symbolic
    name, the location of temporarily files can be moved to a partition that has
-   sufficient space (say ``/var/tmp`` vs ``/tmp``) without impacting :term:`Apps <App>`.
+   sufficient space (say ``/ubos/tmp`` vs ``/tmp``) without impacting :term:`Apps <App>`.
 
-   Example: ``/var/tmp``
+   Example: ``/ubos/tmp``
 
 ``${hostname}``
    Name of the current host as returned by the OS. This is often
