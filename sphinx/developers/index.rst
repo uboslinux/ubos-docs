@@ -12,6 +12,7 @@ How to develop for UBOS
    well-known-ports
    complex-deployment-example
    understanding-ubos-admin
+   app-status
    app-test
    logging
    buildrelease
