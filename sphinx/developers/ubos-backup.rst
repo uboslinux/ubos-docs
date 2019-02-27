@@ -1,5 +1,5 @@
-Backup format
-=============
+UBOS Backup format
+==================
 
 Idea
 ----
@@ -30,6 +30,9 @@ directories on a file system as explained below.
 
 Files in this format generally use extension ``.ubos-backup``. Any of the entries in the
 ZIP file may be deflated (aka compressed) according to standard ZIP conventions.
+
+When an encrypted backup is desired, the entire ``.ubos-backup`` file is encrypted with
+GPG, and be convention, the file extension becomes ``.ubos-backup.gpg``.
 
 Meta-data
 ---------

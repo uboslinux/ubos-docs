@@ -1,42 +1,42 @@
-# Makefile for ubos.net
+# Makefile for ubos.net/docs and ubos/docs/yellow (depending on branch)
 
-UBOS_AWS_IMAGE_URL = https://console.aws.amazon.com/ec2/v2/home?region=us-east-1\#LaunchInstanceWizard:ami=ami-053931a948e3ea97d
+BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
-# ubos.net variables
-STAGEDIR = stage
+ifeq "$(BRANCH)" 'master'
+    STAGEDIR              = ../ubos-website/stage/docs
+    THIS_RELEASE_CHANNEL  = green
+    THIS_CONTEXT          = /docs
+    OTHER_RELEASE_CHANNEL = yellow
+    OTHER_CONTEXT         = /docs-yellow
+else ifeq "$(BRANCH)" 'yellow'
+    STAGEDIR              = ../ubos-website/stage/docs-yellow
+    THIS_RELEASE_CHANNEL  = yellow
+    THIS_CONTEXT          = /docs-yellow
+    OTHER_RELEASE_CHANNEL = green
+    OTHER_CONTEXT         = /docs
+else
+    $(error 'Cannot determine branch')
+endif
+
 CACHEDIR = cache
 
-# You can set these variables from the command line.
-SPHINXOPTS    = -v
-DOCTREEDIR    = $(CACHEDIR)/doctrees
+# I can't figure out how to use sphinx-native ways of inserting the release channel
+# here, so we do it my way
+SPHINXOPTS = -v
+DOCTREEDIR = $(CACHEDIR)/doctrees
 
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
-# the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
+.PHONY: all clean sphinx open
 
-.PHONY: all clean jekyll sphinx open
-
-all: jekyll sphinx static
+all: sphinx
 
 clean:
-	rm -rf $(STAGEDIR)/* $(CACHEDIR)/*
+	rm -rf $(STAGEDIR)/* $(CACHEDIR)/* sphinx/_templates.processed sphinx/themes.processed
 
 sphinx:
-	sphinx-build -b html -d $(DOCTREEDIR) $(PHINXOPTS) sphinx $(STAGEDIR)/docs
-
-jekyll:
-	jekyll build -s jekyll -d $(STAGEDIR)
-
-static:
-	[ -d "reveal/git" ] || echo "WARNING: revealjs github repo not present at ./reveal"
-	install -m644 images/logo2/ubos-16x16.ico $(STAGEDIR)/favicon.ico
-	[ -d "$(STAGEDIR)/files" ]  || mkdir "$(STAGEDIR)/files"
-	[ -d "$(STAGEDIR)/slides" ] || mkdir "$(STAGEDIR)/slides"
-	install -m644 files/* $(STAGEDIR)/files/
-	echo 'RedirectMatch /survey https://www.surveymonkey.com/s/FVNSNYN' > $(STAGEDIR)/.htaccess
-	echo 'RedirectMatch /staff(.*)$$ https://ubos.net/docs/users/shepherd-staff.html' >> $(STAGEDIR)/.htaccess
-	mkdir -p $(STAGEDIR)/include
-	sed -e "s!UBOS_AWS_IMAGE_URL!$(UBOS_AWS_IMAGE_URL)!g" include/amazon-ec2-image-latest.js > $(STAGEDIR)/include/amazon-ec2-image-latest.js
+	cp -rf sphinx/_templates sphinx/_templates.processed
+	cp -rf sphinx/themes     sphinx/themes.processed
+	perl -pi -e 's!THIS_RELEASE_CHANNEL!'$(THIS_RELEASE_CHANNEL)'!g ; s!THIS_CONTEXT!'$(THIS_CONTEXT)'!g ; s!OTHER_RELEASE_CHANNEL!'$(OTHER_RELEASE_CHANNEL)'!g ; s!OTHER_CONTEXT!'$(OTHER_CONTEXT)'!g' sphinx/_templates.processed/* sphinx/themes.processed/ubos/*
+	sphinx-build -b html -d $(DOCTREEDIR) $(SPHINXOPTS) sphinx $(STAGEDIR)
 
 open:
-	open -a Firefox http://ubos/
+	open -a Firefox http://ubos$(THIS_CONTEXT)/

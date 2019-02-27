@@ -1,5 +1,5 @@
 ``ubos-admin list-data-transfer-protocols``
-==========================================
+===========================================
 
 See also :doc:`../../users/ubos-admin`.
 
@@ -9,7 +9,9 @@ of ``UBOS::AbstractDataTransferProtocol``, and found in Perl package
 a (local, or more likely, remote) destination.
 
 This command discovers which of those data transfer protocols are available on the
-:term:`UBOS Device` and shows them to the user with some descriptive text.
+:term:`Device` and shows them to the user with some descriptive text.
 
-The same mechanism is used by `ubos-admin backup` to determine whether a given
+The same mechanism is used by ``ubos-admin backup`` to determine whether a given
 backup destination is valid.
+
+See also: :doc:`backup`.

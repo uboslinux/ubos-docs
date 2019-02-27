@@ -29,6 +29,13 @@ used, UBOS generally performs the following actions:
 
 * UBOS resumes the :term:`Site(s) <Site>` and removes the placeholder page.
 
+* If the user requested encryption of the backup, the entire backup file will be
+  encrypted with GPG.
+
+* Depending on the data transfer protocol specified, the resulting file will either be
+  moved into the desired location on the local device, or transferred over the network
+  to a remote host with the specified host and parameters.
+
 This command must be run as root (``sudo ubos-admin backup``).
 
-See also: :doc:`backupinfo`, :doc:`restore`.
+See also: :doc:`backupinfo`, :doc:`list-data-transfer-protocols`, :doc:`restore`.

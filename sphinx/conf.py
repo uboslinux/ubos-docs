@@ -34,7 +34,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['_templates.processed']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -108,7 +108,7 @@ html_theme = 'ubos'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [ 'themes' ]
+html_theme_path = [ 'themes.processed' ]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".

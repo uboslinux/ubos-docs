@@ -12,26 +12,34 @@ Then, update your device:
 
 * ``sudo ubos-admin update -v``
 
+(Note: while the option ``--out`` has been renamed ``--backuptofile`` in this release,
+if you perform a backup before the upgrade, you still need to use the old name.)
+
 What's new
 ----------
+
+* ``ubos-admin`` is now in color! (On terminals that support it.) That makes entering
+  the correct information in commands such as ``ubos-admin createsite`` visually much
+  simpler. It also makes it easier to distinguish between informational messages and
+  errors emitted by ``ubos-admin``.
 
 * A new design for backups has been implemented. This means that the command syntax
   for backups has changed slightly. It also means backups have become much more
   flexible, powerful and open to new protocols. In more detail:
 
   * The command ``ubos-admin backup`` now either takes the argument ``--backuptofile <file>``
-    or ``--backuptodir <dir>``. If a file is specified, the backup will be written
-    to the file with that name. If a directory is specified, UBOS generates a
-    filename for the backup, and saves the backup with that file name in the specified
-    directory.
+    or ``--backuptodir <dir>``. The argument ``--out <file>`` has been removed.
+    If a file is specified, the backup will be written to the file with that name. If a
+    directory is specified, UBOS generates a filename for the backup, and saves the backup
+    with that file name in the specified directory.
 
   * ``<file>`` and ``<directory>`` can be specified as local files and directories,
-    but they can also have a URL-style protocol in front. So for example,
-    ``scp://user@example.com/mybackup.ubos-backup`` will upload the backup to file
-    ``mybackup.ubos-backup`` on host ``example.com``, written using ``scp`` as user
-    ``user``.
+    but they can also have a URL-style protocol in front. For example, using
+    ``--backuptofile`` with ``scp://user@example.com/mybackup.ubos-backup`` will cause
+    UBOS to upload the backup to file ``mybackup.ubos-backup`` on host ``example.com``,
+    transferred using the ``scp`` protocol as remote user ``user``.
 
-  * To see which URL-style protocols are available on your device, run (new) command
+  * To see which URL-style protocols are available on your device, run the (new) command
     ``ubos-admin list-data-transfer-protocols``. The following protocols have been
     implemented so far: ``file`` (local files), ``ftp`` (traditional ftp), ``http``
     (upload by HTTP POST or PUT), ``https`` (upload by HTTPS POST or PUT), ``scp``
@@ -109,7 +117,7 @@ What's new
 
 * Various package upgrades.
 
-Release channel and documentation update-
+Release channel and documentation update
 ----------------------------------------
 
 * Going forward, the ``green`` release channel will be updated only some time
@@ -119,7 +127,7 @@ Release channel and documentation update-
 
 * To support this, the UBOS website now hosts documentation for the ``yellow``
   and the ``green`` release channels separately at
-  `ubos.net/docs <https://ubos.net/docs/>`_.
+  `ubos.net/docs-yellow <https://ubos.net/docs-yellow/>`_ and `ubos.net/docs <https://ubos.net/docs/>`_.
 
 Removed functionality
 ---------------------
@@ -131,4 +139,4 @@ Removed functionality
 Known issues
 ------------
 
-* Currently none.
+* ``ubos-admin status`` emits some (harmless) errors under some circumstances.
