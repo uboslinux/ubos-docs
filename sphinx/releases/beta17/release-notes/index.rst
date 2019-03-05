@@ -147,3 +147,7 @@ Known issues
 
 * If upgrading, if some packages are installed, they need to be uninstalled first:
   ``sudo pacman -R smespath botocore amazons3``
+
+* Upgrading, or restoring from backup, of a Shaarli installation produces an
+  error. To restore the data, manually copy `datastore.php` from the backup
+  into the Shaarli installation.
