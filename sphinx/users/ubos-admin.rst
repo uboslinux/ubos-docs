@@ -27,60 +27,51 @@ To create a backup of all :term:`Sites <Site>` on your device and save it to ``a
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --out all.ubos-backup
+   % sudo ubos-admin backup --backuptofile all.ubos-backup
 
 To create a backup of all :term:`Sites <Site>` on your device and save it to a file in your home directory
-whose name contains the current timestamp:
+letting UBOS choose a timestamped file name:
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --out ~/all-$(date +%Y%m%d%H%M).ubos-backup
+   % sudo ubos-admin backup --backuptodir ~
 
 To create a backup of a single :term:`Site` and save it to a file:
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --hostname <hostname> --out <backupfile>
+   % sudo ubos-admin backup --hostname <hostname> --backuptofile <backupfile>
 
 or
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --siteid <siteid> --out <backupfile>
+   % sudo ubos-admin backup --siteid <siteid> --backuptofile <backupfile>
 
 To create a backup or a single :term:`AppConfiguration` at a :term:`Site` and save it to a file:
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --appconfigid <siteid> --out <backupfile>
+   % sudo ubos-admin backup --appconfigid <siteid> --backuptofile <backupfile>
 
 You can determine the :term:`SiteId` or :term:`AppConfigId` with ``ubos-admin listsites``.
 
-``ubos-admin backup-to-amazon-s3``
-----------------------------------
+To encrypt the backup file as part of the process: add ``--encryptid <id>`` to the
+command, where ``<id>`` is the key identifier of a private key in the ``shepherd`` user's
+GPG repository.
 
-Make sure package ``amazons3`` is installed:
+To automatically upload the created file to a remote host, specify a data transfer protocol,
+host and (potentially) user information as part of the destination. To determine the
+available data transfer protocols, run ``ubos-admin list-data-transfer-protocols``.
 
-.. code-block:: none
+Examples:
 
-   % sudo pacman -S amazons3
+* ``scp://user@example.com/foo.ubos-backup`` will upload the file using ``scp`` to host
+  ``example.com``, as user ``user``.
 
-To create a backup and automatically upload it to Amazon S3, use the same
-options as for ``ubos-admin backup``. In addition, you can use:
-
-* ``--encryptid <keyid>``: encrypt the backup before uploading with a GPG
-  key with that id found in your GPG key store. Make sure you have access
-  to the private key even once your device has died, otherwise your backup
-  will be useless. WARNING: There are no recovery options other than you
-  protecting your private key.
-
-* ``--bucket <bucket>``: specify the name of the S3 bucket to store the
-  backup to.
-
-If you do not specify those options, UBOS will use the ones you used the last time you
-ran this command on this device. If you have never run it before, UBOS will ask you.
-
-For more details, refer to :doc:`../users/backup`.
+* ``s3://bucket/file`` will upload to an Amazon S3 bucket called ``bucket`` and create file
+  ``file`` there. This requires that the package ``amazons3`` is installed, and that you
+  have permissions to upload to this bucket.
 
 ``ubos-admin backupinfo``
 -------------------------
@@ -197,6 +188,17 @@ purpose. Invoke as:
 
    % sudo ubos-admin init-staff <device>
 
+
+``ubos-admin list-data-transfer-protocols``
+-------------------------------------------
+
+Lists the data transfer protocols currently available for the destinations of backups.
+For example, if data transfer protocol ``scp`` is listed, ``ubos-admin backup``
+understands how to ``scp`` ("secure copy") the resulting backup file over the network
+to another host.
+
+Note that the list of currently available data transfer protocols may become longer if you
+install certain optional packages.
 
 ``ubos-admin listnetconfigs``
 -----------------------------

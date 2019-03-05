@@ -46,12 +46,12 @@ This table shows the approximate update schedule:
 
 .. table:: Approximate channel update schedule
 
-   ======================= ===============================
-   dev channel             as often as several times a day
-   dev to red channel      once a week or several weeks
-   red to yellow channel   once a month or several months
-   yellow to green channel to be determined
-   ======================= ===============================
+   ======================= ====================================================================
+   dev channel             as often as several times a day, depending on development focus
+   dev to red channel      as often as several times a week, depending on development focus
+   red to yellow channel   once a month or couple of months
+   yellow to green channel following the red to yellow promotion with some time lag for testing
+   ======================= ====================================================================
 
 Updates may be performed more frequently, for example for emergency bug fixes or
 security patches. Images may be generated less frequently, as repeated downloads are
