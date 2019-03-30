@@ -12,6 +12,10 @@ Then, update your device:
 
 * ``sudo ubos-admin update -v``
 
+.. warning:: Before upgrading on Amazon EC2, you need to update your instance's
+   kernel command line, otherwise the instance will fail to connect to the network
+   upon reboot. Details see below.
+
 What's new
 ----------
 
@@ -77,3 +81,23 @@ Known issues
 * Running Pagekite with ``ubos-admin start-pagekite`` on a device that runs a wildcard
   site (ie a site whose hostname was specified as ``*``) may not forward the traffic
   correctly. Redeploy the site with its public hostname instead.
+
+* On Amazon EC2, the kernel command-line needs to be updated **prior** to an upgrade.
+  Here are the steps:
+
+  #. As root, edit file ``/etc/default/grub``. Look for the line (towards the beginning
+     of the file) that starts with ``GRUB_CMDLINE_LINUX_DEFAULT``. Change the line
+     to read:
+
+     .. code-block:: none
+
+        GRUB_CMDLINE_LINUX_DEFAULT="nomodeset console=ttyS0,9600n8 earlyprintk=serial,ttyS0,9600,verbose loglevel=7 init=/usr/lib/systemd/systemd"
+
+     Save the file.
+
+  #. As root, execute: ``grub-install --recheck /dev/xvda``
+
+  #. As root, execute: ``grub-mkconfig -o /boot/grub/grub.cfg``
+
+  #. Now perform the update with: ``sudo ubos-admin update``
+
