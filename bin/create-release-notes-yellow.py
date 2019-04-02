@@ -49,6 +49,11 @@ New functionality:
 
 * FIXME
 
+Notable new packages:
+^^^^^^^^^^^^^^^^^^^^^
+
+* FIXME
+
 Package upgrades:
 ^^^^^^^^^^^^^^^^^
 
@@ -57,15 +62,10 @@ FIXME: this list contains upgrades as well as new packages. Manually fix!
 """ % ( ds )
 
 for package in packages:
-    notes += "* " + package + "\n"
+    notes += "* ``" + package + "``:\n"
 
 notes +="""
 There were %d new or upgraded packages in total.
-
-Notable new packages:
-^^^^^^^^^^^^^^^^^^^^^
-
-* FIXME
 
 Fixes and improvements:
 ^^^^^^^^^^^^^^^^^^^^^^^
