@@ -17,6 +17,9 @@ two optional components:
      "customizationpoints" : {
         ... customizationpoints section (optional)
      },
+     "appinfo" : {
+        ... appinfo section (for Apps only)
+     },
      "accessoryinfo" : {
         ... accessoryinfo section (for Accessories only)
      }

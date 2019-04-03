@@ -18,6 +18,7 @@ How to develop for UBOS
    buildrelease
    ubos-backup
    networking
+   middleware-notes
    useful-infrastructure
    ubos-state
    principles
