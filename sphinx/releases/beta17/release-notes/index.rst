@@ -8,6 +8,10 @@ To be safe, first create a backup of all your sites to a suitable file:
 
 * ``sudo ubos-admin backup --out ~/XXX.ubos-backup``
 
+If you have any of the following packages installed, remove them:
+
+* ``sudo pacman -R smespath botocore amazons3``
+
 Then, update your device:
 
 * ``sudo ubos-admin update -v``
@@ -140,3 +144,10 @@ Known issues
 ------------
 
 * ``ubos-admin status`` emits some (harmless) errors under some circumstances.
+
+* If upgrading, if some packages are installed, they need to be uninstalled first:
+  ``sudo pacman -R smespath botocore amazons3``
+
+* Upgrading, or restoring from backup, of a Shaarli installation produces an
+  error. To restore the data, manually copy `datastore.php` from the backup
+  into the Shaarli installation.
