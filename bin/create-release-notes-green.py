@@ -9,11 +9,11 @@ from time import gmtime, strftime
 
 cwd = os.getcwd()
 
-if not cwd.endswith( '/ubos-docs-yellow'):
+if not cwd.endswith( '/ubos-docs-master'):
     print( "ERROR: invoked in wrong directory: " + cwd )
     exit( 1 )
 
-print( "Create release notes for the yellow channel. Paste in promotion report:")
+print( "Create release notes for the green channel. Paste in promotion report:")
 promotion = sys.stdin.read()
 
 ds = strftime("%Y-%m-%d", gmtime())
@@ -27,8 +27,8 @@ for line in promotion.splitlines():
         package = match.group(1)
         packages.append( package )
 
-notes = """Release Notes: Update %s (yellow channel)
-=================================================
+notes = """Release Notes: Update %s (green channel)
+================================================
 
 To upgrade
 ----------
