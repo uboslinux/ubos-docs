@@ -14,6 +14,7 @@ if not cwd.endswith( '/ubos-docs-yellow'):
     exit( 1 )
 
 print( "Create release notes for the yellow channel. Paste in promotion report:")
+print( "Paste ALL Promotion reports before ^D, not just the first one!")
 promotion = sys.stdin.read()
 
 ds = strftime("%Y-%m-%d", gmtime())
