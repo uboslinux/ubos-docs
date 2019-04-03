@@ -1,5 +1,5 @@
-Release Notes: Update 2019-04-02
-================================
+Release Notes: Update 2019-04-02 (yellow channel)
+=================================================
 
 To upgrade
 ----------

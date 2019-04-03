@@ -26,8 +26,8 @@ for line in promotion.splitlines():
         package = match.group(1)
         packages.append( package )
 
-notes = """Release Notes: Update %s
-================================
+notes = """Release Notes: Update %s (yellow channel)
+=================================================
 
 To upgrade
 ----------
