@@ -166,7 +166,7 @@ a backup of the old :term:`Site` configuration and content with:
 
 .. code-block:: none
 
-   % sudo ubos-admin deploy --file <site.json> --backup <backupfile>
+   % sudo ubos-admin deploy --file <site.json> --backuptofile <backupfile>
 
 ``ubos-admin hostid``
 ---------------------

@@ -59,7 +59,7 @@ If you have Apps and data on your device already:
 
    .. code-block:: none
 
-      % sudo ubos-admin backup --out /mnt/root/from-small-disk.ubos-backup
+      % sudo ubos-admin backup --backuptofile /mnt/root/from-small-disk.ubos-backup
 
 #. Unmount your new disk, and shut down your device:
 
