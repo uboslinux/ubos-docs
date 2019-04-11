@@ -23,13 +23,13 @@ to the backup and restore commands should be used (e.g. only some :term:`Sites <
 otherwise everything is the same.
 
 Let's take a real-world example, and assume you want to upgrade from ``nextcloud9`` to
-``nextcloud10``.
+``nextcloud10`` (Note: this is a historical example.)
 
 #. Create a backup of the existing :term:`Site`, such as:
 
    .. code-block:: none
 
-      % sudo ubos-admin backup --host example.com --out before-migration.ubos-backup
+      % sudo ubos-admin backup --host example.com --backuptofile before-migration.ubos-backup
 
 #. Undeploy the :term:`Site`, such as:
 
