@@ -188,6 +188,25 @@ My non-English keyboard layout is all screwed up
 To reconfigure your keyboard for your language, follow the
 `instructions from Arch Linux <https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console>`_.
 
+Database problems
+-----------------
+
+"Cannot access MySQL database. File missing: /etc/mysql/root-defaults-ubos.cnf"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is known to happen under some circumstances if you run UBOS from a very slow disk, such
+as a USB 2.0 stick. During startup of the database engine (MySQL/MariaDB) required by
+certain apps, a timeout may have occurred that prevents the database initialization
+from completing.
+
+You can try to start the database manually with:
+
+.. code-block:: none
+
+   % sudo systemctl start mysqld.service
+
+and then attempt to re-install your app. If this does not work, use a faster disk.
+
 App installation and management problems
 ----------------------------------------
 
