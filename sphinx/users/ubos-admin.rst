@@ -404,6 +404,11 @@ Wordpress, at the URLs ``http://example.com/guestbook`` and ``http://example.com
 respectively. Nothing is being said about other :term:`Sites <Site>` that may or may not run on the same
 device.
 
+To determine information about a :term:`Site`'s administrator, add the ``--adminuser`` flag
+to invocation. In order to see the administrator's password, the command must be invoked with
+``sudo``.
+
+
 ``ubos-admin start-pagekite``
 -----------------------------
 
