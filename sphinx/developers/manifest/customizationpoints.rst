@@ -42,6 +42,7 @@ The following types of customization points are currently recognized:
 * ``integer``: A whole number that may be positive, negative or zero.
 * ``positiveinteger``: A whole number that must be 1 or greater.
 * ``positiveintegerorzero``: A whole number that must not be negative.
+* ``float``: A floating-point number that may be positive, negative or zero.
 * ``image``: An image in a supported file format.
 
 The default value may be provided in encoded form. For example, a GIF image may be
