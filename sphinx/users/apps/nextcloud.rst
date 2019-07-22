@@ -29,5 +29,36 @@ app, and ``nextcloud-calendar`` as an :term:`Accessory`. You can specify multipl
 
 Here's the reason why: UBOS cannot manage :term:`Apps <App>` that change their code base without
 UBOS knowing, and that's what would be happening if Nextcloud got to add "apps" aka
-:term:`Accessories <Accessory>` to itself. And: UBOS curates :term:`Accessories <Accessory>`, so you can be fairly certain
-that the ones provided through UBOS actually work.
+:term:`Accessories <Accessory>` to itself. And: UBOS curates :term:`Accessories <Accessory>`,
+so you can be fairly certain that the ones provided through UBOS actually work.
+
+How to skip a Nextcloud version during upgrade
+----------------------------------------------
+
+If you don't update your UBOS device regularly, it may happen that you missed an entire
+major Nextcloud release by the time you do finally upgrade. For example, if you deployed
+your site originally with Nextcloud 14, and waited a while to upgrade, the current
+version may now be Nextcloud 16. This is a problem because Nextcloud does not support
+skipped upgrades.
+
+This is issue is a known Nextcloud issue, and really needs to be solve by the Nextcloud
+developers. We can only provide workarounds. The best one, of course, is the regularly update
+your UBOS device, so you do not end up in this situation. But if you do anyway, here is a
+possible workaround.
+
+* Before you attempt to upgrade your device, create a backup of your Nextcloud installation
+  with ``ubos-admin backup``.
+* Undeploy Nextcloud with ``ubos-admin undeploy``. Depending how you have set up your site(s),
+  it might be easiest to undeploy the entire site, or all sites, on your device.
+  (Make triply sure first that you have a backup for everything you will undeploy!)
+* Upgrade your device with ``ubos-admin update``.
+* Now restore your backup, while telling UBOS to replace package ``nextcloud`` with
+  package ``nextcloud15`` (the skipped version) during the restore. You do that with
+  additional arguments: ``ubos-admin restore --migratefrom nextcloud --migrateto nextcloud15``.
+  This will migrate your Nextcloud data to version 15, from which the regular upgrade
+  works.
+* But we also need to replace ``nextcloud15`` with the now-current ``nextcloud``, so
+  we go through backup and restore one more time: ``ubos-admin backup`` and then
+  ``ubos-admin restore --migratefrom nextcloud15 --migrateto nextcloud``.
+* Now you should be back and running. You can clean up by removing the intermediate
+  version with ``pacman -R nextcloud15``.
