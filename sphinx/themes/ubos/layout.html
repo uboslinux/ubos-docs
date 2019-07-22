@@ -15,19 +15,6 @@
   <title>{{ title|striptags|e }} - UBOS Documentation</title>
 
   <link rel="stylesheet" href="/css/main.css">
-{% block analytics %}
-<script>
-if( location.hostname == 'ubos.net' ) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55822165-1', 'auto');
-  ga('send', 'pageview');
-}
-</script>
-{% endblock %}
 </head>
 {% endblock %}
   <body>
@@ -85,6 +72,26 @@ if( location.hostname == 'ubos.net' ) {
   </footer>
  </div>
 </div>
+{% endblock %}
+{% block analytics %}
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.indiecomputing.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+<!-- Matomo Image Tracker-->
+<img src="https://analytics.indiecomputing.com/matomo.php?idsite=3&amp;rec=1" style="border:0" alt="" />
+<!-- End Matomo -->
 {% endblock %}
  </body>
 </html>
