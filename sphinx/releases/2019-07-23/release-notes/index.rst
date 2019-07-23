@@ -29,10 +29,6 @@ New functionality:
   than originally, the Nextcloud installation will be updated with the new admin password.
   This makes for an effective admin password reset.
 
-* Mattermost can now be deployed not just at the root of a site, but at a lower-level
-  context, such as ``example.com/chat``.
-
-
 Package upgrades:
 ^^^^^^^^^^^^^^^^^
 
