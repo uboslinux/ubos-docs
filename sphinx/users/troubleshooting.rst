@@ -255,7 +255,7 @@ Installation or update problems
 -------------------------------
 
 On any device: "Cannot create a temporary backup; the backup directory is not empty"
-------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have run into a UBOS safety feature. Previously, you must have performed some kind
 of ``ubos-admin`` operation (like a system update or site redeploy) that encountered
