@@ -62,9 +62,9 @@ In this case, an :term:`App` or :term:`Accessory` should:
 In case of a package that logs but that is not uniquely associated with an :term:`AppConfigId`,
 it should:
 
-* write log files into directory ``/var/log/<dir>``, where ``<dir>`` is the name of the
+* write log files into directory ``/ubos/log/<dir>``, where ``<dir>`` is the name of the
   package. For example, if the name of the package is ``mydbserver``, it should write its
-  log files into directory ``/var/log/mydbserver``.
+  log files into directory ``/ubos/log/mydbserver``.
 
 * it also needs to set up a ``logrotate`` policy and cleanly close log files upon
   rotation.

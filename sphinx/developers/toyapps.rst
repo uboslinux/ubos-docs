@@ -20,10 +20,6 @@ The PHP versions of Glad-I-Was-Here can also be configured with an :term:`Access
 ``gladiwashere-php-footer``. This :term:`Accessory` adds additional content (a footer) to the main
 web page. This demonstrates the basic functioning of :term:`Accessories <Accessory>`.
 
-To understand how to package a Ruby-on-Rails application, we have used the "blog"
-example application used to teach RoR on the ``rubyonrails.org`` website, and packaged it
-for UBOS.
-
 Note: These toy :term:`Apps <App>` are published in the ``toyapps`` repository, which is not enabled
 by default. For how to enable, see :doc:`/users/enabling-nonstandard-repos`.
 
@@ -38,7 +34,6 @@ You may want to read through the documentation for these :term:`Apps <App>` in t
    toyapps/gladiwashere-php-postgresql
    toyapps/gladiwashere-java-mysql
    toyapps/gladiwashere-python-mysql
-   toyapps/ruby-rails-blog
 
 
 

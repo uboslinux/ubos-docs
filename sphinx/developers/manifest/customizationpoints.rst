@@ -42,6 +42,7 @@ The following types of customization points are currently recognized:
 * ``integer``: A whole number that may be positive, negative or zero.
 * ``positiveinteger``: A whole number that must be 1 or greater.
 * ``positiveintegerorzero``: A whole number that must not be negative.
+* ``float``: A floating-point number that may be positive, negative or zero.
 * ``image``: An image in a supported file format.
 
 The default value may be provided in encoded form. For example, a GIF image may be
@@ -77,6 +78,22 @@ Customization points may be declared as private:
    }
 
 If declared as private, only ``root`` is allowed to see the provided values.
+
+Customization points may also be declared as internal:
+
+.. code-block:: json
+
+   "customizationpoints" : {
+     "salt" : {
+       "type"       : "string",
+       "internal"    : true
+       ...
+     }
+   }
+
+If declared as internal, it is not shown to the user as it contains no information that
+may be useful for the user. This can be used for customization points that, for example,
+contain salts for internally managed application passwords.
 
 If a customization point is of type string, an optional regular expression may
 be given. UBOS will enforce that any value given for the customization point conforms
