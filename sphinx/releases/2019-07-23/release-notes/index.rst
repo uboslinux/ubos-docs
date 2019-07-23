@@ -19,11 +19,19 @@ What's new
 New functionality:
 ^^^^^^^^^^^^^^^^^^
 
-If you have not upgraded your UBOS device running Nextcloud for a while, the Nextcloud
-upgrader may not be able to upgrade your installation in one go. As a workaround, we have
-introduced package ``nextcloud15``, which contains Nextcloud version 15. You can use this
-package as an intermediate step to upgrade from an earlier Nextcloud to the current version.
-This is described in more detail in :doc:`/users/apps/nextcloud`.
+* If you have not upgraded your UBOS device running Nextcloud for a while, the Nextcloud
+  upgrader may not be able to upgrade your installation in one go. As a workaround, we have
+  introduced package ``nextcloud15``, which contains Nextcloud version 15. You can use this
+  package as an intermediate step to upgrade from an earlier Nextcloud to the current version.
+  This is described in more detail in :doc:`/users/apps/nextcloud`.
+
+* If you redeploy your Site running Nextcloud with a different administrator password
+  than originally, the Nextcloud installation will be updated with the new admin password.
+  This makes for an effective admin password reset.
+
+* Mattermost can now be deployed not just at the root of a site, but at a lower-level
+  context, such as ``example.com/chat``.
+
 
 Package upgrades:
 ^^^^^^^^^^^^^^^^^
@@ -67,6 +75,12 @@ Package upgrades:
   * ``wordpress-theme-twentyfourteen``
   * ``wordpress-theme-twentythirteen``
   * ``wordpress-theme-twentytwelve``
+
+Bug fixes
+^^^^^^^^^
+
+The usual: fixed bugs and made improvements. You can find the closed issues
+`on Github <https://github.com/uboslinux/>`_ tagged with milestone ``ubos-apps-19``.
 
 Need help?
 ----------
