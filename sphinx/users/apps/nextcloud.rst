@@ -46,6 +46,16 @@ developers. We can only provide workarounds. The best one, of course, is the reg
 your UBOS device, so you do not end up in this situation. But if you do anyway, here is a
 possible workaround.
 
+First: determine whether you are indeed in this situation, by determining which version
+of Nextcloud you are currently running. Execute:
+
+.. code-block:: none
+
+   % pacman -Qi nextcloud
+
+This section applies to you if the version you have installed starts with 14. Upgrades
+do not require this workaround if your version starts with 15 or 16.
+
 * Before you attempt to upgrade your device, create a backup of your Nextcloud installation
   with ``ubos-admin backup``.
 * Undeploy Nextcloud with ``ubos-admin undeploy``. Depending how you have set up your site(s),
