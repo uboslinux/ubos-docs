@@ -21,7 +21,7 @@ two optional components:
         ... appinfo section (for Apps only)
      },
      "accessoryinfo" : {
-        ... accessoryinfo section (for Accessories only)
+        ... accessoryinfo section (for Accessories only; required for Accessories)
      }
    }
 
@@ -45,8 +45,8 @@ The required ``roles`` section declares how the :term:`App` wishes to be install
 configured with respect to Apache, MySQL, and other roles. It is described in
 :doc:`roles`.
 
-:term:`Apps <App>` or :term:`Accessories <Accessory>` that support customization declare their parameters in
-an optional ``customizationpoints`` section. It is described in
+:term:`Apps <App>` or :term:`Accessories <Accessory>` that support customization declare
+their parameters in an optional ``customizationpoints`` section. It is described in
 :doc:`customizationpoints`.
 
 In addition, :term:`Accessories <Accessory>` need to provide a ``accessoryinfo`` section to identify
