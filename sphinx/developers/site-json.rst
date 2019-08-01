@@ -110,21 +110,52 @@ The Site JSON file is a JSON hash with the following entries:
      Contains the Tor private key, if it has been allocated already.
 
 ``wellknown`` (optional)
-   This section is optional. It contains the data for well-known files that your
-   :term:`Site` may be using.
+   This section is optional. It contains the data for "well-known" files that your
+   :term:`Site` may be using. In this section, each key-value pair represents an
+   entry into the :term:`Site`'s ``/.well-known/`` context path, with the key being the name
+   of the file and the value being a structure with the following potential members:
 
-   ``robotstxt`` (optional)
-      The content of this field will be served as ``robots.txt`` at the root
-      of your :term:`Site`.
+   ``value``
+      Static file content if there is; the value may be encoded.
 
-   ``sitemapxml`` (optional)
-      The content of this field will be served as ``sitemap.xml`` at the root
-      of your :term:`Site`.
+   ``encoding``
+      If given, ``base64`` is the only valid value. It indicates that the value of
+      ``value`` is provided using Base64 encoding and needs to be decoded first. This is
+      useful for entries such as `favicon.ico`.
 
-   ``faviconicobase64`` (optional)
-      This contains the base64-encoded favicon for your :term:`Site`. UBOS will decode
-      the base64, and serve the result as ``favicon.ico`` at the root of your
-      :term:`Site`.
+   ``status``
+      HTTP status code to return when accessed. This may only be specified when a
+      ``location`` is provided, and the value must be a HTTP redirect status code, such
+      as "307". When ``location`` is provided, the default is "307" (Temporary Redirect).
+
+   ``location``
+      Value for an HTTP Redirect header when accessed. This is mutually exclusive with
+     ``value``: only one of these two may be provided.
+
+   ``prefix``
+      Only permitted for an entry whose key is ``robots.txt`` and for which no ``value``
+      has been provided. See discussion below.
+
+   For all keys other than ``robots.txt``, the values provided in the Site JSON override
+   any values that may have been provided by the :term:`Apps <App>` deployed to that
+   :term:`Site`. Conversely, if the Site JSON does not specify a certain key, but an
+   :term:`<App>` does, the :term:`<App>`'s will be used (more details are described in
+   :doc:`ubos-manifest`). If multiple :term:`Apps <App>` define the same key, the value
+   from the :term:`App` in the :term:`Site`'s first :term:`AppConfiguration` takes precedence.
+
+   If a ``value`` is provided for the key ``robots.txt`` Site JSON, this value will be used.
+   If not, the value for the ``robots.txt`` content is constructed by concatenating:
+
+   * the value of ``prefix`` in the Site JSON, if such a value is given;
+
+   * a catch-all ``User-Agent`` line
+
+   * all ``Allow``/``Disallow`` statements specified by the :term:`Apps <App>`
+    (more details are described in :doc:`ubos-manifest`).
+
+   Note that UBOS will automatically make the content of the historic files `robots.txt`,
+   `favicon.ico` and `sitemap.xml` available both at the root of the :term:`Site` and in
+   the `.well-known` sub-directory.
 
 AppConfigs
 ----------

@@ -318,6 +318,78 @@ activated; if not, UBOS will activate it and restart Apache2.
 Note that the ``apache2`` role still needs to declare a dependency on ``php-gd``;
 ``apache2modules`` does not attempt to infer which packages might be needed.
 
+Contributions to the site's "well-known"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:term:`Sites <Site>` may publish certain "well-known" files, such as ``robots.txt`` or
+the content of directory ``.well-known`` below the root of the :term:`Site`. Subject to
+certain conflict resolution rules described in :doc:`<../site-json>`, an :term:`App` deployed
+to a :term:`Site` may request to augment those entries.
+
+For that purpose, the ``wellknown`` entry may be specified. Here is an example:
+
+.. code-block:: json
+
+   "wellknown" : {
+     "carddav" : {
+       "value" : "..."
+     },
+     "caldav" : {
+       "location" : "caldav.php",
+       "status" : "302 Found"
+     },
+     "webfinger" : {
+       "proxy" : "http://localhost:1234/webfinger"
+     }
+   }
+
+In ``wellknown``, each key-value pair represents an entry into the :term:`Site`'s
+``/.well-known/`` context path, with the key being the name of the file and the value
+being a JSON object with the following potential members. Note that ``robots.txt`` and
+``webfinger`` follow different rules than all other entries:
+
+``value``
+   Static file content if there is; the value may be encoded. This field must not be
+   used by ``robots.txt`` or ``webfinger``` entries (see additional fields below).
+
+``encoding``
+   If given, ``base64`` is the only valid value. It indicates that the value of
+   ``value`` is provided using Base64 encoding and needs to be decoded first. This is
+   useful for entries such as `favicon.ico`.
+
+``location``
+   Value for the HTTP redirect Location header when accessed. This is mutually exclusive with
+   ``value``: only one of these two may be provided. This field must not be used by
+   ``robots.txt`` or ``webfinger``` entries (see below). This value may use variables
+   (as described in :doc:`variables`), which UBOS will replace during deployment.
+
+``status``
+   HTTP status code to return when accessed. This may only be specified when a
+   ``location`` is provided, and the value must be a HTTP redirect status code,
+   such as "307". When ``location`` is provided, the default is "307" (Temporary Redirect).
+
+``allow``
+   Only permitted for an entry whose key is ``robots.txt``. This field must have
+   a value of type JSON array. The members of that array are individual ``Allow:`` entries
+   for a composite ``robots.txt`` file. Each member is prefixed by the content path to
+   the :term:`AppConfiguration` to which this :term:`App` has been deployed. For example,
+   if one of the values is ``/assets/``, it will become ``Allow: /myapp/assets/`` if the
+   :term:`App` has been deployed at context path ``/myapp``.`
+
+``disallow``
+   Just like ``allow``, but for ``Disallow:`` content for a composite ``robots.txt`` file.
+
+``proxy``
+   Only permitted for an entry whose key is ``webfinger``. This field must have a value of
+   type string, containing a fully-qualified http or https URL. This specifies that UBOS,
+   when a client requests the :term:`Site`'s well-known webfinger URL, should access the
+   given URL, and semantically merge the resulting JSON files obtained from all :term:`App`s
+   defining a well-known proxy at this :term:`Site`. This enables multiple :term:`App`s
+   deployed to the :term:`Site` to all publish their contribution to the :term:`Site`'s
+   webfinger well-known. This value may use variables (as described in :doc:`variables`),
+   which UBOS will replace during deployment.
+
+
 Phases
 ^^^^^^
 
@@ -355,39 +427,6 @@ This will cause the :term:`AppConfigItem` to be skipped on the first pass when i
 after the :term:`Accessories <Accessory>` have all been deployed.
 
 No other values for ``phase`` are currently defined.
-
-Robots.txt contribution
-^^^^^^^^^^^^^^^^^^^^^^^
-
-The optional ``robotstxt`` section can be used by :term:`Apps <App>` to insert allowed and disallowed
-paths into a :term:`Site`'s ``robots.txt``. The :term:`Site`'s ``robots.txt`` file is being generated
-automatically by assembling such fragments, unless a complete ``robots.txt`` has been
-provided by the user in the Site JSON.
-
-The ``robotstxt`` section in the manifest may contain fields ``allow`` and ``disallow``,
-both JSON arrays, which hold the exact string values that will be inserted into the
-generated ``robots.txt`` file.
-
-For example, if an :term:`App` had this fragment in the ``apache2`` role in its UBOS Manifest JSON:
-
-.. code-block:: json
-
-   "wellknown" : {
-     "robotstxt" : {
-       "disallow" : [
-         "/wp-admin/"
-       ]
-     }
-   }
-
-and if the :term:`App` was installed at ``http://example.com/blog``, and no other :term:`Apps <App>` at the
-same :term:`Site` had contributions to the generated ``robots.txt`` file, then the generated
-``robots.txt`` file would look like this:
-
-.. code-block:: none
-
-   User-Agent: *
-   Disallow: /blog/wp-admin/
 
 Status of the AppConfiguration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
