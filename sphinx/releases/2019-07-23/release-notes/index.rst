@@ -1,4 +1,4 @@
-Release Notes: Apps update 2019-07-22
+Release Notes: Apps update 2019-07-23
 =====================================
 
 To upgrade
@@ -29,16 +29,8 @@ New functionality:
   than originally, the Nextcloud installation will be updated with the new admin password.
   This makes for an effective admin password reset.
 
-* Mattermost can now be deployed not just at the root of a site, but at a lower-level
-  context, such as ``example.com/chat``.
-
-
 Package upgrades:
 ^^^^^^^^^^^^^^^^^
-
-* Matomo has been upgraded to 3.10.0
-
-* Mattermost has been upgraded to 5.12.4
 
 * Mediawiki has been upgraded to 1.33.0
 
@@ -60,12 +52,6 @@ Package upgrades:
   * ``nextcloud-spreed``
   * ``nextcloud-tasks``
   * ``nextcloud-twofactor-totp``
-
-* phpBB has been upgraded to 3.2.7
-
-* Shaarli has been upgraded to 0.10.4
-
-* Webtrees has been upgraded to 1.7.14
 
 * Wordpress has been upgraded to 5.2.2. Also, the following accessories were upgraded or
   newly added:
