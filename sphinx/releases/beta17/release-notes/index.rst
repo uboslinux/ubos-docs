@@ -107,12 +107,12 @@ What's new
 * ``ubos-admin status`` output is now more readable.
 
 * There were a set of intermittent issues related to
-  :doc:`Letsencrypt certificates </users/create-ssl-site>`,
+  :doc:`LetsEncrypt certificates </users/create-ssl-site>`,
   either with or without running :doc:`Pagekite </users/howto-pagekite>`.
-  The provisioning of Letsencrypt certificates has been rewritten. Among
-  other changes, UBOS now keeps valid Letsencrypt certificates around, even if
+  The provisioning of LetsEncrypt certificates has been rewritten. Among
+  other changes, UBOS now keeps valid LetsEncrypt certificates around, even if
   a site at the corresponding hostname has been undeployed. This avoids running
-  into throttling problems with Letsencrypt during certain system administration
+  into throttling problems with LetsEncrypt during certain system administration
   tasks.
 
 * Various other bug fixes and extensions. For the gory details, go to

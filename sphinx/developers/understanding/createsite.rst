@@ -9,7 +9,7 @@ This command is only a very shallow wrapper around :doc:`deploy` which:
   on the terminal;
 * optionally, generates an openssl key pair and a self-signed certificate and inserts
   those into the :doc:`../site-json` file;
-* optionally, obtains a Letsencrypt SSL/TLS certificate. Due to the way Letsencrypt
+* optionally, obtains a LetsEncrypt SSL/TLS certificate. Due to the way LetsEncrypt
   operates, this only works on devices that have a publicly accessible IP address
   and public DNS has been set up to resolve the hostname of the to-be-created :term:`Site`
   to that device.

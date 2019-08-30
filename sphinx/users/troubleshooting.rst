@@ -357,3 +357,5 @@ networking containers. Here is a list of things to check:
 Come find us `here </community/>`_ and ask. We don't bite. At least not
 if we had breakfast.
 
+Please submit as much detail about your problem has you can, including the output
+of ``sudo ubos-admin status``.

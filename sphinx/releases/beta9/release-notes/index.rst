@@ -62,7 +62,7 @@ For users
     and other input.
   * Backups containing TLS secrets can now be restored with and without restoring the
     TLS.
-  * Sites using Letsencrypt TLS now correctly back up and restore.
+  * Sites using LetsEncrypt TLS now correctly back up and restore.
 
 For developers
 --------------

@@ -134,7 +134,7 @@ To avoid confusion, here is a glossary of terms that we use for UBOS.
       product that kept data local and allowed the owner to modify it at will would
       be part of the Indie IoT.
 
-   Letsencrypt
+   LetsEncrypt
       A certificate authority that provides free SSL/TLS certificates
       accepted by most browsers. See `<https://letsencrypt.org/>`_.
 

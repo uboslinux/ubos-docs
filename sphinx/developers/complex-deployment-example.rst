@@ -46,7 +46,7 @@ The :term:`Site JSON` file for ``example.com`` might look as follows:
 
 Some observations about this site:
 
-* UBOS needs to obtain a TLS certificate from Letsencrypt. Because Letsencrypt.org
+* UBOS needs to obtain a TLS certificate from LetsEncrypt. Because letsencrypt.org
   performs a callback to the website, UBOS needs to temporarily stage certain files
   with the web server that, obviously, should not conflict with any apps installed
   at the same site.
@@ -161,9 +161,9 @@ Here is what happens in detail:
 
    #. Restart Apache.
 
-#. Obtain the Letsencrypt certificate:
+#. Obtain the LetsEncrypt certificate:
 
-   * Invoke the ``certbot`` program to create a TLS keypair, and have Letsencrypt issue
+   * Invoke the ``certbot`` program to create a TLS keypair, and have LetsEncrypt issue
      a certificate for it.
 
 #. Deploy the :term:`Site`:

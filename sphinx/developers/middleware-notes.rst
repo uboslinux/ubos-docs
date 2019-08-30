@@ -5,3 +5,4 @@ Middleware-specific notes
    :maxdepth: 2
 
    middleware-notes/nodejs
+   middleware-notes/smtp

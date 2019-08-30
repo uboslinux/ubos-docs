@@ -2,7 +2,7 @@ Structure of the UBOS Manifest
 ==============================
 
 A Manifest JSON file has a type declaration, three required components, and
-two optional components:
+three optional components:
 
 .. code-block:: json
 
@@ -11,6 +11,8 @@ two optional components:
      "info" : {
         ... info section (not required but recommended)
      },
+     "requirestls" :
+        ... (optional)
      "roles" : {
         ... roles section
      },
@@ -40,6 +42,9 @@ while an :term:`Accessory` uses:
 
 The optional ``info`` section contains user-friendly, localized information about
 the :term:`App` or :term:`Accessory`. It is described in :doc:`info`.
+
+If ``"requirestls" : true``, this :term:`App` must only be deployed to :term:`Sites <Site>`
+that are protected by TLS.
 
 The required ``roles`` section declares how the :term:`App` wishes to be installed and
 configured with respect to Apache, MySQL, and other roles. It is described in

@@ -27,14 +27,14 @@ To create a backup of all :term:`Sites <Site>` on your device and save it to ``a
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --backuptofile all.ubos-backup
+   % sudo ubos-admin backup --all --backuptofile all.ubos-backup
 
 To create a backup of all :term:`Sites <Site>` on your device and save it to a file in your home directory
 letting UBOS choose a timestamped file name:
 
 .. code-block:: none
 
-   % sudo ubos-admin backup --backuptodir ~
+   % sudo ubos-admin backup --all --backuptodir ~
 
 To create a backup of a single :term:`Site` and save it to a file:
 
@@ -72,6 +72,9 @@ Examples:
 * ``s3://bucket/file`` will upload to an Amazon S3 bucket called ``bucket`` and create file
   ``file`` there. This requires that the package ``amazons3`` is installed, and that you
   have permissions to upload to this bucket.
+
+While the backup is running, UBOS may prevent you from invoking ``ubos-admin`` again. This
+helps to avoid corruption from multiple processes modifying the same data.
 
 ``ubos-admin backupinfo``
 -------------------------
@@ -129,6 +132,8 @@ To create a :term:`Site` from a :term:`Site` template file:
 
    % sudo ubos-admin createsite --from-template <template>
 
+and UBOS will only ask for values not already provided in the template.
+
 ``ubos-admin deploy``
 ---------------------
 
@@ -167,6 +172,9 @@ a backup of the old :term:`Site` configuration and content with:
 .. code-block:: none
 
    % sudo ubos-admin deploy --file <site.json> --backuptofile <backupfile>
+
+If you additionally specify ``--template``, you can use Site JSON template files, so UBOS
+will auto-generate identifies and unique credentials during deployment.
 
 ``ubos-admin hostid``
 ---------------------
@@ -363,6 +371,8 @@ such as:
 
    % sudo ubos-admin showappconfig --host example.com --context /blog
 
+or use ``--appconfigid`` instead.
+
 ``ubos-admin shownetconfig``
 ----------------------------
 
@@ -395,19 +405,21 @@ For example:
 .. code-block:: none
 
    % ubos-admin showsite --siteid s20...
-   Site: example.com (s20da71ce7a6da5500abd338984217cdc8a61f8de)
-       Context:           /guestbook (ab274f22ba2bcab61c84e78d944f6cdd7239a999e): gladiwashere
-       Context:           /blog (a9eef9bbf4ba932baa1b500cf520da91ca4703e26): wordpress
+   example.com
+       /guestbook : gladiwashere
+       /blog : wordpress
 
-This :term:`Site` responds to ``example.com`` and runs two :term:`Apps <App>`: the Glad-I-Was-Here guestbook, and
-Wordpress, at the URLs ``http://example.com/guestbook`` and ``http://example.com/blog``,
-respectively. Nothing is being said about other :term:`Sites <Site>` that may or may not run on the same
-device.
+This :term:`Site` responds to ``example.com`` and runs two :term:`Apps <App>`: the
+Glad-I-Was-Here guestbook, and Wordpress, at the URLs ``http://example.com/guestbook``
+and ``http://example.com/blog``, respectively. Nothing is being said about other
+:term:`Sites <Site>` that may or may not run on the same device.
 
 To determine information about a :term:`Site`'s administrator, add the ``--adminuser`` flag
 to invocation. In order to see the administrator's password, the command must be invoked with
 ``sudo``.
 
+To see other credentials or otherwise not-shown customizationpoints, use ``--credentials``
+and/or ``--privatecustomizationpoints``.
 
 ``ubos-admin start-pagekite``
 -----------------------------
@@ -417,11 +429,11 @@ the pagekite.net service, install package ``pagekite`` and execute:
 
 .. code-block:: none
 
-   % sudo ubos-admin start-pagekite --kitesecret <SSS> <NNN>
+   % sudo ubos-admin start-pagekite <NNN>
 
-where ``<NNN>`` is the name of your primary kite (e.g. ``johndoe.pagekite.me``)
-and ``<SSS>`` is the secret for the name. You can find both of them on the
-pagekite.net website after you have logged into your account there.
+where ``<NNN>`` is the name of your primary kite (e.g. ``johndoe.pagekite.me``). UBOS
+will then ask you for the secret that goes with the kite name. You can find both of them
+on the pagekite.net website after you have logged into your account there.
 
 ``ubos-admin status``
 ---------------------
@@ -431,8 +443,9 @@ invoke:
 
 .. code-block:: none
 
-   % sudo ubos-admin status --all
+   % sudo ubos-admin status
 
+There is a variety of options to control what information will be shown.
 
 ``ubos-admin status-pagekite``
 ------------------------------
@@ -488,7 +501,8 @@ update:
 
 .. code-block:: none
 
-   % sudo ubos-admin update ... --backup <backupfile>
+   % sudo ubos-admin update ... --backuptofile <backupfile>
+
 
 ``ubos-admin write-configuration-to-staff``
 -------------------------------------------

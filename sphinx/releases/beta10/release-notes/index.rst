@@ -22,7 +22,7 @@ For users
 
   * VirtualBox image now has the proper package support, and uses btrfs
 
-  * Automatic renewal of expiring Letsencrypt certificate
+  * Automatic renewal of expiring LetsEncrypt certificate
 
   * Whether btrfs snapshots are created before and after ubos-admin update is now configurable.
     A number of issues was fixed relating to brtfs snapshots.

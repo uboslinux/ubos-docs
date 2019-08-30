@@ -85,14 +85,14 @@ The Site JSON file is a JSON hash with the following entries:
    accessible via HTTPS. UBOS will also automatically redirect incoming HTTP requests
    to their HTTPS equivalent.
 
-   ``letsencrypt`` (mutually exclusive with ``key`` and ``crt``)
+   ``letsencrypt``
       If ``true``, obtain a certificate from letsencrypt.org, and set up the :term:`Site`
       with it. Also start an automatic renewal process.
 
-   ``key`` (required unless ``letsencrypt`` is provided)
+   ``key`` (if not provided and not ``letsencrypt``, auto-generate one)
       The key for the tls :term:`Site`. Only shown to the root user.
 
-   ``crt`` (required unless ``letsencrypt`` is provided)
+   ``crt`` (if not provided and not ``letsencrypt``, create a self-signed on)
       The certificate for the tls :term:`Site` as issued by your certificate authority,
       plus the certificate chain of your certificate authority, concatenated into
       one file.  Only shown to the root user.
@@ -130,7 +130,7 @@ The Site JSON file is a JSON hash with the following entries:
 
    ``location``
       Value for an HTTP Redirect header when accessed. This is mutually exclusive with
-     ``value``: only one of these two may be provided.
+      ``value``: only one of these two may be provided.
 
    ``prefix``
       Only permitted for an entry whose key is ``robots.txt`` and for which no ``value``
@@ -139,7 +139,7 @@ The Site JSON file is a JSON hash with the following entries:
    For all keys other than ``robots.txt``, the values provided in the Site JSON override
    any values that may have been provided by the :term:`Apps <App>` deployed to that
    :term:`Site`. Conversely, if the Site JSON does not specify a certain key, but an
-   :term:`<App>` does, the :term:`<App>`'s will be used (more details are described in
+   :term:`App` does, the :term:`App`'s will be used (more details are described in
    :doc:`ubos-manifest`). If multiple :term:`Apps <App>` define the same key, the value
    from the :term:`App` in the :term:`Site`'s first :term:`AppConfiguration` takes precedence.
 
@@ -151,7 +151,7 @@ The Site JSON file is a JSON hash with the following entries:
    * a catch-all ``User-Agent`` line
 
    * all ``Allow``/``Disallow`` statements specified by the :term:`Apps <App>`
-    (more details are described in :doc:`ubos-manifest`).
+     (more details are described in :doc:`ubos-manifest`).
 
    Note that UBOS will automatically make the content of the historic files `robots.txt`,
    `favicon.ico` and `sitemap.xml` available both at the root of the :term:`Site` and in

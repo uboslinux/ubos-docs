@@ -30,17 +30,20 @@ If the Site JSON file provided to this command is valid, UBOS will perform the f
 
 #. If a backup was requested, the backup will be created.
 
-#. If the :term:`Site` specifies to use a Letsencrypt certificate, and no valid certificate
-   is available on the device, ``certbot`` will automatically contact the Letsencrypt
+#. If the :term:`Site` specifies to use a LetsEncrypt certificate, and no valid certificate
+   is available on the device, ``certbot`` will automatically contact the LetsEncrypt
    web service and attempt to obtain a valid certificate for the :term:`Site`. This
    involves the temporary publication of a document in the :term:`Site`'s ``.well-known``
    subdirectory.
 
    If a valid certificate was found or obtained, the :term:`Site` will then be set up
-   with it. If no valid certificate could be obtained (e.g. because Letsencrypt
+   with it. If no valid certificate could be obtained (e.g. because LetsEncrypt
    could not contact the device due to DNS problems or a lack of public IP
-   address, per Letsencrypt requirements), the :term:`Site` will still be set up,
+   address, per LetsEncrypt requirements), the :term:`Site` will still be set up,
    but without SSL/TLS.
+
+#. If the :term:`Site` specifies TLS (not LetsEncrypt) but no key or certificate was
+   provided, a self-signed key/certificate pair will be automatically generated.
 
 #. All the :term:`Apps <App>` and the :term:`Accessories <Accessory>` in the new Site JSON
    will be deployed. For each of them, the :doc:`manifest JSONs <../ubos-manifest>`

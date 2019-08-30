@@ -45,7 +45,7 @@ For users
     SES, and leave other e-mail routes untouched. That way, fine-grained control
     over which e-mail gets routed how is possible.
 
-  * Automatic setup of SSL/TLS-secured sites using Letsencrypt. Simply specify
+  * Automatic setup of SSL/TLS-secured sites using LetsEncrypt. Simply specify
     an additional flag when creating a new site:
 
     .. code-block:: none

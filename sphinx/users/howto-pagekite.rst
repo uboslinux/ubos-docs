@@ -72,13 +72,13 @@ Then, execute the following commands:
 .. code-block:: none
 
    % sudo pacman -S --noconfirm pagekite
-   % sudo ubos-admin start-pagekite --kitesecret <SSS> <NNN>
+   % sudo ubos-admin start-pagekite <NNN>
 
 where ``<NNN>`` is the name of your primary kite (``johndoe.pagekite.me``
-in our example) and ``<SSS>`` is the secret for the name. You can find both
-of them on the pagekite.net website after you have logged into your account there.
-You need to provide this information to UBOS so your UBOS device can be
-securely paired with the account you created on the pagekite.net site.
+in our example). UBOS will then ask you for the secret that goes with this kite.
+You can find both the kite name and the secret on the pagekite.net website after you
+have logged into your account there. You need to provide this information to UBOS so
+your UBOS device can be securely paired with the account you created on the pagekite.net site.
 
 You only need to do this once, for sign-up.
 

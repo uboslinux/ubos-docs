@@ -323,7 +323,7 @@ Contributions to the site's "well-known"
 
 :term:`Sites <Site>` may publish certain "well-known" files, such as ``robots.txt`` or
 the content of directory ``.well-known`` below the root of the :term:`Site`. Subject to
-certain conflict resolution rules described in :doc:`<../site-json>`, an :term:`App` deployed
+certain conflict resolution rules described in :doc:`../site-json`, an :term:`App` deployed
 to a :term:`Site` may request to augment those entries.
 
 For that purpose, the ``wellknown`` entry may be specified. Here is an example:
@@ -345,22 +345,22 @@ For that purpose, the ``wellknown`` entry may be specified. Here is an example:
 
 In ``wellknown``, each key-value pair represents an entry into the :term:`Site`'s
 ``/.well-known/`` context path, with the key being the name of the file and the value
-being a JSON object with the following potential members. Note that ``robots.txt`` and
-``webfinger`` follow different rules than all other entries:
+being a JSON object with the following potential members (Note the special rules for
+``robots.txt`` and ``webfinger`` described below):
 
 ``value``
    Static file content if there is; the value may be encoded. This field must not be
-   used by ``robots.txt`` or ``webfinger``` entries (see additional fields below).
+   used by ``robots.txt`` or ``webfinger`` entries (see additional fields below).
 
 ``encoding``
    If given, ``base64`` is the only valid value. It indicates that the value of
    ``value`` is provided using Base64 encoding and needs to be decoded first. This is
-   useful for entries such as `favicon.ico`.
+   useful for entries such as ``favicon.ico``.
 
 ``location``
-   Value for the HTTP redirect Location header when accessed. This is mutually exclusive with
+   Value for the HTTP ``Location`` header when accessed. This is mutually exclusive with
    ``value``: only one of these two may be provided. This field must not be used by
-   ``robots.txt`` or ``webfinger``` entries (see below). This value may use variables
+   ``robots.txt`` or ``webfinger`` entries (see below). This value may use variables
    (as described in :doc:`variables`), which UBOS will replace during deployment.
 
 ``status``
@@ -374,17 +374,18 @@ being a JSON object with the following potential members. Note that ``robots.txt
    for a composite ``robots.txt`` file. Each member is prefixed by the content path to
    the :term:`AppConfiguration` to which this :term:`App` has been deployed. For example,
    if one of the values is ``/assets/``, it will become ``Allow: /myapp/assets/`` if the
-   :term:`App` has been deployed at context path ``/myapp``.`
+   :term:`App` has been deployed at context path ``/myapp``.
 
 ``disallow``
    Just like ``allow``, but for ``Disallow:`` content for a composite ``robots.txt`` file.
 
 ``proxy``
    Only permitted for an entry whose key is ``webfinger``. This field must have a value of
-   type string, containing a fully-qualified http or https URL. This specifies that UBOS,
-   when a client requests the :term:`Site`'s well-known webfinger URL, should access the
-   given URL, and semantically merge the resulting JSON files obtained from all :term:`App`s
-   defining a well-known proxy at this :term:`Site`. This enables multiple :term:`App`s
+   type string, containing a fully-qualified http or https URL (variable ``$(site.protocol)``
+   may be used). This specifies that UBOS, when a client requests the :term:`Site`'s
+   well-known webfinger URL, should access the
+   given URL, and semantically merge the resulting JSON files obtained from all :term:`App`'s
+   defining a well-known proxy at this :term:`Site`. This enables multiple :term:`App`'s
    deployed to the :term:`Site` to all publish their contribution to the :term:`Site`'s
    webfinger well-known. This value may use variables (as described in :doc:`variables`),
    which UBOS will replace during deployment.
