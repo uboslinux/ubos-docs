@@ -186,6 +186,18 @@ Changes in shipped packages:
   ``os-experimental``. It issues certificates with a very short expiration time, to
   help with testing.
 
+Application updates:
+--------------------
+
+There were minor updates to the following apps:
+
+* Decko
+* Matomo
+* Mediawiki
+* Nextcloud
+* phpBB
+* Wordpress
+
 Need help?
 ----------
 
