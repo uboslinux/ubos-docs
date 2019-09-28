@@ -155,6 +155,7 @@ like to use a SATA disk instead, do this:
 
    .. code-block:: none
 
+      env default -a
       scsi scan
       scsi dev 0
       ext4load scsi 0 $loadaddr /uEnv-sata.txt
@@ -168,8 +169,58 @@ like to use a SATA disk instead, do this:
 #. The ESPRESSObin will now boot from the SATA disk. If you have executed the ``saveenv``
    command, you can remove the SD Card; it will not be needed for future boots.
 
-UBoot bootloader factory configuration
---------------------------------------
+Note: if your ESPRESSObin fails to detect the SATA disk in the middle of the boot process,
+you may need to upgrade its pre-installed boot loader (see next section).
+
+u-Boot upgrade
+--------------
+
+More recent kernels (2019) require the u-Boot bootloader to be upgraded, otherwise the kernel
+may not detect the SATA disk. If this occurs, the kernel will start booting but some time
+into the process, it will fail to find the very disk it is running from. To perform the
+u-Boot upgrade, do this:
+
+* You need a USB flash stick. It needs to be VFAT-formatted (the default for USB flash sticks).
+
+* Determine the exact version of your ESPRESSObin, specifically version number (such as V5)
+  and the amount of RAM on your board (like 1G).
+
+* From our friends at Armbian at
+  [dl.armbian.com/espressobin/u-boot](https://dl.armbian.com/espressobin/u-boot/), download
+  the correct, prebuilt u-Boot binary for your ESPRESSObin and save it to your USB flash stick:
+
+  * If your ESPRESSObin is V5 or lower, look for files that start with ``flash-image-ddr3-``.
+    For versions after V5, look for files that start with ``flash-image-ddr4-``.
+
+  * The next element in the filename is the RAM size of your ESPRESSObin, such as ``512m-``,
+    ``1g-`` or ``2g-``.
+
+  * The next element in the filename is your ESPRESSObin's number of RAM chips. If your
+    ESPRESSObin was produced before 2019, the number is likely 2: "one on each side of the
+    PCB opposite to each other. Recent (e.g. 2019) 1GB models have only one chip at the bottom"
+    (thanks, Armbian!). Depending, the next element is ``1cs-`` or ``2cs-``.
+
+  * The last element is the speed at which to run the board. It is recommended to err on the
+    side of lower numbers, otherwise the ESPRESSObin might become unstable. The first number
+    is the CPU speed in MHz; the second the memory speed. We use ``1000_800``.
+
+* Once you saved the downloaded file to your USB stick, insert the stick into the
+  ESPRESSObin's USB3 port (the one that's blue) and boot your ESPRESSObin with a
+  serial terminal attached. Press a key, so the boot process is interrupted.
+
+* Flash the boot loader with this command:
+
+  .. code-block:: none
+
+     bubt <BIN> spi usb
+
+  where ``<BIN>`` is the full name of the file your downloaded to the USB stick.
+
+* Then, go through setting up the parameters just as if you attempted to boot from SATA
+  for the first time (see above).
+
+u-Boot bootloader factory configuration
+---------------------------------------
 
 If you have difficulty booting the ESPRESSObin with the provided instructions, it may
 be because you previously changed the ESPRESSObin's boot loader configuration from
