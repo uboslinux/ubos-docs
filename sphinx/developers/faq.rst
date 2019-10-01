@@ -128,3 +128,32 @@ for each major ARM revision, the various boards vary quite dramatically in terms
 they boot, or which peripherals they need to know about. So it would be unlikely that you
 would get an image for one ARM board to boot on another. The exception is the Raspberry Pi,
 where versions Zero and 1 share the same image, as do 2 and 3.
+
+My UBOS container cannot connect to the network
+-----------------------------------------------
+
+A variety of things can be the root cause of that, and we don't have a full list. To debug,
+check on which level of the networking stack the problem occurs, with commands such as:
+
+In the container:
+
+.. code-block:: none
+
+   % ip addr
+
+If your interface ``host0`` does not have an IP address, try ``ip dev set host0 up``. There
+seem to be some combinations of systemd versions between host and container in which the
+``host0`` interface in the container does not automatically come up.
+
+If you have an IP address, try to connect to some well-known IP address, like:
+
+.. code-block:: none
+
+   % ping 8.8.8.8
+
+If you can connect, check DNS, with something like:
+
+.. code-block:: none
+
+   % dig ubos.net
+

@@ -12,29 +12,68 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
    work. If you need more information, consult the
    `Arch Linux installation guide <https://wiki.archlinux.org/index.php/Installation_Guide>`_:
 
-   #. Partition your root disk ``/dev/sda`` in a way that makes sense to you, e.g.
-      using a single partition:
+   #. Partition your root disk ``/dev/sda`` in a way that makes sense to you. If you are not
+      sure, here is a somewhat complicated scheme (sorry!) that should work with dual BIOS
+      and EFI boot. (This could be simpler if we knew more about your PC, such as whether
+      but we don't, and so we rather be safe.)
+
+      We start by zeroing out some bytes; sometimes there are strange leftovers from previous
+      installs:
 
       .. code-block:: none
 
-         # fdisk /dev/sda
+         # dd if=/dev/zero of=/dev/sda bs=1M count=8 conv=notrunc
 
-      Select ``n`` and the defaults. Then select ``w`` to write changes to disk.
-
-   #. Create a filesystem for your partition. While you can use any filesystem, we recommend
-      ``btrfs`` as it is tightly integrated with ``systemd-nspawn``, the ``systemd``
-      container tool. This may save you a substantial amount of disk space if you might
-      run several UBOS instances in containers later on, e.g. for testing:
+      Clear the partition table:
 
       .. code-block:: none
 
-         # mkfs.btrfs /dev/sda1
+         # sgdisk --clear /dev/sda
+
+      Create the partition and change them to the right types:
+
+      .. code-block:: none
+
+         # sgdisk --new=1::+1M /dev/sda
+         # sgdisk --new=2::+100M /dev/sda
+         # sgdisk --new=3:: /dev/sda
+
+    if( UBOS::Utils::myexec( "sgdisk '--typecode=$i:$gptparttype' '$target'", undef, \$out, \$out )) {
+
+         # sgdisk --typecode=1:EF02 /dev/sda
+         # sgdisk --typecode=2:EF00 /dev/sda
+
+      Make sure changes are in effect:
+
+      .. code-block:: none
+
+         # sync
+         # partprobe /dev/sda
+
+   #. Create filesystems for your partitions 2 and 3 (the first does not need one).
+      Partition 2 must be a DOS partition per the UEFI spec. For the 3rd (main) partition,
+      you could use any filesystem, but we recommend ``btrfs`` as it is tightly integrated
+      with ``systemd-nspawn``, the ``systemd`` container tool. This may save you a
+      substantial amount of disk space if you might run several UBOS instances in containers
+      later on, e.g. for testing. Execute:
+
+      .. code-block:: none
+
+         # mkfs.vfat  /dev/sda2
+         # mkfs.btrfs /dev/sda3
 
    #. Mount your future root partition in a place where you can install software:
 
       .. code-block:: none
 
-         # mount /dev/sda1 /mnt
+         # mount /dev/sda3 /mnt
+
+      and add the ``/boot`` partition:
+
+      .. code-block:: none
+
+         # mkdir /mnt/boot
+         # mount /dev/sda2 /mnt/boot
 
    #. Make sure you have a network connection:
 
@@ -91,12 +130,51 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
            #   mkinitcpio -p linux
 
-      * Configure the boot loader:
+      * Configure the Grub boot loader for legacy (BIOS) boot:
 
         .. code-block:: none
 
-           #   grub-install --recheck /dev/sda
+           #   grub-install --target=i386-pc --recheck /dev/sda
            #   grub-mkconfig -o /boot/grub/grub.cfg
+
+      * Configure the systemd boot loader for modern (UEFI) boot:
+
+        .. code-block:: none
+
+           #   bootctl --path /boot install
+
+      * UEFI boot needs some more data. Create directory ``/boot/loader/entries``if it does
+        not exist yet:
+
+        .. code-block:: none
+
+           #   mkdir /boot/loader/entries
+
+       * Create file ``/boot/loader/loader/loader.conf`` with content:
+
+        .. code-block:: none
+
+           timer 4
+           default arch
+
+       * Determine the UUID of the root partition (not: disk) and put it into the to-be-edited
+         file that will need it:
+
+        .. code-block:: none
+
+           #   lsblk -o UUID /dev/sda3 > /boot/loader/entries/arch.conf
+
+       * Now edit the created file ``/boot/loader/entries/arch.conf`` so that it looks like
+         this, where ``XXX`` is the UUID contained in the file when you first opened it.
+
+        .. code-block:: none
+
+           title Arch
+           linux /vmlinuz-linux
+           initrd /initramfs-linux.img
+           options root=PARTUUID=XXX rw
+
+         (sorry, this is a bit more complicated than we'd like; thanks UEFI!)
 
       * Install a Locale. Edit ``/etc/locale.gen``, and uncomment this line:
 

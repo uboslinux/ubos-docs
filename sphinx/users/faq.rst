@@ -122,6 +122,17 @@ Make sure you have IPv6 enabled on your host. If you run the container on
 a UBOS host itself, it may be as easy as ``ubos-admin setnetconfig client``
 (or whatever netconfig you are running on the host).
 
+I cannot login as root into a UBOS container from the console
+-------------------------------------------------------------
+
+If the error message is "login incorrect", that may be because somebody in an upstream
+package (not sure which upstream package, but it wasn't us) changed the terminal for the
+root console. To make this work again, from your host, edit the ``/etc/securetty`` file
+by adding a new line with the content ``pts/0``.
+
+For example, if your container's root directory is at ``~/ubos``, as root, you would be
+editing file ``~/ubos/etc/securetty``.
+
 I need a package that isn't in UBOS
 -----------------------------------
 
