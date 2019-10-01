@@ -37,9 +37,6 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
          # sgdisk --new=1::+1M /dev/sda
          # sgdisk --new=2::+100M /dev/sda
          # sgdisk --new=3:: /dev/sda
-
-    if( UBOS::Utils::myexec( "sgdisk '--typecode=$i:$gptparttype' '$target'", undef, \$out, \$out )) {
-
          # sgdisk --typecode=1:EF02 /dev/sda
          # sgdisk --typecode=2:EF00 /dev/sda
 
@@ -150,22 +147,22 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
            #   mkdir /boot/loader/entries
 
-       * Create file ``/boot/loader/loader/loader.conf`` with content:
+      * Create file ``/boot/loader/loader/loader.conf`` with content:
 
         .. code-block:: none
 
            timer 4
            default arch
 
-       * Determine the UUID of the root partition (not: disk) and put it into the to-be-edited
-         file that will need it:
+      * Determine the UUID of the root partition (not: disk) and put it into the to-be-edited
+        file that will need it:
 
         .. code-block:: none
 
            #   lsblk -o UUID /dev/sda3 > /boot/loader/entries/arch.conf
 
-       * Now edit the created file ``/boot/loader/entries/arch.conf`` so that it looks like
-         this, where ``XXX`` is the UUID contained in the file when you first opened it.
+      * Now edit the created file ``/boot/loader/entries/arch.conf`` so that it looks like
+        this, where ``XXX`` is the UUID contained in the file when you first opened it.
 
         .. code-block:: none
 
@@ -174,7 +171,7 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
            initrd /initramfs-linux.img
            options root=PARTUUID=XXX rw
 
-         (sorry, this is a bit more complicated than we'd like; thanks UEFI!)
+        (sorry, this is a bit more complicated than we'd like; thanks UEFI!)
 
       * Install a Locale. Edit ``/etc/locale.gen``, and uncomment this line:
 
