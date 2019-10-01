@@ -143,7 +143,7 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
            #   bootctl --path /boot install
 
-      * UEFI boot needs some more data. Create directory ``/boot/loader/entries``if it does
+      * UEFI boot needs some more data. Create directory ``/boot/loader/entries`` if it does
         not exist yet:
 
         .. code-block:: none
