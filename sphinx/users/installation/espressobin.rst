@@ -40,7 +40,8 @@ container. This is :doc:`described here <aarch64_container>`.)
 #. From your computer, attach a serial terminal. How to do that depends on your operating
    system. The ESPRESSObin site has a
    `description <http://wiki.espressobin.net/tiki-index.php?page=Serial+connection>`_ how to
-   do this for Windows and Linux. The baudrate is 115200.
+   do this for Windows and Linux. The baudrate is 115200. For example, on Linux, you might
+   run ``sudo screen /dev/ttyUSB0 115200``.
 
 #. Connect the 12V power supply to your ESPRESSObin.
 
@@ -186,7 +187,7 @@ u-Boot upgrade, do this:
   and the amount of RAM on your board (like 1G).
 
 * From our friends at Armbian at
-  [dl.armbian.com/espressobin/u-boot](https://dl.armbian.com/espressobin/u-boot/), download
+  `dl.armbian.com/espressobin/u-boot <https://dl.armbian.com/espressobin/u-boot/>`_`, download
   the correct, prebuilt u-Boot binary for your ESPRESSObin and save it to your USB flash stick:
 
   * If your ESPRESSObin is V5 or lower, look for files that start with ``flash-image-ddr3-``.
@@ -216,7 +217,7 @@ u-Boot upgrade, do this:
 
   where ``<BIN>`` is the full name of the file your downloaded to the USB stick.
 
-* Then, go through setting up the parameters just as if you attempted to boot from SATA
+* Then, go through setting up the parameters just as if you attempted to boot
   for the first time (see above).
 
 u-Boot bootloader factory configuration
