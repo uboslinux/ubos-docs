@@ -7,6 +7,10 @@ Use of SATA disk
 To use a SATA disk with the ESPRESSObin, please refer to
 :doc:`/users/installation/espressobin`.
 
+Note that more recent (2019) kernels require an upgraded boot loader, otherwise your
+disk may not be detected. For how to upgrade your boot loader, please refer to
+:doc:`/users/installation/espressobin`.
+
 Networking
 ----------
 
