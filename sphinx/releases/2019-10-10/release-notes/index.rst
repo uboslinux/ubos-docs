@@ -1,4 +1,4 @@
-Release Notes: Update 2019-10-09
+Release Notes: Update 2019-10-10
 ================================
 
 To upgrade
