@@ -55,12 +55,6 @@ the device that you run Pagekite on.
 
 Alternatively, you can use a site with the wildcard (``*``) hostname.
 
-.. note::
-
-   Due to `this issue <https://github.com/uboslinux/ubos-admin/issues/509>`_,
-   setting up a letsencrypt-protected site currently only works on redeploy.
-   There is a workaround posted at this issue.
-
 Step 3: Configure Pagekite on your UBOS device
 ----------------------------------------------
 
