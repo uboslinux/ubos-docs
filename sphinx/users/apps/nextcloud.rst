@@ -32,6 +32,13 @@ UBOS knowing, and that's what would be happening if Nextcloud got to add "apps" 
 :term:`Accessories <Accessory>` to itself. And: UBOS curates :term:`Accessories <Accessory>`,
 so you can be fairly certain that the ones provided through UBOS actually work.
 
+Notes on Nextcloud "social"
+---------------------------
+
+UBOS makes the Nextcloud "Social" app available because users have requested it.
+However, it is still marked as "alpha" by its developers, and in our experience, this
+assessment is correct. In other words, if you decide to deploy it, do not rely on it working.
+
 How to skip a Nextcloud version during upgrade
 ----------------------------------------------
 
@@ -53,8 +60,8 @@ of Nextcloud you are currently running. Execute:
 
    % pacman -Qi nextcloud
 
-This section applies to you if the version you have installed starts with 14. Upgrades
-do not require this workaround if your version starts with 15 or 16.
+This section applies to you if the version you have installed starts with 14 or 15. Upgrades
+do not require this workaround if your version starts with 16 or 17.
 
 * Before you attempt to upgrade your device, create a backup of your Nextcloud installation
   with ``ubos-admin backup``.
@@ -63,7 +70,8 @@ do not require this workaround if your version starts with 15 or 16.
   (Make triply sure first that you have a backup for everything you will undeploy!)
 * Upgrade your device with ``ubos-admin update``.
 * Now restore your backup, while telling UBOS to replace package ``nextcloud`` with
-  package ``nextcloud15`` (the skipped version) during the restore. You do that with
+  package ``nextcloud15`` (the skipped version; if you skipped more than one, do it once for
+  each skipped version in sequence) during the restore. You do that with
   additional arguments: ``ubos-admin restore --migratefrom nextcloud --migrateto nextcloud15``.
   This will migrate your Nextcloud data to version 15, from which the regular upgrade
   works.
@@ -72,3 +80,6 @@ do not require this workaround if your version starts with 15 or 16.
   ``ubos-admin restore --migratefrom nextcloud15 --migrateto nextcloud``.
 * Now you should be back and running. You can clean up by removing the intermediate
   version with ``pacman -R nextcloud15``.
+
+Sorry for the complications, but this is the best we can do if you do not regularly update
+your UBOS device.
