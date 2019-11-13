@@ -88,7 +88,8 @@ Known problems
 --------------
 
 In one instance, a Matomo upgrade failed with ``Error in Matomo: Mysqli prepare error:
-Access denied for user ... to database ...``. This is under investigation.
+Access denied for user ... to database ...``. This problem goes away if the Goals plugin
+is disabled (go to Administration / System / Plugins).
 
 
 Note on skipped Nextcloud major version upgrades
