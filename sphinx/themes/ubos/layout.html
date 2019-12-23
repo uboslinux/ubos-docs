@@ -13,20 +13,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>{{ title|striptags|e }} - UBOS Documentation</title>
+  <meta property="og:title" content="{{ title|striptags|e }} - UBOS Documentation" />
+  <meta name="twitter:title" content="{{ title|striptags|e }} - UBOS Documentation" />
 
-  <link rel="stylesheet" href="/css/main.css">
-</head>
+  <meta name="description" content="Linux distro that makes it 10x easier to run server-side apps like Nextcloud or Mastodon for your family, on PC, Raspberry Pi, cloud and others">
+  <meta name="keywords" content="home server, personal server, self-host, decentralized, IoT, Raspberry Pi, ESPRESSObin, Web app, private, privacy, Internet of Things">
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/miniresp-default.css" />
+  <link rel="stylesheet" href="/assets/miniresp-small.css" media="( max-width: 800px )"/>
+  <link rel="stylesheet" href="/assets/miniresp-large.css" media="( min-width: 980px )"/>
+  <link rel="stylesheet" href="/assets/print.css" media="print">
+ </head>
 {% endblock %}
-  <body>
+ <body>
 {% block header %}
- <div class="header-wrapper">
-  <div class="header">
-   <header>
-    <nav>
-     <a href="/">
-      <img src="/images/ubos-logo-header-70x22.png" alt="[UBOS]">
-     </a>
-     <ul>
+  <header class="fixed-top">
+   <div class="miniresp-main">
+    <div class="project">
+     <a title="{{ title|striptags|e }}" href="/"><img src="/images/ubos-logo-header-70x22.png" alt="[UBOS]"></a>
+    </div>
+
+    <nav class="miniresp">
+     <button class="nav"></button>
+     <ul class="nav">
       <li><a href="/quickstart/">Getting Started</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/apps/">Apps</a></li>
@@ -36,42 +46,42 @@
       <li><a href="/community/">Community</a></li>
      </ul>
     </nav>
-   </header>
-  </div>
- </div>
+
+   </div>
+  </header>
+  <div class="fixed-top-spacer"></div>
 {% endblock %}
 
-  <div class="content-wrapper">
-   <div class="content">
+  <main class="miniresp-main">
+   <article role="main" class="blog-post">
 {% block sidebar %}
     <div class="sidebar">
      <h3><a href="THIS_CONTEXT/">Documentation Overview</a></h3>
      <h4>Release channel: THIS_RELEASE_CHANNEL</h4>
 {{ toctree() }}
     </div>
-   <noscript><p style="text-align: center">This site requires Javascript in some places.</p></noscript>
+    <noscript><p style="text-align: center">This site requires Javascript in some places.</p></noscript>
 {% endblock %}
 {% block supertitle %}
-<h5><a href="THIS_CONTEXT/">Documentation:</a></h5>
+    <h5><a href="THIS_CONTEXT/">Documentation:</a></h5>
 {% endblock %}
 {% block body %} {% endblock %}
-   </div>
-  </div>
+    </div>
+   </article>
+  </main>
 
 {% block footer %}
-<div class="footer-wrapper">
- <div class="footer">
-  <footer>
-   <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" style="float: left; margin-right: 20px">
-    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
-   </a>
-   <p>&copy; by <a href="http://indiecomputing.com/">Indie Computing Corp.</a>
-      <a href="/legal/">Legal</a>.
-      <a href="https://github.com/uboslinux/ubos-docs/issues">File a documentation bug.</a>
-   </p>
-  </footer>
+<footer>
+ <div class="miniresp-main">
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" style="float: left; margin-right: 20px">
+   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+  </a>
+  <p>&copy; <a href="http://indiecomputing.com/">Indie Computing Corp.</a>
+     <a href="/legal/">Legal</a>.
+     <a href="https://github.com/uboslinux/ubos-docs/issues">File a documentation bug.</a>
+  </p>
  </div>
-</div>
+</footer>
 {% endblock %}
 {% block analytics %}
 <!-- Matomo -->
