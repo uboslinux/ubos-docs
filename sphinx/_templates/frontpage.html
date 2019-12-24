@@ -1,33 +1,32 @@
 {% extends "layout.html" %}
 {% set title = _('Overview') %}
 {% block body %}
- <div style="width: 720px; margin: 0 auto;">
+ <div style="margin: 0 auto;">
   <h1 style="text-align: center; margin: 2em 0 0.2em 0; text-weight: bold">UBOS Documentation</h1>
   <h3 class="release-channel">Release channel: THIS_RELEASE_CHANNEL (go to <a href="OTHER_CONTEXT/">OTHER_RELEASE_CHANNEL</a> instead)</h3>
 
-  <table style="width: 100%; border-collapse: separate; border-spacing: 15px; border: 0">
-   <tr>
-    <td style="width: 50%; padding: 10px; text-align: center; background: #fffdcc; border: 1px solid #ffe0c0; border-radius: 20px">
-     <h2><a href="{{ pathto("users/index") }}">How to use UBOS</a></h2>
-     <p>If you would like to easily run web<br>
-        and internet-of-things apps<br>
-        on hardware you own<br>
-        (such as a Raspberry Pi),<br>
-        <a href="{{ pathto("users/index") }}">start here</a>.</p>
-    </td>
-    <td style="padding: 10px; text-align: center; background: #fffdcc; border: 1px solid #ffe0c0; border-radius: 20px">
-     <h2><a href="{{ pathto("developers/index") }}">How to develop for UBOS</a></h2>
-     <p>If you are a developer<br>
-        and would like to distribute your web<br>
-        or internet-of-things apps to people<br>
-        who want to run it on their own hardware,<br>
-        <a href="{{ pathto("developers/index") }}">start here</a>.</p>
-     </a>
-    </td>
-   </tr>
-  </table>
+  <div style="width: 100%">
+   <div style="width: 400px; padding: 10px; text-align: center; margin: 10px auto; background: #fffdcc; border: 1px solid #ffe0c0; border-radius: 20px">
+    <h2><a href="{{ pathto("users/index") }}">How to use UBOS</a></h2>
+    <p>If you would like to easily run web<br>
+       and internet-of-things apps<br>
+       on hardware you own<br>
+       (such as a Raspberry Pi),<br>
+       <a href="{{ pathto("users/index") }}">start here</a>.</p>
+    </p>
+   </div>
+   <div style="width: 400px; padding: 10px; text-align: center; margin: 10px auto; background: #fffdcc; border: 1px solid #ffe0c0; border-radius: 20px">
+    <h2><a href="{{ pathto("developers/index") }}">How to develop for UBOS</a></h2>
+    <p>If you are a developer<br>
+       and would like to distribute your web<br>
+       or internet-of-things apps to people<br>
+       who want to run it on their own hardware,<br>
+       <a href="{{ pathto("developers/index") }}">start here</a>.</p>
+    </a>
+   </div>
+  </div>
 
-  <p style="margin-top: 20px; text-align: center">Found errors, omissions, improvements? Submit pull requests
+  <p class="clearer" style="padding-top: 20px; text-align: center">Found errors, omissions, improvements? Submit pull requests
      <a href="https://github.com/uboslinux/ubos-docs">in Github</a> or
      <a href="/community/">get in touch</a>.</p>
  </div>
