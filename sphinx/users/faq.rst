@@ -133,6 +133,11 @@ by adding a new line with the content ``pts/0``.
 For example, if your container's root directory is at ``~/ubos``, as root, you would be
 editing file ``~/ubos/etc/securetty``.
 
+Installing a new package or upgrading says something about "unknown trust"
+--------------------------------------------------------------------------
+
+Run ``sudo pacman-key --refresh-keys`` and try again.
+
 I need a package that isn't in UBOS
 -----------------------------------
 
