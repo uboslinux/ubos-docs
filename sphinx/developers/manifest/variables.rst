@@ -304,6 +304,18 @@ packaging their :term:`Apps <App>` or :term:`Accessories <Accessory>` for UBOS. 
 
    Example: ``indiebox.example.org``
 
+``${site.hostnameorlocalhost}``
+  Same as ``${site.hostname}`` except that in case of a wildcard site, the value will
+  be ``localhost``.
+
+``${site.hostnameorwildcard}``
+  Same as ``${site.hostname}`` except that in case of a wildcard site, the value will
+  be ``__wildcard``.
+
+``${site.hostnameorsystemhostname}``
+  Same as ``${site.hostname}`` except that in case of a wildcard site, the value will
+  be the system hostname as returned by ``hostname``.
+
 ``${site.protocol}``
    The protocol by which this :term:`Site` is accessed. Valid values are
    ``http`` and ``https``.
