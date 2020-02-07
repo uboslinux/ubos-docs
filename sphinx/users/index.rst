@@ -21,6 +21,7 @@ How to use UBOS
    writing-image
    howto-ssh
    howto-pagekite
+   howto-storj
    report-bug
    troubleshooting
    faq
