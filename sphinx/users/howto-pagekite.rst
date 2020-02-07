@@ -71,8 +71,9 @@ Then, execute the following commands:
 where ``<NNN>`` is the name of your primary kite (``johndoe.pagekite.me``
 in our example). UBOS will then ask you for the secret that goes with this kite.
 You can find both the kite name and the secret on the pagekite.net website after you
-have logged into your account there. You need to provide this information to UBOS so
-your UBOS device can be securely paired with the account you created on the pagekite.net site.
+have logged into your account there (open section "Your details"). You need to
+provide this information to UBOS so your UBOS device can be securely paired with
+your pagekite.net account.
 
 You only need to do this once, for sign-up.
 
