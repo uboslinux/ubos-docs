@@ -292,7 +292,7 @@ paid and free dynamic DNS providers. To set it up, first install the package:
 
    % sudo pacman -S ddclient
 
-Then, as root, edit ``/etc/ddclient.conf`` with the settings for your dynamic DNS provider.
+Then, as root, edit ``/etc/ddclient/ddclient.conf`` with the settings for your dynamic DNS provider.
 Finally, run ``ddclient`` as a daemon:
 
 .. code-block:: none

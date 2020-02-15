@@ -56,6 +56,9 @@ The UBOS Staff device uses the following directory layout. For details, see belo
 |                                    |                                        | be instantiated and deployed to any device that reads this Staff unless a       |
 |                                    |                                        | :term:`Site` with the same hostname exists already on the device.               |
 +------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
+| ``flock/<HOSTID>/bootlog/``        | ``<timestamp>.txt``                    | Text files containing the UBOS device's boot log from the journal. This may     |
+|                                    |                                        | help with troubleshooting issues on devices that don't have a monitor.          |
++------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
 | ``flock/<HOSTID>/device-info/``    | ``device.json``                        | A JSON file containing information about the device.                            |
 +------------------------------------+----------------------------------------+---------------------------------------------------------------------------------+
 | ``flock/<HOSTID>/site-templates/`` | ``<name>.json``                        | This directory may contain several Site JSON files or Site JSON template files. |

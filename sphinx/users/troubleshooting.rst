@@ -102,6 +102,12 @@ Message: Failed to create file /sys/devices/system/cpu/microcode/reload when run
 
 This is harmless. You can ignore it.
 
+UBOS comes up degraded
+^^^^^^^^^^^^^^^^^^^^^^
+
+To find out what's wrong, run ``systemctl --failed``. That should give you a good
+idea. If you cannot solve the problem, reach out!
+
 Systemd problems
 ----------------
 
@@ -292,6 +298,61 @@ When this message appears, you should:
   device, you can simply delete the ``/ubos/backup/update`` directory hierarchy and
   continue what you were doing.
 
+Installing a new package or upgrading fails with a message about "unknown trust"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run ``sudo pacman-key --refresh-keys`` and try again.
+
+Installing a new package or updating fails with a message about "invalid or corrupted package (PGP signature)"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here are some reasons for this:
+
+* You are attempting to install a non-UBOS package. UBOS ships with a pacman configuration
+  that requires signatures on all packages, and your package either does not have one, or
+  it was created with a key pair not trusted by UBOS. In this case, either import the
+  public key into the pacman trust database as a trusted key, or weaken the pacman security
+  requirements by making signatures optional (in ``/etc/pacman.conf``).
+
+* You are attempting to install a UBOS package that was signed with a key pair that has
+  since expired. (The pacman error message is not very clear when that happens; try
+  to invoke pacman with flag ``--debug`` to get more information.) In this case, please
+  report the name of the offending package so we can update it.
+
+Updating UBOS fails with lots of error messages containing ``Unrecognized archive format``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You probably haven't updated your UBOS device for a long time. In the meantime, we have
+started distributing some packages with a new, faster, compression scheme, and your
+version of ``pacman`` and dependent libraries are too old to recognize it. So upgrade
+``pacman`` and ``libarchive`` first.
+
+First, find the cached ``pacman`` and ``libarchive`` packages on your system:
+
+.. code-block:: none
+
+   find /var/cache/pacman -name pacman-\* -or -name libarchive\*
+
+Then, if the names of the found files are, for example,
+``/var/cache/pacman/pkg/pacman-5.2.1-4-x86_64.pkg.tar.zst`` and
+``/var/cache/pacman/pkg/libarchive-3.4.1-1-x86_64.pkg.tar.zst``, copy those files locally
+and uncompress them:
+
+.. code-block:: none
+
+   cp /var/cache/pacman/pkg/pacman-5.2.1-4-x86_64.pkg.tar.zst .
+   cp /var/cache/pacman/pkg/libarchive-3.4.1-1-x86_64.pkg.tar.zst .
+   zstd -d pacman-5.2.1-4-x86_64.pkg.tar.zst
+   zstd -d libarchive-3.4.1-1-x86_64.pkg.tar.zst
+
+Then, install the uncompressed files:
+
+.. code-block:: none
+
+   sudo pacman -U pacman-5.2.1-4-x86_64.pkg.tar libarchive-3.4.1-1-x86_64.pkg.tar
+
+and proceed as you regularly would with updating UBOS.
+
 Image problems
 --------------
 
@@ -303,6 +364,24 @@ web, such as at http://www.midwesternmac.com/blogs/jeff-geerling/resizing-virtua
 
 Container problems
 ------------------
+
+I'm trying to run UBOS in a container, and the container comes up degraded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Make sure you have IPv6 enabled on your host. If you run the container on
+a UBOS host itself, it may be as easy as ``ubos-admin setnetconfig client``
+(or whatever netconfig you are running on the host).
+
+I cannot login as root into a UBOS container from the console
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the error message is "login incorrect", that may be because somebody in an upstream
+package (not sure which upstream package, but it wasn't us) changed the terminal for the
+root console. To make this work again, from your host, edit the ``/etc/securetty`` file
+by adding a new line with the content ``pts/0``.
+
+For example, if your container's root directory is at ``~/ubos``, as root, you would be
+editing file ``~/ubos/etc/securetty``.
 
 Cannot reach the public internet from a container running UBOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -110,7 +110,7 @@ For ``ssh`` instructions, see :doc:`howto-ssh`.
 * Answer the questions that the program asks, such as for satellite and API
   key. Set an encryption passphrase and make sure you store that in a safe place
   as well (such as your password manager). In doubt, refer to the
-  `Tardigrade documentation <https://documentation.tardigrade.io/setup/account>`_.
+  Tardigrade documentation.
 
 How to run the Storj/Tardigrade gateway
 ---------------------------------------
@@ -336,7 +336,7 @@ all UBOS devices run by default. To do that, become root, and then:
 In addition, iff your UBOS device is not directly connected to the internet and
 behind a firewall, open up a port on the firewall that routes to the same port on your
 UBOS device. This is described in the
-`Tardigrade documentation <https://documentation.storj.io/dependencies/port-forwarding>`_.
+`Tardigrade documentation on port forwarding <https://documentation.storj.io/dependencies/port-forwarding>`_.
 
 However, we recommend using ``ddclient`` as your Dynamic DNS tool. This is described
 :doc:`networking`.
