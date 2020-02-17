@@ -1,4 +1,4 @@
-Release Notes: UBOS update 2020-02-14
+Release Notes: UBOS update 2020-02-17
 =====================================
 
 To upgrade
@@ -7,7 +7,7 @@ To upgrade
 To be safe, first create a backup of all your sites to a suitable file, with a
 command such as:
 
-* ``sudo ubos-admin backup --backuptodirectory ~``
+* ``sudo ubos-admin backup --all --backuptodirectory ~``
 
 Then, update your device:
 
@@ -34,9 +34,16 @@ New features
   :doc:`UBOS documentation on Storj <../../../users/howto-storj>`. (Feedback
   appreciated!)
 
+Notable new packages:
+^^^^^^^^^^^^^^^^^^^^^
+
+* Arduino command-line tools
+* Platform.io command-line tools
+
 Package upgrades:
 ^^^^^^^^^^^^^^^^^
 
+Over 600 packages were upgraded.
 
 Bug fixes
 ^^^^^^^^^
