@@ -3,13 +3,13 @@
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 ifeq "$(BRANCH)" 'master'
-    STAGEDIR              = ../ubos-website/stage/docs
+    STAGEDIR              = ../ubos-website/public/docs
     THIS_RELEASE_CHANNEL  = green
     THIS_CONTEXT          = /docs
     OTHER_RELEASE_CHANNEL = yellow
     OTHER_CONTEXT         = /docs-yellow
 else ifeq "$(BRANCH)" 'yellow'
-    STAGEDIR              = ../ubos-website/stage/docs-yellow
+    STAGEDIR              = ../ubos-website/public/docs-yellow
     THIS_RELEASE_CHANNEL  = yellow
     THIS_CONTEXT          = /docs-yellow
     OTHER_RELEASE_CHANNEL = green
