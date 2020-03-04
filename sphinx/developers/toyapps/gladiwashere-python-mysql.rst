@@ -35,14 +35,21 @@ Manifest JSON
 -------------
 
 Let's examine this :term:`App`'s :term:`UBOS Manifest JSON` file. It is similar to
-``gladiwashere-php-mysql``'s, but specifies dependencies on Python instead of PHP modules,
-and also keeps application files out of the Apache document root. This is good
-security practice, and somewhat easier with WSGI than with PHP:
+``gladiwashere-php-mysql``'s, but there are a few differences:
+
+* It declares the :term:`App <App>` as requiring TLS. This means the user cannot deploy it
+  to a :term:`Site <Site>` unless the :term:`Site <Site>` uses TLS (i.e. it is a
+  HTTPS-only site).
+* It specifies dependencies on Python instead of PHP modules,
+* It keeps application files out of the Apache document root. This is good
+  security practice, and somewhat easier with WSGI than with PHP:
 
 .. code-block:: json
 
    {
        "type" : "app",
+
+       "requirestls" : true,
 
        "roles" : {
            "apache2" : {
