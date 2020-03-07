@@ -39,6 +39,36 @@ UBOS makes the Nextcloud "Social" app available because users have requested it.
 However, it is still marked as "alpha" by its developers, and in our experience, this
 assessment is correct. In other words, if you decide to deploy it, do not rely on it working.
 
+How to install OnlyOffice and the corresponding document server
+---------------------------------------------------------------
+
+This requires two accessories:
+
+* ``nextcloud-onlyoffice``, and
+* ``nextcloud-documentserver-community``.
+
+You may receive message "ONLYOFFICE cannot be reached. Please contact admin". This is
+because you accessed your Nextcloud through a hostname or IP address different from what
+the Nextcloud installation expected.
+
+To set the address at which the document server is available, go to the OnlyOffice
+Settings in the Nextcloud user interface (as administrator, go to Settings, section Administration,
+select ONLYOFFICE), and edit the Document Editing Service address. The URL there must start
+with the same protocol, hostname and path as the URL you are using to access Nextcloud.
+
+You may also need to set this the first time you access Nextcloud after initial deployment.
+
+How to install full-text search
+-------------------------------
+
+This requires three accessories:
+
+* ``nextcloud-fulltextsearch``,
+* ``nextcloud-files-fulltextsearch``, and
+* ``nextcloud-fulltextsearch-elasticsearch``.
+
+UBOS will automatically run all required daemons and associated commands.
+
 How to skip a Nextcloud version during upgrade
 ----------------------------------------------
 

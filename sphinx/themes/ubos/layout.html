@@ -20,65 +20,60 @@
   <meta name="keywords" content="home server, personal server, self-host, decentralized, IoT, Raspberry Pi, ESPRESSObin, Web app, private, privacy, Internet of Things">
 
   <link rel="stylesheet" href="/assets/site.css" />
-  <link rel="stylesheet" href="/assets/miniresp-default.css" />
-  <link rel="stylesheet" href="/assets/miniresp-small.css" media="( max-width: 800px )"/>
-  <link rel="stylesheet" href="/assets/miniresp-large.css" media="( min-width: 980px )"/>
   <link rel="stylesheet" href="/assets/print.css" media="print">
  </head>
 {% endblock %}
  <body>
 {% block header %}
-  <header class="fixed-top">
-   <div class="miniresp-main">
-    <div class="project">
-     <a title="{{ title|striptags|e }}" href="/"><img src="/images/ubos-logo-header-70x22.png" alt="[UBOS]"></a>
-    </div>
-
-    <nav class="miniresp">
-     <button class="nav"></button>
-     <ul class="nav">
+  <header>
+   <div class="container">
+    <div class="logo"><a title="Home" href="/"><img src="/images/ubos-logo-header-70x22.png" alt="[UBOS]"></a></div>
+    <nav id="page-nav">
+     <label for="hamburger">&#9776;</label>
+     <input type="checkbox" id="hamburger"/>
+     <ul>
       <li><a href="/quickstart/">Getting Started</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/apps/">Apps</a></li>
-      <li><a href="THIS_CONTEXT/">Documentation</a></li>
+      <li><a href="/docs/">Documentation</a></li>
       <li><a href="/press/">Press</a></li>
       <li><a href="/blog/">Blog &amp; Videos</a></li>
       <li><a href="/community/">Community</a></li>
      </ul>
     </nav>
-
    </div>
   </header>
-  <div class="fixed-top-spacer"></div>
 {% endblock %}
 
-  <main class="miniresp-main">
-   <article role="main" class="blog-post">
+  <main class="container">
+   <noscript><p style="text-align: center">This site requires Javascript in some places.</p></noscript>
+   <article role="main" class="blog-post sphinx">
 {% block sidebar %}
     <div class="sidebar">
      <h3><a href="THIS_CONTEXT/">Documentation Overview</a></h3>
      <h4>Release channel: THIS_RELEASE_CHANNEL</h4>
 {{ toctree() }}
     </div>
-    <noscript><p style="text-align: center">This site requires Javascript in some places.</p></noscript>
 {% endblock %}
+    <div>
 {% block supertitle %}
-    <h5><a href="THIS_CONTEXT/">Documentation:</a></h5>
+     <h5><a href="THIS_CONTEXT/">Documentation:</a></h5>
 {% endblock %}
 {% block body %} {% endblock %}
+     </div>
     </div>
    </article>
   </main>
 
 {% block footer %}
 <footer>
- <div class="miniresp-main">
-  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" style="float: left; margin-right: 20px">
+ <div class="container">
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
   </a>
   <p>&copy; <a href="http://indiecomputing.com/">Indie Computing Corp.</a>
-     <a href="/legal/">Legal</a>.
-     <a href="https://github.com/uboslinux/ubos-docs/issues">File a documentation bug.</a>
+     <a href="/legal/">Legal</a>.<br>
+     <a href="https://github.com/uboslinux/ubos-docs/issues">Found an error?</a>
   </p>
  </div>
 </footer>

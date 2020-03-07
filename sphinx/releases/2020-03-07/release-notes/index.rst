@@ -1,4 +1,4 @@
-Release Notes: Apps update 2020-03-05
+Release Notes: Apps update 2020-03-07
 =====================================
 
 To upgrade
@@ -68,13 +68,15 @@ Known issues
 ^^^^^^^^^^^^
 
 If you run the Nextcloud OnlyOffice integration (accessory ``nextcloud-documentserver-community``),
-you need a stable hostname or IP address, and you need to always access your Nextcloud
-installation with the same hostname or IP address. Should you use a different one (e.g.
-because your network assigned a different IP address after a reboot, or you switch between IP
-addresses and hostnames), the document server (OnlyOffice) will not come up.
+you may receive message "ONLYOFFICE cannot be reached. Please contact admin". This is
+because you accessed your Nextcloud through a hostname or IP address different from what
+the Nextcloud installation expected.
 
 To set the address at which the document server is available, go to the OnlyOffice
-Settings in the Nextcloud user interface, and edit the Document Editing Service address.
+Settings in the Nextcloud user interface (as administrator, go to Settings, section Administration,
+select ONLYOFFICE), and edit the Document Editing Service address. The URL there must start
+with the same protocol, hostname and path as the URL you are using to access Nextcloud.
+
 You may also need to set this the first time you access Nextcloud after initial deployment.
 
 This has been filed as an issue with the Nextcloud project
