@@ -10,5 +10,6 @@ Collects notes that are specific to particular apps.
    apps/docroot
    apps/mastodon
    apps/nextcloud
+   apps/redirect
    apps/wordpress
 
