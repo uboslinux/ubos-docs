@@ -22,6 +22,7 @@ How to use UBOS
    howto-ssh
    howto-pagekite
    howto-storj
+   howto-modifysite
    report-bug
    troubleshooting
    faq
