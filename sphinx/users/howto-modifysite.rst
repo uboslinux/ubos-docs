@@ -83,6 +83,10 @@ How to change the context path of an App
 How to add Letsencrypt TLS to your non-TLS Site
 -----------------------------------------------
 
+* Note: This only works if your UBOS :term:`Device` can be accessed from the public internet.
+  If you have your UBOS device behind a firewall, you need to
+  :doc:`run Pagekite<howto-pagekite>` or open up a port in your router.
+
 * Save your :term:`Site JSON` to a file as described above.
 
 * Then add this into your :term:`Site JSON` file on the first level inside the the outer

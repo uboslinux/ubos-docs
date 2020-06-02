@@ -17,13 +17,19 @@ Major package upgrades in this version
 
 * Matomo
 
-* Nextcloud, and many Nextcloud accessories
+* Nextcloud and many Nextcloud accessories
 
 * MediaWiki
 
 * Webtrees
 
 * WordPress and many WordPress accessories
+
+Documentation
+-------------
+
+Common use cases for modifying deployed Sites are now described
+:doc:`here <../../../users/howto-modifysite>`.
 
 Known issues
 ------------
