@@ -91,6 +91,8 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
          # pacstrap /mnt base
 
+      There may be a few messages about locales; ignore them for now.
+
    #. Create the right ``fstab`` by executing:
 
       .. code-block:: none
@@ -109,17 +111,21 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
            #   pacman -S btrfs-progs
 
-      * You also need a boot loader and sudo:
+      * You also need a boot loader, sudo and an editor such as vim:
 
         .. code-block:: none
 
-           #   pacman -S grub sudo
+           #   pacman -S grub sudo vim
+
+        If asked, choose to install from the ``core`` repository.
 
       * If you are on VirtualBox, also install the VirtualBox client tools:
 
         .. code-block:: none
 
-           #   pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils
+           #   pacman -S virtualbox-guest-utils
+
+        If asked, choose to install from the ``core`` repository.
 
       * Create a Ramdisk:
 
@@ -147,22 +153,22 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
            #   mkdir /boot/loader/entries
 
-      * Create file ``/boot/loader/loader/loader.conf`` with content:
+      * Create file ``/boot/loader/loader.conf`` with content:
 
         .. code-block:: none
 
-           timer 4
+           timeout 4
            default arch
 
-      * Determine the UUID of the root partition (not: disk) and put it into the to-be-edited
+      * Determine the PARTUUID of the root partition (not: disk) and put it into the to-be-edited
         file that will need it:
 
         .. code-block:: none
 
-           #   lsblk -o UUID /dev/sda3 > /boot/loader/entries/arch.conf
+           #   lsblk -o PARTUUID /dev/sda3 > /boot/loader/entries/arch.conf
 
       * Now edit the created file ``/boot/loader/entries/arch.conf`` so that it looks like
-        this, where ``XXX`` is the UUID contained in the file when you first opened it.
+        this, where ``XXX`` is the PARTUUID contained in the file when you first opened it.
 
         .. code-block:: none
 
@@ -196,6 +202,18 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
         .. code-block:: none
 
            #   localectl set-locale LANG=en_US.UTF-8
+
+      * Set a root password:
+
+        .. code-block:: none
+
+           #   passwd
+
+        or set no password for root if you think you are secure enough without:
+
+        .. code-block:: none
+
+           #   passwd -d root
 
       * Exit from the chroot shell with ctrl-d.
 
@@ -246,12 +264,8 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
       * Click OK.
 
-   #. Then, start the machine again and log on as root. There is no password by
-      default. You might want to change that, by saying:
-
-      .. code-block:: none
-
-         # passwd
+   #. Then, start the machine again and log on as root with the password you set
+      earlier.
 
    #. Create a non-root user (example: ``joe``, change as needed). Use this user when
       developing instead of doing everything as ``root``. Also allow the user to become
@@ -273,6 +287,18 @@ described in :doc:`prepare-arch-pc` or :doc:`prepare-arch-virtualbox`.
 
          # pacman -S xorg-server sddm plasma-meta konsole
          # systemctl enable sddm
+
+      Pick the fonts you like, such as ``ttf-liberation`` or ``noto-fonts``, and
+      ``phonon-qt5-gstreamer`` for the QT5 backend.
+
+      However, there have been recent reports that KDE has problems with display
+      resolutions in a virtualized environment. So it may be easier to run Gnome
+      (and you may prefer that anyway):
+
+      .. code-block:: none
+
+         # pacman -S gnome
+         # systemctl enable gdm
 
    #. If you are on VirtualBox, enable the VirtualBox client tools:
 
