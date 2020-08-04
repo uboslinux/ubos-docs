@@ -11,5 +11,6 @@ Collects notes that are specific to particular apps.
    apps/mastodon
    apps/nextcloud
    apps/redirect
+   apps/webtrees
    apps/wordpress
 
