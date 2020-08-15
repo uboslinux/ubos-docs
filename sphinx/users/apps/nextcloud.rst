@@ -74,8 +74,8 @@ How to skip a Nextcloud version during upgrade
 
 If you don't update your UBOS device regularly, it may happen that you missed an entire
 major Nextcloud release by the time you do finally upgrade. For example, if you deployed
-your site originally with Nextcloud 14, and waited a while to upgrade, the current
-version may now be Nextcloud 16. This is a problem because Nextcloud does not support
+your site originally with Nextcloud 17, and waited a while to upgrade, the current
+version may now be Nextcloud 19. This is a problem because Nextcloud does not support
 skipped upgrades.
 
 This is issue is a known Nextcloud issue, and really needs to be solve by the Nextcloud
@@ -90,8 +90,8 @@ of Nextcloud you are currently running. Execute:
 
    % pacman -Qi nextcloud
 
-This section applies to you if the version you have installed starts with 14 or 15. Upgrades
-do not require this workaround if your version starts with 16 or 17.
+This section applies to you if the version you have installed starts with 16 or 17. Upgrades
+do not require this workaround if your version starts with 18 or 19.
 
 * Before you attempt to upgrade your device, create a backup of your Nextcloud installation
   with ``ubos-admin backup``.
@@ -100,16 +100,26 @@ do not require this workaround if your version starts with 16 or 17.
   (Make triply sure first that you have a backup for everything you will undeploy!)
 * Upgrade your device with ``ubos-admin update``.
 * Now restore your backup, while telling UBOS to replace package ``nextcloud`` with
-  package ``nextcloud15`` (the skipped version; if you skipped more than one, do it once for
+  package ``nextcloud18`` (the skipped version; if you skipped more than one, do it once for
   each skipped version in sequence) during the restore. You do that with
-  additional arguments: ``ubos-admin restore --migratefrom nextcloud --migrateto nextcloud15``.
-  This will migrate your Nextcloud data to version 15, from which the regular upgrade
+  additional arguments: ``ubos-admin restore --migratefrom nextcloud --migrateto nextcloud18``.
+  This will migrate your Nextcloud data to version 18, from which the regular upgrade
   works.
-* But we also need to replace ``nextcloud15`` with the now-current ``nextcloud``, so
+* But we also need to replace ``nextcloud18`` with the now-current ``nextcloud``, so
   we go through backup and restore one more time: ``ubos-admin backup`` and then
-  ``ubos-admin restore --migratefrom nextcloud15 --migrateto nextcloud``.
+  ``ubos-admin restore --migratefrom nextcloud18 --migrateto nextcloud``.
 * Now you should be back and running. You can clean up by removing the intermediate
-  version with ``pacman -R nextcloud15``.
+  version with ``pacman -R nextcloud18``.
 
 Sorry for the complications, but this is the best we can do if you do not regularly update
 your UBOS device.
+
+Nextcloud Social
+----------------
+
+If you use the Nextcloud Social app, you may see the message::
+
+> .well-known/webfinger isn't properly set up!
+
+This is an incorrect error message, and you can ignore it. It requires a fix
+upstream in Nextcloud Social (see `this issue <https://github.com/nextcloud/social/issues/816>`_).
