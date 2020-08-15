@@ -1,10 +1,10 @@
-Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2, 3)
-=============================================================
+Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2, 3, 4)
+================================================================
 
 These instructions are the same for all ARMv7-based devices.
 
-If you already run Linux on an ARMv7-based device such as a Raspberry Pi 2,
-Raspberry Pi 3, or BeagleBone Black, you can run UBOS in a Linux container with
+If you already run Linux on an ARMv7-based device such as a Raspberry Pi 2 or later,
+or BeagleBone Black, you can run UBOS in a Linux container with
 ``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
 The only requirement is that your Linux device runs ``systemd`` in a recent version.
 

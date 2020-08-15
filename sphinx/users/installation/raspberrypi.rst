@@ -21,7 +21,8 @@ Raspberry Pi with built-in networking, or a compatible networking adapter.
 If you are not sure which model you have, consult
 `this page <http://www.raspberrypi.org/products/>`_.
 
-If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberrypi2>`.
+If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberrypi2>`,
+and for the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the Raspberry Pi Zero or 1 are at
