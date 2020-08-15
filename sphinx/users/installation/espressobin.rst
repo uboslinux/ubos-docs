@@ -9,7 +9,7 @@ container. This is :doc:`described here <aarch64_container>`.)
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Beta images for the ESPRESSObin are at
    `http://depot.ubos.net/yellow/aarch64/images <http://depot.ubos.net/yellow/aarch64/images>`_.
-   Look for a file named ``ubos_yellow-aarch64-espressobin_LATEST.img.xz``.
+   Look for a file named ``ubos_yellow_aarch64-espressobin_LATEST.img.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
