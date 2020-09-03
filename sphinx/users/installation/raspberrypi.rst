@@ -25,9 +25,9 @@ If you have a Raspberry Pi 2 or Raspberry Pi 3, go to :doc:`this page <raspberry
 and for the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 
 #. Download a UBOS boot image from ``depot.ubos.net``.
-   Beta images for the Raspberry Pi Zero or 1 are at
-   `http://depot.ubos.net/yellow/armv6h/images <http://depot.ubos.net/yellow/armv6h/images>`_.
-   Look for a file named ``ubos_yellow_armv6h-rpi_LATEST.img.xz``.
+   Images for the Raspberry Pi Zero or 1 are at
+   `http://depot.ubos.net/green/armv6h/images <http://depot.ubos.net/green/armv6h/images>`_.
+   Look for a file named ``ubos_green_armv6h-rpi_LATEST.img.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -37,7 +37,7 @@ and for the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 
    .. code-block:: none
 
-      % sudo xz -d ubos_yellow_armv6h-rpi_LATEST.img.xz
+      % sudo xz -d ubos_green_armv6h-rpi_LATEST.img.xz
 
    on the command line.
 

@@ -18,9 +18,9 @@ Chances are it also works on other ``systemd``-based distros.
 To do so:
 
 #. Download a UBOS container image from ``depot.ubos.net``.
-   Beta images for AArch64 containers are at
-   `http://depot.ubos.net/yellow/aarch64/images <http://depot.ubos.net/yellow/aarch64/images>`_.
-   Look for a file named ``ubos_yellow_aarch64-container_LATEST.tar.xz``.
+   Images for AArch64 containers are at
+   `http://depot.ubos.net/green/aarch64/images <http://depot.ubos.net/green/aarch64/images>`_.
+   Look for a file named ``ubos_green_aarch64-container_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -30,7 +30,7 @@ To do so:
    .. code-block:: none
 
       % mkdir ubos
-      % sudo tar -x -J -C ubos -f ubos_yellow_aarch64-container_LATEST.tar.xz
+      % sudo tar -x -J -C ubos -f ubos_green_aarch64-container_LATEST.tar.xz
 
    on the command line.
 

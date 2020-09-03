@@ -14,9 +14,9 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
    and install it if you haven't already.
 
 #. Download the UBOS boot image for VirtualBox from ``depot.ubos.net``.
-   Beta images for Virtualbox (64bit) are at
-   `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_x86_64-vbox_LATEST.vmdk.xz``.
+   Images for Virtualbox (64bit) are at
+   `http://depot.ubos.net/green/x86_64/images <http://depot.ubos.net/green/x86_64/images>`_.
+   Look for a file named ``ubos_green_x86_64-vbox_LATEST.vmdk.xz``.
    This file **should contain** the letters ``vbox``, indicating that it contains
    VirtualBox-supporting code.
 
@@ -28,7 +28,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    .. code-block:: none
 
-      % sudo xz -d ubos_yellow_x86_64-vbox_LATEST.vmdk.xz
+      % sudo xz -d ubos_green_x86_64-vbox_LATEST.vmdk.xz
 
    on the command line.
 
@@ -36,7 +36,7 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
    * Click "New".
 
-   * Enter a name for the virtual machine, such as "UBOS (yellow)".
+   * Enter a name for the virtual machine, such as "UBOS (green)".
      Select Type: "Linux", and Version: "Other Linux (64 bit)". Click "Continue".
 
    * Select the amount of RAM you want to give it. 1024MB is a good start, and you can change

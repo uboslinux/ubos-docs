@@ -25,5 +25,5 @@ How long an update takes depends on many factors, including the number and size 
 updated packages, the amount of data that needs to be backed up, restored, and migrated,
 the number of installed :term:`Apps <App>`, as well as processor, hard drive and network speed.
 
-.. warning:: During beta, upgrading may sometimes require additional steps. Please
+.. warning:: Upgrading may sometimes require additional steps. Please
    consider the release notes prior to upgrading.

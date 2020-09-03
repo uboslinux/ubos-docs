@@ -18,9 +18,9 @@ Chances are it also works on other ``systemd``-based distros.
 To do so:
 
 #. Download a UBOS container image from ``depot.ubos.net``.
-   Beta images for ARMv7 containers are at
-   `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
-   Look for a file named ``ubos_yellow_armv7h-container_LATEST.tar.xz``.
+   Images for ARMv7 containers are at
+   `http://depot.ubos.net/green/armv7h/images <http://depot.ubos.net/green/armv7h/images>`_.
+   Look for a file named ``ubos_green_armv7h-container_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -30,7 +30,7 @@ To do so:
    .. code-block:: none
 
       % mkdir ubos
-      % sudo tar -x -J -C ubos -f ubos_yellow_armv7h-container_LATEST.tar.xz
+      % sudo tar -x -J -C ubos -f ubos_green_armv7h-container_LATEST.tar.xz
 
    on the command line.
 

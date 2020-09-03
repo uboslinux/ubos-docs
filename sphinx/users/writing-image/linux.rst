@@ -23,14 +23,14 @@ To write the image:
      will be mercilessly overwritten.
 
 * Determine the file name of the image you downloaded. Let's assume it is
-  ``~/Downloads/ubos_yellow_x86_64-pc_LATEST.img``. If you downloaded a compressed
+  ``~/Downloads/ubos_green_x86_64-pc_LATEST.img``. If you downloaded a compressed
   version, uncompress the file first.
 
 * Write the image using ``dd``, such as:
 
   .. code-block:: none
 
-     % sudo dd if=~/Downloads/ubos_yellow_x86_64-pc_LATEST.img of=/dev/sdx bs=1M
+     % sudo dd if=~/Downloads/ubos_green_x86_64-pc_LATEST.img of=/dev/sdx bs=1M
 
   replacing ``/dev/sdx`` with the device name of your USB stick or SD card.
 

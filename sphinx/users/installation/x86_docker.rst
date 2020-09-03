@@ -15,11 +15,11 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
           --cap-add NET_RAW --cap-add SYS_ADMIN \
           -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
           -e container=docker \
-          ubos/ubos-yellow \
+          ubos/ubos-green \
           /usr/lib/systemd/systemd
 
    While that looks somewhat intimidating, all this command really says is: "Boot the image called
-   ``ubos/ubos-yellow``, keep the terminal around, and give it the privileges it needs."
+   ``ubos/ubos-green``, keep the terminal around, and give it the privileges it needs."
 
 #. When the boot process is finished, login as root or  execute
    ``docker exec -i -t <name> /bin/bash`` or such in a separate terminal to obtain a root shell
@@ -102,15 +102,15 @@ If you are interested in the details of the complicated run command, let's unpac
 |                                          | UBOS.                                                          |
 +------------------------------------------+----------------------------------------------------------------+
 | ``-e container=docker``                  | Tell UBOS that it is running under Docker.                     |
-| ``ubos/ubos-yellow``                     | The UBOS version to download and to run. Here we run           |
-|                                          | the most recent release of UBOS on the "yellow"                |
+| ``ubos/ubos-green``                      | The UBOS version to download and to run. Here we run           |
+|                                          | the most recent release of UBOS on the "green"                 |
 |                                          | `release channel </docs/glossary.html#term-release-channel>`_. |
 |                                          | To see what UBOS versions are available via Docker,            |
 |                                          | go to the                                                      |
 |                                          | `Docker hub <https://hub.docker.com/u/ubos/>`_.                |
 +------------------------------------------+----------------------------------------------------------------+
-| ``/bin/init``                            | Boot the UBOS operating system, instead of running             |
-|                                          | some other kind of command.                                    |
+| ``/usr/lib/systemd/systemd``             | Run systemd, which will start the UBOS operating system,       |
+|                                          | instead of running some other kind of command.                 |
 +------------------------------------------+----------------------------------------------------------------+
 
 P.S. If you understand Docker better than we do, and there is a way of making the above

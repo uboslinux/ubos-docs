@@ -15,9 +15,9 @@ If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this
 For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
 
 #. Download a UBOS boot image from ``depot.ubos.net``.
-   Beta images for the Raspberry Pi 4 are at
-   `http://depot.ubos.net/yellow/armv7h/images <http://depot.ubos.net/yellow/armv7h/images>`_.
-   Look for a file named ``ubos_yellow_armv7h-rpi4_LATEST.img.xz``.
+   Images for the Raspberry Pi 4 are at
+   `http://depot.ubos.net/green/armv7h/images <http://depot.ubos.net/green/armv7h/images>`_.
+   Look for a file named ``ubos_green_armv7h-rpi4_LATEST.img.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -27,7 +27,7 @@ For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
 
    .. code-block:: none
 
-      % sudo xz -d ubos_yellow_armv7h-rpi4_LATEST.img.xz
+      % sudo xz -d ubos_green_armv7h-rpi4_LATEST.img.xz
 
    on the command line.
 
@@ -73,5 +73,62 @@ For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
    .. code-block:: none
 
       % sudo ubos-admin update
+
+#. Optionally, upgrade your Raspberry Pi 4's EEPROM boot loader to the latest version.
+   Depending on when your Raspberry Pi 4 was manufactured, it may or may not have been
+   shipped with a recent version. More recent versions know how to boot from USB disks,
+   for example, while previous ones don't.
+
+   To check for the current version of your Raspberry Pi 4's bootloader:
+
+   .. code-block:: none
+
+      % /opt/vc/bin/vcgencmd bootloader_version
+
+   For example, it may output:
+
+   .. code-block:: none
+
+      May 10 2019 19:40:36
+      version d2402c53cdeb0f072ff05d52987b1b6b6d474691 (release)
+      timestamp 0
+
+   If the date is older than June 15, 2020, we recommend you upgrade. First, install
+   the EEPROM update package:
+
+   .. code-block:: none
+
+      % sudo pacman -S rpi-eeprom
+
+   and then run the update:
+
+   .. code-block:: none
+
+      % sudo rpi-eeprom-update -d -a
+
+   Correct output may be like:
+
+   .. code-block:: none
+
+      BCM2711 detected
+      Dedicated VL805 EEPROM detected
+      BOOTFS /boot
+      *** INSTALLING EEPROM UPDATES ***
+      BOOTLOADER: update available
+      CURRENT: Fri May 10 06:40:36 PM UTC 2019 (1557513636)
+       LATEST: Thu Apr 16 05:11:26 PM UTC 2020 (1587057086)
+       FW DIR: /lib/firmware/raspberrypi/bootloader/critical
+      VL805: update available
+      CURRENT: 00013701
+       LATEST: 000137ad
+      BOOTFS /boot
+      EEPROM updates pending. Please reboot to apply the update.
+
+   and reboot:
+
+   .. code-block:: none
+
+      % sudo systemctl reboot
+
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

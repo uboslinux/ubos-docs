@@ -3,22 +3,14 @@ Run UBOS in a Linux container on a PC (64bit)
 
 If you already run Linux on a 64bit PC, you can run UBOS in a Linux container with
 ``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
-The only requirement is that your Linux machine runs ``systemd`` in a recent version.
-
-We tested against ``systemd`` versions 219 and later:
-
-* running UBOS in a container within UBOS;
-* running UBOS in a container within Arch Linux;
-* running UBOS in a container within Ubuntu.
-
-Chances are it also works on other ``systemd``-based distros.
+The only requirement is that your Linux machine runs ``systemd`` in a reasonably recent version.
 
 To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
 #. Download a UBOS container image from ``depot.ubos.net``.
-   Beta images for x86_64 containers are at
-   `http://depot.ubos.net/yellow/x86_64/images <http://depot.ubos.net/yellow/x86_64/images>`_.
-   Look for a file named ``ubos_yellow_x86_64-container_LATEST.tar.xz``.
+   Images for x86_64 containers are at
+   `http://depot.ubos.net/green/x86_64/images <http://depot.ubos.net/green/x86_64/images>`_.
+   Look for a file named ``ubos_green_x86_64-container_LATEST.tar.xz``.
 
 #. Optionally, you may now verify that your image downloaded correctly by following the instructions
    at :doc:`verifying`.
@@ -28,7 +20,7 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
    .. code-block:: none
 
       % mkdir ubos
-      % sudo tar -x -J -C ubos -f ubos_yellow_x86_64-container_LATEST.tar.xz
+      % sudo tar -x -J -C ubos -f ubos_green_x86_64-container_LATEST.tar.xz
 
    on the command line.
 

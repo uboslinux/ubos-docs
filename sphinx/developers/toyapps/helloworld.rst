@@ -169,8 +169,8 @@ with a slash instead of ``index.php``. More complex web :term:`Apps <App>` would
 code and auxiliary files there.
 
 In a typical Linux distro, these files would be located at ``/usr/share/helloworld`` or
-perhaps at ``/srv/http/helloworld``. In UBOS (since beta 14), these files are located
-below ``/ubos``, which is the place where users can mount a large data disk.
+perhaps at ``/srv/http/helloworld``. In UBOS, these files are located below ``/ubos``, which
+is the place where users can mount a large data disk.
 
 .. image:: /images/helloworld-icon.png
    :class: right
