@@ -15,7 +15,8 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
           --cap-add NET_RAW --cap-add SYS_ADMIN \
           -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
           -e container=docker \
-          ubos/ubos-yellow /bin/init
+          ubos/ubos-yellow \
+          /usr/lib/systemd/systemd
 
    While that looks somewhat intimidating, all this command really says is: "Boot the image called
    ``ubos/ubos-yellow``, keep the terminal around, and give it the privileges it needs."
