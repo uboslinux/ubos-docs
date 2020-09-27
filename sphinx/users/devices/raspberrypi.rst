@@ -1,15 +1,49 @@
 Raspberry Pi (any model)
 ========================
 
-How to use a USB disk as the primary disk
------------------------------------------
+How to use a USB disk or stick as the primary disk
+--------------------------------------------------
 
-There's a `rumor <https://forum.ubos.net/viewtopic.php?f=2&t=4#p6>`_ that the Raspberry Pi 3
-can boot directly from a USB disk without needing an SD Card at all. We have not tried this, and
-it apparently only works for the Raspberry Pi 3.
+Some Raspberry Pi's can boot directly from a USB disk or stick without needing an SD card
+at all. This appears to include some Raspberry Pi 3's and the Raspberry Pi 4. For this to
+work, any of them need to have a relatively recent boot loader. For how to upgrade the boot
+loader on your Raspberry Pi 4, see below.
 
-The following works for all Raspberry Pi models: boot from the SD card, but switch over
-to the USB disk as soon as possible and ignore it from that point. To do that:
+To install UBOS to boot directly from a USB disk or stick without an SD card, you have two choices:
+
+* either follow the normal installation instructions (for
+  :doc:`Raspberry Pi 3 <../installation/raspberrypi2>`, for
+  :doc:`Raspberry Pi 4 <../installation/raspberrypi4>`) and simply
+  use the USB disk or stick in every place where the instructions refer to the SD card; or
+
+* boot your Raspberry Pi from a UBOS SD card, then attach the USB disk or stick, and
+  run:
+
+  .. code-block:: none
+
+     % sudo ubos-install /dev/sdX
+
+  where ``/dev/sdX`` needs to be replaced with the name of your
+  USB disk or stick (e.g. ``/dev/sdb``). Once this command is complete, you can shut
+  down your Raspberry Pi, remove the SD card, and reboot directly from the USB disk or
+  stick.
+
+  This alternative may be preferable because ``ubos-install`` gives you more options
+  in terms of disk layout and will use the memory capacity of your entire disk or stick.
+
+  To find the name of the USB disk or stick, execute ``lsblk`` before and after you
+  plug it into USB. The difference contains the name of the USB disk or stick.
+
+How to switch boot over to a USB disk or stick as soon as possible
+------------------------------------------------------------------
+
+Some of the older Raspberry Pi's cannot directly boot from a USB disk or stick. However,
+you can start the boot on an SD card and switch over to the USB disk or stick as soon
+as possible. This will use the SD card only at the very beginning of the boot process,
+and not at all during regular operation, bringing many of the benefits of booting from
+a USB disk or stick to older devices.
+
+To do that:
 
 #. Boot your Raspberry Pi from an SD card that has UBOS installed as described
    in :doc:`../installation/raspberrypi` or :doc:`../installation/raspberrypi2`.
@@ -41,6 +75,64 @@ to the USB disk as soon as possible and ignore it from that point. To do that:
 
 Bonus: edit ``/etc/fstab`` to mount the SD Card's first partition as ``/boot``. That way UBOS
 updates can update the boot parameters on your SD Card in the future.
+
+How to upgrade your Raspberry Pi 4's boot loader
+------------------------------------------------
+
+Whether such an upgrade is necessary depends on when your Raspberry Pi 4 was
+manufactured. More recent versions know how to boot from USB disks,
+while previous ones don't.
+
+To check for the current version of your Raspberry Pi 4's bootloader:
+
+.. code-block:: none
+
+   % /opt/vc/bin/vcgencmd bootloader_version
+
+For example, it may output:
+
+.. code-block:: none
+
+   May 10 2019 19:40:36
+   version d2402c53cdeb0f072ff05d52987b1b6b6d474691 (release)
+   timestamp 0
+
+If the date is older than June 15, 2020, we recommend you upgrade. First, install
+the Raspberry Pi EEPROM update package:
+
+.. code-block:: none
+
+   % sudo pacman -S rpi-eeprom
+
+and then run the update:
+
+.. code-block:: none
+
+   % sudo rpi-eeprom-update -d -a
+
+Correct output may be like:
+
+.. code-block:: none
+
+   BCM2711 detected
+   Dedicated VL805 EEPROM detected
+   BOOTFS /boot
+   *** INSTALLING EEPROM UPDATES ***
+   BOOTLOADER: update available
+   CURRENT: Fri May 10 06:40:36 PM UTC 2019 (1557513636)
+    LATEST: Fri Jul 31 01:43:39 PM UTC 2020 (1596203019)
+    FW DIR: /lib/firmware/raspberrypi/bootloader/critical
+   VL805: update available
+   CURRENT: 00013701
+    LATEST: 000138a1
+   BOOTFS /boot
+   EEPROM updates pending. Please reboot to apply the update.
+
+and reboot:
+
+.. code-block:: none
+
+   % sudo systemctl reboot
 
 How to use the Raspberry Pi's camera
 ------------------------------------

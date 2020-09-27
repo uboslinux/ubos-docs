@@ -14,6 +14,13 @@ If you are not sure which model you have, consult
 If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this page <raspberrypi>`.
 For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
 
+You can also run UBOS from an external USB stick or disk, if your Raspberry Pi 4's
+EEPROM has been updated to a version after that of June 15, 2020. If it hasn't been yet,
+or you aren't certain, run UBOS from an SD card first, and upgrade the EEPROM later as described
+:doc:`here <../devices/raspberrypi>`.
+
+To install UBOS on a micro-SD card or external USB disk:
+
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Images for the Raspberry Pi 4 are at
    `http://depot.ubos.net/green/armv7h/images <http://depot.ubos.net/green/armv7h/images>`_.
@@ -31,7 +38,8 @@ For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
 
    on the command line.
 
-#. Write this image file "raw" to a micro-SD card. This operation depends on your operating system:
+#. Write this image file "raw" to your micro-SD card or external USB disk. This operation
+   depends on your operating system:
 
    * :doc:`/users/writing-image/windows`
    * :doc:`/users/writing-image/macosx`
@@ -41,11 +49,13 @@ For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
    Raspberry Pi 4. If this is impractical, create a :doc:`UBOS staff <../shepherd-staff>`
    so you can securely log in over the network without the need for monitor or keyboard.
 
-#. Remove the micro-SD card and insert it into your Raspberry Pi 4. If you created a UBOS staff,
-   insert the staff into the USB port. Then, plug in the Raspberry Pi 4's USB power.
+#. Remove the micro-SD card and insert it into your Raspberry Pi 4 (or remove any micro-SD
+   card and connect your external USB disk via USB). If you created a UBOS staff, insert the
+   UBOS staff into the USB port. Then, plug in the Raspberry Pi 4's USB power.
 
-#. When the boot process is finished, log in as user ``root`` from the attached keyboard
-   and monitor. By default, there is no password on the console. If you used a UBOS staff,
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
+   If you used a UBOS staff,
    you can log in over the network instead as described :doc:`here <../shepherd-staff>`.
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
@@ -73,62 +83,5 @@ For the Raspberry Pi 2 or 3, go to :doc:`this page <raspberrypi2>`.
    .. code-block:: none
 
       % sudo ubos-admin update
-
-#. Optionally, upgrade your Raspberry Pi 4's EEPROM boot loader to the latest version.
-   Depending on when your Raspberry Pi 4 was manufactured, it may or may not have been
-   shipped with a recent version. More recent versions know how to boot from USB disks,
-   for example, while previous ones don't.
-
-   To check for the current version of your Raspberry Pi 4's bootloader:
-
-   .. code-block:: none
-
-      % /opt/vc/bin/vcgencmd bootloader_version
-
-   For example, it may output:
-
-   .. code-block:: none
-
-      May 10 2019 19:40:36
-      version d2402c53cdeb0f072ff05d52987b1b6b6d474691 (release)
-      timestamp 0
-
-   If the date is older than June 15, 2020, we recommend you upgrade. First, install
-   the EEPROM update package:
-
-   .. code-block:: none
-
-      % sudo pacman -S rpi-eeprom
-
-   and then run the update:
-
-   .. code-block:: none
-
-      % sudo rpi-eeprom-update -d -a
-
-   Correct output may be like:
-
-   .. code-block:: none
-
-      BCM2711 detected
-      Dedicated VL805 EEPROM detected
-      BOOTFS /boot
-      *** INSTALLING EEPROM UPDATES ***
-      BOOTLOADER: update available
-      CURRENT: Fri May 10 06:40:36 PM UTC 2019 (1557513636)
-       LATEST: Thu Apr 16 05:11:26 PM UTC 2020 (1587057086)
-       FW DIR: /lib/firmware/raspberrypi/bootloader/critical
-      VL805: update available
-      CURRENT: 00013701
-       LATEST: 000137ad
-      BOOTFS /boot
-      EEPROM updates pending. Please reboot to apply the update.
-
-   and reboot:
-
-   .. code-block:: none
-
-      % sudo systemctl reboot
-
 
 #. You are now ready to :doc:`set up your first app and site </users/firstsite>`.

@@ -21,9 +21,10 @@ UBOS is available on the Docker hub. To run UBOS using Docker:
    While that looks somewhat intimidating, all this command really says is: "Boot the image called
    ``ubos/ubos-green``, keep the terminal around, and give it the privileges it needs."
 
-#. When the boot process is finished, login as root or  execute
-   ``docker exec -i -t <name> /bin/bash`` or such in a separate terminal to obtain a root shell
-   in the container.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`), or execute
+   ``docker exec -i -t <name> /bin/bash`` or such in a separate terminal to obtain a
+   root shell in the container.
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
    and initialize a few other things on the first boot. That might take 5 or 10 minutes

@@ -10,6 +10,7 @@ Here are your current options:
    installation/raspberrypi2
    installation/raspberrypi4
    installation/espressobin
+   installation/odroid-xu3
    installation/x86_bootstick
    installation/x86_disk
    installation/virtualbox

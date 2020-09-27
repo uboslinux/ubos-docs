@@ -64,8 +64,8 @@ be switched on in the BIOS first. See `VirtualBox documentation <https://www.vir
 
 #. In the main window, click "Start". The virtual machine should now be booting.
 
-#. When the boot process is finished, log in as user ``root``. By default, there is no
-   password on the console.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
 
 #. Wait until UBOS is ready. You can tell by executing:
 

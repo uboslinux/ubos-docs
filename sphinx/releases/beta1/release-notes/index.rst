@@ -15,7 +15,7 @@ General
 * There is currently no command that can show which :term:`Apps <App>` and :term:`Accessories <Accessory>` are available
   for install. See https://github.com/uboslinux/ubos-admin/issues/11.
   For now, refer to the
-  `UBOS Beta 1 available blog post </blog/2014/11/24/ubos-beta1-available.html>`_.
+  `UBOS Beta 1 available blog post </blog/2014/11/24/ubos-beta1-available/>`_.
 
 * Need more ``ubos-admin`` sub-commands to modify existing sites and to create SSL sites.
   Note: you can always use ``ubos-admin deploy`` and ``ubos-admin undeploy`` directly.

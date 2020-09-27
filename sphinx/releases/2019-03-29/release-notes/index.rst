@@ -71,7 +71,7 @@ Other
   ``ubos-18`` and ``ubos-apps-18``.
 
 * The Personal Public License has had some clarifying edits. See
-  `post </blog/2019/03/29/license-update.html>`_.
+  `post </blog/2019/03/29/license-update/>`_.
 
 Known issues
 ------------

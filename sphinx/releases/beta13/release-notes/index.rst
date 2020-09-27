@@ -104,7 +104,7 @@ For users
     separate <a href="blog post
 
   * The ``ubos-admin`` packages are now licensed using what we call the
-    "Personal Public License". See `separate blog post </blog/2018/03/02/ubos-license.html>`_
+    "Personal Public License". See `separate blog post </blog/2018/03/02/ubos-license/>`_
     explaining how it better fits the UBOS values.
 
 * New Apps:

@@ -55,8 +55,9 @@ and for the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 #. Remove the SD card and insert it into your Raspberry Pi. If you created a UBOS staff,
    insert the staff into the USB port. Then, plug in the Raspberry Pi's USB power.
 
-#. When the boot process is finished, log in as user ``root`` from the attached keyboard
-   and monitor. By default, there is no password on the console. If you used a UBOS staff,
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
+   If you used a UBOS staff,
    you can log in over the network instead as described :doc:`here <../shepherd-staff>`.
 
 #. Now: wait. The Raspberry Pi is not a very fast computer, and UBOS needs to generate

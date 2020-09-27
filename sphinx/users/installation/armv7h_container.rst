@@ -3,19 +3,12 @@ Run UBOS in an ARMv7 Linux container (e.g. Raspberry Pi 2, 3, 4)
 
 These instructions are the same for all ARMv7-based devices.
 
-If you already run Linux on an ARMv7-based device such as a Raspberry Pi 2 or later,
-or BeagleBone Black, you can run UBOS in a Linux container with
-``systemd-nspawn``. This allows you to try out UBOS without having to do a bare metal installation.
-The only requirement is that your Linux device runs ``systemd`` in a recent version.
+If you already run Linux on an ARMv7-based device such as the Raspberry Pi 2 or later,
+you can run UBOS in a Linux container with ``systemd-nspawn``. This allows you to try
+out UBOS without having to do a bare metal installation. The only requirement is that
+your Linux machine runs ``systemd`` in a reasonably recent version.
 
-We tested against ``systemd`` versions 219 and later:
-
-* running UBOS in a container within UBOS;
-* running UBOS in a container within Arch Linux ARM.
-
-Chances are it also works on other ``systemd``-based distros.
-
-To do so:
+To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
 #. Download a UBOS container image from ``depot.ubos.net``.
    Images for ARMv7 containers are at
@@ -64,8 +57,8 @@ To do so:
 
       % sudo systemd-nspawn --boot --network-veth --machine ubos --directory ubos
 
-#. When the boot process is finished, log in as user ``root``. By default, there is no
-   password on the console.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
    and initialize a few other things on the first boot. That might take 5 or 10 minutes

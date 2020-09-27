@@ -15,6 +15,10 @@ If you are not sure which model you have, consult
 If you have the original Raspberry Pi or the Raspberry Pi Zero, go to :doc:`this page <raspberrypi>`.
 For the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 
+You may be bable to run UBOS from an external USB stick or disk, if your Raspberry Pi 3's
+boot loader is fairly recent. We suggest to use an SD card first, and only try to boot from
+an external USB stick or disk once you have UBOS booting from the SD card.
+
 #. Download a UBOS boot image from ``depot.ubos.net``.
    Images for the Raspberry Pi 2 and 3 are at
    `http://depot.ubos.net/green/armv7h/images <http://depot.ubos.net/green/armv7h/images>`_.
@@ -45,8 +49,9 @@ For the Raspberry Pi 4, go to :doc:`this page <raspberrypi4>`.
 #. Remove the micro-SD card and insert it into your Raspberry Pi 2. If you created a UBOS staff,
    insert the staff into the USB port. Then, plug in the Raspberry Pi 2's USB power.
 
-#. When the boot process is finished, log in as user ``root`` from the attached keyboard
-   and monitor. By default, there is no password on the console. If you used a UBOS staff,
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
+   If you used a UBOS staff,
    you can log in over the network instead as described :doc:`here <../shepherd-staff>`.
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use

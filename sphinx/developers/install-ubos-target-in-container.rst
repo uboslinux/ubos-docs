@@ -60,8 +60,8 @@ To run a UBOS container on a Arch development machine, follow these steps:
    disappear when the container quits. Thus getting a clean new UBOS target is as simple
    as restarting the container.
 
-#. When the boot process is finished, log in as user ``root``. By default, there is no
-   password on the console.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
 
 #. Your container should automatically acquire an IP address. You can check with:
 

@@ -1,5 +1,5 @@
-Installing UBOS on a PC (64bit)
-===============================
+Run UBOS on a PC (64bit)
+========================
 
 To install UBOS on a PC's hard drive, first create a UBOS boot stick as
 described in :doc:`x86_bootstick`. Boot your PC with that boot stick, and
@@ -49,8 +49,8 @@ log on as root. Then:
 #. If your screen goes blank during the boot, please refer to
    :doc:`troubleshooting<../troubleshooting>`.
 
-#. When the boot process is finished, log in as user ``root``. By default, there is no
-   password on the console.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
 
 #. Wait until UBOS is ready. You can tell by executing:
 

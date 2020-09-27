@@ -50,8 +50,8 @@ To do so: (See also :doc:`/developers/install-ubos-target-in-container`)
 
       % sudo systemd-nspawn --boot --network-veth --machine ubos --directory ubos
 
-#. When the boot process is finished, log in as user ``root``. By default, there is no
-   password on the console.
+#. When the boot process is finished, log in as user ``root``
+   (for password, see the :doc:`user FAQ </users/faq>`).
 
 #. Now: wait. UBOS needs to generate a few cryptographic keys before it is ready to use
    and initialize a few other things on the first boot. That might take 5 or 10 minutes

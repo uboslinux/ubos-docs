@@ -97,7 +97,8 @@ name. Here are some examples:
   This requires the ``ubos-datatransfer-rsync`` package to be installed.
 
 You can find all data transfer protocols available on your device by executing
-``ubos-admin list-data-transfer-protocols``.
+``ubos-admin list-data-transfer-protocols``. This will also show available options for
+these data transfer protocols.
 
 Each of those data transfer protocols may have its own options and particularities.
 For example, if you use ``ftp``, you may or may not have to turn on "passive mode" (which
@@ -164,6 +165,28 @@ steps:
 * Create an "Access Key ID" and "Secret Access Key" for that user. Store both
   of them securely, as Amazon will not show you the Secret Access Key again.
 
+Example: creating a backup that is uploaded via rsync over ssh
+--------------------------------------------------------------
+
+If you wanted to back up via rsync over ssh, for example to a home NAS device,
+first install the ``ubos-datatransfer-rsync`` package:
+
+.. code-block:: none
+
+   % sudo pacman -S ubos-datatransfer-rsync
+
+This makes the ``rsync+ssh`` data transfer protocol available.
+
+Then you need to have a rsync-over-ssh endpoint (e.g. on your NAS) that can be
+accessed with a SSH keypair (password-based authentication is not supported).
+
+Then you can perform the backup with a command such as:
+
+.. code-block:: none
+
+   % sudo ubos-admin backup --idfile <privatekeyfile> --backuptodir rsync+ssh://<server>/directory
+
+where ``<privatekeyfile>`` is the SSH private key to be used.
 
 Encrypting a backup
 -------------------

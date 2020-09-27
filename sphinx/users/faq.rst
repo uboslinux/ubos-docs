@@ -73,7 +73,7 @@ How do I set up WiFi?
 The UBOS Staff (see :doc:`shepherd-staff`) has recently learned how to do that. That
 would be the easiest approach.
 
-If you want to do it manually, there's a `blog post </blog/2016/08/18/wifi.html>`_ on
+If you want to do it manually, there's a `blog post </blog/2016/08/18/wifi/>`_ on
 the subject.
 
 Is it safe to have my Site accessible from the public web?
@@ -134,9 +134,23 @@ way of doing things. So: "Root is not the account you are looking for."
 However, if you insist, there are two easy ways of getting root:
 
 * On a system where you have access to the console, you can simply log into the console
-  as ``root``. By default, there is no password. (The assumption is that if somebody has
-  physical access to your Raspberry Pi, game is over anyway, security-wise).
+  as ``root``.
 * As user ``shepherd``, invoke ``sudo su`` or ``sudo bash``. This will give you a root shell.
+
+What is the default root password?
+----------------------------------
+
+In UBOS versions prior to September 2020, there was no root password when attempting to
+log in as root from the local console.
+
+In UBOS versions since September 2020, the default root password is `"ubos!4vr"` (without
+the quotes).
+
+You can, and should change this to something else, for example by executing ``passwd``
+as root.
+
+Network login for root was and continues to be disabled. To log into your device via ssh,
+use the ``shepherd`` account  (see :doc:`shepherd-staff`).
 
 I want to run ssh on a non-standard port
 ----------------------------------------
