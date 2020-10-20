@@ -6,6 +6,7 @@ The most recent release is first in this list:
 .. toctree::
    :maxdepth: 1
 
+   2020-10-20/release-notes/index
    2020-09-26/release-notes/index
    2020-08-16/release-notes/index
    2020-08-04/release-notes/index
