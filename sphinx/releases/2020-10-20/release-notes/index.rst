@@ -1,4 +1,4 @@
-Release Notes: Apps update 2020-01-20
+Release Notes: Apps update 2020-10-20
 =====================================
 
 To upgrade
